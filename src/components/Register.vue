@@ -82,7 +82,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          path: '/CustomerNav'
+          path: '/CustomerMainPage'
         }
       )
     }

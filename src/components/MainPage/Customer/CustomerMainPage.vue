@@ -1,5 +1,12 @@
 <template>
   <body>
+  <div class="top">
+      <ul>
+        <li><a href="#">一级菜单</a></li>
+        <li><a href="#"><b>一级菜单</b></a></li>
+        <li><a href="#">一级菜单</a></li>
+      </ul>
+  </div>
   <div class="hc_lnav">
     <div class="allbtn">
       <h2><a href="#"><strong>&nbsp;</strong>全部商品分类<i>&nbsp;</i></a></h2>
@@ -11,17 +18,21 @@
         </li>
         <li class="a2">
           <div class="tx"><a href=""><i>&nbsp;</i>Conmmunication</a> </div>
-          <dl><dd><a href="">Register a claim</a></dd></dl>
-          <dl><dd><a href="">Feedback</a></dd></dl>
+          <dl><dd><a href=""><router-link to="/Claim">Register a claim</router-link></a></dd></dl>
+          <dl><dd><a href=""><router-link to="/FeedBack">Feedback</router-link></a></dd></dl>
         </li>
         <li class="a3">
           <div class="tx"><a href=""><i>&nbsp;</i>Setting</a> </div>
           <dl>
-            <dd><a href="">Update personal details</a></dd>
+            <dd><a href=""><router-link to="/PersonalDetail">Update personal details</router-link></a></dd>
           </dl>
         </li>
       </ul>
     </div>
+  </div>
+  <div class="main">
+    <testComponent></testComponent>
+    <div class="router"><router-view></router-view></div>
   </div>
   </body>
 </template>
@@ -33,6 +44,26 @@ export default {
 </script>
 
 <style scoped>
+  .main{
+    top:0;
+    left:0;
+    position: absolute;
+    z-index: -1;
+    background: #F2F2F2;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .router{
+    background: #fcfcfc;
+    /*top:400px;*/
+    /*left:800px;*/
+    margin: 80px 200px 200px 280px;
+    height: 75%;
+    width: 60%;
+    overflow: hidden;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -46,7 +77,7 @@ export default {
 
   body {
     line-height: 3em;
-    background-color: #ffffff;
+    background-color: #eff3f5;
     font-family: arial, helvetica, sans-serif;
     color: #666666;
     font-size: 12px
@@ -77,15 +108,20 @@ export default {
   /* hc_lnav */
 
   .hc_lnav {
+    top:0;
+    left:0;
     z-index: 9999;
-    position: relative;
+    position: absolute;
     width: 200px;
+    margin-top: 0px;
+    height: 100%;
+    background-color: #fcfcfc;
     /*margin: 40px 0 0 120px;*/
   }
 
   .hc_lnav .allbtn {
     z-index: 99999;
-    position: relative;
+    position: relative
   }
 
   .hc_lnav .allbtn h2 {
@@ -98,7 +134,7 @@ export default {
   .hc_lnav .allbtn h2 a {
     line-height: 36px;
     background-color: #fcfcfc;
-    width: 120px;
+    width: 200px;
     display: block;
     font-family: 微软雅黑, 黑体;
     height: 36px;
@@ -325,5 +361,69 @@ export default {
   }
   .a1:hover,.a2:hover,.a3:hover,.a4:hover{
     border-left:2px solid #0084ff;
+  }
+  /*top*/
+  .top{
+    /* 设置宽度高度背景颜色 */
+    height: auto; /*高度改为自动高度*/
+    width:100%;
+    margin-left: 0;
+    background:#fcfcfc;
+    position: fixed; /*固定在顶部*/
+    top: 0;/*离顶部的距离为0*/
+    margin-bottom: 5px;
+  }
+  .top ul{
+    /* 清除ul标签的默认样式 */
+    width: auto;/*宽度也改为自动*/
+    list-style-type: none;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 5%;
+    /* margin-top: 0;          */
+    padding: 0;
+
+  }
+  .top li {
+    float:right; /* 使li内容横向浮动，即横向排列  */
+    margin-right:2%;  /* 两个li之间的距离*/
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+  }
+
+  .top li a{
+    /* 设置链接内容显示的格式*/
+    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+    color:#6e6e6e;
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none; /* 去除下划线 */
+
+  }
+  .top li a:hover{
+    /* 鼠标选中时背景变为黑色 */
+    background-color: #111;
+  }
+  .top ul li ul{
+    /* 设置二级菜单 */
+    width: 60px;
+    margin-left: -0.2px;
+    background:rgb(189, 181, 181);
+    position: relative;
+    display: none; /* 默认隐藏二级菜单的内容 */
+
+  }
+  .top ul li ul li{
+    /* 二级菜单li内容的显示 */
+    width: 60px;
+    float:none;
+    text-align: center;
+  }
+  .top ul li:hover ul{
+    /* 鼠标选中二级菜单内容时 */
+    display: block;
+    width: 60px;
   }
 </style>
