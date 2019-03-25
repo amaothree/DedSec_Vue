@@ -1,8 +1,15 @@
 <template>
-  <div class="progressContainer">
-    <div class="progress" :style="{width:progress+'%'}">
-      <b>{{progress}}%</b>
+<div>
+    <div v-for="arr in array" :key="arr">
+      <div class="progressContainer">
+    <div class="progress" :style="{width:arr.progress+'%'}">
+        <b>{{arr.progress}}%</b><br>
+        <b><p>{{ arr.type }}</p></b>
+      <button class="detail">Detail</button>
+      <button class="delete"> Delete</button>
     </div>
+   </div>
+  </div>
   </div>
 </template>
 
@@ -11,7 +18,16 @@ export default {
   name: 'ProgressBar',
   data () {
     return {
-      progress: 30
+      array: [
+        {
+          progress: 30,
+          type: 'Lost luggage'
+        },
+        {
+          progress: 50,
+          type: 'Others'
+        }
+      ]
     }
   }
 }
@@ -32,10 +48,26 @@ export default {
     height:20px;
     line-height: 20px;}
   b{
-    color:#fff;
+    color:Black;
     font-weight: 100;
     font-size: 12px;
     position:absolute;
-    left:40%;
+    left:30%;
+  }
+  p{
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .detail{
+    margin-top: 10px;
+    margin-left: 80px;
+    position:absolute;
+    right:25%;
+  }
+  .delete{
+    margin-top: 10px;
+    margin-left: 80px;
+    position:absolute;
+    right:20%;
   }
 </style>

@@ -221,7 +221,7 @@ export default {
     line-height: 22px;
     white-space: nowrap;
     float: left;
-    color: #d9e7ce;
+    color: #888;
     margin-left: 6px;
     margin-right: 6px;
     -webkit-transition: color 0.1s ease-out 0s;

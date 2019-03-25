@@ -31,7 +31,7 @@ export default {
   .Content-Main{
     max-width: 500px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     padding: 20px 30px 20px 30px;
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 1px #FFF;
