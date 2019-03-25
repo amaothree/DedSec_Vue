@@ -19,7 +19,7 @@
         <li class="a2">
           <div class="tx"><a href=""><i>&nbsp;</i>Conmmunication</a> </div>
           <dl><dd><a href=""><router-link to="/Claim">Register a claim</router-link></a></dd></dl>
-          <dl><dd><a href=""><router-link to="/FeedBack">Feedback</router-link></a></dd></dl>
+          <dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>
         </li>
         <li class="a3">
           <div class="tx"><a href=""><i>&nbsp;</i>Setting</a> </div>
