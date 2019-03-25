@@ -3,19 +3,24 @@
         <span class="zhihu-name">
             Hibernia-Sino
         </span>
-    <div class="tip">A tip for the webset</div>
-    <form action="shubmit">
+    <!--<div class="tip">A tip for the webset</div>-->
+    <form action="submit">
       <div class="phone">
-        <select name="" id="Prefix" v-model="selected" >
-          <option :value="option" v-for="option in optionArray" :key="option">{{option}}</option>
-        </select>
-        <span class="sot-line"></span>
-        <input type="text" @blur="onBlurCheckAccount('phone')" :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['phone']" v-model.number.trim="phone">
+        <input type="text" @blur="onBlurCheckAccount('phone')"
+               :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
+               :placeholder="errorMessage['phone']"  v-model.trim="phone">
       </div>
-      <div class="code">
+      <!--<div class="phone">-->
+        <!--&lt;!&ndash;<select name="" id="Prefix" v-model="selected" >&ndash;&gt;-->
+          <!--&lt;!&ndash;<option :value="option" v-for="option in optionArray" :key="option">{{option}}</option>&ndash;&gt;-->
+        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+        <!--<span class="sot-line"></span>-->
+        <!--<input type="text" @blur="onBlurCheckAccount('phone')" :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['phone']" v-model.number.trim="phone">-->
+      <!--</div>-->
+      <div class="phone">
         <input type="password" @blur="onBlurCheckPassword('code')" :class="{'code-input':true,error:errorMessage.code.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['code']" v-model.number.trim="code">
       </div>
-      <div class="code">
+      <div class="phone">
         <input type="password" @blur="onBlurCheckRepeat('repeat')" :class="{'code-input':true,error:errorMessage.code.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['repeat']" v-model.number.trim="repeat">
       </div>
       <!--<div class="souce">接受语音验证码</div>-->
