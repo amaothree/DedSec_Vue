@@ -68,6 +68,6 @@ export default {
     margin-top: 10px;
     margin-left: 80px;
     position:absolute;
-    right:20%;
+    right:10%;
   }
 </style>
