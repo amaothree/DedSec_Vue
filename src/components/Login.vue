@@ -74,7 +74,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          path: '/CustomerMainPage'
+          path: '/EmployeeMainPage'
         }
       )
     }
@@ -253,9 +253,4 @@ export default {
     border-top: 1px solid #ebebeb;
     font-size: 16px;
   }
-  /*.login{*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*background-image: url("../assets/blue.png");*/
-  /*}*/
 </style>

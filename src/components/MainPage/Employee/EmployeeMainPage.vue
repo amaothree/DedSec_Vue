@@ -1,11 +1,11 @@
 <template>
   <body>
   <div class="top">
-      <ul>
-        <li><a href="../Login"><b>Exit</b></a></li>
-        <li><a href="#"><b>Service</b></a></li>
-        <li><a href="#"><b>Language</b></a></li>
-      </ul>
+    <ul>
+      <li><a href="../Login"><b>Exit</b></a></li>
+      <li><a href="#"><b>Service</b></a></li>
+      <li><a href="#"><b>Language</b></a></li>
+    </ul>
   </div>
   <div class="hc_lnav">
     <div class="allbtn">
@@ -18,13 +18,13 @@
         </li>
         <li class="a2">
           <div class="tx"><a href=""><i>&nbsp;</i>Conmmunication</a> </div>
-          <dl><dd><a href=""><router-link to="/Claim">Register a claim</router-link></a></dd></dl>
-          <dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>
+          <dl><dd><a href=""><router-link to="/Solution">Deal With Claims</router-link></a></dd></dl>
+          <!--<dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>-->
         </li>
         <li class="a3">
           <div class="tx"><a href=""><i>&nbsp;</i>Setting</a> </div>
           <dl>
-            <dd><a href=""><router-link to="/PersonalDetail">Update personal details</router-link></a></dd>
+            <dd><a href=""><router-link to="/EmployeeDetail">Update personal details</router-link></a></dd>
           </dl>
         </li>
       </ul>
@@ -36,13 +36,11 @@
   </div>
   </body>
 </template>
-
 <script>
 export default {
-  name: 'CustomerNav'
+  name: 'EmployeeMainPage'
 }
 </script>
-
 <style scoped>
   .main{
     top:0;
