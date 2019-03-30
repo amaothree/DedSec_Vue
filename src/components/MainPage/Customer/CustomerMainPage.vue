@@ -2,14 +2,14 @@
   <body>
   <div class="top">
       <ul>
-        <li><a href="#">一级菜单</a></li>
-        <li><a href="#"><b>一级菜单</b></a></li>
-        <li><a href="#">一级菜单</a></li>
+        <li><a href="#"><b>Exit</b></a></li>
+        <li><a href="#"><b>Service</b></a></li>
+        <li><a href="#"><b>Language</b></a></li>
       </ul>
   </div>
   <div class="hc_lnav">
     <div class="allbtn">
-      <h2><a href="#"><strong>&nbsp;</strong>全部商品分类<i>&nbsp;</i></a></h2>
+      <h2><a href="#"><strong>&nbsp;</strong><i>&nbsp;</i></a></h2>
       <ul style="width:190px" class="jspop box">
         <li class="a1">
           <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
@@ -55,12 +55,12 @@ export default {
     overflow: hidden;
   }
   .router{
-    background: #fcfcfc;
+    background: #eff3f5;
     /*top:400px;*/
     /*left:800px;*/
     margin: 80px 200px 200px 280px;
-    height: 75%;
-    width: 60%;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
   }
 

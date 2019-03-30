@@ -29,24 +29,31 @@ export default {
 </script>
 <style scoped>
   .Content-Main{
-    max-width: 500px;
+    /*max-width: 500px;*/
+    position: absolute;
     margin: auto;
-    margin-top: 100px;
-    padding: 20px 30px 20px 30px;
+    margin-top: 2%;
+    /*padding: 20px 30px 20px 30px;*/
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 1px #FFF;
     border: 1px solid #DDD;
     border-radius: 5px;
     color: #888;
     background: #FFF;
+    margin-left: 2%;
+    height: 75%;
+    width:65%;
   }
   .Content-Main h1{
     display: block;
     padding: 0px 0px 10px 40px;
-    margin: -10px -30px 30px -30px;
-    font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    border-bottom: 1px solid #DADADA;
-    color: #888;
+    color: #333;
+    /*margin: -10px -30px 30px -30px;*/
+    /*font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*border-bottom: 1px solid #DADADA;*/
+    /*color: #888;*/
+    padding: 20px 30px 20px 30px;
+    margin-top: 3%;
   }
   .Content-Main h1>span{
     display: block;
@@ -55,6 +62,7 @@ export default {
   .Content-Main label{
     display: block;
     margin: 0px 0px 5px;
+    /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
     float: left;
@@ -128,5 +136,8 @@ export default {
     color: #333;
     background-color: #EBEBEB;
     border-color: #ADADAD;
+  }
+  form{
+    padding: 20px 30px 20px 30px;;
   }
 </style>
