@@ -12,6 +12,14 @@
         </select>
       </label>
       <label>
+        <span>Type:</span>
+        <select name="select2" class="select1">
+          <option value="Phone">Phone</option>
+          <option value="Bag">Bag</option>
+          <option value="Others">Others</option>
+        </select>
+      </label>
+      <label>
         <span>Message:</span>
         <textarea id="mesaage" name="message" placeholder="Your can tell me"></textarea>
       </label>
