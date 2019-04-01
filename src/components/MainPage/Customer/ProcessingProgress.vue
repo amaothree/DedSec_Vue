@@ -15,13 +15,14 @@ export default {
 
 <style scoped>
 .container{
-  position: relative;
+  position: absolute;
   height: 75%;
   width:65%;
   margin-top: 2%;
   margin-left: 2%;
-  border: 1px solid #DADADA;
-  background-color: #FFF;
-  border-radius: 5px;
+  background-color: rgba(255,255,255,0.4);
+  /*border: 1px solid #DADADA;*/
+  /*!*background-color: #FFF;*!*/
+  /*border-radius: 5px;*/
 }
 </style>

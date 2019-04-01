@@ -93,9 +93,9 @@ export default {
     width:65%;
     /*margin-top: 1%;*/
     margin-left: 2%;
-    border: 1px solid #DADADA;
-    background-color: #FFF;
-    border-radius: 5px;
+    /*border: 1px solid #DADADA;*/
+    background-color: rgba(255,255,255,0.4);
+    /*border-radius: 5px;*/
   }
   div.progressContainer{
     height: 4%;

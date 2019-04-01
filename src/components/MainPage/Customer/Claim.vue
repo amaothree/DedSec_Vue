@@ -36,13 +36,17 @@ export default {
     /*padding: 20px 30px 20px 30px;*/
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 1px #FFF;
-    border: 1px solid #DDD;
+    /*border: 1px solid #DDD;*/
     border-radius: 5px;
     color: #888;
-    background: #FFF;
+    background: rgba(255,255,255,0.4);
     margin-left: 2%;
     height: 75%;
     width:65%;
+    /*filter:alpha(opacity=50);*/
+    /*-moz-opacity:0.5;*/
+    /*-khtml-opacity: 0.5;*/
+    /*opacity: 0.5;*/
   }
   .Content-Main h1{
     display: block;

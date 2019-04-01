@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="main">
     <div v-for="arr in array" :key="arr">
       <div class="progressContainer">
     <div class="progress" :style="{width:arr.progress+'%'}">

@@ -13,18 +13,18 @@
       <ul style="width:190px" class="jspop box">
         <li class="a1">
           <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
-          <dl><dd><a href="#">Policy 1</a></dd></dl>
-          <dl><dd><a href="#">Policy 2</a></dd></dl>
+          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 1</a></dd></dl>
+          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 2</a></dd></dl>
         </li>
         <li class="a2">
           <div class="tx"><a href=""><i>&nbsp;</i>Conmmunication</a> </div>
-          <dl><dd><a href=""><router-link to="/Solution">Deal With Claims</router-link></a></dd></dl>
+          <dl><dd><a href=""><router-link to="/Solution"><img src="../../../assets/Handle.png" alt="Handle">Deal With Claims</router-link></a></dd></dl>
           <!--<dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>-->
         </li>
         <li class="a3">
           <div class="tx"><a href=""><i>&nbsp;</i>Setting</a> </div>
           <dl>
-            <dd><a href=""><router-link to="/EmployeeDetail">Update personal details</router-link></a></dd>
+            <dd><a href=""><router-link to="/EmployeeDetail"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Update personal details</router-link></a></dd>
           </dl>
         </li>
       </ul>
@@ -47,13 +47,17 @@ export default {
     left:0;
     position: absolute;
     z-index: -1;
-    background: #F2F2F2;
+    /*background: #F2F2F2;*/
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background: url("../../../assets/background.png") no-repeat;
+    background-size:100% 100%;
+    overflow: hidden;
+    background-size:cover;
   }
   .router{
-    background: #eff3f5;
+    /*background: #eff3f5;*/
     /*top:400px;*/
     /*left:800px;*/
     margin: 80px 200px 200px 280px;
@@ -212,7 +216,9 @@ export default {
     color: #ffffff;
     clear: both;
     overflow: auto;
-    padding-top: 4px
+    padding-top: 4px;
+    margin-top:2%;
+    margin-bottom: 2%;
   }
 
   .hc_lnav .allbtn ul li dl a {
@@ -423,5 +429,12 @@ export default {
     /* 鼠标选中二级菜单内容时 */
     display: block;
     width: 60px;
+  }
+  img{
+    height:15%;
+    width:15%;
+    margin-left: 5%;
+    float:left;
+    margin-right: 10%;
   }
 </style>
