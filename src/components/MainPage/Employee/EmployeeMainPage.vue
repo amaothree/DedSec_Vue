@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="main">
-    <testComponent></testComponent>
+    <!--<testComponent></testComponent>-->
     <div class="router"><router-view></router-view></div>
   </div>
   </body>
