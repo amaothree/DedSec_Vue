@@ -396,7 +396,7 @@ export default {
     margin-right:2%;  /* 两个li之间的距离*/
     position: relative;
     overflow: hidden;
-    width: 60px;
+    width: 100px;
   }
 
   .top li a{
@@ -415,7 +415,7 @@ export default {
   }
   .top ul li ul{
     /* 设置二级菜单 */
-    width: 60px;
+    width: 100px;
     margin-left: -0.2px;
     background:rgb(189, 181, 181);
     position: relative;
@@ -424,14 +424,14 @@ export default {
   }
   .top ul li ul li{
     /* 二级菜单li内容的显示 */
-    width: 60px;
+    width: 100px;
     float:none;
     text-align: center;
   }
   .top ul li:hover ul{
     /* 鼠标选中二级菜单内容时 */
     display: block;
-    width: 60px;
+    width: 100px;
   }
   img{
     height:15%;
