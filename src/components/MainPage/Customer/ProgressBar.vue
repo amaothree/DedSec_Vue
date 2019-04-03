@@ -63,11 +63,13 @@ export default {
     margin-left: 80px;
     position:absolute;
     right:25%;
+    font-size: 16px;
   }
   .delete{
     margin-top: 10px;
     margin-left: 80px;
     position:absolute;
     right:10%;
+    font-size: 16px;
   }
 </style>

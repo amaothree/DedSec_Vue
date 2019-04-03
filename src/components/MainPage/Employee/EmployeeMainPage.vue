@@ -10,21 +10,21 @@
   <div class="hc_lnav">
     <div class="allbtn">
       <h2><a href="#"><strong><img src="../../../assets/logo.png" alt="Logo" class="logo"></strong><i>&nbsp;</i></a></h2>
-      <ul style="width:190px" class="jspop box">
+      <ul style="width:250px" class="jspop box">
         <li class="a1">
           <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
           <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 1</a></dd></dl>
           <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 2</a></dd></dl>
         </li>
         <li class="a2">
-          <div class="tx"><a href=""><i>&nbsp;</i>Conmmunication</a> </div>
-          <dl><dd><a href=""><router-link to="/Solution"><img src="../../../assets/Handle.png" alt="Handle">Deal With Claims</router-link></a></dd></dl>
+          <div class="tx"><a href="#"><i>&nbsp;</i>Conmmunication</a> </div>
+          <dl><dd><a href="#"><router-link to="/Solution"><img src="../../../assets/Handle.png" alt="Handle">Deal With Claims</router-link></a></dd></dl>
           <!--<dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>-->
         </li>
         <li class="a3">
-          <div class="tx"><a href=""><i>&nbsp;</i>Setting</a> </div>
+          <div class="tx"><a href="#"><i>&nbsp;</i>Setting</a> </div>
           <dl>
-            <dd><a href=""><router-link to="/EmployeeDetail"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Update personal details</router-link></a></dd>
+            <dd><a href="#"><router-link to="/EmployeeDetail"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Update personal details</router-link></a></dd>
           </dl>
         </li>
       </ul>
@@ -60,7 +60,7 @@ export default {
     /*background: #eff3f5;*/
     /*top:400px;*/
     /*left:800px;*/
-    margin: 80px 200px 200px 280px;
+    margin: 100px 200px 200px 350px;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -82,7 +82,7 @@ export default {
     background-color: #eff3f5;
     font-family: arial, helvetica, sans-serif;
     color: #666666;
-    font-size: 12px
+    font-size: 16px
   }
 
   a {
@@ -114,7 +114,7 @@ export default {
     left:0;
     z-index: 9999;
     position: absolute;
-    width: 200px;
+    width: 250px;
     margin-top: 0px;
     height: 100%;
     background-color: #fcfcfc;
@@ -136,12 +136,12 @@ export default {
   .hc_lnav .allbtn h2 a {
     line-height: 36px;
     background-color: #fcfcfc;
-    width: 200px;
+    width: 250px;
     display: block;
     font-family: 微软雅黑, 黑体;
     height: 36px;
     color: #666666;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal
   }
 
@@ -157,7 +157,7 @@ export default {
     z-index: 99999;
     position: absolute;
     background-color: #ffffff;
-    width: 200px;
+    width: 250px;
     display: block;/*可以设置菜单是显示还是隐藏   display：none；为隐藏*/
     top: 36px;
     left: 0px;
@@ -177,7 +177,7 @@ export default {
     zoom: 1;
     clear: both;
     cursor: default;
-    width: 200px;
+    width: 250px;
   }
 
   .hc_lnav .allbtn ul li .tx {
@@ -186,13 +186,13 @@ export default {
     /*padding-left: 10px;*/
     height: 35px;
     text-align: center;
-    width: 200px;
+    width: 250px;
   }
 
   .hc_lnav .allbtn ul li .tx a {
     font-family: 微软雅黑, 黑体;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
     -webkit-transition: color 0.1s ease-out 0s;
     -moz-transition: color 0.1s ease-out 0s;
     -ms-transition: color 0.1s ease-out 0s;

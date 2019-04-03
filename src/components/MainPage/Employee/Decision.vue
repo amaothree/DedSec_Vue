@@ -33,31 +33,33 @@ export default {
     width:65%;
     /*margin-top: 1%;*/
     margin-left: 2%;
-    border: 1px solid #DADADA;
-    background-color: #FFF;
-    border-radius: 5px;
+    /*border: 1px solid #DADADA;*/
+    background-color: rgba(255,255,255,0.4);
+    /*border-radius: 5px;*/
   }
  .id{
     padding-top: 5%;
-   padding-left: 5%;
-    /*margin-left: 2%;*/
+    padding-left: 5%;
     float: left;
     margin-left:15%;
+   font-size: 16px;
   }
   .message{
     position: absolute;
-    margin-left: 20%;
+    margin-left: 10%;
     margin-top: 5%;
     border: 1px solid #DADADA;
     background-color: #FFF;
     border-radius: 5px;
-    width: 60%;
+    width: 80%;
     height: 60%;
+    font-size: 16px;
   }
 
   button{
     margin: 5%;
     margin-top: 50%;
+    font-size: 16px;
   }
 
 </style>

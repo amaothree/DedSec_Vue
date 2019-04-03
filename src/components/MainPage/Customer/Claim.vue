@@ -21,7 +21,7 @@
       </label>
       <label>
         <span>Message:</span>
-        <textarea id="mesaage" name="message" placeholder="Your can tell me"></textarea>
+        <textarea id="mesaage" name="message" placeholder="You can tell me"></textarea>
       </label>
       <label>
         <input type="button" class="button" value="Send">
@@ -51,10 +51,6 @@ export default {
     margin-left: 2%;
     height: 75%;
     width:65%;
-    /*filter:alpha(opacity=50);*/
-    /*-moz-opacity:0.5;*/
-    /*-khtml-opacity: 0.5;*/
-    /*opacity: 0.5;*/
   }
   .Content-Main h1{
     display: block;
@@ -69,11 +65,12 @@ export default {
   }
   .Content-Main h1>span{
     display: block;
-    font-size: 11px;
+    font-size: 16px;
   }
   .Content-Main label{
     display: block;
     margin: 0px 0px 5px;
+    font-size: 16px;
     /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
@@ -102,6 +99,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 16px;
   }
   .select1{
     width: 71%;
@@ -119,6 +117,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 16px;
   }
   .select2{
     width: 13%;
@@ -130,11 +129,13 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 16px;
   }
   .Content-Main textarea{
     width: 70%;
-    height: 100px;
+    height: 200px;
     padding: 5px 0px 0px 5px;
+    font-size: 16px;
   }
   .button{
     padding: 10px 25px 10px 25px;
@@ -148,8 +149,12 @@ export default {
     color: #333;
     background-color: #EBEBEB;
     border-color: #ADADAD;
+    font-size: 16px;
   }
   form{
     padding: 20px 30px 20px 30px;;
+  }
+  button{
+    font-size: 16px;
   }
 </style>

@@ -23,29 +23,6 @@ export default {
   data () {
     return {
       array: []
-      // array: [
-      //   {
-      //     userid: 1,
-      //     subject: 'Lost luggage',
-      //     type: 'phone',
-      //     message: 'No Message',
-      //     id: 30
-      //   },
-      //   {
-      //     userid: 1,
-      //     subject: 'Others',
-      //     type: 'phone',
-      //     message: 'No Message',
-      //     id: 50
-      //   },
-      //   {
-      //     userid: 1,
-      //     subject: 'Lost luggage',
-      //     type: 'phone',
-      //     message: 'No Message',
-      //     id: 60
-      //   }
-      // ]
     }
   },
   methods: {
@@ -116,13 +93,13 @@ export default {
   .id{
     color:Black;
     font-weight: 100;
-    font-size: 12px;
+    font-size: 16px;
     position:absolute;
     left:10%;
   }
   .type{
     margin-left: 3%;
-    font-size: 12px;
+    font-size: 16px;
   }
   .detail{
     /*margin-top: 10px;*/
@@ -131,5 +108,6 @@ export default {
     position:absolute;
     right:7%;
     margin-top: 2%;
+    font-size: 16px;
   }
 </style>
