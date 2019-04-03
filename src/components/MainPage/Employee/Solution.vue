@@ -64,21 +64,23 @@ export default {
   },
   created: function () {
     // let vm = this
-    axios.get('../../../static/data.json').then((res) => {
+    axios.get('/api/luggage/all').then((res) => {
       this.array = res.data
       console.log(this.array)
     })
     // var self = this
     // axios({
-    //   url: 'http://152.136.82.233:8084/luggage/all.json',
+    //   url: '/api/luggage/all',
     //   type: 'GET',
     //   dataType: 'JSONP',
     //   success: function (res) {
-    //     self.array = res.data
+    //     self.array = res
+    //     console.log(res)
     //   }
     // })
-    // $.getJSON('http://152.136.82.233:8084/luggage/all', function (result) {
+    // $.getJSON('/api/luggage/all', function (result) {
     //   $.each(result, function (i, field) {
+    //     this.array = result
     //     console.log(result)
     //   })
     // })

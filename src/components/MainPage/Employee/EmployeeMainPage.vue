@@ -9,7 +9,7 @@
   </div>
   <div class="hc_lnav">
     <div class="allbtn">
-      <h2><a href="#"><strong>&nbsp;</strong><i>&nbsp;</i></a></h2>
+      <h2><a href="#"><strong><img src="../../../assets/logo.png" alt="Logo" class="logo"></strong><i>&nbsp;</i></a></h2>
       <ul style="width:190px" class="jspop box">
         <li class="a1">
           <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
@@ -100,7 +100,7 @@ export default {
     -o-transition-timing-function: ease-in;
     transition-duration: .2s;
     transition-timing-function: ease-in;
-
+    margin-top: 3%;
   }
 
   a:hover {
@@ -160,7 +160,8 @@ export default {
     width: 200px;
     display: block;/*可以设置菜单是显示还是隐藏   display：none；为隐藏*/
     top: 36px;
-    left: 0px
+    left: 0px;
+    margin-top: 10%;
   }
 
   body.hc_home .hc_lnav .allbtn ul {
@@ -437,4 +438,9 @@ export default {
     float:left;
     margin-right: 10%;
   }
+  .logo{
+    height:100%;
+    width:90%;
+  }
+
 </style>
