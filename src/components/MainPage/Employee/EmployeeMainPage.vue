@@ -1,5 +1,6 @@
 <template>
   <body>
+  <img src="../../../assets/background.png" alt="Background" class="back">
   <div class="top">
     <ul>
       <li><a href="../Login"><b>Exit</b></a></li>
@@ -51,10 +52,10 @@ export default {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: url("../../../assets/background.png") no-repeat;
-    background-size:100% 100%;
-    overflow: hidden;
-    background-size:cover;
+    /*background: url("../../../assets/background.png") no-repeat;*/
+    /*background-size:100% 100%;*/
+    /*overflow: hidden;*/
+    /*background-size:cover;*/
   }
   .router{
     /*background: #eff3f5;*/
@@ -64,6 +65,7 @@ export default {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    position: absolute;
   }
 
   * {
@@ -442,5 +444,12 @@ export default {
     height:100%;
     width:90%;
   }
-
+  .back{
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -999;
+    position: absolute;
+  }
 </style>
