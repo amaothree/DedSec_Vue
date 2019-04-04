@@ -9,9 +9,9 @@ import EmployeeMainPage from '@/components/MainPage/Employee/EmployeeMainPage'
 import Solution from '@/components/MainPage/Employee/Solution'
 import EmployeeDetail from '@/components/MainPage/Employee/EmployeeDetail'
 import Decision from '@/components/MainPage/Employee/Decision'
-
+import PersonalInformation from '@/components/MainPage/Customer/PersonalInformation'
+import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -31,7 +31,7 @@ export default new Router({
         },
         {
           path: '/PersonalDetail',
-          name: 'PrsonalDetail',
+          name: 'PersonalDetail',
           component: PersonalDetail
         },
         {
@@ -43,6 +43,11 @@ export default new Router({
           path: '/Claim',
           name: 'Claim',
           component: Claim
+        },
+        {
+          path: '/PersonalInformation',
+          name: 'PersonalInformation',
+          component: PersonalInformation
         }
       ]
     },
@@ -58,7 +63,7 @@ export default new Router({
         },
         {
           path: '/PersonalDetail',
-          name: 'PrsonalDetail',
+          name: 'PersonalDetail',
           component: PersonalDetail
         },
         {
@@ -75,6 +80,11 @@ export default new Router({
           path: '/EmployeeDetail',
           name: 'EmployeeDetail',
           component: EmployeeDetail
+        },
+        {
+          path: '/EmployeeInformation',
+          name: 'EmployeeInformation',
+          component: EmployeeInformation
         }
       ]
     }

@@ -2,7 +2,7 @@
     <div class="container">
       <div class="id"><span >ID :&nbsp;&nbsp;</span>{{id}}</div>
       <br>
-      <div class="type"><span>TYPE :&nbsp;&nbsp;</span><spam class="data">{{type}}</spam></div>
+      <div class="type"><span>TYPE :&nbsp;&nbsp;</span><span class="data">{{type}}</span></div>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
       <button>Approve</button><button>Deny</button>
     </div>

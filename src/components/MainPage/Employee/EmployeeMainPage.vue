@@ -10,7 +10,7 @@
   <div class="hc_lnav">
     <div class="allbtn">
       <h2><a href="#"><strong><img src="../../../assets/logo.png" alt="Logo" class="logo"></strong><i>&nbsp;</i></a></h2>
-      <ul style="width:250px" class="jspop box">
+      <ul class="jspop box">
         <li class="a1">
           <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
           <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 1</a></dd></dl>
@@ -24,7 +24,7 @@
         <li class="a3">
           <div class="tx"><a href="#"><i>&nbsp;</i>Setting</a> </div>
           <dl>
-            <dd><a href="#"><router-link to="/EmployeeDetail"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Update personal details</router-link></a></dd>
+            <dd><a href="#"><router-link to="/EmployeeInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Update personal details</router-link></a></dd>
           </dl>
         </li>
       </ul>
