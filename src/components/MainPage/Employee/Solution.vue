@@ -1,13 +1,15 @@
 <template>
   <div class="container" style=" overflow:scroll;">
     <span class="id">ID</span>
-    <span class="type">TYPE</span>
+    <span class="Subject">Subject</span>
+    <span class="userid">User ID</span>
     <div v-for="arr in array" :key="arr.id">
       <div class="progressContainer">
         <div class="progress">
           <span class="id">{{arr.id}}</span>
-          <span class="type">{{ arr.subject}}</span>
-          <button class="detail" @click="jumptomainpage(arr.id,arr.type,arr.message)"> Detail</button>
+          <span class="userid">{{ arr.userid}}</span>
+          <span class="Subject">{{ arr.subject}}</span>
+          <button class="detail" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)"> Detail</button>
           <hr>
         </div>
       </div>
@@ -26,14 +28,16 @@ export default {
     }
   },
   methods: {
-    jumptomainpage (id, type, message) {
+    jumptomainpage (id, type, message, subject, userid) {
       this.$router.push(
         {
           name: 'Decision',
           params: {
             id: id,
             type: type,
-            message: message
+            message: message,
+            subject: subject,
+            userid: userid
           }
         }
       )
@@ -95,11 +99,19 @@ export default {
     font-weight: 100;
     font-size: 16px;
     position:absolute;
-    left:10%;
+    left:100px;
   }
-  .type{
-    margin-left: 3%;
+  .userid{
+    color:Black;
+    font-weight: 100;
     font-size: 16px;
+    position:absolute;
+    left: 300px;
+  }
+  .Subject{
+    margin-left: 200px;
+    font-size: 16px;
+    color:Black;
   }
   .detail{
     /*margin-top: 10px;*/
