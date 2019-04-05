@@ -1,5 +1,6 @@
 <template>
   <div class="initial">
+    <img src="../assets/blue.png" alt="Background">
     <component :toggleComponent="toggleComponent" :is="typeName"></component>
   </div>
 </template>
@@ -31,7 +32,10 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url("../assets/blue.png") no-repeat;
-    background-size:100%100%;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
   }
 </style>

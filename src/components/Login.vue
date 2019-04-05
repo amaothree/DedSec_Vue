@@ -3,7 +3,7 @@
         <span class="zhihu-name">
             Hibernia-Sino
         </span>
-    <div class="tip">A tip for the webset</div>
+    <!--<div class="tip">A tip for the webset</div>-->
     <form action="submit">
       <div class="phone">
         <input type="text" @blur="onBlurCheckAccount('phone')"
@@ -17,21 +17,14 @@
         <input type="text" v-else @blur="onBlurCheckPassword('password')"
                :class="{'phone-input':true,error:errorMessage.password.indexOf('Can not be empty')>-1}"
                :placeholder="errorMessage['password']" v-model.trim="password">
-        <i v-if="hidden" @click="toggleHiddenPassword" class="iconfont icon-yanjing-xiexian">show</i>
-        <i v-else @click="toggleHiddenPassword" class="iconfont icon-yanjing">hide</i>
+        <!--<i v-if="hidden" @click="toggleHiddenPassword" class="iconfont icon-yanjing-xiexian">show</i>-->
+        <!--<i v-else @click="toggleHiddenPassword" class="iconfont icon-yanjing">hide</i>-->
       </div>
-      <div class="code-login">
-        <a href="javascript:" class="toggle-code-login">手机验证码登陆</a>
-        <a href="javascript:" class="forget-password">忘记密码</a>
-      </div>
+      <!--<div class="code-login">-->
+        <!--<a href="javascript:" class="toggle-code-login">手机验证码登陆</a>-->
+        <!--<a href="javascript:" class="forget-password">忘记密码</a>-->
+      <!--</div>-->
       <a href="javascript:" class="login-btn" @click="jumptomainpage()">Log In</a>
-      <div class="register-org">
-        <a href="javascript:" class="other-login-btn">二维码登陆</a>
-        <span>·</span>
-        <a href="javascript:" class="other-login-btn">海外手机登陆</a>
-        <span>·</span>
-        <a href="javascript:" class="other-login-btn">社交账号登陆</a>
-      </div>
     </form>
     <div class="bottom">
       <span>No account？<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">Register</a></span>
@@ -81,7 +74,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          path: '/CustomerMainPage'
+          path: '/EmployeeMainPage'
         }
       )
     }
@@ -260,9 +253,4 @@ export default {
     border-top: 1px solid #ebebeb;
     font-size: 16px;
   }
-  /*.login{*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*background-image: url("../assets/blue.png");*/
-  /*}*/
 </style>

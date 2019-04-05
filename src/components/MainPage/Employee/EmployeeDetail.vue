@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: 'PersonalDetail'
+  name: 'EmployeeDetail'
 }
 </script>
 
@@ -51,6 +51,8 @@ export default {
   input,select{
     margin-right: 200px;
     float: right;
+    height:20%;
+    width:20%;
   }
   dl{
     text-align: left;
@@ -61,14 +63,14 @@ export default {
     color: #333;
   }
   .Personal{
-    position: absolute;
+    position: relative;
     height: 75%;
     width:65%;
-    margin-top:2%;
+    /*margin-top: 1%;*/
     margin-left: 2%;
+    /*border: 1px solid #DADADA;*/
     background-color: rgba(255,255,255,0.4);
     /*border-radius: 5px;*/
-    /*border: 1px solid #DADADA;*/
   }
 
 </style>
