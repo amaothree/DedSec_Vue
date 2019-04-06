@@ -3,17 +3,17 @@
     <div class="Content-Main1">
       <h1>Register a claim</h1>
     </div>
-    <form action="" method="post" class="form-report">
+    <form action="" class="form-report">
       <label>
         <span>Subject:</span>
-        <select name="select1" class="select1">
+        <select name="select1" class="select1" v-model="lug_subject">
           <option value="Lost luggage">Lost luggage</option>
           <option value="Others">Others</option>
         </select>
       </label>
       <label>
         <span>Type:</span>
-        <select name="select2" class="select1">
+        <select name="select2" class="select1" v-model="lug_type">
           <option value="Phone">Phone</option>
           <option value="Bag">Bag</option>
           <option value="Others">Others</option>
@@ -21,18 +21,44 @@
       </label>
       <label>
         <span>Message:</span>
-        <textarea id="mesaage" name="message" placeholder="You can tell me"></textarea>
+        <textarea id="mesaage" name="message" placeholder="You can tell me" v-model="lug_message"></textarea>
       </label>
       <label>
-        <input type="button" class="button" value="Send">
+        <button class="button" @click="addluggage">Send</button>
       </label>
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'Claim'
+  name: 'Claim',
+  data () {
+    return {
+      lug_message: '',
+      lug_type: '',
+      lug_subject: ''
+    }
+  },
+  methods: {
+    addluggage: function () {
+      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
+
+      axios('/api/luggage/add', {
+        params: {
+          subject: this.lug_subject,
+          type: this.lug_type,
+          message: this.lug_message
+        }
+      }).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log(error)
+      })
+    }
+  }
+
 }
 </script>
 <style scoped>
