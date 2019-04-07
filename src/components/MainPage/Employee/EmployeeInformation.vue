@@ -5,32 +5,50 @@
     <form action="">
       <dl>
         <dd>
-          <label>Name</label>
-          <span class="message">name</span>
+          <label>Id&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <span class="message">{{id}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Sex</label>
-          <span class="message">sex</span>
+          <label>User Name</label>
+          <span class="message">{{username}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>ID</label>
-          <span class="message">id</span>
+          <label>First Name&nbsp; </label>
+          <span class="message">{{first_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Phone Number</label>
-          <span class="message">phone num</span>
+          <label>Last Name&nbsp; </label>
+          <span class="message">{{last_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Email</label>
-          <span class="message">email</span>
+          <label>Password&nbsp; &nbsp; </label>
+          <span class="message">{{password}}</span>
+        </dd>
+      </dl>
+      <dl>
+        <dd>
+          <label>Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <span class="message">{{email}}</span>
+        </dd>
+      </dl>
+      <dl>
+        <dd>
+          <label>Phone&nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <span class="message">{{phone}}</span>
+        </dd>
+      </dl>
+      <dl>
+        <dd>
+          <label>Type&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <span class="message">{{type}}</span>
         </dd>
       </dl>
       <button @click="jumptomainpage()">Modify</button>
@@ -39,46 +57,92 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'EmployeeInformation',
   data () {
     return {
-      array: []
+      id: 0,
+      username: 'Default',
+      password: 'Default',
+      email: 'Default',
+      phone: 'Default',
+      type: 'Default',
+      logon_date: 'Default',
+      first_name: 'Default',
+      last_name: 'Default'
     }
   },
   methods: {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'EmployeeDetail'
+          name: 'EmployeeDetail',
+          params: {
+            username: this.username,
+            password: this.password,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            phone: this.phone,
+            email: this.email
+          }
         }
       )
     }
+  },
+  created: function () {
+    // let vm = this
+    axios.get('http://152.136.82.233:8084/login/getUser?username=wuqiannian').then((res) => {
+      this.id = res.data.id
+      this.username = res.data.username
+      this.password = res.data.password
+      this.email = res.data.email
+      this.phone = res.data.phone
+      this.type = res.data.type
+      this.first_name = res.data.first_name
+      this.last_name = res.data.last_name
+      console.log(this.array)
+    })
   }
 }
 </script>
 
 <style scoped>
   span{
-    margin-right: 200px;
-    float: right;
+    /*!*position: absolute;*!*/
+    margin-left: 50%;
+    /*position: absolute;*/
+    /*float: left;*/
+  }
+  label{
+    padding-left: 4%;
+    /*float: left;*/
   }
   dl{
     text-align: left;
-    margin-left: 100px;
+    padding-left: 11%;
   }
-  form,h1{
-    margin-top:5%;
+  h1{
+    padding-top:2%;
     color: #333;
   }
-  .Personal{
-    position: absolute;
-    height: 75%;
-    width:65%;
-    margin-top:2%;
-    margin-left: 2%;
-    background-color: rgba(255,255,255,0.4);
-    /*border-radius: 5px;*/
-    /*border: 1px solid #DADADA;*/
+  h1{
+    text-align: center;
+    /*padding-left: 30%;*/
   }
+  .Personal{
+    position: relative;
+    height: 100%;
+    width:100%;
+    overflow: auto;
+    /*margin-top:2%;*/
+    /*margin-left: 2%;*/
+    background-color: rgba(255,255,255,0.4);
+  }
+  button{
+    font-size: 20px;
+  }
+  .message{
+     width: 100%;
+   }
 </style>

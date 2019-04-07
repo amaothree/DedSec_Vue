@@ -49,23 +49,24 @@ export default {
     position: absolute;
     z-index: -1;
     /*background: #F2F2F2;*/
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    height: 75%;
+    width:70%;
+    /*overflow: hidden;*/
     /*background: url("../../../assets/background.png") no-repeat;*/
     /*background-size:100% 100%;*/
     /*overflow: hidden;*/
     /*background-size:cover;*/
+    margin: 10% 4% 8% 24%;
   }
   .router{
     /*background: #eff3f5;*/
     /*top:400px;*/
     /*left:800px;*/
-    margin: 100px 200px 200px 350px;
+    /*margin: 100px 200px 200px 350px;*/
     height: 100%;
     width: 100%;
-    overflow: hidden;
-    position: absolute;
+    /*overflow: hidden;*/
+    position: relative;
   }
 
   * {
@@ -116,7 +117,7 @@ export default {
     left:0;
     z-index: 9999;
     position: absolute;
-    width: 250px;
+    width: 17%;
     margin-top: 0px;
     height: 100%;
     background-color: #fcfcfc;
@@ -138,7 +139,7 @@ export default {
   .hc_lnav .allbtn h2 a {
     line-height: 36px;
     background-color: #fcfcfc;
-    width: 250px;
+    width: 100%;
     display: block;
     font-family: 微软雅黑, 黑体;
     height: 36px;
@@ -159,7 +160,7 @@ export default {
     z-index: 99999;
     position: absolute;
     background-color: #ffffff;
-    width: 250px;
+    width: 100%;
     display: block;/*可以设置菜单是显示还是隐藏   display：none；为隐藏*/
     top: 36px;
     left: 0px;
@@ -179,16 +180,17 @@ export default {
     zoom: 1;
     clear: both;
     cursor: default;
-    width: 250px;
+    width: 100%;
   }
 
   .hc_lnav .allbtn ul li .tx {
     line-height: 35px;
     background-color: #0084ff;
     /*padding-left: 10px;*/
-    height: 35px;
+    height: 40px;
     text-align: center;
-    width: 250px;
+    width: 100%;
+    overflow: auto;
   }
 
   .hc_lnav .allbtn ul li .tx a {
@@ -252,27 +254,27 @@ export default {
     padding-top: 2px
   }
 
-  .hc_lnav .allbtn ul li .pop {
-    border-bottom: #599900 2px solid;
-    position: absolute;
-    border-left: medium none;
-    padding-bottom: 10px;
-    background-color: #fcfcfc;
-    min-height: 466px;
-    padding-left: 30px;
-    width: 640px;
-    padding-right: 30px;
-    display: none;
-    height: 464px;
-    border-top: medium none;
-    top: 0px;
-    border-right: #599900 2px solid;
-    padding-top: 10px;
-    left: 200px;
-    box-shadow: 4px 4px 5px -1px #999999;
-    -webkit-box-shadow: 4px 4px 5px -1px #999999;
-    -moz-box-shadow: 4px 4px 5px -1px #999999
-  }
+  /*.hc_lnav .allbtn ul li .pop {*/
+    /*border-bottom: #599900 2px solid;*/
+    /*position: absolute;*/
+    /*border-left: medium none;*/
+    /*padding-bottom: 10px;*/
+    /*background-color: #fcfcfc;*/
+    /*min-height: 466px;*/
+    /*padding-left: 30px;*/
+    /*width: 640px;*/
+    /*padding-right: 30px;*/
+    /*display: none;*/
+    /*height: 464px;*/
+    /*border-top: medium none;*/
+    /*top: 0px;*/
+    /*border-right: #599900 2px solid;*/
+    /*padding-top: 10px;*/
+    /*left: 200px;*/
+    /*box-shadow: 4px 4px 5px -1px #999999;*/
+    /*-webkit-box-shadow: 4px 4px 5px -1px #999999;*/
+    /*-moz-box-shadow: 4px 4px 5px -1px #999999*/
+  /*}*/
 
   .hc_lnav .allbtn ul li .pop h3 {
     display: none;
@@ -438,7 +440,7 @@ export default {
     width:15%;
     margin-left: 5%;
     float:left;
-    margin-right: 10%;
+    margin-right: 5%;
   }
   .logo{
     height:100%;
