@@ -40,7 +40,7 @@ module.exports = {
     Other: 'Others',
     Message: 'Message:',
     Send: 'Send',
-    tel:'You can tell me'
+    tel: 'You can tell me'
   },
   ProcessBar: {
     Detail: 'Detail',

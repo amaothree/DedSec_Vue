@@ -40,7 +40,7 @@ module.exports = {
     Other: '其他',
     Message: '详细信息：',
     Send: '发送',
-    tel:'您可以告诉我们'
+    tel: '您可以告诉我们'
   },
   ProcessBar: {
     Detail: '详情',
