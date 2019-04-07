@@ -1,15 +1,15 @@
 <template>
   <div class="container" style=" overflow:scroll;">
-    <span class="id">ID</span>
-    <span class="Subject">Subject</span>
-    <span class="userid">User ID</span>
+    <span class="id">{{ $t('Decision.id')}}</span>
+    <span class="Subject">{{ $t('Decision.Subject')}}</span>
+    <span class="userid">{{ $t('Decision.Uid')}}</span>
     <div v-for="arr in array" :key="arr.id">
       <div class="progressContainer">
         <div class="progress">
           <span class="id">{{arr.id}}</span>
           <span class="userid">{{ arr.userid}}</span>
           <span class="Subject">{{ arr.subject}}</span>
-          <button class="detail" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)"> Detail</button>
+          <button class="detail" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)"> {{ $t('Decision.detail')}}</button>
           <hr>
         </div>
       </div>

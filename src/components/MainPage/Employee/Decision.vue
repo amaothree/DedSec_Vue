@@ -1,12 +1,12 @@
 <template>
     <div class="container">
-      <span class="id"><span >Id :&nbsp;&nbsp;</span>{{id}}</span>
+      <span class="id"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
       <!--<br>-->
-      <span class="userid"><span>User Id :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
-      <span class="subject"><span>Subject :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
-      <span class="type"><span>Type :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+      <span class="userid"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
+      <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
-      <button class="approve" @click="setApprove">Approve</button><button class="deny" @click="setDeny">Deny</button>
+      <button class="approve" @click="setApprove">{{ $t('Decision.Approve')}}</button><button class="deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
     </div>
 </template>
 

@@ -45,5 +45,14 @@ module.exports = {
   ProcessBar: {
     Detail: 'Detail',
     Delete: 'Delete'
+  },
+  Decision: {
+    id: 'Id',
+    Uid: 'User Id',
+    Subject: 'Subject',
+    Type: 'Type',
+    Approve: 'Approve',
+    Deny: 'Deny',
+    detail: 'Detail'
   }
 }

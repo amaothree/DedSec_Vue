@@ -47,7 +47,7 @@
       </dl>
       <dl>
         <dd>
-          <label>Type&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <label>{{ $t('personal.Type')}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{type}}</span>
         </dd>
       </dl>

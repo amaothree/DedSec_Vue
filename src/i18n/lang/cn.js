@@ -45,5 +45,14 @@ module.exports = {
   ProcessBar: {
     Detail: '详情',
     Delete: '删除'
+  },
+  Decision: {
+    id: '编号',
+    Uid: '用户编号',
+    Subject: '主题',
+    Type: '类型',
+    Approve: '通过',
+    Deny: '拒绝',
+    detail: '详情'
   }
 }
