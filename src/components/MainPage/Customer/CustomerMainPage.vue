@@ -3,9 +3,9 @@
   <img src="../../../assets/background.png" alt="Background" class="back">
   <div class="top">
       <ul>
-        <li><a href="../Login"><b>Exit</b></a></li>
-        <li><a href="#"><b>Service</b></a></li>
-        <li><a href="#"><b>Language</b></a></li>
+        <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
+        <li><a href="#"><b>{{ $t('message.server')}}</b></a></li>
+        <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
       </ul>
   </div>
   <div class="hc_lnav">
@@ -13,19 +13,19 @@
       <h2><a href="#"><strong><img src="../../../assets/logo.png" alt="Logo" class="logo"></strong><i>&nbsp;</i></a></h2>
       <ul class="jspop box">
         <li class="a1">
-          <div class="tx"><a href="#"><i>&nbsp;</i>Renew policies</a> </div>
-          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 1</a></dd></dl>
-          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">Policy 2</a></dd></dl>
+          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Renew')}}</a> </div>
+          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy1')}}</a></dd></dl>
+          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy2')}}</a></dd></dl>
         </li>
         <li class="a2">
-          <div class="tx"><a href="#"><i>&nbsp;</i>Conmmunication</a> </div>
-          <dl><dd><a href="#"><router-link to="/Claim"><img src="../../../assets/Claim.png" alt="Claim">Register a claim</router-link></a></dd></dl>
-          <dl><dd><a href="#"><router-link to="/ProcessingProgress"><img src="../../../assets/Progress.png" alt="Progress">Processing Progress</router-link></a></dd></dl>
+          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
+          <dl><dd><a href="#"><router-link to="/Claim"><img src="../../../assets/Claim.png" alt="Claim">{{ $t('navigate.Register')}}</router-link></a></dd></dl>
+          <dl><dd><a href="#"><router-link to="/ProcessingProgress"><img src="../../../assets/Progress.png" alt="Progress">{{ $t('navigate.Process')}}</router-link></a></dd></dl>
         </li>
         <li class="a3">
-          <div class="tx"><a href="#"><i>&nbsp;</i>Setting</a> </div>
+          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
           <dl>
-            <dd><a href="#"><router-link to="/PersonalInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">Personal details</router-link></a></dd>
+            <dd><a href="#"><router-link to="/PersonalInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">{{ $t('navigate.Personal')}}</router-link></a></dd>
           </dl>
         </li>
       </ul>
@@ -40,8 +40,45 @@
 
 <script>
 export default {
-  name: 'CustomerNav'
+  name: 'CustomerNav',
+  data () {
+    return {
+      locale: 'en',
+      lang: '中文'
+    }
+  },
+  methods: {
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文';
+        this.locale = 'en';
+      } else {
+        this.lang = 'ENG';
+        this.locale = 'cn';
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1);
+      window.location.reload(); // 进行刷新改变cookie里的值
+    }
+  },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn';
+      this.lang = 'ENG';
+    } else {
+      this.locale = 'en';
+      this.lang = '中文';
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1);
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val;
+      console.log('locale', val);
+    }
+  }
 }
+
 </script>
 
 <style scoped>

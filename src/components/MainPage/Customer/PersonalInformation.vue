@@ -1,47 +1,47 @@
 <template>
   <div class="Personal" >
-    <h1>Personal Detail</h1>
+    <h1>{{ $t('personal.personal')}}</h1>
 
     <form action="">
       <dl>
         <dd>
-          <label>Id&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <label>{{ $t('personal.id')}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{id}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>User Name</label>
+          <label>{{ $t('personal.name')}}</label>
           <span class="message">{{username}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>First Name&nbsp; </label>
+          <label>{{ $t('personal.FirstName')}}&nbsp; </label>
           <span class="message">{{first_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Last Name&nbsp; </label>
+          <label>{{ $t('personal.LastName')}}&nbsp; </label>
           <span class="message">{{last_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Password&nbsp; &nbsp; </label>
+          <label>{{ $t('personal.Password')}}&nbsp; &nbsp; </label>
           <span class="message">{{password}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <label>{{ $t('personal.Email')}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{email}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Phone&nbsp; &nbsp; &nbsp; &nbsp; </label>
+          <label>{{ $t('personal.Phone')}}&nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{phone}}</span>
         </dd>
       </dl>
@@ -51,7 +51,7 @@
           <span class="message">{{type}}</span>
         </dd>
       </dl>
-      <button @click="jumptomainpage()">Modify</button>
+      <button @click="jumptomainpage()">{{ $t('personal.Modify')}}</button>
     </form>
   </div>
 </template>

@@ -5,8 +5,8 @@
     <div class="progress" :style="{width:arr.progress+'%'}">
         <b>{{arr.progress}}%</b><br>
         <b><p>{{ arr.type }}</p></b>
-      <button class="detail">Detail</button>
-      <button class="delete"> Delete</button>
+      <button class="detail">{{ $t('ProcessBar.Detail')}}</button>
+      <button class="delete"> {{ $t('ProcessBar.Delete')}}</button>
     </div>
    </div>
   </div>
