@@ -4,11 +4,12 @@
       <br>
       <div class="type"><span>TYPE :&nbsp;&nbsp;</span><span class="data">{{type}}</span></div>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
-      <button>Approve</button><button>Deny</button>
+      <button @click="setApprove">Approve</button><button @click="setDeny">Deny</button>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Decision',
   data () {
@@ -22,6 +23,24 @@ export default {
     this.id = this.$route.params.id
     this.type = this.$route.params.type
     this.message = this.$route.params.message
+  },
+  methods: {
+    setApprove: function () {
+      axios('/api/luggage/pick', {
+        params: {
+          id: this.id,
+          status: 'approve'
+        }
+      })
+    },
+    setDeny: function () {
+      axios('/api/luggage/pick', {
+        params: {
+          id: this.id,
+          status: 'deny'
+        }
+      })
+    }
   }
 }
 </script>
