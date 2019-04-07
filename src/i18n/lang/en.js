@@ -58,14 +58,24 @@ module.exports = {
   login: {
     LogIn: 'Log In',
     Register: 'Register',
-    no: 'No account？'
+    no: 'No account？',
+    ac: 'Please enter an account.',
+    ps: 'Please enter an password.',
+    Account: 'Account',
+    Password: 'Password'
   },
   Register: {
     LogIn: 'Log In',
     Protocal: 'Protocal',
     p: 'By signing up, you agree to a privacy agreement',
     Alr: 'Already have an account？',
-    Register: 'Register'
+    Register: 'Register',
+    ac: 'Please enter an account.',
+    ps: 'Please enter an password.',
+    re_ps: 'Please repeat your password.',
+    Account: 'Account',
+    Password: 'Password',
+    Rpassword: 'Repeat password'
   }
 
 }

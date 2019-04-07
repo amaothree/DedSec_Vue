@@ -49,8 +49,8 @@ export default {
       password: '',
       hidden: true,
       errorMessage: {
-        phone: 'Account',
-        password: 'Password'
+        phone: this.$t('login.Account'),
+        password: this.$t('login.Password'),
       }
     }
   },
@@ -87,7 +87,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter a password.')
+        return (this.errorMessage[name] =  this.$t('login.ps'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -96,7 +96,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('login.ac'))
       } else {
         this.errorMessage[name] = ''
       }

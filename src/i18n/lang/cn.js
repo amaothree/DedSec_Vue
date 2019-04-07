@@ -58,13 +58,23 @@ module.exports = {
   login: {
     LogIn: '登陆',
     Register: '注册',
-    no: '没有账号？'
+    no: '没有账号？',
+    ac: '请输入一个帐号。',
+    ps: '请输入密码。',
+    Account: '账户',
+    Password: '密码'
   },
   Register: {
     LogIn: '登陆',
     Protocal: '协议',
     p: '通过注册，您就同意了隐私协议',
     Alr: '已经有一个帐户吗?',
-    Register: '注册'
+    Register: '注册',
+    ac: '请输入一个帐号。',
+    ps: '请输入密码。',
+    re_ps: '请重复您的密码。',
+    Account: '账户',
+    Password: '密码',
+    Rpassword: '重复密码'
   }
 }

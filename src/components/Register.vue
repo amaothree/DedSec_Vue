@@ -47,9 +47,9 @@ export default {
       selected: '中国 +86',
       code: '',
       errorMessage: {
-        phone: 'Account',
-        code: 'Password',
-        repeat: 'Repeat password'
+        phone: this.$t('Register.Account'),
+        code: this.$t('Register.Password'),
+        repeat: this.$t('Register.Password')
       }
     }
   },
@@ -58,7 +58,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter a password.')
+        return (this.errorMessage[name] = this.$t('Register.ps'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -67,7 +67,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('Register.ac'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -76,7 +76,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('Register.re_ps'))
       } else {
         this.errorMessage[name] = ''
       }
