@@ -5,7 +5,7 @@
     <form action="">
       <dl>
         <dd>
-          <label>Id</label>
+          <label>Id&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{id}}</span>
         </dd>
       </dl>
@@ -17,37 +17,37 @@
       </dl>
       <dl>
         <dd>
-          <label>First Name</label>
+          <label>First Name&nbsp; </label>
           <span class="message">{{first_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Last Name</label>
+          <label>Last Name&nbsp; </label>
           <span class="message">{{last_name}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Password</label>
+          <label>Password&nbsp; &nbsp; </label>
           <span class="message">{{password}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Email</label>
+          <label>Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{email}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Phone</label>
+          <label>Phone&nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{phone}}</span>
         </dd>
       </dl>
       <dl>
         <dd>
-          <label>Type</label>
+          <label>Type&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
           <span class="message">{{type}}</span>
         </dd>
       </dl>
@@ -108,28 +108,40 @@ export default {
 </script>
 <style scoped>
   span{
-    margin-right: 200px;
-    float: right;
+    /*!*position: absolute;*!*/
+    margin-left: 50%;
+    /*position: absolute;*/
+    /*float: left;*/
+  }
+  label{
+    padding-left: 4%;
+    /*float: left;*/
   }
   dl{
     text-align: left;
-    margin-left: 100px;
+    padding-left: 11%;
   }
-  form,h1{
-    margin-top:3%;
+  h1{
+    padding-top:2%;
     color: #333;
   }
+  h1{
+    text-align: center;
+    /*padding-left: 30%;*/
+  }
   .Personal{
-    position: absolute;
-    height: 75%;
-    width:65%;
-    margin-top:2%;
-    margin-left: 2%;
+    position: relative;
+    height: 100%;
+    width:100%;
+    overflow: auto;
+    /*margin-top:2%;*/
+    /*margin-left: 2%;*/
     background-color: rgba(255,255,255,0.4);
-    /*border-radius: 5px;*/
-    /*border: 1px solid #DADADA;*/
   }
   button{
     font-size: 20px;
+  }
+  .message{
+    width: 100%;
   }
 </style>

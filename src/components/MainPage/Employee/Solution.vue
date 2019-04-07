@@ -72,10 +72,10 @@ export default {
 <style scoped>
   .container{
     position: relative;
-    height: 75%;
-    width:65%;
+    height: 100%;
+    width:100%;
     /*margin-top: 1%;*/
-    margin-left: 2%;
+    /*margin-left: 2%;*/
     /*border: 1px solid #DADADA;*/
     background-color: rgba(255,255,255,0.4);
     /*border-radius: 5px;*/
@@ -99,17 +99,17 @@ export default {
     font-weight: 100;
     font-size: 16px;
     position:absolute;
-    left:100px;
+    left:10%;
   }
   .userid{
     color:Black;
     font-weight: 100;
     font-size: 16px;
     position:absolute;
-    left: 300px;
+    left: 30%;
   }
   .Subject{
-    margin-left: 200px;
+    margin-left: 25%;
     font-size: 16px;
     color:Black;
   }

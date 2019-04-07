@@ -37,31 +37,23 @@ export default {
 </script>
 <style scoped>
   .Content-Main{
-    /*max-width: 500px;*/
-    position: absolute;
-    margin: auto;
-    margin-top: 2%;
-    /*padding: 20px 30px 20px 30px;*/
+    position: relative;
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 1px #FFF;
-    /*border: 1px solid #DDD;*/
     border-radius: 5px;
     color: #888;
     background: rgba(255,255,255,0.4);
-    margin-left: 2%;
-    height: 75%;
-    width:65%;
+    height: 100%;
+    width:100%;
   }
   .Content-Main h1{
     display: block;
     padding: 0px 0px 10px 40px;
     color: #333;
-    /*margin: -10px -30px 30px -30px;*/
     /*font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     /*border-bottom: 1px solid #DADADA;*/
     /*color: #888;*/
     padding: 20px 30px 20px 30px;
-    margin-top: 3%;
   }
   .Content-Main h1>span{
     display: block;

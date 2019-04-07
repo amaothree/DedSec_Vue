@@ -6,7 +6,7 @@
       <dl>
         <dd>
           <label for ="username" >User Name</label>
-          <input type="text" name="用户名" id="username" :value="username">
+          <input type="text" name="用户名" id="username" :value="username" class="input">
         </dd>
       </dl>
       <!--<dl>-->
@@ -21,34 +21,34 @@
       <dl>
         <dd>
           <label for ="first_name" >First Name</label>
-          <input type="text" name="名" id="first_name" :value="first_name">
+          <input type="text" name="名" id="first_name" :value="first_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="last_name" >Last Name</label>
-          <input type="text" name="姓" id="last_name" :value="last_name">
+          <input type="text" name="姓" id="last_name" :value="last_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="password" >Password</label>
-          <input type="password" name="密码" id="password" :value="password">
+          <input type="password" name="密码" id="password" :value="password" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="phone" >Phone Number</label>
-          <input type="text" name="联系方式" id="phone" :value="phone">
+          <input type="text" name="联系方式" id="phone" :value="phone" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="email" >Email</label>
-          <input type="text" name="邮箱" id="email" value="email">
+          <input type="text" name="邮箱" id="email" value="email" class="input">
         </dd>
       </dl>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="submit">
     </form>
   </div>
 </template>
@@ -78,13 +78,13 @@ export default {
 </script>
 
 <style scoped>
-  input,select{
-    margin-right: 200px;
+  .input,select{
+    margin-right: 15%;
     float: right;
   }
   dl{
     text-align: left;
-    margin-left: 100px;
+    margin-left: 15%;
   }
   form,h1{
     margin-top:5%;
@@ -92,13 +92,18 @@ export default {
   }
   .Personal{
     position: absolute;
-    height: 75%;
-    width:65%;
-    margin-top:2%;
-    margin-left: 2%;
+    height: 100%;
+    width:100%;
+    /*margin-top:2%;*/
+    /*margin-left: 2%;*/
     background-color: rgba(255,255,255,0.4);
     /*border-radius: 5px;*/
     /*border: 1px solid #DADADA;*/
+  }
+  .submit{
+    margin-right: 15%;
+    float: right;
+    margin-top: 4%;
   }
 
 </style>

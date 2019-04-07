@@ -6,7 +6,7 @@
       <span class="subject"><span>Subject :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
       <span class="type"><span>Type :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
-      <button>Approve</button><button>Deny</button>
+      <button class="approve">Approve</button><button class="deny">Deny</button>
     </div>
 </template>
 
@@ -35,10 +35,8 @@ export default {
 <style scoped>
   .container{
     position: relative;
-    height: 75%;
-    width:65%;
-    /*margin-top: 1%;*/
-    margin-left: 2%;
+    height: 100%;
+    width:100%;
     /*border: 1px solid #DADADA;*/
     background-color: rgba(255,255,255,0.4);
     /*border-radius: 5px;*/
@@ -47,13 +45,14 @@ export default {
  .id{
    position: absolute;
     float: left;
-   margin-left: 100px;
+   margin-left: 8%;
     font-size: 16px;
-   padding: 30px;
+   padding: 3%;
+   width: 10%;
   }
   .message{
     position: absolute;
-    margin-left: 100px;
+    margin-left: 10%;
     margin-top: 150px;
     border: 1px solid #DADADA;
     background-color: #FFF;
@@ -64,31 +63,42 @@ export default {
     text-align: center;
   }
 
-  button{
-    margin: 200px;
-    margin-top: 600px;
+  .approve{
+    position: absolute;
+    margin-left: 30%;
+    margin-bottom: 5%;
     font-size: 20px;
+    bottom:0;
+  }
+  .deny{
+    position: absolute;
+    margin-left: 60%;
+    margin-bottom: 5%;
+    font-size: 20px;
+    bottom:0;
   }
   .type{
     position: absolute;
     float: left;
-    margin-left:700px;
+    margin-left:67%;
     font-size: 16px;
-    padding: 30px;
+    padding: 3%;
   }
   .subject{
     position: absolute;
-    float: left;
-    margin-left:500px;
+    /*float: left;*/
+    margin-left:40%;
     font-size: 16px;
-    padding: 30px;
+    padding: 3%;
+    width: 30%;
   }
   .userid{
     position: absolute;
     float: left;
-    margin-left:300px;
+    margin-left:20%;
     font-size: 16px;
-    padding: 30px;
+    padding: 3%;
+    width: 20%;
   }
   .id,.userid,.subject,.type{
     color: black;
