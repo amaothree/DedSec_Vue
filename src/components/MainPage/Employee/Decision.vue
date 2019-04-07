@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Decision',
   data () {
@@ -28,6 +29,24 @@ export default {
     this.message = this.$route.params.message
     this.subject = this.$route.params.subject
     this.userid = this.$route.params.userid
+  },
+  methods: {
+    setApprove: function () {
+      axios('/api/luggage/pick', {
+        params: {
+          id: this.id,
+          status: 'approve'
+        }
+      })
+    },
+    setDeny: function () {
+      axios('/api/luggage/pick', {
+        params: {
+          id: this.id,
+          status: 'deny'
+        }
+      })
+    }
   }
 }
 </script>
