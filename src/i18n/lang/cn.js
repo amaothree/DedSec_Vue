@@ -54,5 +54,17 @@ module.exports = {
     Approve: '通过',
     Deny: '拒绝',
     detail: '详情'
+  },
+  login: {
+    LogIn: '登陆',
+    Register: '注册',
+    no: '没有账号？'
+  },
+  Register: {
+    LogIn: '登陆',
+    Protocal: '协议',
+    p: '通过注册，您就同意了隐私协议',
+    Alr: '已经有一个帐户吗?',
+    Register: '注册'
   }
 }

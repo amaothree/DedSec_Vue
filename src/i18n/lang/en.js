@@ -54,5 +54,18 @@ module.exports = {
     Approve: 'Approve',
     Deny: 'Deny',
     detail: 'Detail'
+  },
+  login: {
+    LogIn: 'Log In',
+    Register: 'Register',
+    no: 'No account？'
+  },
+  Register: {
+    LogIn: 'Log In',
+    Protocal: 'Protocal',
+    p: 'By signing up, you agree to a privacy agreement',
+    Alr: 'Already have an account？',
+    Register: 'Register'
   }
+
 }
