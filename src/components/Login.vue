@@ -3,6 +3,9 @@
         <span class="zhihu-name">
             Hibernia-Sino
         </span>
+    <div class="top">
+        <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
+    </div>
     <!--<div class="tip">A tip for the webset</div>-->
     <form action="submit">
       <div class="phone">
@@ -38,6 +41,8 @@ export default {
   data () {
     return {
       msg: 'zhihu',
+      locale: 'en',
+      lang: '中文',
       phone: '',
       // optionArray: ['中国 +86', '美国 +1', '日本 +81'],
       // selected: '中国 +86',
@@ -49,7 +54,35 @@ export default {
       }
     }
   },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn';
+      this.lang = 'ENG';
+    } else {
+      this.locale = 'en';
+      this.lang = '中文';
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1);
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val;
+      console.log('locale', val);
+    }
+  },
   methods: {
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文';
+        this.locale = 'en';
+      } else {
+        this.lang = 'ENG';
+        this.locale = 'cn';
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1);
+      window.location.reload(); // 进行刷新改变cookie里的值
+    },
     onBlurCheckPassword (name) {
       console.log(name, 'check name')
       const value = this[name]
@@ -252,5 +285,19 @@ export default {
     background-color: #f6f6f6;
     border-top: 1px solid #ebebeb;
     font-size: 16px;
+  }
+  .top{
+    /* 设置宽度高度背景颜色 */
+    height: auto; /*高度改为自动高度*/
+    width:100%;
+    margin-left: 0px;
+    text-align: right;
+    background:#fcfcfc;
+    position: fixed; /*固定在顶部*/
+    /*离顶部的距离为0*/
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: blue;
+
   }
 </style>
