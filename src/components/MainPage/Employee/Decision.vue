@@ -6,7 +6,7 @@
       <span class="subject"><span>Subject :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
       <span class="type"><span>Type :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
-      <button class="approve">Approve</button><button class="deny">Deny</button>
+      <button class="approve" @click="setApprove">Approve</button><button class="deny" @click="setDeny">Deny</button>
     </div>
 </template>
 
