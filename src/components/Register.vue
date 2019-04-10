@@ -27,7 +27,7 @@
       <a href="javascript:" class="register-btn" @click="jumptomainpage ()">{{ $t('Register.Register')}}</a>
       <div class="register-org">
         <span>{{ $t('Register.p')}}</span>
-        <a href="javascript:" class="org-btn">{{ $t('Register.Protocal')}}</a>
+        <a href="/src/components/Protocol.vue" class="org-btn">{{ $t('Register.Protocal')}}</a>
       </div>
     </form>
     <div class="bottom">
