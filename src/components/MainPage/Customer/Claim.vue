@@ -5,26 +5,27 @@
     </div>
     <form action="" class="form-report">
       <label>
-        <span>Subject:</span>
+        <span>{{ $t('claim.Subject')}}</span>
         <select name="select1" class="select1" v-model="lug_subject">
-          <option value="Lost luggage">Lost luggage</option>
-          <option value="Others">Others</option>
+          <option value="Lost luggage">{{ $t('claim.Lost')}}</option>
+          <option value="Others">{{ $t('claim.Others')}}</option>
         </select>
       </label>
       <label>
-        <span>Type:</span>
+        <span>{{ $t('claim.Type')}}</span>
         <select name="select2" class="select1" v-model="lug_type">
-          <option value="Phone">Phone</option>
-          <option value="Bag">Bag</option>
-          <option value="Others">Others</option>
+          <option value="Phone">{{ $t('claim.Phone')}}</option>
+          <option value="Bag">{{ $t('claim.Bag')}}</option>
+          <option value="Others">{{ $t('claim.Other')}}</option>
         </select>
       </label>
       <label>
-        <span>Message:</span>
-        <textarea id="mesaage" name="message" placeholder="You can tell me" v-model="lug_message"></textarea>
+        <span>{{ $t('claim.Message')}}</span>
+        <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
       </label>
       <label>
-        <button class="button" @click="addluggage">Send</button>
+        <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
+        <input type="button" @click="addluggage" :value="$t('claim.Send')">
       </label>
     </form>
   </div>
@@ -53,8 +54,10 @@ export default {
         }
       }).then(function (response) {
         console.log(response)
+        alert('Submit Successfully')
       }).catch(function (error) {
         console.log(error)
+        alert('Error : There is something wrong for this submission.')
       })
     }
   }

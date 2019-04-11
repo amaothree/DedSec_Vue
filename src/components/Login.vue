@@ -24,10 +24,10 @@
         <!--<a href="javascript:" class="toggle-code-login">手机验证码登陆</a>-->
         <!--<a href="javascript:" class="forget-password">忘记密码</a>-->
       <!--</div>-->
-      <a href="javascript:" class="login-btn" @click="jumptomainpage()">Log In</a>
+      <a href="javascript:" class="login-btn" @click="jumptomainpage()">{{ $t('login.LogIn')}}</a>
     </form>
     <div class="bottom">
-      <span>No account？<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">Register</a></span>
+      <span>{{ $t('login.no')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('login.Register')}}</a></span>
     </div>
   </div>
 </template>
@@ -44,8 +44,8 @@ export default {
       password: '',
       hidden: true,
       errorMessage: {
-        phone: 'Account',
-        password: 'Password'
+        phone: this.$t('login.Account'),
+        password: this.$t('login.Password')
       }
     }
   },
@@ -54,7 +54,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter a password.')
+        return (this.errorMessage[name] = this.$t('login.ps'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -63,7 +63,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('login.ac'))
       } else {
         this.errorMessage[name] = ''
       }

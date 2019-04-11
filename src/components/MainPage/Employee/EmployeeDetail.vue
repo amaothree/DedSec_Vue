@@ -1,11 +1,11 @@
 <template>
   <div class="Personal" >
-    <h1>Personal Detail</h1>
+    <h1>{{ $t('personal.personal')}}</h1>
 
     <form action="" method="post" autocomplete="off" data-form="ajax" >
       <dl>
         <dd>
-          <label for ="username" >User Name</label>
+          <label for ="username" >{{ $t('personal.name')}}</label>
           <input type="text" name="用户名" id="username" :value="username" class="input">
         </dd>
       </dl>
@@ -20,35 +20,35 @@
       <!--</dl>-->
       <dl>
         <dd>
-          <label for ="first_name" >First Name</label>
+          <label for ="first_name" >{{ $t('personal.FirstName')}}</label>
           <input type="text" name="名" id="first_name" :value="first_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
-          <label for ="last_name" >Last Name</label>
+          <label for ="last_name" >{{ $t('personal.LastName')}}</label>
           <input type="text" name="姓" id="last_name" :value="last_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
-          <label for ="password" >Password</label>
+          <label for ="password" >{{ $t('personal.Password')}}</label>
           <input type="password" name="密码" id="password" :value="password" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
-          <label for ="phone" >Phone Number</label>
+          <label for ="phone" >{{ $t('personal.Phone')}}</label>
           <input type="text" name="联系方式" id="phone" :value="phone" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
-          <label for ="email" >Email</label>
+          <label for ="email" >{{ $t('personal.Email')}}</label>
           <input type="text" name="邮箱" id="email" value="email" class="input">
         </dd>
       </dl>
-      <input type="submit" value="Submit" class="submit">
+      <input type="submit" :value=" $t('personal.submit')" class="submit">
     </form>
     </div>
 </template>

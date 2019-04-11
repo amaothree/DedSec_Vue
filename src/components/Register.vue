@@ -24,14 +24,14 @@
         <input type="password" @blur="onBlurCheckRepeat('repeat')" :class="{'code-input':true,error:errorMessage.code.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['repeat']" v-model.number.trim="repeat">
       </div>
       <!--<div class="souce">接受语音验证码</div>-->
-      <a href="javascript:" class="register-btn" @click="jumptomainpage ()">Register</a>
+      <a href="javascript:" class="register-btn" @click="jumptomainpage ()">{{ $t('Register.Register')}}</a>
       <div class="register-org">
-        <span>By signing up, you agree to a privacy agreement</span>
-        <a href="javascript:" class="org-btn">Protocal</a>
+        <span>{{ $t('Register.p')}}</span>
+        <a href="/src/components/Protocol.vue" class="org-btn">{{ $t('Register.Protocal')}}</a>
       </div>
     </form>
     <div class="bottom">
-      <span>Already have an account？<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">Log In</a></span>
+      <span>{{ $t('Register.Alr')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('Register.LogIn')}}</a></span>
     </div>
   </div>
 </template>
@@ -47,9 +47,9 @@ export default {
       selected: '中国 +86',
       code: '',
       errorMessage: {
-        phone: 'Account',
-        code: 'Password',
-        repeat: 'Repeat password'
+        phone: this.$t('Register.Account'),
+        code: this.$t('Register.Password'),
+        repeat: this.$t('Register.Password')
       }
     }
   },
@@ -58,7 +58,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter a password.')
+        return (this.errorMessage[name] = this.$t('Register.ps'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -67,7 +67,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('Register.ac'))
       } else {
         this.errorMessage[name] = ''
       }
@@ -76,7 +76,7 @@ export default {
       console.log(name, 'check name')
       const value = this[name]
       if (!value || value.length < 1) {
-        return (this.errorMessage[name] = 'Please enter an account.')
+        return (this.errorMessage[name] = this.$t('Register.re_ps'))
       } else {
         this.errorMessage[name] = ''
       }
