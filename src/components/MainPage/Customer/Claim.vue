@@ -24,7 +24,8 @@
         <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
       </label>
       <label>
-        <button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>
+        <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
+        <input type="button" @click="addluggage" :value="$t('claim.Send')">
       </label>
     </form>
   </div>
@@ -53,8 +54,10 @@ export default {
         }
       }).then(function (response) {
         console.log(response)
+        alert('Submit Successfully')
       }).catch(function (error) {
         console.log(error)
+        alert('Error : There is something wrong for this submission.')
       })
     }
   }
