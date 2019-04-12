@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import CustomerNav from '@/components/MainPage/Customer/CustomerMainPage'
+import Communication from '@/components/MainPage/Customer/Communication'
 import PersonalDetail from '@/components/MainPage/Customer/PersonalDetail'
 import ProcessingProgress from '@/components/MainPage/Customer/ProcessingProgress'
 import Claim from '@/components/MainPage/Customer/Claim'
@@ -48,6 +49,11 @@ export default new Router({
           path: '/PersonalInformation',
           name: 'PersonalInformation',
           component: PersonalInformation
+        },
+        {
+          path: '/Communication',
+          name: 'Communication',
+          component: Communication
         }
       ]
     },

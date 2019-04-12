@@ -4,7 +4,7 @@
   <div class="top">
       <ul>
         <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
-        <li><a href="#"><b>{{ $t('message.server')}}</b></a></li>
+        <li><a href="#" @click="jumptomainpage()"><b>{{ $t('message.server')}}</b></a></li>
         <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
       </ul>
   </div>
@@ -59,6 +59,13 @@ export default {
       }
       this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
       window.location.reload() // 进行刷新改变cookie里的值
+    },
+    jumptomainpage () {
+      this.$router.push(
+        {
+          path: '/Communication'
+        }
+      )
     }
   },
   mounted () {
