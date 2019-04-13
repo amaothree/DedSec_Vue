@@ -6,14 +6,9 @@
       </div>
       <div class="xw-header-content" @touchstart="showInfo">
         <div v-if="!toShowMaskInfo" :class="[toShowMaskInfo ? '' : 'bounceInRight' , 'animated']">
-          <!--<img src="static/images/logo.jpg" class="xw-header-avatar">-->
+          <img src="../../../assets/logo.png" class="xw-header-avatar">
           <div class="xw-header-title-wrap">
             <div class="xw-header-title">Feedback</div>
-          </div>
-          <div class="xw-header-info">
-            <p class="animated bounceInLeft">
-              You can told us what we need to improve for your better user experiences.
-            </p>
           </div>
         </div>
       </div>
@@ -60,66 +55,16 @@
               <a href="javascript:void(0)" class="xw-send-btn-text" v-if="content.trim().length" @click="sendMsg">发送</a>
             </transition >
           </div>
-          <!--<div class="xw-chat-tool-item" >-->
-            <!--<a href="javascript:;" :class="[showEmoji ? 'xw-face' :'xw-face-close','xw-chat-tool-btn']" @click="emojiFuc"></a>-->
-          <!--</div>-->
-          <!--<div class="xw-chat-tool-item">-->
-            <!--<a :class="[showMoreOpratin ? 'xw-hide-operation-close' :'xw-hide-operation','xw-chat-tool-btn']" @click="showMoreOpratin=!showMoreOpratin"></a>-->
-            <!--<transition name="fade">-->
-              <!--<div class="xw-window-text" v-if="showMoreOpratin">-->
-                <!--<label for="uploadImg">-->
-                   <!--<span>-->
-                    <!--<input type="file" name="image"  accept="image/*"  multiple style="display:none;" id="uploadImg">图片-->
-                  <!--</span>-->
-                <!--</label>-->
-                <!--<span @click="videoFuc">视频</span>-->
-                <!--<span @touchstart="showEvaluateFuc">评价</span>-->
-                <!--<span>结束</span>-->
-              <!--</div>-->
-            <!--</transition>-->
-          <!--</div>-->
         </div>
       </div>
-      <!--  <emojiSlider :isShow="showEmoji" :EXPS="EXPS"></emojiSlider> -->
-      <!--&lt;!&ndash; 表情开始 &ndash;&gt;-->
-      <!--<transition name="slide-fade" style="display:none">-->
-        <!--<div class="xw-window-text xw-face-emoji-ul" v-if="showEmoji">-->
-          <!--<div class="xw-chat-ul-box">-->
-            <!--<mt-swipe :auto="0">-->
-              <!--<mt-swipe-item v-for="n in Math.ceil(EXPS.length/15)" :key="n">-->
-                <!--<li v-for="(item, index) in getEmotionData(n,15)" class="xw-faceEmoji" :key="index">-->
-                  <!--<img :src="item.file" :data="item.code" v-on:click="content+=item.code">-->
-                <!--</li>-->
-              <!--</mt-swipe-item>-->
-            <!--</mt-swipe>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</transition>-->
     </div>
     <!-- 提示音 -->
-    <audio style="display:none"  preload="metadata" controls="controls" autoplay="autoplay" ref="hintAudio">
+    <audio  style="display:none" preload="metadata" controls="controls" autoplay="autoplay" ref="hintAudio">
       <source :src="myaudio" type="audio/mpeg"/>
     </audio>
-    <!--&lt;!&ndash; 右上角的通话小窗口 &ndash;&gt;-->
-    <!--<div class="xw-samll-pop-wrap animated bounceInUp" v-if="showNarrowPopVal">-->
-      <!--<span class="xw-big-pop" @click="showBigPopFuc">显示大窗</span>-->
-    <!--</div>-->
-    <!--&lt;!&ndash; 客服窗口 &ndash;&gt;-->
-    <!--<div class="xw-pop-server animated bounceInRight" v-if="videoVal">-->
-      <!--<h5>客服</h5>-->
-      <!--<span class="xw-narrow-pop" @click="showNarrowPopFuc">显示小窗</span>-->
-    <!--</div>-->
-    <!-- 顾客窗口 -->
-    <!--<div class="xw-pop-customer animated bounceInLeft" v-if="videoVal">-->
-      <!--顾客-->
-      <!--<div>-->
-        <!--<a class="xw-hang-up" href="#"><img src="/static/images/hang-up.png" class="xw-hang-up-icon"></a>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;客服评分&ndash;&gt;-->
-    <!--<evaluate :ScoreDB="ScoreDB" :showScore="showScore" @on-star="selectStar" @confirm-star="confrmStar">-->
-    <!--</evaluate>-->
-    <!--<Toast :showToast="showToast">{{toastText}}</Toast>-->
+    <audio id="audio" preload="auto">
+      <source :src="myaudio" type="audio/mpeg"/>
+    </audio>
   </div>
 </template>
 
@@ -143,7 +88,7 @@ export default {
       showMoreOpratin: false,
       toShowMaskInfo: false,
       bellStatus: true,
-      myaudio: '../../../assets/msg.mp3',
+      myaudio: '../../../static/msg.mp3',
       videoVal: false,
       showNarrowPopVal: false,
       testContents: ['"今天天气不错', '这个问题还没遇到过', '你说什么，我听不明白', '今天周五了', '请稍后--', '当前客服忙', '您还有什么咨询的吗', '正在查询', 'gone with the wind'],
@@ -151,14 +96,13 @@ export default {
       records: [{
         type: 1,
         time: new Date().toLocaleTimeString(),
-
-        content: '您好！欢迎来到小薇客服，请问有什么能帮到您？如有疑问请在线咨询或者拨打400-926-2012咨询！感谢您的支持! '
+        content: 'Hello！Welcome to Hibernia-Sino, what can do for you? If you have any questions, please contact us online or call us. '
 
       },
       {
         type: 2,
         time: new Date().toLocaleTimeString(),
-        content: '谢谢您的帮助'
+        content: 'Thanks for your help'
       }],
       showScore: false,
       ScoreDB: {
@@ -192,13 +136,6 @@ export default {
     showInfo () {
       this.toShowMaskInfo = true
     },
-    emojiFuc () {
-      this.showEmoji = !this.showEmoji
-    },
-    videoFuc () {
-      this.videoVal = true
-      this.showNarrowPopVal = false
-    },
     hint (staus) {
       if (staus !== undefined) {
         this.bellStatus = !this.bellStatus
@@ -223,6 +160,8 @@ export default {
         content: content,
         type: 2
       })
+      let audio = document.querySelector('#audio')
+      audio.play()
       this.content = ''
       setTimeout(() => {
         this.hint()
@@ -274,30 +213,10 @@ export default {
         this.showToast = false
       }, 2000)
     },
-    // scrollToBottom () {
-    //   setTimeout(() => {
-    //     var currentDistance=this.$refs.xwBody.scrollHeight-this.$refs.xwBody.clientHeight
-    //     var currentScroll_y=this.$refs.xwBody.scrollTop
-    //     if(currentDistance>0 && currentDistance>currentScroll_y){
-    //       currentScroll_y=Math.ceil((currentDistance-currentScroll_y)/10)+currentScroll_y;
-    //       currentScroll_y=currentScroll_y>currentDistance ? currentDistance: currentScroll_y;
-    //       // 微信和qq浏览器不支持 scrollTo？
-    //       // this.$refs.xwBody.scrollTo(0,currentScroll_y);
-    //       this.$refs.xwBody.scrollTop = currentScroll_y;
-    //       this.scrollToBottom();
-    //     }
-    //
-    //   },13);
-    //
-    // },
     onFocusText () {
       this.scrollToBottom()
     },
     _loadEmojiData () {
-      // getEmojiData().then((res) => {
-      //   var json = eval( '(' + res + ')')
-      //   this.EXPS=json.EXPS.slice(0)
-      // })
     }
   }
 }
@@ -713,7 +632,7 @@ export default {
   }
   .xw-footer-content {
     position: relative;
-    height: 52px;
+    height: 60px;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.05) 0px -1px 4px;
   }
@@ -728,15 +647,17 @@ export default {
     line-height: 14px;
     border: none;
     resize: none;
-    padding: 16px 85px 16px 14px;
+    padding: 16px 14px 16px 14px;
     font-family: inherit;
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
+    width: 80%;
   }
   .xw-chat-tool {
     position: absolute;
     right: 0px;
+    margin-right: 10%;
     bottom: 0;
     z-index: 2;
   }
@@ -770,7 +691,7 @@ export default {
   .xw-chat-tool-item .xw-window-text {
     position: absolute;
     bottom: 100%;
-    left: 50%;
+    left: 40%;
     margin-bottom: -3px;
     -webkit-transform: translateX(-60%);
     transform: translateX(-60%);
