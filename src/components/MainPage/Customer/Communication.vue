@@ -426,12 +426,7 @@ export default {
     padding: 0 2px;
     z-index: 4;
   }
-  .xw-ring-icon {
-    background: url(/src/assets/soundOn.svg) no-repeat 50%;
-  }
-  .xw-ring-icon-toggle{
-    background: url(/src/assets/soundClose.svg) no-repeat 50%;
-  }
+
   .xw-ring-icon {
     float: right;
     padding: 5px;
@@ -682,12 +677,7 @@ export default {
     transform: translateZ(0);
     margin-left: 10px;
   }
-  .xw-chat-tool-btn.xw-face {
-    background: url(/src/assets/smileOn.svg) no-repeat 50%;
-  }
-  .xw-chat-tool-btn.xw-face-close {
-    background: url(/src/assets/smileClose.svg) no-repeat 50%;
-  }
+
   .xw-chat-tool-item .xw-window-text {
     position: absolute;
     bottom: 100%;
@@ -761,20 +751,6 @@ export default {
     height: 52px;
     position: relative;
     float: left;
-  }
-  .xw-hide-operation{
-    background: url(/src/assets/addOn.svg) no-repeat 50%;
-    width: 38px;
-    height: 38px;
-    margin-right:10px;
-    transform:scale(.7);
-  }
-  .xw-hide-operation-close{
-    background: url(/src/assets/addClose.svg) no-repeat 50%;
-    width: 38px;
-    height: 38px;
-    margin-right:10px;
-    transform:scale(.7);
   }
   .xw-chat-tool-item .xw-window-text span {
     display: block;
@@ -854,77 +830,6 @@ export default {
     word-wrap: break-word;
     text-align: left;
     overflow: auto;
-  }
-  .xw-faceEmoji{
-    margin-bottom: 7px;
-    width:20%;
-    float: left;
-  }
-  .xw-faceEmoji-main{
-    text-align: center;
-  }
-  .xw-samll-pop-wrap{
-    position: absolute;
-    height: 160px;
-    width: 30%;
-    top: 0;
-    right: 0;
-    background-size: 100% 100%;
-    background: url(/src/assets/s.jpg) no-repeat;
-    z-index: 1000;
-  }
-  .xw-pop-server{
-    background: url(/src/assets/s.jpg) no-repeat;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-  }
-  .xw-pop-customer{
-    position:absolute;
-    bottom: 20px;
-    width: 80%;
-    height: 200px;
-    background: url(/src/assets/c.jpg) no-repeat;
-    z-index: 101;
-    left:50%;
-    margin-left: -40%;
-    text-align: center;
-  }
-  .xw-narrow-pop{
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    display: inline-block;
-    background: red;
-    color: #fff;
-    text-align: center;
-  }
-  .xw-big-pop{
-    display:block;
-    background: red;
-    color: #fff;
-    line-height: 40px;
-    text-align: center;
-  }
-  .xw-hang-up{
-    background: red;
-    width: 100px;
-    height: 34px;
-    display: inline-block;
-    border-radius: 20%;
-    position: absolute;
-    bottom: 10px;
-    transform:translateX(-50%);
-  }
-  .xw-hang-up-icon{
-    position: relative;
-    z-index: 1290;
-    width: 40px;
-    height: 34px;
   }
   .xw-chat-msg span img{
     vertical-align: middle;
