@@ -3,12 +3,12 @@
     <h1>{{ $t('personal.personal')}}</h1>
 
     <form action="" method="post" autocomplete="off" data-form="ajax" >
-      <dl>
-        <dd>
-          <label for ="username" >{{ $t('personal.name')}}</label>
-          <input type="text" name="用户名" id="username" :value="username" class="input">
-        </dd>
-      </dl>
+      <!--<dl>-->
+        <!--<dd>-->
+          <!--<label for ="username" >{{ $t('personal.name')}}</label>-->
+          <!--<input type="text" name="用户名" id="username" :value="userid" class="input">-->
+        <!--</dd>-->
+      <!--</dl>-->
       <!--<dl>-->
       <!--<dd>-->
       <!--<label for ="sex" >*Sex</label>-->
@@ -58,7 +58,7 @@ export default {
   name: 'PersonalDetail',
   data () {
     return {
-      username: 'Default',
+      userid: 'Default',
       password: 'Default',
       first_name: 'Default',
       last_name: 'Default',
@@ -72,7 +72,7 @@ export default {
     this.last_name = this.$route.params.last_name
     this.first_name = this.$route.params.first_name
     this.password = this.$route.params.password
-    this.username = this.$route.params.username
+    this.userid = this.$route.params.userid
   }
 }
 </script>

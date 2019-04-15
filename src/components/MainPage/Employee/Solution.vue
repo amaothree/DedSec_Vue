@@ -49,22 +49,6 @@ export default {
       this.array = res.data
       console.log(this.array)
     })
-    // var self = this
-    // axios({
-    //   url: '/api/luggage/all',
-    //   type: 'GET',
-    //   dataType: 'JSONP',
-    //   success: function (res) {
-    //     self.array = res
-    //     console.log(res)
-    //   }
-    // })
-    // $.getJSON('/api/luggage/all', function (result) {
-    //   $.each(result, function (i, field) {
-    //     this.array = result
-    //     console.log(result)
-    //   })
-    // })
   }
 }
 </script>

@@ -79,7 +79,7 @@ export default {
         {
           name: 'PersonalDetail',
           params: {
-            username: this.username,
+            userid: this.id,
             password: this.password,
             first_name: this.first_name,
             last_name: this.last_name,
