@@ -117,7 +117,6 @@ export default {
   }
   .register {
     width: 432px;
-    background: #ffffff;
     position: absolute;
     left: 50%;
     top: 50%;

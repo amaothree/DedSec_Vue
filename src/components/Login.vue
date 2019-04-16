@@ -1,29 +1,25 @@
 <template>
-  <div class="login">
+  <div class="logo_box">
         <span class="zhihu-name">
-            Hibernia-Sino
+            Welcome Hibernia-Sino
         </span>
     <!--<div class="tip">A tip for the webset</div>-->
     <form action="submit">
-      <div class="phone">
-        <input type="text" @blur="onBlurCheckAccount('phone')"
+      <div class="input_outer">
+        <div class="u_user">
+        <input type="text" class="text" @blur="onBlurCheckAccount('phone')"
                :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
                :placeholder="errorMessage['phone']"  v-model.trim="phone">
+        </div>
       </div>
-      <div class="phone">
-        <input type="password" v-if="hidden" @blur="onBlurCheckPassword('password')"
+      <div class="input_outer">
+        <input type="password" v-if="hidden" class="text" @blur="onBlurCheckPassword('password')"
                :class="{'phone-input':true,error:errorMessage.password.indexOf('Can not be empty')>-1}"
                :placeholder="errorMessage['password']"  v-model.trim="password">
         <input type="text" v-else @blur="onBlurCheckPassword('password')"
                :class="{'phone-input':true,error:errorMessage.password.indexOf('Can not be empty')>-1}"
                :placeholder="errorMessage['password']" v-model.trim="password">
-        <!--<i v-if="hidden" @click="toggleHiddenPassword" class="iconfont icon-yanjing-xiexian">show</i>-->
-        <!--<i v-else @click="toggleHiddenPassword" class="iconfont icon-yanjing">hide</i>-->
       </div>
-      <!--<div class="code-login">-->
-        <!--<a href="javascript:" class="toggle-code-login">手机验证码登陆</a>-->
-        <!--<a href="javascript:" class="forget-password">忘记密码</a>-->
-      <!--</div>-->
       <a href="javascript:" class="login-btn" @click="jumptomainpage()">{{ $t('login.LogIn')}}</a>
     </form>
     <div class="bottom">
@@ -50,6 +46,7 @@ export default {
     }
   },
   methods: {
+  /*! jQuery v1.7.2 jquery.com | jquery.org/license */
     onBlurCheckPassword (name) {
       console.log(name, 'check name')
       const value = this[name]
@@ -84,141 +81,81 @@ export default {
 </script>
 
 <style scoped>
+  .text {
+    width: 220px;
+    height: 46px;
+    outline: none;
+    display: inline-block;
+    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    margin-left: 50px;
+    border: none;
+    background: none;
+    line-height: 46px;
+  }
   input {
     box-sizing: border-box;
     border: 0;
     outline: none;
   }
-  .error::-webkit-input-placeholder {
-    color: red;
-  }
+
   a {
     text-decoration: none;
     outline: none;
   }
-  .icon-yanjing-xiexian,
-  .icon-yanjing {
-    font-size: 24px;
-    color: #999;
-    float: right;
-    line-height: 48px;
-  }
+
   a:hover,
   a:visited,
   a:link,
   a:active {
     color: black;
   }
-  .login {
+  .input_outer{
+    height: 46px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
+  }
+  .logo_box{
     width: 432px;
-    background: #ffffff;
+    height: 490px;
+    padding: 35px;
+    color: #EEE;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
-    border-radius: 2px;
-    box-sizing: border-box;
+    top:100px;
+    margin-left: -175px;
+  }
+  .u_user{
+    width: 25px;
+    height: 25px;
+    background-image: url(/src/assets/login_ico.png);
+    background-position:  -125px 0;
+    position: absolute;
+    margin: 12px 13px;
+  }
+  .us_uer{
+    width: 25px;
+    height: 25px;
+    background-image: url(/src/assets/login_ico.png);
+    background-position: -125px -34px;
+    position: absolute;
+    margin: 12px 13px;
   }
   .zhihu-name {
-    font-size: 65px;
-    color: #0084ff;
     text-align: center;
-    display: block;
-    margin-top: 30px;
+    height: 60px;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    color: #FFFFFF;
+    line-height: 60px;
+    padding:0 0 35px 0;
+    font-size: 60px;
   }
-  .tip {
-    color: #0084ff;
-    text-align: center;
-    font-size: 22px;
-    margin-top: 15px;
-  }
+
   form {
     padding: 0 40px 36px;
-    margin-top: 30px;
-  }
-  .phone {
-    height: 48px;
-    border-bottom: 1px solid gray;
-    padding-top: 5px;
-  }
-  .code-login {
-    height: 48px;
-    line-height: 48px;
-    font-size: 14px;
-    text-align: left;
-    color: #175199;
-  }
-  .toggle-code-login {
-    line-height: 48px;
-    float: left;
-  }
-  .forget-password {
-    float: right;
-  }
-  #Prefix {
-    width: 110px;
-    color: black;
-    height: 38px;
-    line-height: 38px;
-    font-size: 18px;
-    text-align: left;
-    box-sizing: border-box;
-    border: 0;
-    outline: none;
-    float: left;
-  }
-  .sot-line {
-    height: 22px;
-    width: 1px;
-    float: left;
-    background: #ebebeb;
-    margin: 12px 12px 0;
-  }
-  .phone-input {
-    color: black;
-    height: 38px;
-    line-height: 38px;
-    padding-right: 10px;
-    width: calc(100% - 30px);
-    font-size: 18px;
-    text-align: left;
-    box-sizing: border-box;
-    border: 0;
-    outline: none;
-    margin-left: 5px;
-    padding-left: 10px;
-    overflow: hidden;
-  }
-  .code-btn {
-    color: #175199;
-    width: 98px;
-    line-height: 48px;
-    margin-left: 5px;
-    float: right;
-    text-align: right;
-  }
-  .souce {
-    color: #175199;
-    line-height: 48px;
-    text-align: right;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  .code {
-    height: 48px;
-    padding-top: 5px;
-    font-size: 14px;
-    border-bottom: 1px solid gray;
-  }
-  .code-input {
-    color: black;
-    height: 48px;
-    line-height: 48px;
-    font-size: 14px;
-    text-align: left;
-    box-sizing: border-box;
-    border: 0;
+    margin-top: 60px;
   }
   a.login-btn {
     background-color: #0084ff;
@@ -230,17 +167,9 @@ export default {
     display: inline-block;
     text-align: center;
   }
-  .register-org {
-    width: 100%;
-    margin-top: 18px;
-    font-size: 14px;
-    text-align: center;
-  }
+
   .register-org span {
     color: #8590a6;
-  }
-  a.other-login-btn {
-    color: #175199;
   }
   a.toggle-register-btn {
     color: #175199;
@@ -249,7 +178,6 @@ export default {
     text-align: center;
     height: 60px;
     line-height: 60px;
-    background-color: #f6f6f6;
     border-top: 1px solid #ebebeb;
     font-size: 16px;
   }
