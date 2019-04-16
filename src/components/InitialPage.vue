@@ -64,12 +64,12 @@ export default {
 
 <style scoped>
   .main {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
   }
   .initial{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
   }
@@ -85,8 +85,8 @@ export default {
     position: fixed;
     z-index: 10;
     font-size: 120%;
-    top: 25%;
-    right: 40%;
+    top: 0%;
+    right: 0%;
 
   }
 
