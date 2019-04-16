@@ -4,7 +4,7 @@
   <div class="top">
       <ul>
         <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
-        <li><a href="#" @click="jumptomainpage()"><b>{{ $t('message.server')}}</b></a></li>
+        <li><a href="#" @click="jumptoCommunicaton()"><b>{{ $t('message.server')}}</b></a></li>
         <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
       </ul>
   </div>
@@ -20,7 +20,7 @@
         <li class="a2">
           <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
           <dl><dd><a href="#"><router-link to="/Claim"><img src="../../../assets/Claim.png" alt="Claim">{{ $t('navigate.Register')}}</router-link></a></dd></dl>
-          <dl><dd><a href="#"><router-link to="/ProcessingProgress"><img src="../../../assets/Progress.png" alt="Progress">{{ $t('navigate.Process')}}</router-link></a></dd></dl>
+          <dl><dd><a href="#" @click="jumptoProgress()"><img src="../../../assets/Progress.png" alt="Progress">{{ $t('navigate.Process')}}</a></dd></dl>
         </li>
         <li class="a3">
           <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
@@ -39,12 +39,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'CustomerNav',
   data () {
     return {
       locale: 'en',
-      lang: '中文'
+      lang: '中文',
+      id: 0
     }
   },
   methods: {
@@ -60,10 +62,20 @@ export default {
       this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
       window.location.reload() // 进行刷新改变cookie里的值
     },
-    jumptomainpage () {
+    jumptoCommunicaton () {
       this.$router.push(
         {
           path: '/Communication'
+        }
+      )
+    },
+    jumptoProgress () {
+      this.$router.push(
+        {
+          name: 'ProcessingProgress',
+          params: {
+            userid: this.id
+          }
         }
       )
     }
@@ -76,13 +88,17 @@ export default {
       this.locale = 'en'
       this.lang = '中文'
     }
-    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
   },
   watch: {
     locale (val) {
       this.$i18n.locale = val
       console.log('locale', val)
     }
+  },
+  created: function () {
+    axios.get('/api/login/getUser?username=wuqiannian').then((res) => {
+      this.id = res.data.id
+    })
   }
 }
 

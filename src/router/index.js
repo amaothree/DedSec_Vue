@@ -12,6 +12,7 @@ import EmployeeDetail from '@/components/MainPage/Employee/EmployeeDetail'
 import Decision from '@/components/MainPage/Employee/Decision'
 import PersonalInformation from '@/components/MainPage/Customer/PersonalInformation'
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
+import ClaimProgessDetail from '@/components/MainPage/Customer/ClaimProgessDetail'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -54,6 +55,11 @@ export default new Router({
           path: '/Communication',
           name: 'Communication',
           component: Communication
+        },
+        {
+          path: '/ClaimProgessDetail',
+          name: 'ClaimProgessDetail',
+          component: ClaimProgessDetail
         }
       ]
     },

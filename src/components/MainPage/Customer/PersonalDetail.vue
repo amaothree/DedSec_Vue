@@ -2,7 +2,7 @@
   <div class="Personal" >
     <h1>{{ $t('personal.personal')}}</h1>
 
-    <form action="" method="post" autocomplete="off" data-form="ajax" >
+    <form>
       <!--<dl>-->
         <!--<dd>-->
           <!--<label for ="username" >{{ $t('personal.name')}}</label>-->
@@ -21,39 +21,40 @@
       <dl>
         <dd>
           <label for ="first_name" >{{ $t('personal.FirstName')}}</label>
-          <input type="text" name="名" id="first_name" :value="first_name" class="input">
+          <input type="text" name="名" id="first_name" v-model="first_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="last_name" >{{ $t('personal.LastName')}}</label>
-          <input type="text" name="姓" id="last_name" :value="last_name" class="input">
+          <input type="text" name="姓" id="last_name" v-model="last_name" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="password" >{{ $t('personal.Password')}}</label>
-          <input type="password" name="密码" id="password" :value="password" class="input">
+          <input type="password" name="密码" id="password" v-model="password" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="phone" >{{ $t('personal.Phone')}}</label>
-          <input type="text" name="联系方式" id="phone" :value="phone" class="input">
+          <input type="text" name="联系方式" id="phone" v-model="phone" class="input">
         </dd>
       </dl>
       <dl>
         <dd>
           <label for ="email" >{{ $t('personal.Email')}}</label>
-          <input type="text" name="邮箱" id="email" value="email" class="input">
+          <input type="text" name="邮箱" id="email" v-model="email" class="input">
         </dd>
       </dl>
-      <input type="submit" :value=" $t('personal.submit')" class="submit">
+      <input type="submit" :value=" $t('personal.submit')" class="submit" @click="modifyPersonalDetail">
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'PersonalDetail',
   data () {
@@ -73,6 +74,30 @@ export default {
     this.first_name = this.$route.params.first_name
     this.password = this.$route.params.password
     this.userid = this.$route.params.userid
+  },
+  methods: {
+    modifyPersonalDetail: function () {
+      axios('/api/user/modify', {
+        params: {
+          id: this.userid,
+          password: this.password,
+          fname: this.first_name,
+          lname: this.last_name,
+          phone: this.phone,
+          email: this.email
+        }
+      }).then(function (response) {
+        console.log(response)
+        alert('Submit Successfully')
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for this submission.')
+      })
+      this.$router.push(
+        {
+          name: 'PersonalInformation'
+        })
+    }
   }
 }
 </script>
