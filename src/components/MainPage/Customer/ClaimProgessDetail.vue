@@ -4,28 +4,49 @@
     <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
     <span class="status"><span>Status :&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
     <div class="message" style=" overflow:scroll;">{{message}}</div>
-    <button class="delete">Delete</button><button class="back" @click="jumpBack()">Back</button>
+    <button class="delete" @click="deleteclaim(id)">Delete</button><button class="back" @click="jumpBack()">Back</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'ClaimProgessDetail',
   data () {
     return {
       type: 'Default',
       message: 'Default',
       subject: 'Default',
-      status: 0
+      status: 0,
+      id: 0
     }
   },
   methods: {
-    jumpBack(){
+    jumpBack () {
       this.$router.push(
         {
           name: 'ProcessingProgress'
         }
       )
+    },
+    deleteclaim (id) {
+      axios('/api/luggage/delete', {
+        params: {
+          id: id
+        }
+      }).then(function (response) {
+        alert(response.data)
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for removing the claim.')
+      })
+      this.$router.push(
+        {
+          path: '/ProcessingProgress'
+        }
+      )
+      this.reload()
     }
   },
   created () {
@@ -33,6 +54,7 @@ export default {
     this.message = this.$route.params.message
     this.subject = this.$route.params.subject
     this.status = this.$route.params.status
+    this.id = this.$route.params.id
   }
 }
 </script>

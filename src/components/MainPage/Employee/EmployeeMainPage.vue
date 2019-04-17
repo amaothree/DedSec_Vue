@@ -3,7 +3,7 @@
   <img src="../../../assets/background.png" alt="Background" class="back">
   <div class="top">
     <ul>
-      <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
+      <li><a href="../"><b>{{ $t('message.exit') }}</b></a></li>
       <li><a href="#"><b>{{ $t('message.server')}}</b></a></li>
       <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
     </ul>
@@ -13,19 +13,19 @@
       <h2><a href="#"><strong><img src="../../../assets/logo.png" alt="Logo" class="logo"></strong><i>&nbsp;</i></a></h2>
       <ul class="jspop box">
         <li class="a1">
-          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Renew')}}</a> </div>
-          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy1')}}</a></dd></dl>
-          <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy2')}}</a></dd></dl>
+          <div class="tx"><a><i>&nbsp;</i>{{ $t('navigate.Renew')}}</a> </div>
+          <dl><dd><a><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy1')}}</a></dd></dl>
+          <dl><dd><a><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy2')}}</a></dd></dl>
         </li>
         <li class="a2">
-          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
-          <dl><dd><a href="#"><router-link to="/Solution"><img src="../../../assets/Handle.png" alt="Handle">{{ $t('navigate.DealWithClaims')}}</router-link></a></dd></dl>
+          <div class="tx"><a><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
+          <dl><dd><a><router-link to="/Solution"><img src="../../../assets/Handle.png" alt="Handle">{{ $t('navigate.DealWithClaims')}}</router-link></a></dd></dl>
           <!--<dl><dd><a href=""><router-link to="/ProcessingProgress">Processing Progress</router-link></a></dd></dl>-->
         </li>
         <li class="a3">
-          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
+          <div class="tx"><a><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
           <dl>
-            <dd><a href="#"><router-link to="/EmployeeInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">{{ $t('navigate.Personal')}}</router-link></a></dd>
+            <dd><a><router-link to="/EmployeeInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">{{ $t('navigate.Personal')}}</router-link></a></dd>
           </dl>
         </li>
       </ul>

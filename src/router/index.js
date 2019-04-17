@@ -15,6 +15,7 @@ import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformat
 import ClaimProgessDetail from '@/components/MainPage/Customer/ClaimProgessDetail'
 Vue.use(Router)
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

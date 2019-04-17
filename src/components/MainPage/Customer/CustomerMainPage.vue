@@ -3,7 +3,7 @@
   <img src="../../../assets/background.png" alt="Background" class="back">
   <div class="top">
       <ul>
-        <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
+        <li><a href="../"><b>{{ $t('message.exit') }}</b></a></li>
         <li><a href="#" @click="jumptoCommunicaton()"><b>{{ $t('message.server')}}</b></a></li>
         <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
       </ul>
@@ -18,14 +18,14 @@
           <dl><dd><a href="#"><img src="../../../assets/Policy.png" alt="Policy">{{ $t('navigate.Policy2')}}</a></dd></dl>
         </li>
         <li class="a2">
-          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
-          <dl><dd><a href="#"><router-link to="/Claim"><img src="../../../assets/Claim.png" alt="Claim">{{ $t('navigate.Register')}}</router-link></a></dd></dl>
-          <dl><dd><a href="#" @click="jumptoProgress()"><img src="../../../assets/Progress.png" alt="Progress">{{ $t('navigate.Process')}}</a></dd></dl>
+          <div class="tx"><a><i>&nbsp;</i>{{ $t('navigate.Communication')}}</a> </div>
+          <dl><dd><a><router-link to="/Claim"><img src="../../../assets/Claim.png" alt="Claim">{{ $t('navigate.Register')}}</router-link></a></dd></dl>
+          <dl><dd><a @click="jumptoProgress()"><img src="../../../assets/Progress.png" alt="Progress">{{ $t('navigate.Process')}}</a></dd></dl>
         </li>
         <li class="a3">
-          <div class="tx"><a href="#"><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
+          <div class="tx"><a><i>&nbsp;</i>{{ $t('navigate.Setting')}}</a> </div>
           <dl>
-            <dd><a href="#"><router-link to="/PersonalInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">{{ $t('navigate.Personal')}}</router-link></a></dd>
+            <dd><a><router-link to="/PersonalInformation"><img src="../../../assets/PersonalDetail.png" alt="PersonalDetail">{{ $t('navigate.Personal')}}</router-link></a></dd>
           </dl>
         </li>
       </ul>

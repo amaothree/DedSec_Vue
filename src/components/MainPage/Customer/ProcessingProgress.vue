@@ -9,8 +9,8 @@
         <div class="progress">
           <b class="subject"><p>{{ arr.subject }}</p></b>
           <b class="status"><p>{{arr.status}}</p></b>
-          <button class="detail" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status)">{{ $t('ProcessBar.Detail')}}</button>
-          <button class="delete"> {{ $t('ProcessBar.Delete')}}</button><br>
+          <button class="detail" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id)">{{ $t('ProcessBar.Detail')}}</button>
+          <button class="delete" @click="deleteclaim(arr.id)"> {{ $t('ProcessBar.Delete')}}</button><br>
           <hr>
         </div>
       </div>
@@ -20,6 +20,7 @@
 <script>
 import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'ProcessingProgress',
   data () {
     return {
@@ -28,7 +29,7 @@ export default {
     }
   },
   methods: {
-    jumptoDetail (type, message, subject, status) {
+    jumptoDetail (type, message, subject, status, id) {
       this.$router.push(
         {
           name: 'ClaimProgessDetail',
@@ -36,10 +37,24 @@ export default {
             type: type,
             message: message,
             subject: subject,
-            status: status
+            status: status,
+            id: id
           }
         }
       )
+    },
+    deleteclaim (id) {
+      axios('/api/luggage/delete', {
+        params: {
+          id: id
+        }
+      }).then(function (response) {
+        alert(response.data)
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for removing the claim.')
+      })
+      this.reload()
     }
   },
   created () {
