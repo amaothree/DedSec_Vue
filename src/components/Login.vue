@@ -1,7 +1,7 @@
 <template>
   <div class="logo_box">
         <span class="title">
-            Welcome Hibernia-Sino
+            Hibernia-Sino
         </span>
     <form action="submit">
       <div class="input_outer">
@@ -83,7 +83,7 @@ export default {
   .title{
     text-align: center;
     height: 20px;
-    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    font: 40px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
     color: #FFFFFF;
     line-height: 60px;
     padding:0 0 35px 0;
@@ -157,7 +157,7 @@ export default {
   .sas a{
     width: 280px;
     height: 18px;
-    color: #FFFFFF;
+    color: blue;
     text-align: center;
     line-height: 18px;
     text-decoration: none;
