@@ -6,6 +6,10 @@
       <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
       <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <div class="message" style=" overflow:scroll;">{{message}}</div>
+      <label class="returnMessage">
+        <span>{{ $t('claim.Message')}}</span>
+        <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
+      </label>
       <button class="approve" @click="setApprove">{{ $t('Decision.Approve')}}</button><button class="deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
     </div>
 </template>
@@ -60,6 +64,7 @@ export default {
     background-color: rgba(255,255,255,0.4);
     /*border-radius: 5px;*/
     text-align: left;
+    overflow: auto;
   }
  .id{
    position: absolute;
@@ -70,18 +75,28 @@ export default {
    width: 10%;
   }
   .message{
+     position: absolute;
+     margin-left: 10%;
+     margin-top: 150px;
+     border: 1px solid #DADADA;
+     background-color: #FFF;
+     border-radius: 5px;
+     width: 80%;
+     height: 40%;
+     font-size: 16px;
+     text-align: center;
+   }
+  .returnMessage{
     position: absolute;
     margin-left: 10%;
-    margin-top: 150px;
+    margin-top: 400px;
     border: 1px solid #DADADA;
     background-color: #FFF;
     border-radius: 5px;
-    width: 80%;
-    height: 60%;
     font-size: 16px;
     text-align: center;
+    width: 80%;
   }
-
   .approve{
     position: absolute;
     margin-left: 30%;

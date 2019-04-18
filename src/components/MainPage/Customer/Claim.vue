@@ -23,6 +23,59 @@
         <span>{{ $t('claim.Message')}}</span>
         <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
       </label>
+      <label>Deliver</label>
+      <label>
+        <span>Name of Recipient</span>
+        <input type="text">
+        <span>Phone</span>
+        <input type="text">
+      </label>
+      <label>
+        <span>Country</span>
+        <select name="select2" class="select1" v-model="lug_type">
+          <optgroup label="Europe">
+            <option value="England">England</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Iceland">Iceland</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Italy">Italy</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Russia">Russia</option>
+          </optgroup>
+          <optgroup label="Asia">
+            <option value="China">China</option>
+            <option value="Japan">Japan</option>
+            <option value="Korea">Korea</option>
+          </optgroup>
+          <optgroup label="America">
+          <option value="America">America</option>
+          <option value="Canada">Canada</option>
+          <option value="Chile">Chile</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Argentina">Argentina</option>
+        </optgroup>
+          <optgroup label="Pacific">
+            <option value="New Zealand">New Zealand</option>
+            <option value="Australia">Australia</option>
+          </optgroup>
+          <optgroup label="Africa">
+            <option value="South Africa">South Africa</option>
+            <option value="Egypt">Egypt</option>
+          </optgroup>
+        </select>
+      </label>
+      <label>
+        <span>City</span>
+        <input type="text">
+        <span>District</span>
+        <input type="text">
+        <span>Specific Address</span>
+        <input type="text">
+        <span>Postal Code</span>
+        <input type="text">
+      </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
         <input type="button" @click="addluggage" :value="$t('claim.Send')">
@@ -45,7 +98,6 @@ export default {
   methods: {
     addluggage: function () {
       console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-
       axios('/api/luggage/add', {
         params: {
           subject: this.lug_subject,
@@ -74,6 +126,7 @@ export default {
     background: rgba(255,255,255,0.4);
     height: 100%;
     width:100%;
+    overflow: auto;
   }
   .Content-Main h1{
     display: block;

@@ -4,6 +4,10 @@
     <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
     <span class="status"><span>Status :&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
     <div class="message" style=" overflow:scroll;">{{message}}</div>
+    <label class="returnMessage">
+      <span>{{ $t('claim.Message')}}</span>
+      <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
+    </label>
     <button class="delete" @click="deleteclaim(id)">Delete</button><button class="back" @click="jumpBack()">Back</button>
   </div>
 </template>
@@ -85,9 +89,20 @@ export default {
     background-color: #FFF;
     border-radius: 5px;
     width: 80%;
-    height: 60%;
+    height: 40%;
     font-size: 16px;
     text-align: center;
+  }
+  .returnMessage{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 400px;
+    border: 1px solid #DADADA;
+    background-color: #FFF;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    width: 80%;
   }
 
   .delete{
@@ -104,13 +119,6 @@ export default {
     font-size: 20px;
     bottom:0;
   }
-  /*.type{*/
-    /*position: absolute;*/
-    /*float: left;*/
-    /*margin-left:67%;*/
-    /*font-size: 16px;*/
-    /*padding: 3%;*/
-  /*}*/
   .type{
     position: absolute;
     /*float: left;*/
