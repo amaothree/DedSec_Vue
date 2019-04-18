@@ -10,8 +10,7 @@
       </div>
       <div class="input_outer">
         <span class="us_uer"></span>
-        <label class="l-login login_password" style="color: rgb(255, 255, 255);display: block;">输入密码</label>
-        <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" onFocus="$('.login_password').hide()" onBlur="if(this.value=='') $('.login_password').show()" value="" type="password">
+        <input name="logpass" class="text" style="color: #FFFFFF !important; z-index:100;" onFocus="$('.login_password').hide()" onBlur="if(this.value=='') $('.login_password').show()" value="" type="password">
       </div>
       <div class="mb2"><a class="act-but submit" href="javascript:" @click="jumptomainpage()" style="color: #FFFFFF">{{ $t('login.LogIn')}}</a>
       </div>
