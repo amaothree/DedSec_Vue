@@ -4,7 +4,7 @@
       <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
     </div>
     <div class="initial">
-      <img src="../assets/blue.png" alt="Background">
+      <img src="../assets/newbackground.jpg" alt="Background">
       <component :toggleComponent="toggleComponent" :is="typeName"></component>
     </div>
   </div>
@@ -64,12 +64,12 @@ export default {
 
 <style scoped>
   .main {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
   }
   .initial{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
   }
@@ -81,13 +81,13 @@ export default {
   .top{
     /* 设置宽度高度背景颜色 */
     height: 100px; /*高度改为自动高度*/
-    width:100%;
     text-align: right;
     position: fixed;
     z-index: 10;
     font-size: 120%;
-    top: 30%;
-    right: 40%;
+    top: 0%;
+    right: 0%;
 
   }
+
 </style>
