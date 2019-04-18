@@ -133,7 +133,7 @@ $(function () {
   body,html{height: 100%;background: #E2E2E2}
   body,ul{margin:0;padding:0}
   body{font:20px "微软雅黑","宋体","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;}
-  li{list-style:none}
+  li{list-style:none; display:inline; margin-right: 10%;}
   a{text-decoration:none;}
   .nav{width: 300px;height: 100%;background: #263238;transition: all .3s;text-align: left}
   .nav a{display: block;overflow: hidden;padding-left: 20px;line-height: 46px;max-height: 46px;color: #ABB1B7;transition: all .3s;}
@@ -184,5 +184,9 @@ $(function () {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+.top{
+  margin-left:80%;
+  font-size: 25px;
+}
 
 </style>
