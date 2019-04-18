@@ -5,8 +5,7 @@
     <span class="status"><span>Status :&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
     <div class="message" style=" overflow:scroll;">{{message}}</div>
     <label class="returnMessage">
-      <span>{{ $t('claim.Message')}}</span>
-      <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
+      <div id="message" name="message">{{returnmessage}}</div>
     </label>
     <button class="delete" @click="deleteclaim(id)">Delete</button><button class="back" @click="jumpBack()">Back</button>
   </div>
@@ -23,7 +22,8 @@ export default {
       message: 'Default',
       subject: 'Default',
       status: 0,
-      id: 0
+      id: 0,
+      returnmessage: 'Default'
     }
   },
   methods: {
@@ -59,6 +59,7 @@ export default {
     this.subject = this.$route.params.subject
     this.status = this.$route.params.status
     this.id = this.$route.params.id
+    this.returnmessage = this.$route.params.reply
   }
 }
 </script>

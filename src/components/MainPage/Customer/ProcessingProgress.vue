@@ -9,7 +9,7 @@
         <div class="progress">
           <b class="subject"><p>{{ arr.subject }}</p></b>
           <b class="status"><p>{{arr.status}}</p></b>
-          <button class="detail" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id)">{{ $t('ProcessBar.Detail')}}</button>
+          <button class="detail" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply)">{{ $t('ProcessBar.Detail')}}</button>
           <button class="delete" @click="deleteclaim(arr.id)"> {{ $t('ProcessBar.Delete')}}</button><br>
           <hr>
         </div>
@@ -29,7 +29,7 @@ export default {
     }
   },
   methods: {
-    jumptoDetail (type, message, subject, status, id) {
+    jumptoDetail (type, message, subject, status, id, reply) {
       this.$router.push(
         {
           name: 'ClaimProgessDetail',
@@ -38,7 +38,8 @@ export default {
             message: message,
             subject: subject,
             status: status,
-            id: id
+            id: id,
+            reply: reply
           }
         }
       )
@@ -73,23 +74,7 @@ export default {
   width:100%;
   background-color: rgba(255,255,255,0.4);
   overflow: auto;
-  /*border: 1px solid #DADADA;*/
-  /*!*background-color: #FFF;*!*/
-  /*border-radius: 5px;*/
 }
-/*div.progressContainer{*/
-  /*height: 20px;*/
-  /*width: 96%;*/
-  /*border-radius: 10px;*/
-  /*background-color: #ddd;*/
-  /*margin-left: 2%;*/
-  /*margin-top: 10%;*/
-/*}*/
-/*div.progress{*/
-  /*background-color: #1C8DE0;*/
-  /*border-radius: 10px;*/
-  /*height:20px;*/
-  /*line-height: 20px;}*/
 b{
   color:Black;
   font-weight: 100;

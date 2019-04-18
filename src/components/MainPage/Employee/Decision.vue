@@ -8,7 +8,7 @@
       <div class="message" style=" overflow:scroll;">{{message}}</div>
       <label class="returnMessage">
         <span>{{ $t('claim.Message')}}</span>
-        <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
+        <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="returnmessage"></textarea>
       </label>
       <button class="approve" @click="setApprove">{{ $t('Decision.Approve')}}</button><button class="deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
     </div>
@@ -24,7 +24,8 @@ export default {
       type: 'Default',
       message: 'Default',
       subject: 'Default',
-      userid: 0
+      userid: 0,
+      returnmessage: 'No comment'
     }
   },
   created () {
@@ -39,17 +40,21 @@ export default {
       axios('/api/luggage/pick', {
         params: {
           id: this.id,
-          status: 'approve'
+          status: 'approve',
+          reply: this.returnmessage
         }
       })
+      alert('Successfully processed')
     },
     setDeny: function () {
       axios('/api/luggage/pick', {
         params: {
           id: this.id,
-          status: 'deny'
+          status: 'deny',
+          reply: this.returnmessage
         }
       })
+      alert('Successfully processed')
     }
   }
 }
