@@ -83,7 +83,7 @@ export default {
   .title{
     text-align: center;
     height: 20px;
-    font: 40px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    font: 30px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
     color: #FFFFFF;
     line-height: 60px;
     padding:0 0 35px 0;

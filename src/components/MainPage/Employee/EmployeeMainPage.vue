@@ -1,12 +1,26 @@
 <template>
   <body>
-  <div class="top">
-    <ul>
-      <li><a href="../Login"><b>{{ $t('message.exit') }}</b></a></li>
-      <li><a href="#"><b>{{ $t('message.server')}}</b></a></li>
-      <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
-    </ul>
-  </div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Hibernia-Sino</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" style="" href="../Login">{{ $t('message.exit') }}
+            </a>
+          </li>
+          <li class="nav-item" style="">
+            <a class="nav-link" href="#">{{ $t('message.server')}}</a>
+          </li>
+          <li class="nav-item" :key="locale?'en':'cn'" @click="changeLang()">
+            <a class="nav-link" href="#">{{lang}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
   <div class="nav">
     <div class="nav-top">
       <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="../../../assets/mini.png" alt="mini"></div>
@@ -130,10 +144,10 @@ $(function () {
     margin: 10% 4% 8% 24%;
     z-index: 10;
   }
-  body,html{height: 100%;background: #E2E2E2}
   body,ul{margin:0;padding:0}
   body{font:20px "微软雅黑","宋体","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;}
-  li{list-style:none; display:inline; margin-right: 10%;}
+  /* 不加.nav 上面菜单根本无法横向对齐*/
+  .nav li{list-style:none; margin-right: 10%;}
   a{text-decoration:none;}
   .nav{width: 300px;height: 100%;background: #263238;transition: all .3s;text-align: left}
   .nav a{display: block;overflow: hidden;padding-left: 20px;line-height: 46px;max-height: 46px;color: #ABB1B7;transition: all .3s;}
@@ -184,9 +198,5 @@ $(function () {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-.top{
-  margin-left:80%;
-  font-size: 25px;
-}
 
 </style>
