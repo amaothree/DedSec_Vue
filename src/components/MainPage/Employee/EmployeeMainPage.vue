@@ -5,30 +5,31 @@
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-
+    height: 100%; box-sizing: border-box ;
   }
-  .layout-logo{
-    width: 100px;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
+  .title{
+    width: 300px;
     position: relative;
-    top: 15px;
-    left: 20px;
+    float:right;
+    color:#2aabd2;
+    font-size: 40px;
   }
   .layout-nav{
     width: 420px;
     margin: 0 auto;
     margin-right: 20px;
   }
+  .menus{
+   height:500px;
+    background:#2b542c;
+  }
 </style>
 <template>
-  <div class="layout">
+  <div class="layout" style="height:100">
     <Layout>
       <Header>
         <Menu mode="horizontal" theme="dark" active-name="1">
-          <div class="layout-logo"></div>
+         <a class="title">Hibernia-Sino</a>
           <div class="layout-nav" style="display: inline; ">
             <MenuItem name="1">
               <Icon type="ios-navigate"></Icon>
@@ -41,15 +42,15 @@
             <MenuItem name="3">
               <Icon type="ios-analytics"></Icon>
 
-                <a class="nav-link" href="#">中英文</a>
+                <a class="nav-link" href="#" >中英文</a>
             </MenuItem>
           </div>
         </Menu>
       </Header>
-      <Layout :style="{padding: '0 50px'}">
-        <Content :style="{padding: '24px 0', minHeight: '280px', background: '#fff'}">
+      <Layout :style="{padding: '0 50px',background: '#8796ff'}">
+        <Content :style="{padding: '24px 0', minHeight: '480px', background: '#fff'}">
           <Layout>
-            <Sider hide-trigger :style="{background: '#fff'}">
+            <Sider hide-trigger :style="{background: '#8796ff'}" class="menus">
               <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
                 <Submenu name="1">
                   <template slot="title">
