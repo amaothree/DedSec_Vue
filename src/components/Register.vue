@@ -17,10 +17,12 @@
       <div class="repassword">
         <input type="repeat password" @blur="onBlurCheckRepeat('repeat')" :class="{'code-input':true,error:errorMessage.code.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['repeat']" v-model.number.trim="repeat">
       </div>
-
-      <a href="javascript:" class="register-btn" @click="jumptomainpage ()">{{ $t('Register.Register')}}</a>
+      <div class="mb2">
+      <a href="javascript:" class="register-btn submit" @click="jumptomainpage ()">{{ $t('Register.Register')}}</a>
+      </div>
       <div class="register-org">
         <span>{{ $t('Register.p')}}</span>
+        <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
         <a href="/src/components/Protocol.vue" class="org-btn">{{ $t('Register.Protocal')}}</a>
       </div>
     </form>
@@ -112,8 +114,8 @@ export default {
   .register {
     width: 432px;
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 40%;
+    top: 40%;
     transform: translate(-50%, -50%);
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
     border-radius: 2px;
@@ -161,6 +163,11 @@ export default {
               position: relative;
               border: rgba(255,255,255,0.2) 2px solid !important;
     }
+  .checkbox{
+    vertical-align: middle;
+    margin: 0 15px 0 0;
+    text-align: left;
+  }
   #Prefix {
     width: 110px;
     color: black;
@@ -222,6 +229,26 @@ export default {
             border: none;
             background: none;
             line-height: 46px;
+  }
+  .mb2{
+    margin-bottom: 20px
+  }
+  .mb2 a{
+    text-decoration: none;
+    outline: none;
+  }
+  .submit {
+    padding: 15px;
+    margin-top: 20px;
+    display: block;
+  }
+  .register-btn{
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50px;
+    background: #0096e6;
   }
   a.register-btn {
     background-color: #0084ff;

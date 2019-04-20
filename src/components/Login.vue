@@ -1,8 +1,11 @@
 <template>
   <div class="logo_box">
         <span class="title">
-            Hibernia-Sino
+            Welcome Hibernia-Sino
         </span>
+    <div class="lang lang-but ">
+      <ol class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></ol>
+    </div>
     <form action="submit">
       <div class="input_outer">
         <span class="u_user"></span>
@@ -14,7 +17,6 @@
       </div>
       <div class="mb2"><a class="act-but submit" href="javascript:" @click="jumptomainpage()" style="color: #FFFFFF">{{ $t('login.LogIn')}}</a>
       </div>
-      <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
     </form>
     <div class="sas">
         <span>{{ $t('login.no')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('login.Register')}}</a></span>
@@ -28,7 +30,8 @@ export default {
   data () {
     return {
       msg: 'zhihu',
-      phone: '',
+      locale: 'en',
+      lang: '中文',
       password: '',
       hidden: true,
       errorMessage: {
@@ -37,7 +40,35 @@ export default {
       }
     }
   },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
+    }
+  },
   methods: {
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+      window.location.reload() // 进行刷新改变cookie里的值
+    },
     toggleHiddenPassword () {
       this.hidden = !this.hidden
     },
@@ -71,25 +102,26 @@ export default {
     margin: 12px 13px;
   }
   .logo_box{
-     width: 280px;
+     width: 430px;
      height: 490px;
      padding: 35px;
      color: #EEE;
      position: absolute;
-     left: 50%;
-     top:100px;
+     left: 40%;
+     top: 15%;
      margin-left: -175px;
    }
   .title{
     text-align: center;
     height: 20px;
-    font: 30px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    font: 50px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
     color: #FFFFFF;
-    line-height: 60px;
+    line-height: 70px;
     padding:0 0 35px 0;
+    margin-bottom: 10px;
   }
   .input_outer{
-    height: 46px;
+    height: 66px;
     padding: 0 5px;
     margin-bottom: 20px;
     border-radius: 50px;
@@ -111,11 +143,11 @@ export default {
   }
   .text{
     width: 220px;
-    height: 46px;
+    height: 66px;
     outline: none;
     display: inline-block;
-    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
-    margin-left: 50px;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    margin-left: 0;
     border: none;
     background: none;
     line-height: 46px;
@@ -132,34 +164,55 @@ export default {
     margin-top: 20px;
     display: block;
   }
+  .lang{
+    /* 设置宽度高度背景颜色 */
+    height: 100px; /*高度改为自动高度*/
+    text-align: right;
+    z-index: 10;
+    font-size: 120%;
+    left: 75%;
+    top: 28%;
+
+  }
   .act-but{
-    height: 20px;
+    height: 50px;
     line-height: 20px;
     text-align: center;
     font-size: 20px;
-    border-radius: 50px;
+    border-radius: 70px;
     background: #0096e6;
   }
-  .checkbox{
-    vertical-align: middle;
-    margin: 0 5px 0 0;
+  .lang-but{
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 70px;
+    background-color: black;
+    margin-left: 250px;
   }
+
   .sas{
-    width: 280px;
+    width: 480px;
     height: 18px;
     float: left;
     color: #FFFFFF;
-    text-align: center;
-    font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 50px;
+    font-size: 26px;
+    line-height: 66px;
   }
   .sas a{
     width: 280px;
     height: 18px;
-    color: blue;
+    color: black;
     text-align: center;
     line-height: 18px;
     text-decoration: none;
+  }
+  .toggle-register-btn{
+    height: 50px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50px;
+    background-color: antiquewhite;
   }
 </style>
