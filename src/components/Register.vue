@@ -108,7 +108,7 @@ export default {
     color: white;
   }
   .register {
-    width: 550px;
+    width: 530px;
     height: 490px;
     padding: 35px;
     color: #EEE;
@@ -221,7 +221,7 @@ export default {
     margin-top: 14px;
     height: 55px;
     line-height: 36px;
-    width: 100%;
+    width: 50%;
     display: inline-block;
     text-align: center;
     font-size: 30px;
@@ -258,6 +258,6 @@ export default {
       text-decoration: none;
     }
   input::-webkit-input-placeholder{
-    color: white;
+    color: burlywood;
   }
 </style>

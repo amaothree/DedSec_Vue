@@ -7,13 +7,13 @@
       <ol class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></ol>
     </div>
     <form action="submit">
-      <div class="input_outer">
-        <span class="u_user"></span>
-        <input name="logname" class="text" onFocus=" if(this.value=='输入ID或用户名登录') this.value=''" onBlur="if(this.value=='') this.value='输入ID或用户名登录'" value="输入ID或用户名登录" style="color: #FFFFFF !important" type="text">
+      <div class="account">
+        <input type="text" @blur="onBlurCheckAccount('phone')"
+               :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
+               :placeholder="errorMessage['phone']"  v-model.trim="phone">
       </div>
-      <div class="input_outer">
-        <span class="us_uer"></span>
-        <input name="logpass" class="text" style="color: #FFFFFF !important; z-index:100;" onFocus="$('.login_password').hide()" onBlur="if(this.value=='') $('.login_password').show()" value="" type="password">
+      <div class="password">
+        <input type="password" @blur="onBlurCheckPassword('code')" :class="{'code-input':true,error:errorMessage.code.indexOf('Can not be empty')>-1}" :placeholder="errorMessage['code']" v-model.number.trim="code">
       </div>
       <div class="mb2"><a class="act-but submit" href="javascript:" @click="jumptomainpage()" style="color: #FFFFFF">{{ $t('login.LogIn')}}</a>
       </div>
@@ -32,11 +32,9 @@ export default {
       msg: 'zhihu',
       locale: 'en',
       lang: '中文',
-      password: '',
-      hidden: true,
       errorMessage: {
         phone: this.$t('login.Account'),
-        password: this.$t('login.Password')
+        code: this.$t('Register.Password'),
       }
     }
   },
@@ -57,6 +55,24 @@ export default {
     }
   },
   methods: {
+    onBlurCheckPassword (name) {
+      console.log(name, 'check name')
+      const value = this[name]
+      if (!value || value.length < 1) {
+        return (this.errorMessage[name] = this.$t('Register.ps'))
+      } else {
+        this.errorMessage[name] = ''
+      }
+    },
+    onBlurCheckAccount (name) {
+      console.log(name, 'check name')
+      const value = this[name]
+      if (!value || value.length < 1) {
+        return (this.errorMessage[name] = this.$t('Register.ac'))
+      } else {
+        this.errorMessage[name] = ''
+      }
+    },
     changeLang () {
       // 增加传入语言
       if (this.locale === 'cn') {
@@ -85,22 +101,6 @@ export default {
 </script>
 
 <style scoped>
-  .u_user{
-    width: 25px;
-    height: 25px;
-    background-image: url(/src/assets/login_ico.png);
-    background-position:  -125px 0;
-    position: absolute;
-    margin: 12px 13px;
-  }
-  .us_uer{
-    width: 25px;
-    height: 25px;
-    background-image: url(/src/assets/login_ico.png);
-    background-position: -125px -34px;
-    position: absolute;
-    margin: 12px 13px;
-  }
   .logo_box{
      width: 430px;
      height: 490px;
@@ -176,11 +176,13 @@ export default {
   }
   .act-but{
     height: 50px;
+    width: 50%;
     line-height: 20px;
     text-align: center;
     font-size: 30px;
     border-radius: 70px;
     background: #0096e6;
+    margin-left: 85px;
   }
   .lang-but{
     height: 50px;
@@ -207,5 +209,52 @@ export default {
     line-height: 18px;
     text-decoration: none;
   }
-
+  .account {
+    height: 66px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
+  }
+  .phone-input {
+    height: 66px;
+    outline: none;
+    display: inline-block;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    border: none;
+    background: none;
+    line-height: 46px;
+    color: white;
+    margin-left: 20px;
+    width: 290px;
+  }
+  .code {
+    height: 48px;
+    padding-top: 5px;
+    font-size: 14px;
+    border-bottom: 1px solid white;
+  }
+  .code-input {
+    height: 66px;
+    outline: none;
+    display: inline-block;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    border: none;
+    background: none;
+    line-height: 46px;
+    margin-left: 20px;
+    width: 290px;
+  }
+  .password {
+    height: 66px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
+  }
+  input::-webkit-input-placeholder{
+    color: burlywood;
+  }
 </style>
