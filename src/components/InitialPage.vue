@@ -14,10 +14,9 @@ export default {
   name: 'InitialPage',
   data () {
     return {
-      typeName: 'Login',
+      typeName: 'Login'
     }
   },
-
   methods: {
     toggleComponent: function () {
       this.typeName = this.typeName === 'Login' ? 'Register' : 'Login'
@@ -46,6 +45,4 @@ export default {
     height: 100%;
     z-index: -9999;
   }
-
-
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="register">
-        <span class="zhihu-name">
-            Hibernia-Sino
+        <span class="title">
+            用户注册
         </span>
 
     <form action="submit">
-      <div class="phone">
+      <div class="account">
         <input type="text" @blur="onBlurCheckAccount('phone')"
                :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
                :placeholder="errorMessage['phone']"  v-model.trim="phone">
@@ -22,9 +22,8 @@
       </div>
       <div class="register-org">
         <span>{{ $t('Register.p')}}</span>
-        <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
-        <a href="/src/components/Protocol.vue" class="org-btn">{{ $t('Register.Protocal')}}</a>
       </div>
+      <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>同意<a href="/src/components/Protocol.vue" class="org-btn">{{ $t('Register.Protocal')}}</a></span>
     </form>
     <div class="bottom">
       <span>{{ $t('Register.Alr')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('Register.LogIn')}}</a></span>
@@ -38,10 +37,6 @@ export default {
   data () {
     return {
       msg: 'zhihu',
-      phone: '',
-      optionArray: ['中国 +86', '美国 +1', '日本 +81'],
-      selected: '中国 +86',
-      code: '',
       errorMessage: {
         phone: this.$t('Register.Account'),
         code: this.$t('Register.Password'),
@@ -97,6 +92,7 @@ export default {
     box-sizing: border-box;
     border: 0;
     outline: none;
+    color: white;
   }
   .error::-webkit-input-placeholder {
     color: red;
@@ -109,26 +105,29 @@ export default {
   a:visited,
   a:link,
   a:active {
-    color: black;
+    color: white;
   }
   .register {
-    width: 432px;
+    width: 550px;
+    height: 490px;
+    padding: 35px;
+    color: #EEE;
     position: absolute;
-    left: 40%;
-    top: 40%;
-    transform: translate(-50%, -50%);
+    left: 30%;
+    top: 20%;
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
     border-radius: 2px;
     box-sizing: border-box;
   }
-  .zhihu-name {
-                  text-align: center;
-                  height: 20px;
-                  font: 40px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
-                  color: #FFFFFF;
-                  line-height: 60px;
-                  padding:0 0 35px 0;
-                }
+  .title {
+    text-align: center;
+    height: 20px;
+    font: 50px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    color: #FFFFFF;
+    line-height: 70px;
+    padding:0 0 35px 0;
+    margin-bottom: 10px;
+  }
   .tip {
     color: #0084ff;
     text-align: center;
@@ -137,98 +136,65 @@ export default {
   }
   form {
     padding: 0 40px 36px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
-  .phone {
-     height: 46px;
-        padding: 0 5px;
-        margin-bottom: 20px;
-        border-radius: 50px;
-        position: relative;
-        border: rgba(255,255,255,0.2) 2px solid !important;
+  .account {
+    height: 66px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
   }
   .password {
-    height: 46px;
-            padding: 0 5px;
-            margin-bottom: 20px;
-            border-radius: 50px;
-            position: relative;
-            border: rgba(255,255,255,0.2) 2px solid !important;
+    height: 66px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
   }
-    .repassword {
-      height: 46px;
-              padding: 0 5px;
-              margin-bottom: 20px;
-              border-radius: 50px;
-              position: relative;
-              border: rgba(255,255,255,0.2) 2px solid !important;
-    }
+  .repassword {
+    height: 66px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    position: relative;
+    border: rgba(255,255,255,0.2) 2px solid !important;
+  }
   .checkbox{
     vertical-align: middle;
     margin: 0 15px 0 0;
     text-align: left;
   }
-  #Prefix {
-    width: 110px;
-    color: black;
-    height: 38px;
-    line-height: 38px;
-    font-size: 18px;
-    text-align: left;
-    box-sizing: border-box;
-    border: 0;
-    outline: none;
-    float: left;
-  }
-  .sot-line {
-    height: 22px;
-    width: 1px;
-    float: left;
-    background: #ebebeb;
-    margin: 12px 12px 0;
-  }
   .phone-input {
-    width: 220px;
-        height: 46px;
-        outline: none;
-        display: inline-block;
-        font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
-        margin-left: 50px;
-        border: none;
-        background: none;
-        line-height: 46px;
-  }
-  .code-btn {
-    color: #175199;
-    width: 98px;
-    line-height: 48px;
-    margin-left: 5px;
-    float: right;
-    text-align: right;
-  }
-  .souce {
-    color: #175199;
-    line-height: 48px;
-    text-align: right;
-    font-size: 14px;
-    cursor: pointer;
+    height: 66px;
+    outline: none;
+    display: inline-block;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    border: none;
+    background: none;
+    line-height: 46px;
+    color: white;
+    margin-left: 20px;
+    width: 290px;
   }
   .code {
     height: 48px;
     padding-top: 5px;
     font-size: 14px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid white;
   }
   .code-input {
-    width: 220px;
-            height: 46px;
+            height: 66px;
             outline: none;
             display: inline-block;
-            font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
-            margin-left: 50px;
+            font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
             border: none;
             background: none;
             line-height: 46px;
+    margin-left: 20px;
+    width: 290px;
   }
   .mb2{
     margin-bottom: 20px
@@ -251,14 +217,14 @@ export default {
     background: #0096e6;
   }
   a.register-btn {
-    background-color: #0084ff;
     color: #ffffff;
     margin-top: 14px;
-    height: 36px;
+    height: 55px;
     line-height: 36px;
     width: 100%;
     display: inline-block;
     text-align: center;
+    font-size: 30px;
   }
   .register-org {
     width: 100%;
@@ -266,31 +232,32 @@ export default {
     font-size: 13px;
   }
   .register-org span {
-    color: #8590a6;
+    color: white;
+    font-size: 30px;
   }
   a.org-btn {
-    color: #175199;
-    float: right;
+    color: wheat;
   }
   a.toggle-register-btn {
-    color: #175199;
+    color: wheat;
   }
   .bottom {
-        width: 280px;
         height: 22px;
-        float: left;
         color: #FFFFFF;
         text-align: center;
-        font-size: 16px;
+        font-size: 26px;
         line-height: 16px;
         margin-bottom: 50px;
   }
   .bottom a{
       width: 280px;
       height: 22px;
-      color: blue;
+      color: wheat;
       text-align: center;
       line-height: 18px;
       text-decoration: none;
     }
+  input::-webkit-input-placeholder{
+    color: white;
+  }
 </style>

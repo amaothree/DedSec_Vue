@@ -178,7 +178,7 @@ export default {
     height: 50px;
     line-height: 20px;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     border-radius: 70px;
     background: #0096e6;
   }
@@ -202,17 +202,10 @@ export default {
   .sas a{
     width: 280px;
     height: 18px;
-    color: black;
+    color: wheat;
     text-align: center;
     line-height: 18px;
     text-decoration: none;
   }
-  .toggle-register-btn{
-    height: 50px;
-    line-height: 20px;
-    text-align: center;
-    font-size: 30px;
-    border-radius: 50px;
-    background-color: antiquewhite;
-  }
+
 </style>
