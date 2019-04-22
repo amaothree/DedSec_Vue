@@ -9,13 +9,20 @@ import EmployeeMainPage from '@/components/MainPage/Employee/EmployeeMainPage'
 import Solution from '@/components/MainPage/Employee/Solution'
 import EmployeeDetail from '@/components/MainPage/Employee/EmployeeDetail'
 import Decision from '@/components/MainPage/Employee/Decision'
+import Introduce from '@/components/introduce'
 import PersonalInformation from '@/components/MainPage/Customer/PersonalInformation'
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
+import lead from '@/components/MainPage/Customer/lead'
 Vue.use(Router)
 export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Introduce',
+      component: Introduce
+    },
+    {
+      path: '/Login',
       name: 'InitialPage',
       component: InitialPage
     },
@@ -26,6 +33,11 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'lead',
+          component: lead
+        },
+        {
+          path: '/Claim',
           name: 'Claim',
           component: Claim
         },
