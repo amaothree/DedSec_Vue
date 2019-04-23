@@ -1,4 +1,13 @@
 <template>
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>require</h2>
+        <p>all the requirement</p>
+      </div>
+    </div>
+  </section>
   <div class="container" style=" overflow:scroll;">
     <span class="id">{{ $t('Decision.id')}}</span>
     <span class="Subject">{{ $t('Decision.Subject')}}</span>
@@ -15,6 +24,7 @@
       </div>
     </div>
   </div>
+  </body>
 </template>
 
 <script>

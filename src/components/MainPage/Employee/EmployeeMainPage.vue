@@ -17,13 +17,6 @@
   <!--================End Header Menu Area =================-->
 
   <!--================Banner Area =================-->
-  <section class="banner_area">
-    <div class="container">
-      <div class="banner_inner_text">
-
-      </div>
-    </div>
-  </section>
   <!--================End Banner Area =================-->
   <router-view></router-view>
   </body>

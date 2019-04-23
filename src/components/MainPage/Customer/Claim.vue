@@ -1,8 +1,14 @@
 <template>
-  <div class="Content-Main">
-    <div class="Content-Main1">
-      <h1>Register a claim</h1>
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>Claim</h2>
+        <p>register your claim</p>
+      </div>
     </div>
+  </section>
+  <div class="Content-Main">
     <form action="" class="form-report">
       <label>
         <span>{{ $t('claim.Subject')}}</span>
@@ -20,15 +26,44 @@
         </select>
       </label>
       <label>
-        <span>{{ $t('claim.Message')}}</span>
-        <textarea id="mesaage" name="message" :placeholder="$t('claim.tel')" v-model="lug_message"></textarea>
+      <span>{{ $t('claim.Message')}}</span>
+        <textarea id="message" name="message" v-model="lug_message"></textarea>
+    </label>
+      <label>
+        <span>Name of Recipient</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>Phone</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>Country</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>City</span>
+        <input type="text" class="form-control" >
+      </label>
+      <label>
+        <span>District</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>Specific Address</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>Postal Code</span>
+        <input type="text" class="form-control">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <input type="button" @click="addluggage" :value="$t('claim.Send')">
+        <button type="submit" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">Send</button>
       </label>
     </form>
   </div>
+  </body>
 </template>
 
 <script>
@@ -67,7 +102,7 @@ export default {
 <style scoped>
   .Content-Main{
     position: relative;
-    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 1px #FFF;
     border-radius: 5px;
     color: #888;
@@ -91,7 +126,7 @@ export default {
   .Content-Main label{
     display: block;
     margin: 0px 0px 5px;
-    font-size: 16px;
+    font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
@@ -106,7 +141,7 @@ export default {
   }
   .Content-Main input[type="text"],.Content-Main textarea{
     width: 70%;
-    height: 20px;
+    height: 50px;
     padding: 5px 0px 5px 5px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -120,7 +155,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 16px;
+    font-size: 40px;
   }
   .select1{
     width: 71%;
@@ -138,7 +173,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 16px;
+    font-size: 20px;
   }
   .select2{
     width: 13%;
@@ -156,7 +191,7 @@ export default {
     width: 70%;
     height: 200px;
     padding: 5px 0px 0px 5px;
-    font-size: 16px;
+    font-size: 30px;
   }
   .button{
     padding: 10px 25px 10px 25px;

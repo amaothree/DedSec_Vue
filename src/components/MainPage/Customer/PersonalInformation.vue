@@ -1,6 +1,14 @@
 <template>
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>Information</h2>
+        <p>set your personal detail</p>
+      </div>
+    </div>
+  </section>
   <div class="Personal" >
-    <h1>{{ $t('personal.personal')}}</h1>
 
     <form action="">
       <dl>
@@ -54,6 +62,7 @@
       <button @click="jumptomainpage()">{{ $t('personal.Modify')}}</button>
     </form>
   </div>
+  </body>
 </template>
 
 <script>
