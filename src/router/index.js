@@ -10,6 +10,7 @@ import Solution from '@/components/MainPage/Employee/Solution'
 import EmployeeDetail from '@/components/MainPage/Employee/EmployeeDetail'
 import Decision from '@/components/MainPage/Employee/Decision'
 import Introduce from '@/components/introduce'
+import Firstpage from '@/components/Firstpage'
 import PersonalInformation from '@/components/MainPage/Customer/PersonalInformation'
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
 import lead from '@/components/MainPage/Customer/lead'
@@ -18,7 +19,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Introduce',
+      name: 'Firstpage',
+      component: Firstpage
+    },
+    {
+      path: '/Introduce',
+      name: 'introduce',
       component: Introduce
     },
     {
