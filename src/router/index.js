@@ -12,6 +12,8 @@ import Decision from '@/components/MainPage/Employee/Decision'
 import Introduce from '@/components/introduce'
 import PersonalInformation from '@/components/MainPage/Customer/PersonalInformation'
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
+import Login from '@/components/Login'
+import Register from '@/components/Register'
 import lead from '@/components/MainPage/Customer/lead'
 Vue.use(Router)
 export default new Router({
@@ -24,7 +26,19 @@ export default new Router({
     {
       path: '/Login',
       name: 'InitialPage',
-      component: InitialPage
+      component: InitialPage,
+      children: [
+        {
+          path: '/',
+          name: 'Login',
+          component: Login
+        },
+        {
+          path: '/Register',
+          name: 'Register',
+          component: Register
+        }
+      ]
     },
     {
       path: '/CustomerMainPage',

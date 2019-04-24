@@ -3,170 +3,175 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Claim</h2>
-        <p>register your claim</p>
+        <h2>Login</h2>
+        <p>if you don't have account click <router-link to="Register">here</router-link> to register your account</p>
       </div>
     </div>
   </section>
-  <div class="logo_box">
-    <form action="submit">
-      <div class="input_outer">
-        <span class="u_user"></span>
-        <input name="logname" class="text" onFocus=" if(this.value=='输入ID或用户名登录') this.value=''" onBlur="if(this.value=='') this.value='输入ID或用户名登录'" value="输入ID或用户名登录" style="color: #FFFFFF !important" type="text">
-      </div>
-      <div class="input_outer">
-        <span class="us_uer"></span>
-        <input name="logpass" class="text" style="color: #FFFFFF !important; z-index:100;" onFocus="$('.login_password').hide()" onBlur="if(this.value=='') $('.login_password').show()" value="" type="password">
-      </div>
-      <div class="mb2"><a class="act-but submit" href="javascript:" @click="jumptomainpage()" style="color: #FFFFFF">{{ $t('login.LogIn')}}</a>
-      </div>
-      <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
+  <div class="Content-Main">
+    <form action="" class="form-report" style="margin-left: 30%">
+      <label>
+        <span>account</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <span>password</span>
+        <input type="text" class="form-control">
+      </label>
+      <label>
+        <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
+        <a class="more_btn" style="margin-left: 20%"><router-link to="/EmployeeMainPage" style="font-size: 20px">Login</router-link></a>
+      </label>
     </form>
-    <div class="sas">
-      <span>{{ $t('login.no')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('login.Register')}}</a></span>
-    </div>
   </div>
   </body>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'Login',
+  name: 'Claim',
   data () {
     return {
-      msg: 'zhihu',
-      phone: '',
-      password: '',
-      hidden: true,
-      errorMessage: {
-        phone: this.$t('login.Account'),
-        password: this.$t('login.Password')
-      }
+      lug_message: '',
+      lug_type: '',
+      lug_subject: ''
     }
   },
   methods: {
-    toggleHiddenPassword () {
-      this.hidden = !this.hidden
-    },
-    jumptomainpage () {
-      this.$router.push(
-        {
-          path: '/EmployeeMainPage'
+    addluggage: function () {
+      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
+
+      axios('/api/luggage/add', {
+        params: {
+          subject: this.lug_subject,
+          type: this.lug_type,
+          message: this.lug_message
         }
-      )
+      }).then(function (response) {
+        console.log(response)
+        alert('Submit Successfully')
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for this submission.')
+      })
     }
-  },
-  props: ['toggleComponent']
+  }
+
 }
 </script>
-
 <style scoped>
-  .u_user{
-    width: 25px;
-    height: 25px;
-    background-image: url(/src/assets/login_ico.png);
-    background-position:  -125px 0;
-    position: absolute;
-    margin: 12px 13px;
-  }
-  .us_uer{
-    width: 25px;
-    height: 25px;
-    background-image: url(/src/assets/login_ico.png);
-    background-position: -125px -34px;
-    position: absolute;
-    margin: 12px 13px;
-  }
-  .logo_box{
-     width: 280px;
-     height: 490px;
-     padding: 35px;
-     color: #EEE;
-     position: absolute;
-     left: 50%;
-     top:100px;
-     margin-left: -175px;
-   }
-  .title{
-    text-align: center;
-    height: 20px;
-    font: 40px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
-    color: #FFFFFF;
-    line-height: 60px;
-    padding:0 0 35px 0;
-  }
-  .input_outer{
-    height: 46px;
-    padding: 0 5px;
-    margin-bottom: 20px;
-    border-radius: 50px;
+  .Content-Main{
     position: relative;
-    border: rgba(255,255,255,0.2) 2px solid !important;
+    font: 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 1px #FFF;
+    border-radius: 5px;
+    color: #888;
+    background: rgba(255,255,255,0.4);
+    height: 100%;
+    width:100%;
   }
-  .l-login{
-    position: absolute;
-    z-index: 1;
-    left: 50px;
-    top: 0;
-    height: 46px;
-    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
-    line-height: 46px;
-  }
-  label{
-    color: rgb(255, 255, 255);
+  .Content-Main h1{
     display: block;
+    padding: 0px 0px 10px 40px;
+    color: #333;
+    /*font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*border-bottom: 1px solid #DADADA;*/
+    /*color: #888;*/
+    padding: 20px 30px 20px 30px;
   }
-  .text{
-    width: 220px;
-    height: 46px;
-    outline: none;
-    display: inline-block;
-    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
-    margin-left: 50px;
-    border: none;
-    background: none;
-    line-height: 46px;
-  }
-  .mb2{
-    margin-bottom: 20px
-  }
-  .mb2 a{
-    text-decoration: none;
-    outline: none;
-  }
-  .submit {
-    padding: 15px;
-    margin-top: 20px;
+  .Content-Main h1>span{
     display: block;
-  }
-  .act-but{
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 50px;
-    background: #0096e6;
-  }
-  .checkbox{
-    vertical-align: middle;
-    margin: 0 5px 0 0;
-  }
-  .sas{
-    width: 280px;
-    height: 18px;
-    float: left;
-    color: #FFFFFF;
-    text-align: center;
     font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 50px;
   }
-  .sas a{
-    width: 280px;
-    height: 18px;
-    color: blue;
-    text-align: center;
-    line-height: 18px;
-    text-decoration: none;
+  .Content-Main label{
+    display: block;
+    margin: 0px 0px 5px;
+    font-size: 30px;
+    /*padding: 20px 30px 20px 30px;*/
+  }
+  .Content-Main label>span{
+    float: left;
+    width: 20%;
+    padding-right: 10px;
+    margin-top: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-align: right;
+    color: #333;
+  }
+  .Content-Main input[type="text"],.Content-Main textarea{
+    width: 15%;
+    height: 50px;
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    line-height: 15px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    color: #888;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 40px;
+  }
+  .select1{
+    width: 71%;
+    height: 35px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    line-height: 15px;
+    padding: 5px 0px 5px 5px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    color: #888;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 20px;
+  }
+  .select2{
+    width: 13%;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    color: #888;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 16px;
+  }
+  .Content-Main textarea{
+    width: 70%;
+    height: 200px;
+    padding: 5px 0px 0px 5px;
+    font-size: 30px;
+  }
+  .button{
+    padding: 10px 25px 10px 25px;
+    margin-left: 111px;
+    border-radius: 4px;
+    border:1px solid #CCC;
+    background: #FFF;
+    color: #333;
+  }
+  .button:hover{
+    color: #333;
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+    font-size: 16px;
+  }
+  form{
+    padding: 20px 30px 20px 30px;;
+  }
+  button{
+    font-size: 16px;
   }
 </style>

@@ -4,10 +4,7 @@
     <div class="top">
       <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
     </div>
-    <div class="initial">
-      <img src="../assets/newbackground.jpg" alt="Background">
-      <component :toggleComponent="toggleComponent" :is="typeName"></component>
-    </div>
+     <router-view></router-view>
   </div>
   </body>
 </template>
@@ -63,33 +60,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .main {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  .initial{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  img{
-    width: 100%;
-    height: 100%;
-    z-index: -9999;
-  }
-  .top{
-    /* 设置宽度高度背景颜色 */
-    height: 100px; /*高度改为自动高度*/
-    text-align: right;
-    position: fixed;
-    z-index: 10;
-    font-size: 120%;
-    top: 0%;
-    right: 0%;
-
-  }
-
-</style>
