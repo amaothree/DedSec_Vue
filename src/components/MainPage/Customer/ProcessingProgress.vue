@@ -1,8 +1,14 @@
 <template>
-  <div class="container">
-    <ProgressBar></ProgressBar>
-  </div>
-
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>Process </h2>
+        <p>check out your process</p>
+      </div>
+    </div>
+  </section>
+  </body>
 </template>
 
 <script>
@@ -14,13 +20,4 @@ export default {
 </script>
 
 <style scoped>
-.container{
-  position: absolute;
-  height: 100%;
-  width:100%;
-  background-color: rgba(255,255,255,0.4);
-  /*border: 1px solid #DADADA;*/
-  /*!*background-color: #FFF;*!*/
-  /*border-radius: 5px;*/
-}
 </style>
