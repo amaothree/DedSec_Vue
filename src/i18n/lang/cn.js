@@ -1,4 +1,8 @@
 module.exports = {
+  introduce: {
+    register: '注册',
+    register_message: '开始注册一个新的账户'
+  },
   message: {
     exit: '退出',
     server: '服务'

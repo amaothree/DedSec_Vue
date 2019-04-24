@@ -1,4 +1,8 @@
 module.exports = {
+  introduce: {
+    register: 'register',
+    register_message: 'start to register a new account'
+  },
   message: {
     exit: 'exit',
     server: 'server'
