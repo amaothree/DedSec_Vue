@@ -1,10 +1,9 @@
 <template>
   <body>
-
   <!--================Header Menu Area =================-->
   <header class="main_menu_area">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+      <a class="navbar-brand" href="#"><img src="static/img/logo.png" alt=""></a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
@@ -96,7 +95,7 @@
                  data-responsive_offset="on"
                  data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
                  data-textAlign="['left','left','left','left','left','center']">
-              <img src="img/home-slider/slider-m-1.png" alt="">
+              <img src="static/img/home-slider/slider-m-1.png" alt="">
             </div>
           </div>
         </li>
@@ -109,7 +108,7 @@
   <section class="feature_area">
     <div class="container">
       <div class="c_title">
-        <img src="img/icon/title-icon.png" alt="">
+        <img src="static/img/icon/title-icon.png" alt="">
         <h6>Discover the features</h6>
         <h2>We are young but bold</h2>
       </div>
@@ -117,7 +116,7 @@
         <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
-              <img src="img/icon/f-icon-1.png" alt="">
+              <img src="static/img/icon/f-icon-1.png" alt="">
             </div>
             <h4>Brand Identity</h4>
             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
@@ -127,7 +126,7 @@
         <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
-              <img src="img/icon/f-icon-2.png" alt="">
+              <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
             <h4>Online Marketing</h4>
             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
@@ -137,7 +136,7 @@
         <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
-              <img src="img/icon/f-icon-3.png" alt="">
+              <img src="static/img/icon/f-icon-3.png" alt="">
             </div>
             <h4>Social Media</h4>
             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
@@ -157,7 +156,7 @@
           <h4>“They are the best”</h4>
           <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus.</p>
           <div class="media">
-            <img src="img/team/people/people-5.jpg" alt="">
+            <img src="static/img/team/people/people-5.jpg" alt="">
             <div class="media-body">
               <h5>Chriss Turner</h5>
               <h6>CEO Enterprise</h6>
@@ -168,7 +167,7 @@
           <h4>“They are the best”</h4>
           <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus.</p>
           <div class="media">
-            <img src="img/team/people/people-5.jpg" alt="">
+            <img src="static/img/team/people/people-5.jpg" alt="">
             <div class="media-body">
               <h5>Chriss Turner</h5>
               <h6>CEO Enterprise</h6>
@@ -179,7 +178,7 @@
           <h4>“They are the best”</h4>
           <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus.</p>
           <div class="media">
-            <img src="img/team/people/people-5.jpg" alt="">
+            <img src="static/img/team/people/people-5.jpg" alt="">
             <div class="media-body">
               <h5>Chriss Turner</h5>
               <h6>CEO Enterprise</h6>
@@ -192,14 +191,14 @@
       <div class="right_text_inner">
         <div class="text_3d">
           <div class="l_title">
-            <img src="img/icon/title-icon.png" alt="">
+            <img src="static/img/icon/title-icon.png" alt="">
             <h6>Discover the features</h6>
             <h2>We don’t hide, we stand tall in front of chalenge</h2>
           </div>
           <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. </p>
         </div>
         <div class="shap_mobile">
-          <img src="img/iphone4.png" alt="">
+          <img src="static/img/iphone4.png" alt="">
         </div>
       </div>
     </div>
@@ -209,11 +208,24 @@
 </template>
 
 <script>
+
 export default {
 
 }
 </script>
-
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../static/js/popper.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<!-- Rev slider js -->
+<script src="../../static/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="../../static/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="../../static/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="../../static/js/theme.js"></script>
 <style scoped>
 
 </style>
