@@ -1,9 +1,6 @@
 <template>
   <body>
   <div class="main">
-    <div class="top">
-      <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
-    </div>
      <router-view></router-view>
   </div>
   </body>
