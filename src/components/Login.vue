@@ -1,8 +1,14 @@
 <template>
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>Claim</h2>
+        <p>register your claim</p>
+      </div>
+    </div>
+  </section>
   <div class="logo_box">
-        <span class="title">
-            Hibernia-Sino
-        </span>
     <form action="submit">
       <div class="input_outer">
         <span class="u_user"></span>
@@ -17,9 +23,10 @@
       <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
     </form>
     <div class="sas">
-        <span>{{ $t('login.no')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('login.Register')}}</a></span>
+      <span>{{ $t('login.no')}}<a href="javascript:" @click="toggleComponent" class="toggle-register-btn">{{ $t('login.Register')}}</a></span>
     </div>
   </div>
+  </body>
 </template>
 
 <script>

@@ -18,34 +18,43 @@
     <div class="container">
       <div class="banner_inner_text">
         <h2>welcome to hibernia-sino</h2>
-        <p>这里加点介绍</p>
       </div>
     </div>
   </section>
   <!--================End Banner Area =================-->
-
+  <a class="more_btn" style="margin-left: 43%"><router-link to="/Login" style="font-size: 40px">click to start</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
       <div class="row feature_inner">
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-1.png" alt="">
             </div>
-            <h4>register </h4>
-            <p>start to register a new account</p>
-            <a class="more_btn"><router-link to="/login" >register</router-link></a>
+            <h4>Brand Identity</h4>
+            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
+            <a class="more_btn"><router-link to="/Introduce" >register</router-link></a>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
-            <h4>login</h4>
-            <p>if you have an account please login </p>
-            <a class="more_btn"><router-link to="/login" >login</router-link></a>
+            <h4>Online Marketing</h4>
+            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
+            <a class="more_btn" href="#">Read More</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="feature_item">
+            <div class="f_icon">
+              <img src="static/img/icon/f-icon-3.png" alt="">
+            </div>
+            <h4>Social Media</h4>
+            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
+            <a class="more_btn" href="#">Read More</a>
           </div>
         </div>
       </div>

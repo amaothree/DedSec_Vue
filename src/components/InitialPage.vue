@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div class="main">
     <div class="top">
       <li class="label label-important" :key="locale?'en':'cn'" @click="changeLang()"><a href="#"><b>{{lang}}</b></a></li>
@@ -8,6 +9,7 @@
       <component :toggleComponent="toggleComponent" :is="typeName"></component>
     </div>
   </div>
+  </body>
 </template>
 
 <script>

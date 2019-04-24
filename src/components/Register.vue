@@ -1,9 +1,5 @@
 <template>
-  <div class="register">
-        <span class="zhihu-name">
-            Hibernia-Sino
-        </span>
-
+  <div class="register" style="margin-top: 10px">
     <form action="submit">
       <div class="phone">
         <input type="text" @blur="onBlurCheckAccount('phone')"
