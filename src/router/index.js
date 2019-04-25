@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import CustomerNav from '@/components/MainPage/Customer/CustomerMainPage'
 import PersonalDetail from '@/components/MainPage/Customer/PersonalDetail'
 import ProcessingProgress from '@/components/MainPage/Customer/ProcessingProgress'
+import ProgressBar from '@/components/MainPage/Customer/ProgressBar'
 import Claim from '@/components/MainPage/Customer/Claim'
 import InitialPage from '@/components/InitialPage'
 import EmployeeMainPage from '@/components/MainPage/Employee/EmployeeMainPage'
@@ -14,6 +15,8 @@ import PersonalInformation from '@/components/MainPage/Customer/PersonalInformat
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+import Introduce1 from '@/components/Introduce1'
+import Introduce2 from '@/components/Introduce2'
 import lead from '@/components/MainPage/Customer/lead'
 Vue.use(Router)
 export default new Router({
@@ -22,6 +25,16 @@ export default new Router({
       path: '/',
       name: 'introduce',
       component: Introduce
+    },
+    {
+      path: '/Introduce1',
+      name: 'introduce1',
+      component: Introduce1
+    },
+    {
+      path: '/Introduce2',
+      name: 'introduce2',
+      component: Introduce2
     },
     {
       path: '/Login',
@@ -40,6 +53,7 @@ export default new Router({
         }
       ]
     },
+
     {
       path: '/CustomerMainPage',
       name: 'CustomerMainPage',
@@ -54,6 +68,11 @@ export default new Router({
           path: '/Claim',
           name: 'Claim',
           component: Claim
+        },
+        {
+          path: '/ProgressBar',
+          name: 'ProgressBar',
+          component: ProgressBar
         },
         {
           path: '/PersonalDetail',

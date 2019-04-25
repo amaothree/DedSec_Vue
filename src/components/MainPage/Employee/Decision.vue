@@ -1,13 +1,24 @@
 <template>
+  <body>
+  <section class="banner_area">
     <div class="container">
+      <div class="banner_inner_text">
+        <h2>Detail</h2>
+        <p>Check out the requirement</p>
+      </div>
+    </div>
+  </section>
+    <div class="container" style="margin-top: 5%">
       <span class="id"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
       <!--<br>-->
       <span class="userid"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
       <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
       <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
-      <div class="message" style=" overflow:scroll;">{{message}}</div>
-      <button class="approve" @click="setApprove">{{ $t('Decision.Approve')}}</button><button class="deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
+      <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
+      <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
+      <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
     </div>
+  </body>
 </template>
 
 <script>
@@ -52,25 +63,36 @@ export default {
 </script>
 
 <style scoped>
-  .container{
-    position: relative;
-    height: 100%;
-    width:100%;
-    /*border: 1px solid #DADADA;*/
-    background-color: rgba(255,255,255,0.4);
-    /*border-radius: 5px;*/
-    text-align: left;
-  }
+
  .id{
-   position: absolute;
+   position: relative;
     float: left;
-   margin-left: 8%;
-    font-size: 16px;
-   padding: 3%;
-   width: 10%;
+    font-size: 50px;
+   margin-left:10%;
+   width: 20%;
   }
+ .userid{
+   position: relative;
+   float: left;
+   font-size: 50px;
+   width: 20%;
+ }
+ .subject{
+   position: relative;
+   /*float: left;*/
+   font-size:50px;
+   margin-left:4%;
+   width: 20%;
+ }
+ .type{
+   position: relative;
+   float: left;
+   margin-left:10%;
+   font-size: 50px;
+   width: 20%;
+ }
   .message{
-    position: absolute;
+    position: relative;
     margin-left: 10%;
     margin-top: 150px;
     border: 1px solid #DADADA;
@@ -83,41 +105,22 @@ export default {
   }
 
   .approve{
-    position: absolute;
-    margin-left: 30%;
-    margin-bottom: 5%;
-    font-size: 20px;
+    position: relative;
+    margin-left: 25%;
+    margin-top: 5%;
+    font-size: 30px;
     bottom:0;
+    color:#1d78cb;
+    background: #75cb61;
   }
   .deny{
-    position: absolute;
-    margin-left: 60%;
-    margin-bottom: 5%;
-    font-size: 20px;
+    position: relative;
+    margin-left: 70%;
+    margin-top: -9%;
+    font-size: 30px;
     bottom:0;
-  }
-  .type{
-    position: absolute;
-    float: left;
-    margin-left:67%;
-    font-size: 16px;
-    padding: 3%;
-  }
-  .subject{
-    position: absolute;
-    /*float: left;*/
-    margin-left:40%;
-    font-size: 16px;
-    padding: 3%;
-    width: 30%;
-  }
-  .userid{
-    position: absolute;
-    float: left;
-    margin-left:20%;
-    font-size: 16px;
-    padding: 3%;
-    width: 20%;
+    color:#1d78cb;
+    background: #f6e74f;
   }
   .id,.userid,.subject,.type{
     color: black;

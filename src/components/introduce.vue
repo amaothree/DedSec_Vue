@@ -22,39 +22,29 @@
     </div>
   </section>
   <!--================End Banner Area =================-->
-  <a class="more_btn" style="margin-left: 43%"><router-link to="/Login" style="font-size: 40px">click to start</router-link></a>
+  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 40px">click to start</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
       <div class="row feature_inner">
-        <div class="col-lg-4 col-sm-6">
-          <div class="feature_item">
-            <div class="f_icon">
-              <img src="static/img/icon/f-icon-1.png" alt="">
-            </div>
-            <h4>{{ $t('introduce.register')}} </h4>
-            <p>{{ $t('introduce.register_message')}}</p>
-            <a class="more_btn"><router-link to="/login" >{{ $t('introduce.register')}}</router-link></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
             <h4>Online Marketing</h4>
             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
-            <a class="more_btn" href="#">Read More</a>
+            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">click</router-link></a>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-3.png" alt="">
             </div>
             <h4>Social Media</h4>
             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
-            <a class="more_btn" href="#">Read More</a>
+            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 40px">click</router-link></a>
           </div>
         </div>
       </div>

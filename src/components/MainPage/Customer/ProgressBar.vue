@@ -1,75 +1,63 @@
 <template>
-<div class="main">
-    <div v-for="arr in array" :key="arr">
-      <div class="progressContainer">
-    <div class="progress" :style="{width:arr.progress+'%'}">
-        <b>{{arr.progress}}%</b><br>
-        <b><p>{{ arr.type }}</p></b>
-      <button class="detail">{{ $t('ProcessBar.Detail')}}</button>
-      <button class="delete"> {{ $t('ProcessBar.Delete')}}</button>
+<body>
+<section class="banner_area">
+  <div class="container">
+    <div class="banner_inner_text">
+      <h2>Detail</h2>
+      <p>Check out the requirement</p>
     </div>
-   </div>
   </div>
-  </div>
+</section>
+<div class="container">
+  <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+  <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+  <span class="status"><span style="font-size: 50px ;margin-left: 10%">status:&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+  <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
+  <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
+  <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
+</div>
+</body>
 </template>
 
 <script>
-export default {
-  name: 'ProgressBar',
-  data () {
-    return {
-      array: [
-        {
-          progress: 30,
-          type: 'Lost luggage'
-        },
-        {
-          progress: 50,
-          type: 'Others'
-        }
-      ]
-    }
-  }
-}
 </script>
 
 <style scoped>
-  div.progressContainer{
-    height: 20px;
-    width: 96%;
-    border-radius: 10px;
-    background-color: #ddd;
-    margin-left: 2%;
-    margin-top: 10%;
+
+  .subject{
+    position: relative;
+    float: left;
+    font-size: 50px;
+    margin-left: 10%;
+    width: 20%;
   }
-  div.progress{
-    background-color: #1C8DE0;
-    border-radius: 10px;
-    height:20px;
-    line-height: 20px;}
-  b{
-    color:Black;
-    font-weight: 100;
-    font-size: 12px;
-    position:absolute;
-    left:30%;
+  .type{
+    position: relative;
+    float: left;
+    font-size: 50px;
+    margin-left:15%;
+    width: 20%;
   }
-  p{
-    margin-top: 10px;
-    font-size: 18px;
+
+  .approve{
+    position: relative;
+    margin-left: 25%;
+    margin-top: 5%;
+    font-size: 30px;
+    bottom:0;
+    color:#1d78cb;
+    background: #75cb61;
   }
-  .detail{
-    margin-top: 10px;
-    margin-left: 80px;
-    position:absolute;
-    right:25%;
-    font-size: 16px;
+  .deny{
+    position: relative;
+    margin-left: 70%;
+    margin-top: -9%;
+    font-size: 30px;
+    bottom:0;
+    color:#1d78cb;
+    background: #f6e74f;
   }
-  .delete{
-    margin-top: 10px;
-    margin-left: 80px;
-    position:absolute;
-    right:10%;
-    font-size: 16px;
+ .subject,.type{
+    color: black;
   }
 </style>
