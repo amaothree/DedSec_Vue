@@ -14,7 +14,7 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>introduce</h2>
+        <h2>introduction</h2>
       </div>
     </div>
   </section>
@@ -22,7 +22,7 @@
     <div class="module-a">
       <div class="hd">
         <h2 class="h2">
-          <span class="intro">安全原则</span>
+          <span class="intro">Policy of Hibernia-Sino</span>
         </h2>
       </div>
       <div class="bd">
@@ -89,7 +89,9 @@
     outline: none;
   }
   .login {
-    width: 1000px;
+    width: 1600px;
+    hight:10000px;
+    margin-left: 200px;
     background: #ffffff;
     position: absolute;
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
@@ -100,18 +102,37 @@
     text-align: left;
   }
   .intro {
-    text-align: left;
-    color: red;
+    color: rgba(225, 216, 216, 9);
+    font-size: 40px;
+    margin-bottom: 1px;
+    margin-right: 6px;
+    margin-top: 2px;
   }
   .message_num {
     color: blue;
   }
   .fb {
     font-size: 30px;
+    margin-left: 60px;
     color: blue;
   }
   .mes {
     font-size: 20px;
-
+    text-align: center;
+  }
+  .h2{
+    color:rgba(26, 26, 26, 0.1);
+    font-size: 20px;
+    text-align: center;
+  }
+  button{
+    padding: 10px 25px 10px 25px;
+    width:200px;
+    margin-left: 600px;
+    margin-top: 50px;
+    border-radius: 4px;
+    border:1px solid #CCC;
+    background: antiquewhite;
+    color: #333;
   }
 </style>
