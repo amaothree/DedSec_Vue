@@ -4,7 +4,7 @@
     <div class="container">
       <div class="banner_inner_text">
         <h2>Information</h2>
-        <p>set your personal detail</p>
+        <p class="setset">set your personal detail</p>
       </div>
     </div>
   </section>
@@ -14,7 +14,7 @@
       <ul class="privilege-ul name-ul">
         <li class="privilege-item first-item">
           <p class="title">
-            <span> </span>
+            <span>Types</span>
           </p>
         </li>
         <li class="privilege-item" style="background: #fbf9f8">
@@ -48,7 +48,7 @@
             <p class="vip-type-icon">
               <span class="vip-icon svip-middle icon-size-middle"></span>
             </p>
-            <span class="vip-type-title">信息</span>
+            <span class="vip-type-title">information</span>
           </div>
           <div class="buy-btn-box">
             <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="jumptomainpage()">{{ $t('personal.Modify')}}</p>
@@ -124,10 +124,10 @@ export default {
   ul{list-style: none;}
   a{text-decoration: none;cursor: default;}
   .module-line span{display: inline-block;*display: inline;*zoom: 1}
-  .module-privilege{width: 1100px;height: 910px;margin: 10px auto 40px;position: relative}
-  .module-privilege .privilege-ul{float: left;border: 1px solid #d3d1d0;background: #fff;width: 473px;position: absolute}
+  .module-privilege{width: 1600px;height: 910px;margin: 0px auto 0px;position: relative}
+  .module-privilege .privilege-ul{float: left;border: 1px solid #d3d1d0;background: #fff;width: 980px;position: absolute}
   .module-privilege .privilege-ul.name-ul{left: 0}
-  .module-privilege .privilege-ul.svip-ul{left: 275px;color: #ca963b;-moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08);box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08)}
+  .module-privilege .privilege-ul.svip-ul{left: -2750px;color: #ca963b;-moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08);box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08)}
   .module-privilege .privilege-ul .privilege-item{text-align: center;height: 75px;line-height: 45px;font-size: 34px}
   .module-privilege .privilege-ul .privilege-item a{color: #666;display: block;width: 100%;height: 100%}
   .module-privilege .privilege-ul .privilege-item.first-item{height: 102px;padding-top: 10px}
@@ -141,7 +141,7 @@ export default {
   .module-privilege .privilege-ul .privilege-item .no-vip-type .vip-type-icon{display: inline-block;*display: inline;*zoom: 1;vertical-align: middle;height: 30px}
   .module-privilege .privilege-ul .privilege-item .vip-type .vip-type-title,
   .module-privilege .privilege-ul .privilege-item .no-vip-type .vip-type-title{height: 30px;line-height: 30px;display: inline-block;vertical-align: middle}
-  .module-privilege .privilege-ul.active{border-color: #f2ddaf;background-color: #fffaeb;margin-top: -4px;width: 285px;left: 269px;z-index: 10}
+  .module-privilege .privilege-ul.active{border-color: #f2ddaf;background-color: #fffaeb;margin-top: -4px;width: 780px;left: 800px;z-index: 10}
   .module-privilege .privilege-ul.active .privilege-item.first-item{height: 106px}
   .icon-size-middle{width: 30px;height: 30px;}
   .vip-icon,.buy-btn-box{display: inline-block;}
@@ -149,4 +149,6 @@ export default {
   .center-button-light-yellow{border: 1px solid #f9d681;background-color: #f9d681;color: #351d06;}
   .center-button-light-yellow:hover{background-color: #e7c062;}
   .center-button-base{cursor: pointer;display: inline-block;margin: 0 5px;}
+  .setset{height: 20px;left: 30px}
+  h2{}
 </style>
