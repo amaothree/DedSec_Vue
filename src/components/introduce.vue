@@ -22,7 +22,7 @@
     </div>
   </section>
   <!--================End Banner Area =================-->
-  <a class="more_btn" style="margin-left: 43%"><router-link to="/Login" style="font-size: 40px">click to start</router-link></a>
+  <a class="more_btn" style="margin-left: 43%"><router-link to="/Login" style="font-size: 40px">登陆</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
@@ -42,8 +42,8 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
-            <h4>Online Marketing</h4>
-            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
+            <h4>About US</h4>
+            <p>我们是一家保险理赔公司，维护您的财产损失. </p>
             <a class="more_btn" href="#">Read More</a>
           </div>
         </div>
@@ -52,8 +52,8 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-3.png" alt="">
             </div>
-            <h4>Social Media</h4>
-            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
+            <h4>安全原则</h4>
+            <p>我们严格遵守公司安全原则，保护客户切身利益 </p>
             <a class="more_btn" href="#">Read More</a>
           </div>
         </div>
