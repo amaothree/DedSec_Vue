@@ -4,7 +4,7 @@
     <div class="container">
       <div class="banner_inner_text">
         <h2>Claim</h2>
-        <p>register your claim</p>
+        <p>Sumbit your claim</p>
       </div>
     </div>
   </section>

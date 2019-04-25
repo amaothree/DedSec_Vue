@@ -4,7 +4,7 @@
     <div class="container">
       <div class="banner_inner_text">
         <h2>Information</h2>
-        <p class="setset">set your personal detail</p>
+        <p class="setset">Reset your personal details</p>
       </div>
     </div>
   </section>

@@ -6,7 +6,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">Exit</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">中英文</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">Language</a></li>
         </ul>
       </div>
     </nav>
@@ -20,4 +20,3 @@
   </section>
   </body>
 </template>
-

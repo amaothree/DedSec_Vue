@@ -4,7 +4,7 @@
     <div class="container">
       <div class="banner_inner_text">
         <h2>Services</h2>
-        <p>what do you want to do ？</p>
+        <p>Which kind of service do you prefer?</p>
       </div>
     </div>
   </section>
