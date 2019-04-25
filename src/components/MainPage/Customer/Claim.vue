@@ -26,13 +26,13 @@
       <label>Deliver</label>
       <label>
         <span>Name of Recipient</span>
-        <input type="text">
+        <input type="text" v-model="name">
         <span>Phone</span>
-        <input type="text">
+        <input type="text" v-model="phone">
       </label>
       <label>
         <span>Country</span>
-        <select name="select2" class="select1" v-model="lug_type">
+        <select name="select2" class="select1" v-model="country">
           <optgroup label="Europe">
             <option value="England">England</option>
             <option value="France">France</option>
@@ -68,13 +68,13 @@
       </label>
       <label>
         <span>City</span>
-        <input type="text">
+        <input type="text" v-model="city">
         <span>District</span>
-        <input type="text">
+        <input type="text" v-model="district">
         <span>Specific Address</span>
-        <input type="text">
+        <input type="text" v-model="address">
         <span>Postal Code</span>
-        <input type="text">
+        <input type="text" v-model="postal">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -92,7 +92,14 @@ export default {
     return {
       lug_message: '',
       lug_type: '',
-      lug_subject: ''
+      lug_subject: '',
+      postal: '',
+      address: '',
+      district: '',
+      city: '',
+      country: '',
+      phone: '',
+      name: ''
     }
   },
   methods: {
@@ -102,7 +109,14 @@ export default {
         params: {
           subject: this.lug_subject,
           type: this.lug_type,
-          message: this.lug_message
+          message: this.lug_message,
+          recipient: this.name,
+          phone: this.phone,
+          country: this.country,
+          city: this.city,
+          district: this.district,
+          address: this.address,
+          postcode: this.postal
         }
       }).then(function (response) {
         console.log(response)

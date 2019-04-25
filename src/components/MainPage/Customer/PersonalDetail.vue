@@ -56,6 +56,7 @@
 <script>
 import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'PersonalDetail',
   data () {
     return {
@@ -97,6 +98,7 @@ export default {
         {
           name: 'PersonalInformation'
         })
+      this.reload()
     }
   }
 }

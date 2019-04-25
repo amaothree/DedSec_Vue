@@ -3,21 +3,6 @@
     <h1>{{ $t('personal.personal')}}</h1>
 
     <form>
-      <!--<dl>-->
-        <!--<dd>-->
-          <!--<label for ="username" >{{ $t('personal.name')}}</label>-->
-          <!--<input type="text" name="用户名" id="username" :value="userid" class="input">-->
-        <!--</dd>-->
-      <!--</dl>-->
-      <!--<dl>-->
-        <!--<dd>-->
-          <!--<label for ="sex" >*Sex</label>-->
-          <!--<select name="sex" id="sex">-->
-            <!--<option value="male">male</option>-->
-            <!--<option value="female">female</option>-->
-            <!--</select>-->
-        <!--</dd>-->
-      <!--</dl>-->
       <dl>
         <dd>
           <label for ="first_name" >{{ $t('personal.FirstName')}}</label>
@@ -56,6 +41,7 @@
 <script>
 import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'EmployeeDetail',
   data () {
     return {
@@ -97,6 +83,7 @@ export default {
         {
           name: 'EmployeeInformation'
         })
+      this.reload()
     }
   }
 }
