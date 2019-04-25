@@ -8,7 +8,7 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">Exit</router-link></a></li>
           <li class="nav-item"><a class="nav-link"><router-link to="/EmployeeMainPage" style="font-size: 25px">services</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">中英文</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
           <li class="nav-item"><a><router-link to="/EmployeeInformation" style="font-size: 25px">setting</router-link></a></li>
         </ul>
       </div>
@@ -69,45 +69,44 @@
 
 <script>
 export default {
-  name: 'CustomerNav',
-  data () {
-    return {
-      locale: 'en',
-      ang: '中文'
-    }
-  },
-  methods: {
-    changeLang () {
-      // 增加传入语言
-      if (this.locale === 'cn') {
-        this.lang = '中文'
-        this.locale = 'en'
-      } else {
-        this.lang = 'ENG'
-        this.locale = 'cn'
-      }
-      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-      window.location.reload() // 进行刷新改变cookie里的值
-    }
-  },
-  mounted () {
-    if (this.$cookie.get('lng') === '0') {
-      this.locale = 'cn'
-      this.lang = 'ENG'
-    } else {
-      this.locale = 'en'
+name: 'CustomerNav',
+data () {
+  return {
+    locale: 'en',
+    lang: '中文'
+  }
+},
+methods: {
+  changeLang () {
+    // 增加传入语言
+    if (this.locale === 'cn') {
       this.lang = '中文'
+      this.locale = 'en'
+    } else {
+      this.lang = 'ENG'
+      this.locale = 'cn'
     }
     this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-  },
-  watch: {
-    locale (val) {
-      this.$i18n.locale = val
-      console.log('locale', val)
-    }
+    window.location.reload() // 进行刷新改变cookie里的值
+  }
+},
+mounted () {
+  if (this.$cookie.get('lng') === '0') {
+    this.locale = 'cn'
+    this.lang = 'ENG'
+  } else {
+    this.locale = 'en'
+    this.lang = '中文'
+  }
+  this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+},
+watch: {
+  locale (val) {
+    this.$i18n.locale = val
+    console.log('locale', val)
   }
 }
-
+}
 </script>
 <style>
   table.dataTable thead .sorting:after,

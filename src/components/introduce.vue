@@ -6,7 +6,7 @@
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">中英文</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
             </ul>
       </div>
     </nav>
@@ -32,9 +32,9 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-1.png" alt="">
             </div>
-            <h4>Brand Identity</h4>
-            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. </p>
-            <a class="more_btn"><router-link to="/Introduce" >register</router-link></a>
+            <h4>{{ $t('introduce.register')}} </h4>
+            <p>{{ $t('introduce.register_message')}}</p>
+            <a class="more_btn"><router-link to="/login" >{{ $t('introduce.register')}}</router-link></a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -64,5 +64,44 @@
 </template>
 
 <script>
+export default {
+  name: 'Introduce',
+  data () {
+    return {
+      locale: 'en',
+      lang: '中文'
+    }
+  },
+  methods: {
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+      window.location.reload() // 进行刷新改变cookie里的值
+    }
+  },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
+    }
+  }
+}
 
 </script>
