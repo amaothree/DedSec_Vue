@@ -18,7 +18,7 @@
       <!--</select>-->
       <!--</dd>-->
       <!--</dl>-->
-      <dl>
+      <dl>x
         <dd>
           <label for ="first_name" >{{ $t('personal.FirstName')}}</label>
           <input type="text" name="名" id="first_name" :value="first_name" class="input">
