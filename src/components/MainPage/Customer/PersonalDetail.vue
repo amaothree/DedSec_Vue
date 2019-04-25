@@ -70,27 +70,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'PersonalDetail',
-    data () {
-      return {
-        username: 'Default',
-        password: 'Default',
-        first_name: 'Default',
-        last_name: 'Default',
-        phone: 'Default',
-        email: 'Default'
-      }
-    },
-    created () {
-      this.email = this.$route.params.email
-      this.phone = this.$route.params.phone
-      this.last_name = this.$route.params.last_name
-      this.first_name = this.$route.params.first_name
-      this.password = this.$route.params.password
-      this.username = this.$route.params.username
+export default {
+  name: 'PersonalDetail',
+  data () {
+    return {
+      username: 'Default',
+      password: 'Default',
+      first_name: 'Default',
+      last_name: 'Default',
+      phone: 'Default',
+      email: 'Default'
     }
+  },
+  created () {
+    this.email = this.$route.params.email
+    this.phone = this.$route.params.phone
+    this.last_name = this.$route.params.last_name
+    this.first_name = this.$route.params.first_name
+    this.password = this.$route.params.password
+    this.username = this.$route.params.username
   }
+}
 </script>
 <style scoped>
   body{color: #666;}

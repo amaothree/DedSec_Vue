@@ -70,27 +70,52 @@
 </template>
 
 <script>
-  export default {
-    name: 'EmployeeDetail',
-    data () {
-      return {
-        username: 'Default',
-        password: 'Default',
-        first_name: 'Default',
-        last_name: 'Default',
-        phone: 'Default',
-        email: 'Default'
-      }
-    },
-    created () {
-      this.email = this.$route.params.email
-      this.phone = this.$route.params.phone
-      this.last_name = this.$route.params.last_name
-      this.first_name = this.$route.params.first_name
-      this.password = this.$route.params.password
-      this.username = this.$route.params.username
+import axios from 'axios'
+export default {
+  name: 'EmployeeDetail',
+  data () {
+    return {
+      userid: 'Default',
+      password: 'Default',
+      first_name: 'Default',
+      last_name: 'Default',
+      phone: 'Default',
+      email: 'Default'
+    }
+  },
+  created () {
+    this.email = this.$route.params.email
+    this.phone = this.$route.params.phone
+    this.last_name = this.$route.params.last_name
+    this.first_name = this.$route.params.first_name
+    this.password = this.$route.params.password
+    this.userid = this.$route.params.userid
+  },
+  methods: {
+    modifyPersonalDetail: function () {
+      axios('/api/user/modify', {
+        params: {
+          id: this.userid,
+          password: this.password,
+          fname: this.first_name,
+          lname: this.last_name,
+          phone: this.phone,
+          email: this.email
+        }
+      }).then(function (response) {
+        console.log(response)
+        alert('Submit Successfully')
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for this submission.')
+      })
+      this.$router.push(
+        {
+          name: 'EmployeeInformation'
+        })
     }
   }
+}
 </script>
 <style scoped>
   body{color: #666;}
