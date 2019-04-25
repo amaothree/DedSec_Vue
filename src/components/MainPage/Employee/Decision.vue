@@ -8,12 +8,12 @@
       </div>
     </div>
   </section>
-    <div class="container" style="margin-top: 5%">
-      <span class="id"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
+    <div class="container">
+      <span class="id" style=" position: absolute;"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
       <!--<br>-->
-      <span class="userid"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
-      <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
-      <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+      <span class="userid" style="margin-left: 20%;"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
+        <span class="subject" style="margin-left: 15%"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="type" style="margin-left: 40%"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
       <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
       <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
@@ -63,47 +63,16 @@ export default {
 </script>
 
 <style scoped>
-
- .id{
-   position: relative;
+  .subject{
+    position: absolute;
     float: left;
-    font-size: 50px;
-   margin-left:10%;
-   width: 20%;
+    font-size: 30px;
   }
- .userid{
-   position: relative;
-   float: left;
-   font-size: 50px;
-   width: 20%;
- }
- .subject{
-   position: relative;
-   /*float: left;*/
-   font-size:50px;
-   margin-left:4%;
-   width: 20%;
- }
- .type{
-   position: relative;
-   float: left;
-   margin-left:10%;
-   font-size: 50px;
-   width: 20%;
- }
-  .message{
-    position: relative;
-    margin-left: 10%;
-    margin-top: 150px;
-    border: 1px solid #DADADA;
-    background-color: #FFF;
-    border-radius: 5px;
-    width: 80%;
-    height: 60%;
-    font-size: 16px;
-    text-align: center;
+  .type{
+    position: absolute;
+    float: left;
+    font-size: 30px;
   }
-
   .approve{
     position: relative;
     margin-left: 25%;
@@ -122,7 +91,8 @@ export default {
     color:#1d78cb;
     background: #f6e74f;
   }
-  .id,.userid,.subject,.type{
+  .subject,.type,.id,.userid{
+    font-size: 40px;
     color: black;
   }
 </style>

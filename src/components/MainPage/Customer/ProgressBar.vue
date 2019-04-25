@@ -9,9 +9,9 @@
   </div>
 </section>
 <div class="container">
-  <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
-  <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
-  <span class="status"><span style="font-size: 50px ;margin-left: 10%">status:&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+    <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{subject}}</span></span><
+  <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{type}}</span></span>
+  <span class="status"><span style="margin-left: 10%">status:&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{type}}ss</span></span>
   <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
   <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
   <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
@@ -25,20 +25,25 @@
 <style scoped>
 
   .subject{
-    position: relative;
+    position: absolute;
     float: left;
     font-size: 50px;
-    margin-left: 10%;
     width: 20%;
   }
   .type{
-    position: relative;
+    position: absolute;
     float: left;
     font-size: 50px;
-    margin-left:15%;
+    margin-left:35%;
     width: 20%;
   }
-
+  .status{
+    position: absolute;
+    float: left;
+    font-size: 50px;
+    margin-left:60%;
+    width: 20%;
+  }
   .approve{
     position: relative;
     margin-left: 25%;
