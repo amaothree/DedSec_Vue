@@ -70,54 +70,54 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  export default {
-    name: 'PersonalInformation',
-    data () {
-      return {
-        id: 0,
-        username: 'Default',
-        password: 'Default',
-        email: 'Default',
-        phone: 'Default',
-        type: 'Default',
-        logon_date: 'Default',
-        first_name: 'Default',
-        last_name: 'Default'
-      }
-    },
-    methods: {
-      jumptomainpage () {
-        this.$router.push(
-          {
-            name: 'PersonalDetail',
-            params: {
-              username: this.username,
-              password: this.password,
-              first_name: this.first_name,
-              last_name: this.last_name,
-              phone: this.phone,
-              email: this.email
-            }
-          }
-        )
-      }
-    },
-    created: function () {
-      // let vm = this
-      axios.get('http://152.136.82.233:8084/login/getUser?username=wuqiannian').then((res) => {
-        this.id = res.data.id
-        this.username = res.data.username
-        this.password = res.data.password
-        this.email = res.data.email
-        this.phone = res.data.phone
-        this.type = res.data.type
-        this.first_name = res.data.first_name
-        this.last_name = res.data.last_name
-        console.log(this.array)
-      })
+import axios from 'axios'
+export default {
+  name: 'PersonalInformation',
+  data () {
+    return {
+      id: 0,
+      username: 'Default',
+      password: 'Default',
+      email: 'Default',
+      phone: 'Default',
+      type: 'Default',
+      logon_date: 'Default',
+      first_name: 'Default',
+      last_name: 'Default'
     }
+  },
+  methods: {
+    jumptomainpage () {
+      this.$router.push(
+        {
+          name: 'PersonalDetail',
+          params: {
+            username: this.username,
+            password: this.password,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            phone: this.phone,
+            email: this.email
+          }
+        }
+      )
+    }
+  },
+  created: function () {
+    // let vm = this
+    axios.get('http://152.136.82.233:8084/login/getUser?username=wuqiannian').then((res) => {
+      this.id = res.data.id
+      this.username = res.data.username
+      this.password = res.data.password
+      this.email = res.data.email
+      this.phone = res.data.phone
+      this.type = res.data.type
+      this.first_name = res.data.first_name
+      this.last_name = res.data.last_name
+      console.log(this.array)
+    })
   }
+}
 </script>
 <style scoped>
   body{color: #666;}

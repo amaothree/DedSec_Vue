@@ -20,13 +20,10 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="submit" class="form-report" style="margin-left: 40%">
+    <form action="submit" class="form-report" style="margin-left: 30%">
       <label>
-          <div class="account">
-          <input type="text" @blur="onBlurCheckAccount('phone')"
-               :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
-               :placeholder="errorMessage['phone']"  v-model.trim="phone">
-          </div>
+        <span>account</span>
+        <input type="text" class="form-control">
       </label>
       <label>
         <span>password</span>
