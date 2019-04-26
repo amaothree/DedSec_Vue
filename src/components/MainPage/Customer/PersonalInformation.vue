@@ -54,14 +54,14 @@
             <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="jumptomainpage()">{{ $t('personal.Modify')}}</p>
           </div>
         </li>
-        <li class="privilege-item" style="background: #fbf4e4">5</li>
-        <li class="privilege-item">aa</li>
-        <li class="privilege-item" style="background: #fbf4e4">bb</li>
-        <li class="privilege-item">cc</li>
-        <li class="privilege-item" style="background: #fbf4e4">dd</li>
-        <li class="privilege-item">dd</li>
-        <li class="privilege-item" style="background: #fbf4e4">dd</li>
-        <li class="privilege-item">dd</li>
+        <li class="privilege-item" style="background: #fbf4e4">{{userid}}</li>
+        <li class="privilege-item">{{username}}</li>
+        <li class="privilege-item" style="background: #fbf4e4">{{first_name}}</li>
+        <li class="privilege-item">{{last_name}}</li>
+        <li class="privilege-item" style="background: #fbf4e4">{{password}}</li>
+        <li class="privilege-item">{{email}}</li>
+        <li class="privilege-item" style="background: #fbf4e4">{{phone}}</li>
+        <li class="privilege-item">{{type}}</li>
       </ul>
     </div>
 </div>
@@ -70,12 +70,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: 'PersonalInformation',
   data () {
     return {
-      id: 0,
+      userid: 0,
       username: 'Default',
       password: 'Default',
       email: 'Default',
@@ -90,32 +90,41 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'PersonalDetail',
-          params: {
-            username: this.username,
-            password: this.password,
-            first_name: this.first_name,
-            last_name: this.last_name,
-            phone: this.phone,
-            email: this.email
-          }
+          path: '/PersonalDetail'
+          // params: {
+          //   username: this.username,
+          //   password: this.password,
+          //   first_name: this.first_name,
+          //   last_name: this.last_name,
+          //   phone: this.phone,
+          //   email: this.email
+          // }
         }
       )
     }
   },
   created: function () {
     // let vm = this
-    axios.get('http://152.136.82.233:8084/login/getUser?username=wuqiannian').then((res) => {
-      this.id = res.data.id
-      this.username = res.data.username
-      this.password = res.data.password
-      this.email = res.data.email
-      this.phone = res.data.phone
-      this.type = res.data.type
-      this.first_name = res.data.first_name
-      this.last_name = res.data.last_name
-      console.log(this.array)
-    })
+    // axios.get('http://152.136.82.233:8084/login/getUser?username=wuqiannian').then((res) => {
+    //   this.id = res.data.id
+    //   this.username = res.data.username
+    //   this.password = res.data.password
+    //   this.email = res.data.email
+    //   this.phone = res.data.phone
+    //   this.type = res.data.type
+    //   this.first_name = res.data.first_name
+    //   this.last_name = res.data.last_name
+    //   console.log(this.array)
+    // })
+    console.log(this.$cookies.get('username'))
+    this.email = this.$cookies.get('email')
+    this.phone = this.$cookies.get('phone')
+    this.last_name = this.$cookies.get('last_name')
+    this.first_name = this.$cookies.get('first_name')
+    this.password = this.$cookies.get('password')
+    this.username = this.$cookies.get('username')
+    this.type = this.$cookies.get('type')
+    this.userid = this.$cookies.get('userid')
   }
 }
 </script>

@@ -86,7 +86,6 @@ export default {
   },
   methods: {
     addluggage: function () {
-      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
       axios('/api/luggage/add', {
         params: {
           subject: this.lug_subject,
