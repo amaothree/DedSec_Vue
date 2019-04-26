@@ -8,10 +8,10 @@
     </div>
   </div>
 </section>
-<div class="container">
-    <span class="subject"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{subject}}</span></span><
-  <span class="type"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{type}}</span></span>
-  <span class="status"><span style="margin-left: 10%">status:&nbsp;&nbsp;</span><span class="data" style="margin-left: 5%">{{type}}ss</span></span>
+<div class="container" style=" position: absolute;">
+  <span class="subject" style="margin-left: 5%;position: absolute;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+  <span class="type" style="margin-left: 35%;position: absolute;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+  <span class="status" style="margin-left: 70%"><span>status:&nbsp;&nbsp;</span><span class="data">{{type}}ss</span></span>
   <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
   <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
   <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
@@ -23,7 +23,6 @@
 </script>
 
 <style scoped>
-
   .subject{
     position: absolute;
     float: left;

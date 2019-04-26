@@ -8,12 +8,11 @@
       </div>
     </div>
   </section>
-    <div class="container">
-      <span class="id" style=" position: absolute;"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
-      <!--<br>-->
-      <span class="userid" style="margin-left: 20%;"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
-        <span class="subject" style="margin-left: 15%"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
-      <span class="type" style="margin-left: 40%"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+    <div class="container" style=" position: absolute;">
+      <span class="id" style=" padding-left: 5%;position: absolute;"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
+      <span class="userid" style="margin-left: 30%;position: absolute;"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
+      <span class="subject" style="margin-left: 55%;position: absolute;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="type" style="margin-left: 80%;position: absolute;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
       <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;"></textarea>
       <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
       <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
