@@ -23,11 +23,11 @@
     <form action="submit" class="form" style="margin-left: 30%">
       <label>
         <span>account</span>
-        <input type="text" class="form-control" placeholder="please enter your account">
+        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
       </label>
       <label>
         <span>password</span>
-        <input type="password" class="form-control" placeholder="please enter your password" required>
+        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -156,7 +156,7 @@ export default {
     font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }
-  .Content-Main label>span{
+  .Content-Main label>span {
     float: left;
     width: 20%;
     padding-right: 10px;
@@ -165,77 +165,6 @@ export default {
     font-weight: bold;
     text-align: right;
     color: #333;
-  }
-  .Content-Main input[type="text"],.Content-Main textarea{
-    width: 15%;
-    height: 50px;
-    padding: 5px 0px 5px 5px;
-    margin-bottom: 16px;
-    margin-right: 6px;
-    margin-top: 2px;
-    line-height: 15px;
-    border-radius: 4px;
-    border: 1px solid #CCC;
-    color: #888;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 40px;
-  }
-  .select1{
-    width: 71%;
-    height: 35px;
-    margin-bottom: 16px;
-    margin-right: 6px;
-    margin-top: 2px;
-    line-height: 15px;
-    padding: 5px 0px 5px 5px;
-    border-radius: 4px;
-    border: 1px solid #CCC;
-    color: #888;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 20px;
-  }
-  .select2{
-    width: 13%;
-    border-radius: 4px;
-    border: 1px solid #CCC;
-    color: #888;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 16px;
-  }
-  .Content-Main textarea{
-    width: 70%;
-    height: 200px;
-    padding: 5px 0px 0px 5px;
-    font-size: 30px;
-  }
-  .button{
-    padding: 10px 25px 10px 25px;
-    margin-left: 111px;
-    border-radius: 4px;
-    border:1px solid #CCC;
-    background: #FFF;
-    color: #333;
-  }
-  .button:hover{
-    color: #333;
-    background-color: #EBEBEB;
-    border-color: #ADADAD;
-    font-size: 16px;
-  }
-  form{
-    padding: 20px 30px 20px 30px;;
   }
   button{
     font-size: 16px;
@@ -273,39 +202,4 @@ export default {
     position: relative;
     border: rgba(255,255,255,0.2) 2px solid !important;
   }
-  input::-webkit-input-placeholder{
-    color: blue;
-  }
-  .form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form input[type="password"]{
-    margin-bottom: 1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-  }
-  .form .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  /*form {*/
-    /*display: -ms-flexbox;*/
-    /*display: flex;*/
-    /*-ms-flex-align: center;*/
-    /*align-items: center;*/
-    /*padding-top: 40px;*/
-    /*padding-bottom: 40px;*/
-    /*background-color: #f5f5f5;*/
-  /*}*/
 </style>

@@ -23,15 +23,15 @@
     <form action="" class="form-report" style="margin-left: 30%">
       <label>
         <span>account</span>
-        <input type="text" class="form-control">
+        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
       </label>
       <label>
         <span>password</span>
-        <input type="text" class="form-control">
+        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input">
       </label>
       <label>
         <span>repeat password</span>
-        <input type="text" class="form-control">
+        <input id="repeat-password" type="password" name="password" autocomplete="off" placeholder="请再次输入密码" class="repeat-input">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -115,24 +115,7 @@ export default {
     text-align: right;
     color: #333;
   }
-  .Content-Main input[type="text"],.Content-Main textarea{
-    width: 15%;
-    height: 50px;
-    padding: 5px 0px 5px 5px;
-    margin-bottom: 16px;
-    margin-right: 6px;
-    margin-top: 2px;
-    line-height: 15px;
-    border-radius: 4px;
-    border: 1px solid #CCC;
-    color: #888;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 40px;
-  }
+
   .select1{
     width: 71%;
     height: 35px;
