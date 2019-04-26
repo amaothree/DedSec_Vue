@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Require</h2>
-        <p>All the requirement</p>
+        <h2>Data</h2>
+        <p>All the data</p>
       </div>
     </div>
   </section>

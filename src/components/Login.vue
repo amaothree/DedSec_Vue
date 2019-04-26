@@ -20,17 +20,14 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="submit" class="form-report" style="margin-left: 40%">
+    <form action="submit" class="form" style="margin-left: 30%">
       <label>
-          <div class="account">
-          <input type="text" @blur="onBlurCheckAccount('phone')"
-               :class="{'phone-input':true,error:errorMessage.phone.indexOf('Can not be empty')>-1}"
-               :placeholder="errorMessage['phone']"  v-model.trim="phone">
-          </div>
+        <span>account</span>
+        <input type="text" class="form-control" placeholder="please enter your account">
       </label>
       <label>
         <span>password</span>
-        <input type="text" class="form-control">
+        <input type="password" class="form-control" placeholder="please enter your password" required>
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -279,4 +276,36 @@ export default {
   input::-webkit-input-placeholder{
     color: blue;
   }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form input[type="password"]{
+    margin-bottom: 1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  /*form {*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-ms-flex-align: center;*/
+    /*align-items: center;*/
+    /*padding-top: 40px;*/
+    /*padding-bottom: 40px;*/
+    /*background-color: #f5f5f5;*/
+  /*}*/
 </style>

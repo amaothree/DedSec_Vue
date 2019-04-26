@@ -33,7 +33,7 @@
               <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
             <h4>About US</h4>
-            <p>我们是一家保险理赔公司，维护您的财产损失. </p>
+            <p>Introduction to Hibernia-Sino</p>
             <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">click</router-link></a>
           </div>
         </div>
@@ -42,8 +42,8 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-3.png" alt="">
             </div>
-            <h4>安全原则</h4>
-            <p>我们严格遵守公司安全原则，保护客户切身利益 </p>
+            <h4>Policy</h4>
+            <p>All the policies of Hibernia-Sino</p>
             <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 40px">click</router-link></a>
           </div>
         </div>
