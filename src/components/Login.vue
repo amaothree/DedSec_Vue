@@ -112,7 +112,7 @@ export default {
         this.username = res.data.username
         this.type = res.data.type
         if (this.password === res.data.password) {
-          console.log('You have logged in.')
+          alert('You have logged in.')
           if (this.type === 'customer') {
             this.$router.push(
               {
@@ -137,7 +137,7 @@ export default {
             )
           }
         } else {
-          console.log('Log in failed.')
+          alert('Failed.')
         }
       })
     }

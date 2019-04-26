@@ -31,31 +31,31 @@
     </label>
       <label>
         <span>Name of Recipient</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="name">
       </label>
       <label>
         <span>Phone</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="phone">
       </label>
       <label>
         <span>Country</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="country">
       </label>
       <label>
         <span>City</span>
-        <input type="text" class="form-control" >
+        <input type="text" class="form-control" v-model="city">
       </label>
       <label>
         <span>District</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="district">
       </label>
       <label>
         <span>Specific Address</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="address">
       </label>
       <label>
         <span>Postal Code</span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="postal">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -74,18 +74,31 @@ export default {
     return {
       lug_message: '',
       lug_type: '',
-      lug_subject: ''
+      lug_subject: '',
+      postal: '',
+      address: '',
+      district: '',
+      city: '',
+      country: '',
+      phone: '',
+      name: ''
     }
   },
   methods: {
     addluggage: function () {
       console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-
       axios('/api/luggage/add', {
         params: {
           subject: this.lug_subject,
           type: this.lug_type,
-          message: this.lug_message
+          message: this.lug_message,
+          recipient: this.name,
+          phone: this.phone,
+          country: this.country,
+          city: this.city,
+          district: this.district,
+          address: this.address,
+          postcode: this.postal
         }
       }).then(function (response) {
         console.log(response)
