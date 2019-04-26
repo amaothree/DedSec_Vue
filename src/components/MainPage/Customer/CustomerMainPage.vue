@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'CustomerNav',
+  name: 'CustomerMainPage',
   data () {
     return {
       locale: 'en',

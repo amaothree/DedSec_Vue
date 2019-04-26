@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CustomerNav from '@/components/MainPage/Customer/CustomerMainPage'
+import CustomerMainPage from '@/components/MainPage/Customer/CustomerMainPage'
 import PersonalDetail from '@/components/MainPage/Customer/PersonalDetail'
 import ProcessingProgress from '@/components/MainPage/Customer/ProcessingProgress'
 import ProgressBar from '@/components/MainPage/Customer/ProgressBar'
 import Claim from '@/components/MainPage/Customer/Claim'
-import InitialPage from '@/components/InitialPage'
 import EmployeeMainPage from '@/components/MainPage/Employee/EmployeeMainPage'
 import Solution from '@/components/MainPage/Employee/Solution'
 import EmployeeDetail from '@/components/MainPage/Employee/EmployeeDetail'
@@ -38,26 +37,18 @@ export default new Router({
     },
     {
       path: '/Login',
-      name: 'InitialPage',
-      component: InitialPage,
-      children: [
-        {
-          path: '/',
-          name: 'Login',
-          component: Login
-        },
-        {
-          path: '/Register',
-          name: 'Register',
-          component: Register
-        }
-      ]
+      name: 'Login',
+      component: Login
     },
-
+    {
+      path: '/Register',
+      name: 'Register',
+      component: Register
+    },
     {
       path: '/CustomerMainPage',
       name: 'CustomerMainPage',
-      component: CustomerNav,
+      component: CustomerMainPage,
       children: [
         {
           path: '/',
