@@ -9,7 +9,7 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="" class="form-report">
+    <form autocomplete="off" @submit.prevent="onSubmit">
       <label>
         <span>{{ $t('claim.Subject')}}</span>
         <select name="select1" class="select1" v-model="lug_subject">
@@ -81,11 +81,13 @@ export default {
       city: '',
       country: '',
       phone: '',
-      name: ''
+      name: '',
+      userid: -1
     }
   },
   methods: {
     addluggage: function () {
+      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
       axios('/api/luggage/add', {
         params: {
           subject: this.lug_subject,
@@ -97,7 +99,8 @@ export default {
           city: this.city,
           district: this.district,
           address: this.address,
-          postcode: this.postal
+          postcode: this.postal,
+          userid: this.userid
         }
       }).then(function (response) {
         console.log(response)
@@ -106,9 +109,16 @@ export default {
         console.log(error)
         alert('Error : There is something wrong for this submission.')
       })
+    },
+    methods: {
+      onSubmit () {
+        return false
+      }
     }
+  },
+  created: function () {
+    this.userid = this.$cookies.get('userid')
   }
-
 }
 </script>
 <style scoped>
