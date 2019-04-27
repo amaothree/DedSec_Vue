@@ -115,11 +115,6 @@ export default {
       this.last_name = res.data.last_name
       console.log(this.array)
     })
-    // this.email = this.$cookies.get('email')
-    // this.phone = this.$cookies.get('phone')
-    // this.last_name = this.$cookies.get('last_name')
-    // this.first_name = this.$cookies.get('first_name')
-    // this.password = this.$cookies.get('password')
   }
 }
 </script>

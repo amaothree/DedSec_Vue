@@ -20,30 +20,30 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="even" role="row">
-          <td class="sorting_1">Blink</td>
-          <td>Iridium  54.0</td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>
+        <tr class="even" role="row" v-for="arr in array" :key="arr.index">
+          <td class="sorting_1">{{arr.subject}}</td>
+          <td>{{arr.status}}</td>
+          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply)">Detail</a></td>
+          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="deleteclaim(arr.id)">Delete</a></td>
         </tr>
-        <tr class="odd" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>
-        </tr>
-        <tr class="even" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Netscape Browser 8</td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>
-        </tr>
-        <tr class="odd" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Netscape Navigator 9</td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>
-        </tr>
+        <!--<tr class="odd" role="row">-->
+          <!--<td class="sorting_1">Gecko</td>-->
+          <!--<td>Firefox 1.0</td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
+        <!--</tr>-->
+        <!--<tr class="even" role="row">-->
+          <!--<td class="sorting_1">Gecko</td>-->
+          <!--<td>Netscape Browser 8</td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
+        <!--</tr>-->
+        <!--<tr class="odd" role="row">-->
+          <!--<td class="sorting_1">Gecko</td>-->
+          <!--<td>Netscape Navigator 9</td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
+          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
+        <!--</tr>-->
         </tbody>
       </table>
     </div>
@@ -52,10 +52,56 @@
 </template>
 
 <script>
-import ProgressBar from './ProgressBar'
+import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'ProcessingProgress',
-  components: {ProgressBar}
+  data () {
+    return {
+      userid: 'Default',
+      array: [],
+      bool: 'even'
+    }
+  },
+  methods: {
+    jumptoDetail (type, message, subject, status, id, reply) {
+      this.$router.push(
+        {
+          name: 'ProgressDetail',
+          params: {
+            type: type,
+            message: message,
+            subject: subject,
+            status: status,
+            id: id,
+            reply: reply
+          }
+        }
+      )
+    },
+    deleteclaim (id) {
+      axios('/api/luggage/delete', {
+        params: {
+          id: id
+        }
+      }).then(function (response) {
+        alert(response.data)
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for removing the claim.')
+      })
+      location.reload()
+    },
+    init () {
+      location.reload()
+    }
+  },
+  created () {
+    this.userid = this.$cookies.get('userid')
+    axios.get('/api/luggage/getbyuserid?userid=' + this.userid).then((res) => {
+      this.array = res.data
+    })
+  }
 }
 </script>
 

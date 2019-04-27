@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import CustomerMainPage from '@/components/MainPage/Customer/CustomerMainPage'
 import PersonalDetail from '@/components/MainPage/Customer/PersonalDetail'
 import ProcessingProgress from '@/components/MainPage/Customer/ProcessingProgress'
-import ProgressBar from '@/components/MainPage/Customer/ProgressBar'
+import ProgressDetail from '@/components/MainPage/Customer/ProgressDetial'
 import Claim from '@/components/MainPage/Customer/Claim'
 import EmployeeMainPage from '@/components/MainPage/Employee/EmployeeMainPage'
 import Solution from '@/components/MainPage/Employee/Solution'
@@ -61,9 +61,9 @@ export default new Router({
           component: Claim
         },
         {
-          path: '/ProgressBar',
-          name: 'ProgressBar',
-          component: ProgressBar
+          path: '/ProgressDetail',
+          name: 'ProgressDetail',
+          component: ProgressDetail
         },
         {
           path: '/PersonalDetail',
