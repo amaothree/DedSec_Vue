@@ -11,7 +11,7 @@
 <div class="container" style=" position: absolute;">
   <span class="subject" style="margin-left: 5%;position: absolute;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
   <span class="type" style="margin-left: 35%;position: absolute;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
-  <span class="status" style="margin-left: 70%"><span>status:&nbsp;&nbsp;</span><span class="data">{{status}}ss</span></span>
+  <span class="status" style="margin-left: 70%"><span>status:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
   <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;" readonly v-model="message"></textarea>
   <button class="btn approve" @click="deleteclaim(id)">Delete</button>
   <button class="btn deny" @click="jumpBack()">Back</button>
