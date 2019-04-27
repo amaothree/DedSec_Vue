@@ -23,15 +23,15 @@
     <form action="submit" class="form" style="margin-left: 30%">
       <label>
         <span>account</span>
-        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
+        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input" v-model="username">
       </label>
       <label>
         <span>password</span>
-        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input">
+        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input" v-model="password">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%"><router-link to="/EmployeeMainPage" style="font-size: 20px">Login</router-link></a>
+        <a class="more_btn" style="margin-left: 20%"><a style="font-size: 20px" @click="login()">Login</a></a>
       </label>
     </form>
   </div>
@@ -41,12 +41,13 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'Claim',
+  name: 'Login',
   data () {
     return {
-      lug_message: '',
-      lug_type: '',
-      lug_subject: '',
+      userid: 0,
+      type: 'Default',
+      username: 'Default',
+      password: 'Defalut',
       locale: 'en',
       lang: '中文',
       errorMessage: {
@@ -105,21 +106,37 @@ export default {
     toggleHiddenPassword () {
       this.hidden = !this.hidden
     },
-    addluggage: function () {
-      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-
-      axios('/api/luggage/add', {
-        params: {
-          subject: this.lug_subject,
-          type: this.lug_type,
-          message: this.lug_message
+    login () {
+      axios.get('/api/login/getUser?username=' + this.username).then((res) => {
+        this.userid = res.data.id
+        this.username = res.data.username
+        this.type = res.data.type
+        this.password = res.data.password
+        if (this.password === res.data.password) {
+          this.$cookies.set('userid', this.userid, 120000)
+          this.$cookies.set('username', this.username, 120000)
+          this.$cookies.set('password', this.password, 120000)
+          this.$cookies.set('type', this.type, 120000)
+          if (this.type === 'customer') {
+            alert('Dear ' + this.username + ', you have logged in.')
+            this.$router.push(
+              {
+                path: '/CustomerMainPage'
+              }
+            )
+          } else if (this.type === 'admin') {
+            alert('Dear ' + this.username + ', you have logged in.')
+            this.$router.push(
+              {
+                path: '/EmployeeMainPage'
+              }
+            )
+          } else {
+            alert('Sorry, there is something wrong.')
+          }
+        } else {
+          alert('Failed.')
         }
-      }).then(function (response) {
-        console.log(response)
-        alert('Submit Successfully')
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for this submission.')
       })
     }
   },

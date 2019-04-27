@@ -13,7 +13,6 @@ export default {
   name: 'InitialPage',
   data () {
     return {
-      typeName: 'Login',
       locale: 'en',
       lang: '中文'
     }

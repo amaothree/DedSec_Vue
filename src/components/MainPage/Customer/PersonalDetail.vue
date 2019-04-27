@@ -48,20 +48,20 @@
               <p class="vip-type-icon">
                 <span class="vip-icon svip-middle icon-size-middle"></span>
               </p>
-              <span class="vip-type-title">information</span>
+              <span class="vip-type-title">Information</span>
             </div>
             <div class="buy-btn-box">
-              <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="jumptomainpage()">{{ $t('personal.Modify')}}</p>
+              <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="modifyPersonalDetail()">Submit</p>
             </div>
           </li>
-          <li class="privilege-item" style="background: #fbf4e4">ID</li>
-          <li class="privilege-item"><input type="text" name="用户名" id="username" :value="username" class="input"></li>
-          <li class="privilege-item" style="background: #fbf4e4"><input type="text" name="名" id="first_name" :value="first_name" class="input"></li>
-          <li class="privilege-item">  <input type="text" name="姓" id="last_name" :value="last_name" class="input"></li>
-          <li class="privilege-item" style="background: #fbf4e4"> <input type="password" name="密码" id="password" :value="password" class="input"></li>
-          <li class="privilege-item">        <input type="text" name="联系方式" id="phone" :value="phone" class="input"></li>
-          <li class="privilege-item" style="background: #fbf4e4"> <input type="text" name="邮箱" id="email" value="email" class="input"></li>
-          <li class="privilege-item">dd</li>
+          <li class="privilege-item" style="background: #fbf4e4">{{userid}}</li>
+          <li class="privilege-item">{{username}}</li>
+          <li class="privilege-item" style="background: #fbf4e4"><input type="text" name="名" id="first_name" v-model="first_name" class="input"></li>
+          <li class="privilege-item">  <input type="text" name="姓" id="last_name" v-model="last_name" class="input"></li>
+          <li class="privilege-item" style="background: #fbf4e4"> <input type="password" name="密码" id="password" v-model="password" class="input"></li>
+          <li class="privilege-item" style="background: #fbf4e4"> <input type="text" name="邮箱" id="email" v-model="email" class="input"></li>
+          <li class="privilege-item"><input type="text" name="联系方式" id="phone" v-model="phone" class="input"></li>
+          <li class="privilege-item">{{type}}</li>
         </ul>
       </div>
     </div>
@@ -70,16 +70,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  inject: ['reload'],
   name: 'PersonalDetail',
   data () {
     return {
+      userid: 0,
       username: 'Default',
       password: 'Default',
-      first_name: 'Default',
-      last_name: 'Default',
+      email: 'Default',
       phone: 'Default',
-      email: 'Default'
+      type: 'Default',
+      logon_date: 'Default',
+      first_name: 'Default',
+      last_name: 'Default'
     }
   },
   created () {
@@ -88,7 +93,35 @@ export default {
     this.last_name = this.$route.params.last_name
     this.first_name = this.$route.params.first_name
     this.password = this.$route.params.password
-    this.username = this.$route.params.username
+    this.username = this.$cookies.get('username')
+    this.type = this.$cookies.get('type')
+    this.userid = this.$cookies.get('userid')
+  },
+  methods: {
+    modifyPersonalDetail () {
+      console.log(this.first_name)
+      axios('/api/user/modify', {
+        params: {
+          id: this.userid,
+          password: this.password,
+          fname: this.first_name,
+          lname: this.last_name,
+          phone: this.phone,
+          email: this.email
+        }
+      }).then(function (response) {
+        console.log(response)
+        alert('Submit Successfully')
+      }).catch(function (error) {
+        console.log(error)
+        alert('Error : There is something wrong for this submission.')
+      })
+      this.$router.push(
+        {
+          path: '/PersonalInformation'
+        })
+      window.location.reload()
+    }
   }
 }
 </script>
