@@ -48,11 +48,6 @@ export default {
       type: 'Default',
       username: 'Default',
       password: 'Defalut',
-      email: 'Default',
-      phone: 'Default',
-      logon_date: 'Default',
-      first_name: 'Default',
-      last_name: 'Default',
       locale: 'en',
       lang: '中文',
       errorMessage: {
@@ -117,34 +112,27 @@ export default {
         this.username = res.data.username
         this.type = res.data.type
         this.password = res.data.password
-        this.email = res.data.email
-        this.phone = res.data.phone
-        this.first_name = res.data.first_name
-        this.last_name = res.data.last_name
-        this.logon_date = res.data.logon_date
         if (this.password === res.data.password) {
-          alert('You have logged in.')
           this.$cookies.set('userid', this.userid, 120000)
           this.$cookies.set('username', this.username, 120000)
-          this.$cookies.set('logon_date', this.logon_date, 120000)
-          this.$cookies.set('last_name', this.last_name, 120000)
-          this.$cookies.set('first_name', this.first_name, 120000)
           this.$cookies.set('password', this.password, 120000)
-          this.$cookies.set('email', this.email, 120000)
           this.$cookies.set('type', this.type, 120000)
-          this.$cookies.set('phone', this.phone, 120000)
           if (this.type === 'customer') {
+            alert('Dear ' + this.username + ', you have logged in.')
             this.$router.push(
               {
                 path: '/CustomerMainPage'
               }
             )
           } else if (this.type === 'admin') {
+            alert('Dear ' + this.username + ', you have logged in.')
             this.$router.push(
               {
                 path: '/EmployeeMainPage'
               }
             )
+          } else {
+            alert('Sorry, there is something wrong.')
           }
         } else {
           alert('Failed.')

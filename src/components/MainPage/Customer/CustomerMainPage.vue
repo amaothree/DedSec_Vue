@@ -6,7 +6,7 @@
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item active"><a class="nav-link" ><a style="font-size: 25px">{{ $t('message.exit')}}</a></a></li>
+          <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: 25px">{{ $t('message.exit')}}</a></a></li>
           <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: 25px">{{ $t('message.server')}}</router-link></a></li>
           <li class="nav-item active"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
           <li class="nav-item active"><a ><router-link to="/PersonalInformation" style="font-size: 25px">Setting</router-link></a></li>
@@ -44,6 +44,18 @@ export default {
       }
       this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
       window.location.reload() // 进行刷新改变cookie里的值
+    },
+    returninitial () {
+      this.$cookies.remove('userid')
+      this.$cookies.remove('username')
+      this.$cookies.remove('type')
+      this.$cookies.remove('password')
+      this.$router.push(
+        {
+          path: '/Login'
+        }
+      )
+      window.location.reload()
     }
   },
   mounted () {
