@@ -118,9 +118,9 @@ export default {
       })
       this.$router.push(
         {
-          path: '/EmployeeInformation'
+          path: '/PersonalInformation'
         })
-      window.location.reload()
+      window.reload()
     }
   }
 }

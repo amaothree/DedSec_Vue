@@ -120,7 +120,7 @@ export default {
         {
           path: '/PersonalInformation'
         })
-      window.location.reload()
+      window.reload()
     }
   }
 }

@@ -90,7 +90,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'EmployeeDetail',
+          name: 'PersonalDetail',
           params: {
             password: this.password,
             first_name: this.first_name,
@@ -103,6 +103,7 @@ export default {
     }
   },
   created: function () {
+    // let vm = this
     this.username = this.$cookies.get('username')
     this.type = this.$cookies.get('type')
     this.userid = this.$cookies.get('userid')
@@ -114,6 +115,11 @@ export default {
       this.last_name = res.data.last_name
       console.log(this.array)
     })
+    // this.email = this.$cookies.get('email')
+    // this.phone = this.$cookies.get('phone')
+    // this.last_name = this.$cookies.get('last_name')
+    // this.first_name = this.$cookies.get('first_name')
+    // this.password = this.$cookies.get('password')
   }
 }
 </script>
