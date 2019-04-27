@@ -20,9 +20,9 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="" class="form-report" style="margin-left: 30%">
+    <form action="" class="form-report" style="margin-left: 30%;">
       <label>
-        <span>account</span>
+        <span>username</span>
         <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
       </label>
       <label>
@@ -32,6 +32,30 @@
       <label>
         <span>repeat password</span>
         <input id="repeat-password" type="password" name="password" autocomplete="off" placeholder="请再次输入密码" class="repeat-input">
+      </label>
+      <label>
+        <span>email</span>
+        <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
+      </label>
+      <label>
+        <span>first name</span>
+        <input type="text" name="fname" autocomplete="off" placeholder="请输入名" class="layui-input">
+      </label>
+      <label>
+        <span>surname</span>
+        <input type="text" name="Iname" autocomplete="off" placeholder="请输入姓" class="layui-input">
+      </label>
+      <label>
+        <span>phone</span>
+        <input type="text" name="phone" autocomplete="off" placeholder="请输入电话" class="layui-input">
+      </label>
+      <label>
+        <span>type</span>
+        <select name="selected" style="width: 23%">
+          <option value="admin">admin</option>
+          <option value="employee">employee</option>
+          <option value="customer">customer</option>
+        </select>
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
