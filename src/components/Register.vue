@@ -22,81 +22,110 @@
   <div class="Content-Main">
     <form action="" class="form-report" style="margin-left: 30%;">
       <label>
-        <span>username</span>
-        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
+        <span>Username</span>
+        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input" v-model="username">
       </label>
       <label>
-        <span>password</span>
-        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input">
+        <span>Password</span>
+        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input" v-model="password">
       </label>
       <label>
-        <span>repeat password</span>
-        <input id="repeat-password" type="password" name="password" autocomplete="off" placeholder="请再次输入密码" class="repeat-input">
+        <span>Repeat password</span>
+        <input id="repeat-password" type="password" name="password" autocomplete="off" placeholder="请再次输入密码" class="repeat-input" v-model="repassword">
       </label>
       <label>
-        <span>email</span>
-        <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
+        <span>Email</span>
+        <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input" v-model="email">
       </label>
       <label>
-        <span>first name</span>
-        <input type="text" name="fname" autocomplete="off" placeholder="请输入名" class="layui-input">
+        <span>First name</span>
+        <input type="text" name="fname" autocomplete="off" placeholder="请输入名" class="layui-input" v-model="first_name">
       </label>
       <label>
-        <span>surname</span>
-        <input type="text" name="Iname" autocomplete="off" placeholder="请输入姓" class="layui-input">
+        <span>Last name</span>
+        <input type="text" name="Iname" autocomplete="off" placeholder="请输入姓" class="layui-input" v-model="last_name">
       </label>
       <label>
-        <span>phone</span>
-        <input type="text" name="phone" autocomplete="off" placeholder="请输入电话" class="layui-input">
+        <span>Phone</span>
+        <input type="text" name="phone" autocomplete="off" placeholder="请输入电话" class="layui-input" v-model="phone">
       </label>
       <label>
-        <span>type</span>
-        <select name="selected" style="width: 23%">
-          <option value="admin">admin</option>
+        <span>Type</span>
+        <select name="selected" style="width: 23%" v-model="type">
           <option value="employee">employee</option>
-          <option value="customer">customer</option>
+          <option value="customer" selected="selected">customer</option>
         </select>
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%"><router-link to="/CustomerMainPage" style="font-size: 20px">Register</router-link></a>
+        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: 20px">Register</a></a>
       </label>
     </form>
   </div>
   </body>
 </template>
-
 <script>
 import axios from 'axios'
 export default {
   name: 'Claim',
   data () {
     return {
-      lug_message: '',
-      lug_type: '',
-      lug_subject: ''
+      username: '',
+      password: '',
+      repassword: '',
+      email: '',
+      first_name: '',
+      last_name: '',
+      phone: '',
+      type: '',
+      status: 'true',
+      userid: -1
     }
   },
   methods: {
-    addluggage: function () {
-      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-
-      axios('/api/luggage/add', {
-        params: {
-          subject: this.lug_subject,
-          type: this.lug_type,
-          message: this.lug_message
+    register () {
+      if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
+        alert('Please enter all boxes.')
+      } else {
+        axios.get('/api/login/getUser?username=' + this.username).then((res) => {
+          this.userid = res.data.id
+        })
+        if (this.userid >= 0) {
+          if (this.password === this.repassword) {
+            axios('/api/register/add', {
+              params: {
+                username: this.username,
+                password: this.password,
+                email: this.email,
+                fname: this.first_name,
+                lname: this.last_name,
+                phone: this.phone,
+                type: this.type
+              }
+            }).then(function (response) {
+              console.log(response)
+              alert('Submit Successfully')
+            }).catch(function (error) {
+              console.log(error)
+              alert('Error : There is something wrong for this submission.')
+              this.status = 'false'
+            })
+            if (this.status === 'true') {
+              this.$router.push(
+                {
+                  path: '/Login'
+                }
+              )
+            }
+          } else {
+            alert('Password and Repeat password should be the same. Please enter again.')
+          }
+        } else {
+          alert('The username has existed. Please enter again.')
         }
-      }).then(function (response) {
-        console.log(response)
-        alert('Submit Successfully')
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for this submission.')
-      })
+      }
     }
   }
-
 }
 </script>
 <style scoped>

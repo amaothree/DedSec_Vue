@@ -45,9 +45,9 @@ export default {
   data () {
     return {
       userid: 0,
-      type: 'Default',
-      username: 'Default',
-      password: 'Defalut',
+      type: '',
+      username: '',
+      password: '',
       locale: 'en',
       lang: '中文',
       errorMessage: {
@@ -124,7 +124,7 @@ export default {
                 path: '/CustomerMainPage'
               }
             )
-          } else if (this.type === 'admin') {
+          } else if (this.type === 'employee') {
             alert('Dear ' + this.username + ', you have logged in.')
             this.$router.push(
               {
@@ -139,6 +139,12 @@ export default {
         }
       })
     }
+  },
+  created: function () {
+    this.$cookies.remove('userid')
+    this.$cookies.remove('username')
+    this.$cookies.remove('type')
+    this.$cookies.remove('password')
   },
   props: ['toggleComponent']
 }
