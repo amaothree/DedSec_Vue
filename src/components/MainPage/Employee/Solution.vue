@@ -20,29 +20,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="even" role="row">
-          <td class="sorting_1">Blink</td>
-          <td>Iridium  54.0</td>
-          <td>GNU/Linux</td>
-          <td><a class="more_btn" style="font-size: 20px ;"><router-link to="/Decision" >Detail</router-link></a></td>
-        </tr>
-        <tr class="odd" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td><a class="more_btn"><router-link to="/Decision" style="font-size: 20px">Detail</router-link></a></td>
-        </tr>
-        <tr class="even" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Netscape Browser 8</td>
-          <td>Win 98SE+</td>
-          <td><a class="more_btn"><router-link to="/Decision" style="font-size: 20px">Detail</router-link></a></td>
-        </tr>
-        <tr class="odd" role="row">
-          <td class="sorting_1">Gecko</td>
-          <td>Netscape Navigator 9</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td><a class="more_btn"><router-link to="/Decision" style="font-size: 20px">Detail</router-link></a></td>
+        <tr class="even" role="row" v-for="arr in array" :key="arr.id">
+          <td class="sorting_1">{{arr.id}}</td>
+          <td>{{ arr.userid}}</td>
+          <td>{{ arr.subject}}</td>
+          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)">Detail</a></td>
         </tr>
         </tbody>
       </table>
@@ -83,22 +65,6 @@ export default {
       this.array = res.data
       console.log(this.array)
     })
-    // var self = this
-    // axios({
-    //   url: '/api/luggage/all',
-    //   type: 'GET',
-    //   dataType: 'JSONP',
-    //   success: function (res) {
-    //     self.array = res
-    //     console.log(res)
-    //   }
-    // })
-    // $.getJSON('/api/luggage/all', function (result) {
-    //   $.each(result, function (i, field) {
-    //     this.array = result
-    //     console.log(result)
-    //   })
-    // })
   }
 }
 </script>
