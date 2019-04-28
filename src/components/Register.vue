@@ -5,8 +5,8 @@
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item "><a class="nav-link" ><router-link to="/" style="font-size: 25px">Exit</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">Language</a></li>
+          <li class="nav-item "><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('Register.exit')}}</router-link></a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
     </nav>
@@ -14,51 +14,51 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Register</h2>
-        <p>click <router-link to="/Login">here</router-link> to back to login</p>
+        <h2>{{ $t('Register.register')}}</h2>
+        <p>{{ $t('Register.click')}} <router-link to="/Login">{{ $t('Register.here')}}</router-link> {{ $t('Register.back')}}</p>
       </div>
     </div>
   </section>
   <div class="Content-Main">
     <form action="" class="form-report" style="margin-left: 30%;">
       <label>
-        <span>Username</span>
-        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input" v-model="username">
+        <span>{{ $t('Register.username')}}</span>
+        <input type="text" name="userName" autocomplete="off" :placeholder="$t('Register.e_username')" class="layui-input" v-model="username">
       </label>
       <label>
-        <span>Password</span>
-        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input" v-model="password">
+        <span>{{ $t('Register.password')}}</span>
+        <input id="login-password" type="password" name="password"  autocomplete="off" :placeholder="$t('Register.e_password')" class="layui-input" v-model="password">
       </label>
       <label>
-        <span>Repeat password</span>
-        <input id="repeat-password" type="password" name="password" autocomplete="off" placeholder="请再次输入密码" class="repeat-input" v-model="repassword">
+        <span>{{ $t('Register.repassword')}}</span>
+        <input id="repeat-password" type="password" name="password" autocomplete="off" :placeholder="$t('Register.e_repassword')" class="repeat-input" v-model="repassword">
       </label>
       <label>
-        <span>Email</span>
-        <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input" v-model="email">
+        <span>{{ $t('Register.Email')}}</span>
+        <input type="text" name="email" autocomplete="off" :placeholder="$t('Register.e_email')" class="layui-input" v-model="email">
       </label>
       <label>
-        <span>First name</span>
-        <input type="text" name="fname" autocomplete="off" placeholder="请输入名" class="layui-input" v-model="first_name">
+        <span>{{ $t('Register.Fname')}}</span>
+        <input type="text" name="fname" autocomplete="off" :placeholder="$t('Register.e_Fname')" class="layui-input" v-model="first_name">
       </label>
       <label>
-        <span>Last name</span>
-        <input type="text" name="Iname" autocomplete="off" placeholder="请输入姓" class="layui-input" v-model="last_name">
+        <span>{{ $t('Register.Lname')}}</span>
+        <input type="text" name="Iname" autocomplete="off" :placeholder="$t('Register.e_Lname')" class="layui-input" v-model="last_name">
       </label>
       <label>
-        <span>Phone</span>
-        <input type="text" name="phone" autocomplete="off" placeholder="请输入电话" class="layui-input" v-model="phone">
+        <span>{{ $t('Register.Phone')}}</span>
+        <input type="text" name="phone" autocomplete="off" :placeholder="$t('Register.e_Phone')" class="layui-input" v-model="phone">
       </label>
       <label>
-        <span>Type</span>
+        <span>{{ $t('Register.Type')}}</span>
         <select name="selected" style="width: 23%" v-model="type">
-          <option value="employee">employee</option>
-          <option value="customer" selected="selected">customer</option>
+          <option value="employee">{{ $t('Register.employee')}}</option>
+          <option value="customer" selected="selected">{{ $t('Register.customer')}}</option>
         </select>
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: 20px">Register</a></a>
+        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: 20px">{{ $t('Register.register')}}</a></a>
       </label>
     </form>
   </div>
@@ -79,7 +79,9 @@ export default {
       phone: '',
       type: '',
       status: 'true',
-      userid: -1
+      userid: -1,
+      locale: 'en',
+      lang: '中文'
     }
   },
   methods: {
@@ -124,6 +126,34 @@ export default {
           alert('The username has existed. Please enter again.')
         }
       }
+    },
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+      window.location.reload() // 进行刷新改变cookie里的值
+    }
+  },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
     }
   }
 }
@@ -154,7 +184,6 @@ export default {
   }
   .Content-Main label{
     display: block;
-    margin: 0px 0px 5px;
     font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }

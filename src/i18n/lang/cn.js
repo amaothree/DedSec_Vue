@@ -19,6 +19,30 @@ module.exports = {
     pass: '密码',
     password: '请输入密码'
   },
+  Register: {
+    exit: '退出',
+    register: '注册',
+    click: '点击',
+    here: '这里',
+    back: '返回到登陆',
+    username: '用户名',
+    password: '密码',
+    repassword: '重复密码',
+    Email: ' 邮箱',
+    Fname: '名',
+    Lname: '姓',
+    Phone: '电话',
+    Type: '类型',
+    employee: '员工',
+    customer: '顾客',
+    e_username: '请输入用户名',
+    e_password: '请输入密码',
+    e_repassword: '请再次输入密码',
+    e_email: '请输入邮箱',
+    e_Fname: '请输入名',
+    e_Lname: '请输入姓',
+    e_Phone: '请输入电话'
+  },
   message: {
     exit: '退出',
     server: '服务'
@@ -74,18 +98,5 @@ module.exports = {
     Approve: '通过',
     Deny: '拒绝',
     detail: '详情'
-  },
-  Register: {
-    LogIn: '登陆',
-    Protocal: '协议',
-    p: '通过注册，您就同意了隐私协议',
-    Alr: '已经有一个帐户吗?',
-    Register: '注册',
-    ac: '请输入一个帐号。',
-    ps: '请输入密码。',
-    re_ps: '请重复您的密码。',
-    Account: '账户',
-    Password: '密码',
-    Rpassword: '重复密码'
   }
 }
