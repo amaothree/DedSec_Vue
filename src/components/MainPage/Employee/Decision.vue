@@ -8,15 +8,34 @@
       </div>
     </div>
   </section>
-    <div class="container" style=" position: absolute;">
-      <span class="id" style=" padding-left: 5%;position: absolute;"><span >{{ $t('Decision.id')}} :&nbsp;&nbsp;</span>{{id}}</span>
-      <span class="userid" style="margin-left: 30%;position: absolute;"><span>{{ $t('Decision.Uid')}} :&nbsp;&nbsp;</span><span class="data">{{userid}}</span></span>
-      <span class="subject" style="margin-left: 55%;position: absolute;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
-      <span class="type" style="margin-left: 80%;position: absolute;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
-      <textarea class="form-control" rows="5" style="margin-top: 10%; margin-left: 5%;font-size: 40px;" readonly v-model="message"></textarea>
-      <button class="btn approve" @click="setApprove">{{ $t('Decision.Approve')}}</button>
-      <button class="btn deny" @click="setDeny">{{ $t('Decision.Deny')}}</button>
-    </div>
+  <div class="container">
+    <ul class="list-inline">
+      <span class="subject" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="type" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+      <span class="status" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>status:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
+    </ul>
+    <ul class="list-inline">
+      <span class="city" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>city :&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="phone" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>phone :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+      <span class="country" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>country:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
+    </ul>
+    <ul class="list-inline">
+      <span class="district" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>District:&nbsp;&nbsp;</span><span class="data">{{subject}}</span></span>
+      <span class="code" style="margin-left: 10%;margin-top: 3%;margin-left:25%;position: relative;width: 45%"><span>postal code:&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
+    </ul>
+    <ul class="list-inline">
+      <span class="address" style="margin-left: 5%;margin-top: 3%;position:relative;"><span style="">specific Address:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
+      <span class="Recipient" style="margin-top: 3%;margin-bottom: 3%;position:relative;  float: left;font-size: 35px;width: 35%;"><span>Name of Recipient:&nbsp;&nbsp;</span></span>
+    </ul>
+    <span class="message" style="margin-left: 5%;margin-top: 3%;position:relative;font-size: 40px;"><span style="">message:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
+    <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
+    <span class="comment" style="margin-left: 5%;position:relative;font-size: 40px;"><span style="">comment:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
+    <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
+    <ul class="list-inline">
+    <button class="btn approve" @click="deleteclaim(id)">approve</button>
+    <button class="btn deny" @click="jumpBack()">deny</button>
+    </ul>
+  </div>
   </body>
 </template>
 
@@ -68,19 +87,53 @@ export default {
 
 <style scoped>
   .subject{
-    position: absolute;
     float: left;
-    font-size: 30px;
+    font-size: 50px;
+    width: 15%;
   }
   .type{
-    position: absolute;
     float: left;
-    font-size: 30px;
+    font-size: 50px;
+    width: 20%;
+  }
+  .status{
+    float: left;
+    font-size: 50px;
+    width: 25%;
+  }
+  .address{
+    float: left;
+    font-size: 50px;
+    width: 50%;
+  }
+  .country{
+    float: left;
+    font-size: 50px;
+    width: 25%;
+  }
+  .city{
+    float: left;
+    font-size: 50px;
+    width: 15%;
+  }
+  .phone{
+    float: left;
+    font-size: 50px;
+    width: 20%;
+  }
+  .district{
+    float: left;
+    font-size: 50px;
+    width: 25%;
+  }
+  .code{
+    float: left;
+    font-size: 50px;
   }
   .approve{
     position: relative;
     margin-left: 25%;
-    margin-top: 5%;
+    margin-top: 6%;
     font-size: 30px;
     bottom:0;
     color:#1d78cb;
@@ -95,8 +148,7 @@ export default {
     color:#1d78cb;
     background: #f6e74f;
   }
-  .subject,.type,.id,.userid{
-    font-size: 40px;
+  .subject,.type{
     color: black;
   }
 </style>
