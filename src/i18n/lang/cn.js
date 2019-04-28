@@ -43,20 +43,32 @@ module.exports = {
     e_Lname: '请输入姓',
     e_Phone: '请输入电话'
   },
+  lead: {
+    Services: '服务项目',
+    mes1: '您喜欢哪种服务？',
+    register_claim: '注册一个索赔',
+    mes2: '开始提出申请',
+    register: '注册',
+    process: '进度进展',
+    mes3: '查看索赔过程',
+    progress: '进度'
+  },
+  progress: {
+    Process: '进度',
+    mes1: '查看您的进度',
+    Subject: '主题',
+    Status: '状态',
+    Detail: '详情',
+    Delete: '删除'
+  },
   message: {
     exit: '退出',
     server: '服务'
   },
   navigate: {
-    Renew: '更新政策',
-    Policy1: '政策 1',
-    Policy2: '政策 2',
-    Communication: '通讯',
-    Register: '索赔注册',
-    Process: '进度',
-    Setting: '设置',
-    Personal: '更新个人信息',
-    DealWithClaims: '处理请求'
+    Back: '返回',
+    exit: '退出',
+    Setting: '设置'
   },
   personal: {
     personal: '个人信息',
@@ -69,7 +81,11 @@ module.exports = {
     Type: '账户类型',
     id: '编号',
     submit: '提交',
-    Modify: '修改'
+    Modify: '修改',
+    Information: '信息',
+    mes: '设置您的个人详情',
+    Types: '类别',
+    meschange: '修改您的个人信息'
   },
   solution: {
     detail: '详情'
@@ -83,8 +99,16 @@ module.exports = {
     Bag: '背包',
     Other: '其他',
     Message: '详细信息：',
-    Send: '发送',
-    tel: '您可以告诉我们'
+    Claim: '索赔',
+    claim_message: '提交你的索赔信息',
+    name: '收件人姓名：',
+    Country: '国家：',
+    City: '城市：',
+    District: '行政区：',
+    address: '具体地址：',
+    Pcode: '邮政编码：',
+    Phone1: '手机：',
+    Send: '发送'
   },
   ProcessBar: {
     Detail: '详情',

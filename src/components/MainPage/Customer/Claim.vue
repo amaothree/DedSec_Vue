@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Claim</h2>
-        <p>Sumbit your claim</p>
+        <h2>{{ $t('claim.Claim')}}</h2>
+        <p>{{ $t('claim.claim_message')}}</p>
       </div>
     </div>
   </section>
@@ -30,36 +30,36 @@
         <textarea id="message" name="message" v-model="lug_message"></textarea>
     </label>
       <label>
-        <span>Name of Recipient</span>
+        <span>{{ $t('claim.name')}}</span>
         <input type="text" class="form-control" v-model="name">
       </label>
       <label>
-        <span>Phone</span>
+        <span>{{ $t('claim.Phone1')}}</span>
         <input type="text" class="form-control" v-model="phone">
       </label>
       <label>
-        <span>Country</span>
+        <span>{{ $t('claim.Country')}}</span>
         <input type="text" class="form-control" v-model="country">
       </label>
       <label>
-        <span>City</span>
+        <span>{{ $t('claim.City')}}</span>
         <input type="text" class="form-control" v-model="city">
       </label>
       <label>
-        <span>District</span>
+        <span>{{ $t('claim.District')}}</span>
         <input type="text" class="form-control" v-model="district">
       </label>
       <label>
-        <span>Specific Address</span>
+        <span>{{ $t('claim.address')}}</span>
         <input type="text" class="form-control" v-model="address">
       </label>
       <label>
-        <span>Postal Code</span>
+        <span>{{ $t('claim.Pcode')}}</span>
         <input type="text" class="form-control" v-model="postal">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <button type="submit" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">Send</button>
+        <button type="submit" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
       </label>
     </form>
   </div>

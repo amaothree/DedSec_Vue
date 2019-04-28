@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Information</h2>
-        <p class="setset">Reset your personal details</p>
+        <h2>{{ $t('personal.Information')}}</h2>
+        <p class="setset">{{ $t('personal.mes')}}</p>
       </div>
     </div>
   </section>
@@ -14,32 +14,32 @@
       <ul class="privilege-ul name-ul">
         <li class="privilege-item first-item">
           <p class="title">
-            <span>Types</span>
+            <span>{{ $t('personal.Type')}}</span>
           </p>
         </li>
         <li class="privilege-item" style="background: #fbf9f8">
-          <a>ID</a>
+          <a>{{ $t('personal.id')}}</a>
         </li>
         <li class="privilege-item">
-          <a>User name</a>
+          <a>{{ $t('personal.name')}}</a>
         </li>
         <li class="privilege-item" style="background: #fbf9f8">
-          <a>First name</a>
+          <a>{{ $t('personal.FirstName')}}</a>
         </li>
         <li class="privilege-item">
-          <a>Last name</a>
+          <a>{{ $t('personal.LastName')}}</a>
         </li>
         <li class="privilege-item" style="background: #fbf9f8">
-          <a>Password</a>
+          <a>{{ $t('personal.Password')}}</a>
         </li>
         <li class="privilege-item">
-          <a>Email</a>
+          <a>{{ $t('personal.Email')}}</a>
         </li>
         <li class="privilege-item" style="background: #fbf9f8">
-          <a>Phone</a>
+          <a>{{ $t('personal.Phone')}}</a>
         </li>
         <li class="privilege-item">
-          <a>Type</a>
+          <a>{{ $t('personal.Type')}}</a>
         </li>
       </ul>
       <ul class="privilege-ul svip-ul active recommend">
@@ -48,7 +48,7 @@
             <p class="vip-type-icon">
               <span class="vip-icon svip-middle icon-size-middle"></span>
             </p>
-            <span class="vip-type-title">information</span>
+            <span class="vip-type-title">{{ $t('personal.Information')}}</span>
           </div>
           <div class="buy-btn-box">
             <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="jumptomainpage()">{{ $t('personal.Modify')}}</p>

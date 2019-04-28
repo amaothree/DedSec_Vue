@@ -43,20 +43,44 @@ module.exports = {
     e_Lname: 'Enter the last name',
     e_Phone: 'Enter the phone number'
   },
+  claim: {
+    Lost: 'Lost luggage',
+    Others: 'Others',
+    Subject: 'Subject:',
+    Type: 'Type:',
+    Phone: 'Phone',
+    Bag: 'Bag',
+    Other: 'Others',
+    Message: 'Message:',
+    Send: 'Send',
+    tel: 'You can tell me',
+    Claim: 'Claim',
+    claim_message: 'Submit your claim',
+    name: 'Name of Recipient:',
+    Country: 'Country:',
+    City: 'City:',
+    District: 'District:',
+    address: 'Specific Address:',
+    Pcode: 'Postal Code:',
+    Phone1: 'Phone：'
+
+  },
+  progress: {
+    Process: 'Process',
+    mes1: 'check out your process',
+    Subject: 'Subject',
+    Status: 'Status',
+    Detail: 'Detail',
+    Delete: 'Delete'
+  },
   message: {
     register: 'register',
     register_message: 'start to register a new account'
   },
   navigate: {
-    Renew: 'Renew policies',
-    Policy1: 'Policy 1',
-    Policy2: 'Policy 2',
-    Communication: 'Communication',
-    Register: 'Register a claim',
-    Process: 'Processing Progress',
-    Setting: 'Setting',
-    Personal: 'Update personal details',
-    DealWithClaims: ' Deal With Claims'
+    Back: 'Back',
+    exit: 'Exit',
+    Setting: 'Setting'
   },
   personal: {
     personal: 'Personal detail',
@@ -69,23 +93,26 @@ module.exports = {
     Type: 'Type',
     id: 'ID',
     submit: 'Submit',
-    Modify: 'Modify'
+    Modify: 'Modify',
+    Information: 'Information',
+    mes: 'Setting your personal details',
+    Types: 'Types',
+    meschange: 'Change your personal details'
+  },
+  lead: {
+    Services: 'Services',
+    mes1: 'Which kind of service do you prefer?',
+    register_claim: 'register a claim',
+    mes2: 'start to register a claim',
+    register: 'register',
+    process: 'process progress',
+    mes3: 'check the process of your claims',
+    progress: 'progress'
   },
   solution: {
     detail: 'detail'
   },
-  claim: {
-    Lost: 'Lost luggage',
-    Others: 'Others',
-    Subject: 'Subject:',
-    Type: 'Type:',
-    Phone: 'Phone',
-    Bag: 'Bag',
-    Other: 'Others',
-    Message: 'Message:',
-    Send: 'Send',
-    tel: 'You can tell me'
-  },
+
   ProcessBar: {
     Detail: 'Detail',
     Delete: 'Delete'

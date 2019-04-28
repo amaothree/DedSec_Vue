@@ -6,10 +6,10 @@
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: 25px">{{ $t('message.exit')}}</a></a></li>
-          <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: 25px">Back</router-link></a></li>
+          <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: 25px">{{ $t('navigate.exit')}}</a></a></li>
+          <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: 25px">{{ $t('navigate.Back')}}</router-link></a></li>
           <li class="nav-item active"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
-          <li class="nav-item active"><a ><router-link to="/PersonalInformation" style="font-size: 25px">Setting</router-link></a></li>
+          <li class="nav-item active"><a ><router-link to="/PersonalInformation" style="font-size: 25px">{{ $t('navigate.Setting')}}</router-link></a></li>
         </ul>
       </div>
     </nav>
