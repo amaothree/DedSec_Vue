@@ -1,7 +1,23 @@
 module.exports = {
   introduce: {
-    register: '注册',
-    register_message: '开始注册一个新的账户'
+    welcome: '欢迎来到 hibernia-sino',
+    start: '点击开始',
+    about: '关于我们',
+    about_message: 'Hibernia-Sino公司介绍',
+    read: '了解更多',
+    policy: '政策',
+    policy_message: 'Hibernia-Sino公司的相关政策'
+  },
+  login: {
+    exit: '退出',
+    Login: '登陆',
+    if: '如果您没有账户，点击',
+    register: '注册一个新的账户',
+    here: '这里',
+    username: '请输入用户名',
+    account: '账号',
+    pass: '密码',
+    password: '请输入密码'
   },
   message: {
     exit: '退出',
@@ -58,15 +74,6 @@ module.exports = {
     Approve: '通过',
     Deny: '拒绝',
     detail: '详情'
-  },
-  login: {
-    LogIn: '登陆',
-    Register: '注册',
-    no: '没有账号？',
-    ac: '请输入一个帐号。',
-    ps: '请输入密码。',
-    Account: '账户',
-    Password: '密码'
   },
   Register: {
     LogIn: '登陆',

@@ -5,7 +5,7 @@
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">Exit</router-link></a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('login.exit')}}</router-link></a></li>
           <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
@@ -14,24 +14,24 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Login</h2>
-        <p>if you don't have account click <router-link to="Register">here</router-link> to register your account</p>
+        <h2>{{ $t('login.Login')}}</h2>
+        <p>{{ $t('login.if')}} <router-link to="Register">{{ $t('login.here')}}</router-link>{{ $t('login.register')}}</p>
       </div>
     </div>
   </section>
   <div class="Content-Main">
     <form action="submit" class="form" style="margin-left: 30%">
       <label>
-        <span>account</span>
-        <input type="text" name="userName" autocomplete="off" placeholder="请输入登录名" class="layui-input" v-model="username">
+        <span>{{ $t('login.account')}}</span>
+        <input type="text" name="userName" autocomplete="off" :placeholder=" $t('login.username')" class="layui-input" v-model="username">
       </label>
       <label>
-        <span>password</span>
-        <input id="login-password" type="password" name="password"  autocomplete="off" placeholder="请输入密码" class="layui-input" v-model="password">
+        <span>{{ $t('login.pass')}}</span>
+        <input id="login-password" type="password" name="password"  autocomplete="off" :placeholder=" $t('login.password')" class="layui-input" v-model="password">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%"><a style="font-size: 20px" @click="login()">Login</a></a>
+        <a class="more_btn" style="margin-left: 20%"><a style="font-size: 20px" @click="login()">{{ $t('login.Login')}}</a></a>
       </label>
     </form>
   </div>
@@ -175,7 +175,6 @@ export default {
   }
   .Content-Main label{
     display: block;
-    margin: 0px 0px 5px;
     font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }

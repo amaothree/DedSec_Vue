@@ -1,11 +1,40 @@
 module.exports = {
   introduce: {
-    register: 'register',
-    register_message: 'start to register a new account'
+    welcome: 'welcome to hibernia-sino',
+    start: 'click to start',
+    about: 'about us',
+    about_message: 'Introduction to Hibernia-Sino',
+    read: 'read more',
+    policy: 'Policy',
+    policy_message: 'All the policies of Hibernia-Sino'
+  },
+  login: {
+    exit: 'Exit',
+    Login: 'Login',
+    if: 'if you do not have account click ',
+    register: 'to register your account',
+    here: 'here',
+    username: 'Please enter your username',
+    account: 'account',
+    pass: 'password',
+    password: 'Please enter your password'
+  },
+  Register: {
+    LogIn: 'Log In',
+    Protocal: 'Protocal',
+    p: 'By signing up, you agree to a privacy agreement',
+    Alr: 'Already have an account？',
+    Register: 'Register',
+    ac: 'Please enter an account.',
+    ps: 'Please enter an password.',
+    re_ps: 'Please repeat your password.',
+    Account: 'Account',
+    Password: 'Password',
+    Rpassword: 'Repeat password'
   },
   message: {
-    exit: 'exit',
-    server: 'server'
+    register: 'register',
+    register_message: 'start to register a new account'
   },
   navigate: {
     Renew: 'Renew policies',
@@ -58,28 +87,5 @@ module.exports = {
     Approve: 'Approve',
     Deny: 'Deny',
     detail: 'Detail'
-  },
-  login: {
-    LogIn: 'Log In',
-    Register: 'Register',
-    no: 'No account？',
-    ac: 'Please enter an account.',
-    ps: 'Please enter an password.',
-    Account: 'Account',
-    Password: 'Password'
-  },
-  Register: {
-    LogIn: 'Log In',
-    Protocal: 'Protocal',
-    p: 'By signing up, you agree to a privacy agreement',
-    Alr: 'Already have an account？',
-    Register: 'Register',
-    ac: 'Please enter an account.',
-    ps: 'Please enter an password.',
-    re_ps: 'Please repeat your password.',
-    Account: 'Account',
-    Password: 'Password',
-    Rpassword: 'Repeat password'
   }
-
 }

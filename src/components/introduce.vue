@@ -17,12 +17,12 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>welcome to hibernia-sino</h2>
+        <h2>{{ $t('introduce.welcome')}}</h2>
       </div>
     </div>
   </section>
   <!--================End Banner Area =================-->
-  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 40px">click to start</router-link></a>
+  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 40px">{{ $t('introduce.start')}}</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
@@ -32,9 +32,9 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-2.png" alt="">
             </div>
-            <h4>About US</h4>
-            <p>Introduction to Hibernia-Sino</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">click</router-link></a>
+            <h4>{{ $t('introduce.about')}}</h4>
+            <p>{{ $t('introduce.about_message')}}</p>
+            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
         <div class="col-lg-6 col-sm-6">
@@ -42,9 +42,9 @@
             <div class="f_icon">
               <img src="static/img/icon/f-icon-3.png" alt="">
             </div>
-            <h4>Policy</h4>
-            <p>All the policies of Hibernia-Sino</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 40px">click</router-link></a>
+            <h4>{{ $t('introduce.policy')}}</h4>
+            <p>{{ $t('introduce.policy_message')}}</p>
+            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
       </div>
