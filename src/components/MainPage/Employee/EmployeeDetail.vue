@@ -1,3 +1,5 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <template>
   <body>
   <section class="banner_area">
@@ -128,7 +130,7 @@ export default {
   ul{list-style: none;}
   a{text-decoration: none;cursor: default;}
   .module-line span{display: inline-block;*display: inline;*zoom: 1}
-  .module-privilege{width: 1600px;height: 910px;margin: 0px auto 0px;position: relative}
+  .module-privilege{width: 100%;height: 100%;margin: 0% auto 0%;position: relative}
   .module-privilege .privilege-ul{float: left;border: 1px solid #d3d1d0;background: #fff;width: 980px;position: absolute}
   .module-privilege .privilege-ul.name-ul{left: 0}
   .module-privilege .privilege-ul.svip-ul{left: -2750px;color: #ca963b;-moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08);box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08)}

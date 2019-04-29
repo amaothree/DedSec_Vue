@@ -1,7 +1,7 @@
 module.exports = {
   introduce: {
     welcome: 'welcome to hibernia-sino',
-    start: 'click to start',
+    start: 'Login',
     about: 'about us',
     about_message: 'Introduction to Hibernia-Sino',
     read: 'read more',
@@ -109,10 +109,6 @@ module.exports = {
     mes3: 'check the process of your claims',
     progress: 'progress'
   },
-  solution: {
-    detail: 'detail'
-  },
-
   ProcessBar: {
     Detail: 'Detail',
     Delete: 'Delete'
@@ -124,6 +120,44 @@ module.exports = {
     Type: 'Type',
     Approve: 'Approve',
     Deny: 'Deny',
-    detail: 'Detail'
+    detail: 'Detail',
+    status: 'status',
+    city: 'city',
+    phone: 'phone',
+    country: 'country',
+    District: 'District',
+    postal_code: 'postal code',
+    specific_Address: 'specific Address',
+    Recipient: 'Name of Recipient',
+    message: 'message',
+    comment: 'comment',
+    approve: 'approve',
+    deny: 'deny'
+  },
+  ProgressDetail: {
+    Detail: 'Detail',
+    Check: 'Check out the requirement',
+    Subject: 'Subject',
+    Type: 'Type',
+    status: 'status',
+    city: 'city',
+    phone: 'phone',
+    country: 'country',
+    District: 'District',
+    postal_code: 'postal code',
+    specific_Address: 'specific Address',
+    Recipient: 'Name of Recipient',
+    message: 'message',
+    comment: 'comment',
+    Delete: 'Delete',
+    Back: 'Back'
+  },
+  solution: {
+    Data: 'Data',
+    All: 'All the data',
+    User: 'User ID',
+    Subject: 'Subject',
+    Detail: 'Detail',
+    Id: 'Id'
   }
 }

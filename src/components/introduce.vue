@@ -1,20 +1,21 @@
 <template>
   <body>
   <!--================Header Menu Area =================-->
-  <header class="main_menu_area">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
-            </ul>
-      </div>
-    </nav>
-  </header>
+
   <!--================End Header Menu Area =================-->
 
   <!--================Banner Area =================-->
   <section class="banner_area">
+    <div class="main_menu_area">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="font-size: 1rem">Hibernia-Sino</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item navbar-form navbar-right"><a class="nav-link" href="#" style="font-size: 0.6rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="container">
       <div class="banner_inner_text">
         <h2>{{ $t('introduce.welcome')}}</h2>
@@ -22,7 +23,7 @@
     </div>
   </section>
   <!--================End Banner Area =================-->
-  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 40px">{{ $t('introduce.start')}}</router-link></a>
+  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 1rem">{{ $t('introduce.start')}}</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
@@ -44,7 +45,7 @@
             </div>
             <h4>{{ $t('introduce.policy')}}</h4>
             <p>{{ $t('introduce.policy_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 1rem">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
       </div>
@@ -95,3 +96,8 @@ export default {
 }
 
 </script>
+<style>
+  .nav-link{
+    float: left;
+  }
+</style>
