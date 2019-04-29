@@ -24,7 +24,7 @@
           <td class="sorting_1">{{arr.id}}</td>
           <td>{{ arr.userid}}</td>
           <td>{{ arr.subject}}</td>
-          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)">Detail</a></td>
+          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">Detail</a></td>
         </tr>
         </tbody>
       </table>
@@ -44,15 +44,24 @@ export default {
     }
   },
   methods: {
-    jumptomainpage (id, type, message, subject, userid) {
+    jumptomainpage (type, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
       this.$router.push(
         {
           name: 'Decision',
           params: {
-            id: id,
             type: type,
             message: message,
             subject: subject,
+            status: status,
+            id: id,
+            reply: reply,
+            recipient: recipient,
+            address: address,
+            city: city,
+            country: country,
+            district: district,
+            phone: phone,
+            postcode: postcode,
             userid: userid
           }
         }
@@ -61,10 +70,20 @@ export default {
   },
   created: function () {
     // let vm = this
-    axios.get('/api/luggage/all').then((res) => {
-      this.array = res.data
-      console.log(this.array)
-    })
+    // axios.get('/api/luggage/all').then((res) => {
+    //   this.array = res.data
+    //   console.log(this.array)
+    // })
+    var that = this
+    axios
+      .post('/api/luggage/all')
+      .then(function (response) {
+        console.log(response.data)
+        that.array = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 </script>
