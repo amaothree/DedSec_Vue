@@ -1,40 +1,68 @@
 <template>
-<body>
-<section class="banner_area">
-  <div class="container">
-    <div class="banner_inner_text">
-      <h2>{{$t(progress.Detail)}}</h2>
-      <p>{{$t(progress.Check)}}</p>
+  <body>
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h2>Detail</h2>
+        <p>Check out the requirement</p>
+      </div>
     </div>
+  </section>
+  <div class="container">
+    <table class="table" style="font-size: 35px;margin-left: 7%;">
+      <tbody>
+      <tr>
+        <td>Status:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{status}}</span> </td>
+      </tr>
+      <tr>
+        <td>Subject:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{subject}}</span></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{type}}</span></td>
+      </tr>
+      <tr>
+        <td>Name of Recipient:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>Country:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>City:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>District:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>Specific Address:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      <tr>
+        <td>Postal Code:</td>
+        <td><span class="data" style="white-space: nowrap; "></span></td>
+      </tr>
+      </tbody>
+    </table>
+    <span class="message" style="margin-left: 11%;margin-top: 3%;position:relative;font-size: 35px;"><span style="">message:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
+    <span class="comment" style="margin-left: 11%;position:relative;font-size: 35px;"><span style="">comment:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
+    <ul style="display: inline">
+      <button class="btn approve" @click="deleteclaim(id)">Delete</button>
+      <button class="btn deny" @click="jumpBack()">Back</button>
+    </ul>
   </div>
-</section>
-<div class="container">
-  <ul class="list-inline">
-  <span class="subject" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>{{$t(progress.Subject)}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-  <span class="type" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>{{$t(progress.Type)}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{type}}</span></span>
-  <span class="status" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>{{$t(progress.status)}}:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-  </ul>
-  <ul class="list-inline">
-    <span class="city" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>{{$t(progress.city)}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-    <span class="phone" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>{{$t(progress.phone)}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{type}}</span></span>
-    <span class="country" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>{{$t(progress.country)}}:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-  </ul>
-  <ul class="list-inline">
-    <span class="district" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>{{$t(progress.District)}}:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-    <span class="code" style="margin-left: 10%;margin-top: 3%;margin-left:25%;position: relative;width: 45%"><span style="white-space: nowrap; ">{{$t(progress.postal_code)}} :&nbsp;&nbsp;</span><span class="data">{{type}}</span></span>
-  </ul>
-  <ul class="list-inline">
-    <span class="address" style="margin-left: 5%;margin-top: 3%;position:relative;"><span style="">{{$t(progress.Subspecific_Addressject)}}:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-  <span class="Recipient" style="margin-top: 3%;margin-bottom: 3%;position:relative;  float: left;font-size: 35px;width: 35%;"><span style="white-space: nowrap; ">{{$t(progress.Recipient)}}:&nbsp;&nbsp;</span></span>
-  </ul>
-  <span class="message" style="margin-left: 5%;margin-top: 3%;position:relative;font-size: 40px;"><span style="">{{$t(progress.message)}}:&nbsp;&nbsp;</span></span>
-  <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
-  <span class="comment" style="margin-left: 5%;position:relative;font-size: 40px;"><span style="">{{$t(progress.comment)}}:&nbsp;&nbsp;</span></span>
-  <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
-  <button class="btn approve" @click="deleteclaim(id)">{{$t(progress.Delete)}}</button>
-  <button class="btn deny" @click="jumpBack()">{{$t(progress.Back)}}</button>
-</div>
-</body>
+  </body>
 </template>
 
 <script>
@@ -91,69 +119,27 @@ export default {
 </script>
 
 <style scoped>
-  .subject{
-    float: left;
-    font-size: 50px;
-    width: 15%;
-  }
-  .type{
-    float: left;
-    font-size: 50px;
-    width: 20%;
-  }
-  .status{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .address{
-    float: left;
-    font-size: 50px;
-    width: 50%;
-  }
-  .country{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .city{
-    float: left;
-    font-size: 50px;
-    width: 15%;
-  }
-  .phone{
-    float: left;
-    font-size: 50px;
-    width: 20%;
-  }
-  .district{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .code{
-    float: left;
-    font-size: 50px;
+  .table>tbody>tr>td{
+    border:0px;
   }
   .approve{
     position: relative;
-    margin-left: 25%;
+    margin-left: 17%;
     margin-top: 5%;
     font-size: 30px;
     bottom:0;
     color:#1d78cb;
-    background: #75cb61;
+    background: #cb1d1d;
   }
   .deny{
-    position: relative;
-    margin-left: 70%;
-    margin-top: -9%;
+    margin-left: 30%;
+    margin-top: 5%;
     font-size: 30px;
     bottom:0;
     color:#1d78cb;
     background: #f6e74f;
   }
- .subject,.type{
+  .subject,.type{
     color: black;
   }
 </style>

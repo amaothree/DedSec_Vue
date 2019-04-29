@@ -68,6 +68,7 @@
 
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   name: 'Claim',
   data () {
@@ -88,32 +89,46 @@ export default {
   methods: {
     addluggage: function () {
       console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-      axios('/api/luggage/add', {
-        params: {
-          subject: this.lug_subject,
-          type: this.lug_type,
-          message: this.lug_message,
-          recipient: this.name,
-          phone: this.phone,
-          country: this.country,
-          city: this.city,
-          district: this.district,
-          address: this.address,
-          postcode: this.postal,
-          userid: this.userid
-        }
-      }).then(function (response) {
-        console.log(response)
-        alert('Submit Successfully')
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for this submission.')
-      })
-    },
-    methods: {
-      onSubmit () {
-        return false
+      var that = this
+      let data = {
+        'subject': that.lug_subject,
+        'type': that.lug_type,
+        'message': that.lug_message,
+        'recipient': that.name,
+        'phone': that.phone,
+        'country': that.country,
+        'city': that.city,
+        'district': that.district,
+        'address': that.address,
+        'postcode': that.postal,
+        'userid': that.userid
       }
+      axios({
+        method: 'post',
+        url: '/api/luggage/add',
+        data: Qs.stringify(data)
+      })
+      // axios('/api/luggage/add', {
+      //   params: {
+      //     subject: this.lug_subject,
+      //     type: this.lug_type,
+      //     message: this.lug_message,
+      //     recipient: this.name,
+      //     phone: this.phone,
+      //     country: this.country,
+      //     city: this.city,
+      //     district: this.district,
+      //     address: this.address,
+      //     postcode: this.postal,
+      //     userid: this.userid
+      //   }
+      // }).then(function (response) {
+      //   console.log(response)
+      //   alert('Submit Successfully')
+      // }).catch(function (error) {
+      //   console.log(error)
+      //   alert('Error : There is something wrong for this submission.')
+      // })
     }
   },
   created: function () {

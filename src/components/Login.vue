@@ -111,7 +111,6 @@ export default {
       await axios
         .post('/api/login/getUser?username=' + this.username)
         .then(function (response) {
-          console.log(response.data.password)
           that.userid = response.data.id
           that.username = response.data.username
           that.type = response.data.type
