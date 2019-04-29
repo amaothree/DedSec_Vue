@@ -8,64 +8,43 @@
       </div>
     </div>
   </section>
-  <div class="Personal" >
-    <div class="personalinf">
-      <div class="module-privilege">
-        <ul class="privilege-ul name-ul">
-          <li class="privilege-item first-item">
-            <p class="title">
-              <span>{{ $t('personal.Types')}}</span>
-            </p>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.id')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.name')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.FirstName')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.LastName')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.Password')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.Email')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.Phone')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.Type')}}</a>
-          </li>
-        </ul>
-        <ul class="privilege-ul svip-ul active recommend">
-          <li class="privilege-item first-item">
-            <div class="svip-type">
-              <p class="vip-type-icon">
-                <span class="vip-icon svip-middle icon-size-middle"></span>
-              </p>
-              <span class="vip-type-title">{{ $t('personal.Information')}}</span>
-            </div>
-            <div class="buy-btn-box">
-              <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="modifyPersonalDetail()">{{ $t('personal.submit')}}</p>
-            </div>
-          </li>
-          <li class="privilege-item" style="background: #fbf4e4">{{userid}}</li>
-          <li class="privilege-item">{{username}}</li>
-          <li class="privilege-item" style="background: #fbf4e4"><input type="text" name="名" id="first_name" v-model="first_name" class="input"></li>
-          <li class="privilege-item">  <input type="text" name="姓" id="last_name" v-model="last_name" class="input"></li>
-          <li class="privilege-item" style="background: #fbf4e4"> <input type="password" name="密码" id="password" v-model="password" class="input"></li>
-          <li class="privilege-item" style="background: #fbf4e4"> <input type="text" name="邮箱" id="email" v-model="email" class="input"></li>
-          <li class="privilege-item"><input type="text" name="联系方式" id="phone" v-model="phone" class="input"></li>
-          <li class="privilege-item">{{type}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <table class="table" style="font-size: 35px;margin-left:30%;width: 80%">
+    <tbody>
+    <tr>
+      <td>{{ $t('personal.id')}}:</td>
+      <td>{{userid}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.name')}}:</td>
+      <td>{{username}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.FirstName')}}:</td>
+      <td><input type="text" name="名" id="first_name" v-model="first_name" class="input"></td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.LastName')}}:</td>
+      <td> <input type="text" name="姓" id="last_name" v-model="last_name" class="input"></td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Password')}}:</td>
+      <td><input type="text" name="密码" id="password" v-model="password" class="input"></td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Email')}}:</td>
+      <td><input type="text" name="邮箱" id="email" v-model="email" class="input"></td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Phone')}}:</td>
+      <td><input type="text" name="联系方式" id="phone" v-model="phone" class="input"></td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Type')}}:</td>
+      <td>{{type}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn approve" @click="modifyPersonalDetail()">{{ $t('personal.submit')}}</button>
   </body>
 </template>
 
@@ -140,6 +119,9 @@ export default {
 }
 </script>
 <style scoped>
+  .table>tbody>tr>td{
+    border:0px;
+  }
   body{color: #666;}
   ul{list-style: none;}
   a{text-decoration: none;cursor: default;}
@@ -174,5 +156,13 @@ export default {
   input{
     background: none;
     color: #ca963b;
+  }
+  .approve{
+    position: relative;
+    margin-left: 46%;
+    font-size: 30px;
+    bottom:0;
+    color:#1d78cb;
+    background: #57cb26;
   }
 </style>

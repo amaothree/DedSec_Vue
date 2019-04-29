@@ -13,7 +13,7 @@
       <tbody>
       <tr>
         <td>Status:</td>
-        <td><span class="data" style="white-space: nowrap; ">{{status}}</span> </td>
+        <td><span class=" data" style="white-space: nowrap; ">{{status}}</span> </td>
       </tr>
       <tr>
         <td>Subject:</td>
