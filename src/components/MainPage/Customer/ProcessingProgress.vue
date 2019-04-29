@@ -26,24 +26,6 @@
           <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply)">{{ $t('progress.Detail')}}</a></td>
           <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="deleteclaim(arr.id)">{{ $t('progress.Delete')}}</a></td>
         </tr>
-        <!--<tr class="odd" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Firefox 1.0</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
-        <!--<tr class="even" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Netscape Browser 8</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
-        <!--<tr class="odd" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Netscape Navigator 9</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
         </tbody>
       </table>
     </div>
@@ -98,9 +80,20 @@ export default {
   },
   created () {
     this.userid = this.$cookies.get('userid')
-    axios.get('/api/luggage/getbyuserid?userid=' + this.userid).then((res) => {
-      this.array = res.data
-    })
+    var that = this
+    axios
+      .post('/api/luggage/getbyuserid?userid=' + this.userid)
+      .then(function (response) {
+        console.log(response.data.password)
+        that.array = response.data
+        console.log(this.array)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    // axios.get('/api/luggage/getbyuserid?userid=' + this.userid).then((res) => {
+    //   this.array = res.data
+    // })
   }
 }
 </script>

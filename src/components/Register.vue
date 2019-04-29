@@ -66,6 +66,7 @@
 </template>
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   name: 'Claim',
   data () {
@@ -79,39 +80,87 @@ export default {
       phone: '',
       type: '',
       status: 'true',
-      userid: -1,
+      repeat: false,
       locale: 'en',
-      lang: '中文'
+      lang: '中文',
+      load: 0
     }
   },
   methods: {
-    register () {
+    async register () {
       if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
         alert('Please enter all boxes.')
       } else {
-        axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-          this.userid = res.data.id
-        })
-        if (this.userid >= 0) {
+        await axios('/api/register/uni?username=' + this.username)
+          .then(response => {
+            this.repeat = response.data
+          })
+          .catch(error => {
+            console.log(error)
+            alert('Can not get information from back end.')
+          })
+        if (this.repeat) {
+          console.log('success')
           if (this.password === this.repassword) {
-            axios('/api/register/add', {
-              params: {
-                username: this.username,
-                password: this.password,
-                email: this.email,
-                fname: this.first_name,
-                lname: this.last_name,
-                phone: this.phone,
-                type: this.type
-              }
-            }).then(function (response) {
-              console.log(response)
-              alert('Submit Successfully')
-            }).catch(function (error) {
-              console.log(error)
-              alert('Error : There is something wrong for this submission.')
-              this.status = 'false'
+            var that = this
+            let data = {
+              'username': that.username,
+              'password': that.password,
+              'email': that.email,
+              'fname': that.first_name,
+              'lname': that.last_name,
+              'phone': that.phone,
+              'type': that.type
+            }
+
+            axios({
+              method: 'post',
+              url: '/api/register/add',
+              data: Qs.stringify(data)
             })
+            // axios({
+            //   method: 'post',
+            //   url: '/api/register/add',
+            //   data: {
+            //     username: that.username,
+            //     password: that.password,
+            //     email: that.email,
+            //     fname: that.first_name,
+            //     lname: that.last_name,
+            //     phone: that.phone,
+            //     type: that.type
+            //   }
+            // }).then((res) => {
+            //   console.log(res.data)
+            // })
+            // var that = this
+            // await axios
+            //   .post('/api/register/add?username=' + this.username + '&password' + this.password + '&email' + this.email + '&fname' + this.first_name + '&lname' + this.last_name + '&type' + this.type)
+            //   .then(function (response) {
+            //     console.log(response)
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error)
+            //     that.status = 'false'
+            //   })
+            // axios.post('/api/register/add', {
+            //   params: {
+            //     username: this.username,
+            //     password: this.password,
+            //     email: this.email,
+            //     fname: this.first_name,
+            //     lname: this.last_name,
+            //     phone: this.phone,
+            //     type: this.type
+            //   }
+            // }).then(function (response) {
+            //   console.log(response)
+            //   alert('Submit Successfully')
+            // }).catch(function (error) {
+            //   console.log(error)
+            //   alert('Error : There is something wrong for this submission.')
+            //   this.status = 'false'
+            // })
             if (this.status === 'true') {
               this.$router.push(
                 {
@@ -123,8 +172,10 @@ export default {
             alert('Password and Repeat password should be the same. Please enter again.')
           }
         } else {
+          console.log('fail' + this.repeat)
           alert('The username has existed. Please enter again.')
         }
+        this.load = 0
       }
     },
     changeLang () {

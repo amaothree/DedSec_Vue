@@ -9,7 +9,7 @@
           <li class="nav-item"><a class="nav-link" ><a @click="returninitial()" style="font-size: 25px">Exit</a></a></li>
           <li class="nav-item"><a class="nav-link"><router-link to="/EmployeeMainPage" style="font-size: 25px">Back</router-link></a></li>
           <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
-          <li class="nav-item"><a><router-link to="/EmployeeInformation" style="font-size: 25px">setting</router-link></a></li>
+          <li class="nav-item"><a><router-link to="/EmployeeInformation" style="font-size: 25px">Setting</router-link></a></li>
         </ul>
       </div>
     </nav>

@@ -107,14 +107,29 @@ export default {
     this.username = this.$cookies.get('username')
     this.type = this.$cookies.get('type')
     this.userid = this.$cookies.get('userid')
-    axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-      this.password = res.data.password
-      this.email = res.data.email
-      this.phone = res.data.phone
-      this.first_name = res.data.first_name
-      this.last_name = res.data.last_name
-      console.log(this.array)
-    })
+    var that = this
+    axios
+      .post('/api/login/getUser?username=' + this.username)
+      .then(function (response) {
+        console.log(response.data.password)
+        that.password = response.data.password
+        that.email = response.data.email
+        that.phone = response.data.phone
+        that.first_name = response.data.first_name
+        that.last_name = response.data.last_name
+        console.log(this.array)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    // axios.get('/api/login/getUser?username=' + this.username).then((res) => {
+    //   this.password = res.data.password
+    //   this.email = res.data.email
+    //   this.phone = res.data.phone
+    //   this.first_name = res.data.first_name
+    //   this.last_name = res.data.last_name
+    //   console.log(this.array)
+    // })
   }
 }
 </script>

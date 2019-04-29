@@ -106,38 +106,44 @@ export default {
     toggleHiddenPassword () {
       this.hidden = !this.hidden
     },
-    login () {
-      axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-        this.userid = res.data.id
-        this.username = res.data.username
-        this.type = res.data.type
-        this.password = res.data.password
-        if (this.password === res.data.password) {
-          this.$cookies.set('userid', this.userid, 120000)
-          this.$cookies.set('username', this.username, 120000)
-          this.$cookies.set('password', this.password, 120000)
-          this.$cookies.set('type', this.type, 120000)
-          if (this.type === 'customer') {
-            alert('Dear ' + this.username + ', you have logged in.')
-            this.$router.push(
-              {
-                path: '/CustomerMainPage'
-              }
-            )
-          } else if (this.type === 'employee') {
-            alert('Dear ' + this.username + ', you have logged in.')
-            this.$router.push(
-              {
-                path: '/EmployeeMainPage'
-              }
-            )
+    async login () {
+      var that = this
+      await axios
+        .post('/api/login/getUser?username=' + this.username)
+        .then(function (response) {
+          console.log(response.data.password)
+          that.userid = response.data.id
+          that.username = response.data.username
+          that.type = response.data.type
+          if (that.password === response.data.password) {
+            that.$cookies.set('userid', that.userid, 120000)
+            that.$cookies.set('username', that.username, 120000)
+            that.$cookies.set('password', that.password, 120000)
+            that.$cookies.set('type', that.type, 120000)
+            if (that.type === 'customer') {
+              alert('Dear ' + that.username + ', you have logged in.')
+              that.$router.push(
+                {
+                  path: '/CustomerMainPage'
+                }
+              )
+            } else if (that.type === 'employee') {
+              alert('Dear ' + that.username + ', you have logged in.')
+              that.$router.push(
+                {
+                  path: '/EmployeeMainPage'
+                }
+              )
+            } else {
+              alert('Sorry, there is something wrong.')
+            }
           } else {
-            alert('Sorry, there is something wrong.')
+            alert('Failed.')
           }
-        } else {
-          alert('Failed.')
-        }
-      })
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   },
   created: function () {

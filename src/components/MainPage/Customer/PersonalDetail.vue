@@ -71,6 +71,7 @@
 
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   inject: ['reload'],
   name: 'PersonalDetail',
@@ -98,24 +99,37 @@ export default {
     this.userid = this.$cookies.get('userid')
   },
   methods: {
-    modifyPersonalDetail () {
-      console.log(this.first_name)
-      axios('/api/user/modify', {
-        params: {
-          id: this.userid,
-          password: this.password,
-          fname: this.first_name,
-          lname: this.last_name,
-          phone: this.phone,
-          email: this.email
-        }
-      }).then(function (response) {
-        console.log(response)
-        alert('Submit Successfully')
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for this submission.')
+    async modifyPersonalDetail () {
+      var that = this
+      let data = {
+        'id': that.userid,
+        'password': that.password,
+        'fname': that.first_name,
+        'lname': that.last_name,
+        'phone': that.phone,
+        'email': that.email
+      }
+      await axios({
+        method: 'post',
+        url: '/api/user/modify',
+        data: Qs.stringify(data)
       })
+      // axios('/api/user/modify', {
+      //   params: {
+      //     id: this.userid,
+      //     password: this.password,
+      //     fname: this.first_name,
+      //     lname: this.last_name,
+      //     phone: this.phone,
+      //     email: this.email
+      //   }
+      // }).then(function (response) {
+      //   console.log(response)
+      //   alert('Submit Successfully')
+      // }).catch(function (error) {
+      //   console.log(error)
+      //   alert('Error : There is something wrong for this submission.')
+      // })
       this.$router.push(
         {
           path: '/PersonalInformation'
