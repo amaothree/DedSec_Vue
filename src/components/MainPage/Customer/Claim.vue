@@ -59,7 +59,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <button type="submit" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
+        <button type="button" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
       </label>
     </form>
   </div>

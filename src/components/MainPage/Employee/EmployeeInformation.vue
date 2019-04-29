@@ -8,64 +8,44 @@
       </div>
     </div>
   </section>
-  <div class="Personal" >
-    <div class="personalinf">
-      <div class="module-privilege">
-        <ul class="privilege-ul name-ul">
-          <li class="privilege-item first-item">
-            <p class="title">
-              <span>{{ $t('personal.Type')}}</span>
-            </p>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.id')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.name')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.FirstName')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.LastName')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.Password')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.Email')}}</a>
-          </li>
-          <li class="privilege-item" style="background: #fbf9f8">
-            <a>{{ $t('personal.Phone')}}</a>
-          </li>
-          <li class="privilege-item">
-            <a>{{ $t('personal.Type')}}</a>
-          </li>
-        </ul>
-        <ul class="privilege-ul svip-ul active recommend">
-          <li class="privilege-item first-item">
-            <div class="svip-type">
-              <p class="vip-type-icon">
-                <span class="vip-icon svip-middle icon-size-middle"></span>
-              </p>
-              <span class="vip-type-title">{{ $t('personal.Information')}}</span>
-            </div>
-            <div class="buy-btn-box">
-              <p class="center-button-base center-button-light-yellow center-button-container-middle" @click="jumptomainpage()">{{ $t('personal.Modify')}}</p>
-            </div>
-          </li>
-          <li class="privilege-item" style="background: #fbf4e4">{{userid}}</li>
-          <li class="privilege-item">{{username}}</li>
-          <li class="privilege-item" style="background: #fbf4e4">{{first_name}}</li>
-          <li class="privilege-item">{{last_name}}</li>
-          <li class="privilege-item" style="background: #fbf4e4">{{password}}</li>
-          <li class="privilege-item">{{email}}</li>
-          <li class="privilege-item" style="background: #fbf4e4">{{phone}}</li>
-          <li class="privilege-item">{{type}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <table class="table" style="font-size: 35px;margin-left:30%;width: 60%; border-spacing:50px;">
+    <tbody>
+    <tr>
+      <td>{{ $t('personal.id')}}:</td>
+      <td>{{userid}}</td>
+    </tr>
+
+    <tr>
+      <td>{{ $t('personal.name')}}:</td>
+      <td>{{username}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.FirstName')}}:</td>
+      <td>{{first_name}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.LastName')}}:</td>
+      <td>{{last_name}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Password')}}:</td>
+      <td>{{password}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Email')}}:</td>
+      <td>{{email}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Phone')}}:</td>
+      <td>{{phone}}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('personal.Type')}}:</td>
+      <td>{{type}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn approve" @click="jumptomainpage()">{{ $t('personal.Modify')}}</button>
   </body>
 </template>
 
@@ -90,7 +70,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'PersonalDetail',
+          name: 'EmployeeDetail',
           params: {
             password: this.password,
             first_name: this.first_name,
@@ -156,4 +136,15 @@ export default {
   .center-button-base{cursor: pointer;display: inline-block;margin: 0 5px;}
   .setset{height: 20px;left: 30px}
   h2{}
+  .table>tbody>tr>td{
+    border:0px;
+  }
+  .approve{
+    position: relative;
+    margin-left: 46%;
+    font-size: 30px;
+    bottom:0;
+    color:#1d78cb;
+    background: #57cb26;
+  }
 </style>
