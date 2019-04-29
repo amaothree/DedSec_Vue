@@ -129,11 +129,6 @@ export default {
       //   console.log(error)
       //   alert('Error : There is something wrong for this submission.')
       // })
-    },
-    methods: {
-      onSubmit () {
-        return false
-      }
     }
   },
   created: function () {
