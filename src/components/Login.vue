@@ -36,7 +36,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%"><a style="font-size: 20px" @click="login()">{{ $t('login.Login')}}</a></a>
+        <a class="more_btn" style="margin-left: 20%"><a style="font-size: .5rem" @click="login()">{{ $t('login.Login')}}</a></a>
       </label>
     </form>
   </div>
@@ -235,5 +235,8 @@ export default {
     border-radius: 50px;
     position: relative;
     border: rgba(255,255,255,0.2) 2px solid !important;
+  }
+  .more_btn {
+    padding: 0 .5rem;
   }
 </style>
