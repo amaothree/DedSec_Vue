@@ -34,7 +34,7 @@
             </div>
             <h4>{{ $t('introduce.start')}}</h4>
             <p>{{ $t('introduce.about_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Login" style="font-size: 40px">{{ $t('introduce.start')}}</router-link></a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -54,7 +54,7 @@
             </div>
             <h4>{{ $t('introduce.policy')}}</h4>
             <p>{{ $t('introduce.policy_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size: 1rem">{{ $t('introduce.read')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size:40px">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
       </div>
