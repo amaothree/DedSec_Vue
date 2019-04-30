@@ -63,7 +63,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: 20px">{{ $t('Register.register')}}</a></a>
+        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: .5rem">{{ $t('Register.register')}}</a></a>
       </label>
     </form>
   </div>
@@ -246,7 +246,6 @@ export default {
   .Content-Main label>span{
     float: left;
     padding-right: 10px;
-    margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     text-align: right;
@@ -312,5 +311,8 @@ export default {
   .form-report {
     margin-right: 20%;
     margin-left: 20%;
+  }
+  .more_btn {
+    padding: 0 .5rem;
   }
 </style>
