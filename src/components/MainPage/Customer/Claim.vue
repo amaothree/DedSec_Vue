@@ -59,7 +59,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <button type="submit" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
+        <button type="button" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
       </label>
     </form>
   </div>
@@ -68,6 +68,7 @@
 
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   name: 'Claim',
   data () {
@@ -88,32 +89,46 @@ export default {
   methods: {
     addluggage: function () {
       console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
-      axios('/api/luggage/add', {
-        params: {
-          subject: this.lug_subject,
-          type: this.lug_type,
-          message: this.lug_message,
-          recipient: this.name,
-          phone: this.phone,
-          country: this.country,
-          city: this.city,
-          district: this.district,
-          address: this.address,
-          postcode: this.postal,
-          userid: this.userid
-        }
-      }).then(function (response) {
-        console.log(response)
-        alert('Submit Successfully')
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for this submission.')
-      })
-    },
-    methods: {
-      onSubmit () {
-        return false
+      var that = this
+      let data = {
+        'subject': that.lug_subject,
+        'type': that.lug_type,
+        'message': that.lug_message,
+        'recipient': that.name,
+        'phone': that.phone,
+        'country': that.country,
+        'city': that.city,
+        'district': that.district,
+        'address': that.address,
+        'postcode': that.postal,
+        'userid': that.userid
       }
+      axios({
+        method: 'post',
+        url: '/api/luggage/add',
+        data: Qs.stringify(data)
+      })
+      // axios('/api/luggage/add', {
+      //   params: {
+      //     subject: this.lug_subject,
+      //     type: this.lug_type,
+      //     message: this.lug_message,
+      //     recipient: this.name,
+      //     phone: this.phone,
+      //     country: this.country,
+      //     city: this.city,
+      //     district: this.district,
+      //     address: this.address,
+      //     postcode: this.postal,
+      //     userid: this.userid
+      //   }
+      // }).then(function (response) {
+      //   console.log(response)
+      //   alert('Submit Successfully')
+      // }).catch(function (error) {
+      //   console.log(error)
+      //   alert('Error : There is something wrong for this submission.')
+      // })
     }
   },
   created: function () {
@@ -147,23 +162,20 @@ export default {
   }
   .Content-Main label{
     display: block;
-    margin: 0px 0px 5px;
     font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
     float: left;
-    width: 20%;
-    padding-right: 10px;
-    margin-top: 10px;
+    padding-right: 0.125rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     text-align: right;
     color: #333;
   }
   .Content-Main input[type="text"],.Content-Main textarea{
-    width: 70%;
-    height: 50px;
+    width: 100%;
+    height: .7rem;
     padding: 5px 0px 5px 5px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -180,13 +192,8 @@ export default {
     font-size: 40px;
   }
   .select1{
-    width: 71%;
-    height: 35px;
-    margin-bottom: 16px;
-    margin-right: 6px;
-    margin-top: 2px;
-    line-height: 15px;
-    padding: 5px 0px 5px 5px;
+    width: auto;
+    padding: 0.0625rem 0 0.0625rem 0.0625rem;
     border-radius: 4px;
     border: 1px solid #CCC;
     color: #888;
@@ -195,7 +202,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 20px;
+    font-size: 0.25rem;;
   }
   .select2{
     width: 13%;
@@ -210,8 +217,8 @@ export default {
     font-size: 16px;
   }
   .Content-Main textarea{
-    width: 70%;
-    height: 200px;
+    width: 100%;
+    height: 2rem;
     padding: 5px 0px 0px 5px;
     font-size: 30px;
   }

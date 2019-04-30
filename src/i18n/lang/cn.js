@@ -1,7 +1,7 @@
 module.exports = {
   introduce: {
     welcome: '欢迎来到 hibernia-sino',
-    start: '点击开始',
+    start: '登陆',
     about: '关于我们',
     about_message: 'Hibernia-Sino公司介绍',
     read: '了解更多',
@@ -78,7 +78,7 @@ module.exports = {
     Password: '密码',
     Email: '邮箱',
     Phone: '电话',
-    Type: '账户类型',
+    Type: '类别',
     id: '编号',
     submit: '提交',
     Modify: '修改',
@@ -86,9 +86,6 @@ module.exports = {
     mes: '设置您的个人详情',
     Types: '类别',
     meschange: '修改您的个人信息'
-  },
-  solution: {
-    detail: '详情'
   },
   claim: {
     Lost: '行李丢失',
@@ -121,6 +118,44 @@ module.exports = {
     Type: '类型',
     Approve: '通过',
     Deny: '拒绝',
-    detail: '详情'
+    detail: '详情',
+    status: '状态',
+    city: '城市',
+    phone: '电话',
+    country: '国家',
+    District: '区',
+    postal_code: '邮政编码',
+    specific_Address: '详细地址',
+    Recipient: '收件人姓名',
+    message: '消息',
+    comment: '意见',
+    approve: '批准',
+    deny: '否决'
+  },
+  ProgressDetail: {
+    Detail: '详情',
+    Check: '查看需求',
+    Subject: '主题',
+    Type: '类型',
+    status: '状态',
+    city: '城市',
+    phone: '电话',
+    country: '国家',
+    District: '区',
+    postal_code: '邮政编码',
+    specific_Address: '详细地址',
+    Recipient: '收件人姓名',
+    message: '消息',
+    comment: '意见',
+    Delete: '删除',
+    Back: '返回'
+  },
+  solution: {
+    Data: '数据',
+    All: '所有数据',
+    User: '用户编号',
+    Subject: '主题',
+    Detail: '详情',
+    Id: '编号'
   }
 }

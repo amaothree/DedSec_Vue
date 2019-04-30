@@ -9,31 +9,65 @@
     </div>
   </section>
   <div class="container">
-    <ul class="list-inline">
-      <span class="subject" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>{{ $t('Decision.Subject')}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-      <span class="type" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>{{ $t('Decision.Type')}} :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{type}}</span></span>
-      <span class="status" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>status:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-    </ul>
-    <ul class="list-inline">
-      <span class="city" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>city :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-      <span class="phone" style="margin-left: 20%;margin-top: 3%;position: relative;"><span>phone :&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{type}}</span></span>
-      <span class="country" style="margin-left: 15%;margin-top: 3%;position:relative;"><span>country:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-    </ul>
-    <ul class="list-inline">
-      <span class="district" style="margin-left: 5%;margin-top: 3%;position:relative;"><span>District:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{subject}}</span></span>
-      <span class="code" style="margin-left: 10%;margin-top: 3%;margin-left:25%;position: relative;width: 45%"><span>postal code:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{type}}</span></span>
-    </ul>
-    <ul class="list-inline">
-      <span class="address" style="margin-left: 5%;margin-top: 3%;position:relative;"><span style="">specific Address:&nbsp;&nbsp;</span><span class="data" style="white-space: nowrap; ">{{status}}</span></span>
-      <span class="Recipient" style="margin-top: 3%;margin-bottom: 3%;position:relative;  float: left;font-size: 35px;width: 35%;"><span style="white-space: nowrap; ">Name of Recipient:&nbsp;&nbsp;</span></span>
-    </ul>
-    <span class="message" style="margin-left: 5%;margin-top: 3%;position:relative;font-size: 40px;"><span style="">message:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
-    <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
-    <span class="comment" style="margin-left: 5%;position:relative;font-size: 40px;"><span style="">comment:&nbsp;&nbsp;</span><span class="data">{{status}}</span></span>
-    <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative" readonly v-model="message"></textarea>
-    <ul class="list-inline">
-    <button class="btn approve" @click="deleteclaim(id)">approve</button>
-    <button class="btn deny" @click="jumpBack()">deny</button>
+    <table class="table" style="font-size: 35px;margin-left: 7%;">
+      <tbody>
+      <tr>
+        <td>Id:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{id}}</span></td>
+      </tr>
+      <tr>
+        <td>User Id:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{userid}}</span></td>
+      </tr>
+      <tr>
+        <td>Subject:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{subject}}</span></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{type}}</span></td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{status}}</span></td>
+      </tr>
+      <tr>
+        <td>Name of Recipient:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{recipient}}</span></td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{phone}}</span></td>
+      </tr>
+      <tr>
+        <td>Country:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{country}}</span></td>
+      </tr>
+      <tr>
+        <td>City:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{city}}</span></td>
+      </tr>
+      <tr>
+        <td>District:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{district}}</span></td>
+      </tr>
+      <tr>
+        <td>Specific Address:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{address}}</span></td>
+      </tr>
+      <tr>
+        <td>Postal Code:</td>
+        <td><span class="data" style="white-space: nowrap; ">{{postcode}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+    <span class="message" style="margin-left: 11%;margin-top: 3%;position:relative;font-size: 35px;"><span style="">message:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
+    <span class="comment" style="margin-left: 11%;position:relative;font-size: 35px;"><span style="">comment:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" v-model="returnmessage"></textarea>
+    <ul style="display: inline">
+      <button class="btn approve" @click="setApprove()">Approve</button>
+      <button class="btn deny" @click="setDeny()">Deny</button>
     </ul>
   </div>
   </body>
@@ -41,112 +75,122 @@
 
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   name: 'Decision',
   data () {
     return {
+      type: '',
+      message: '',
+      subject: '',
+      status: 0,
       id: 0,
-      type: 'Default',
-      message: 'Default',
-      subject: 'Default',
+      returnmessage: 'None',
+      recipient: '',
+      city: '',
+      country: '',
+      district: '',
       userid: 0,
-      returnmessage: 'No comment'
+      postcode: '',
+      phone: '',
+      address: ''
     }
   },
   created () {
-    this.id = this.$route.params.id
     this.type = this.$route.params.type
     this.message = this.$route.params.message
     this.subject = this.$route.params.subject
+    this.status = this.$route.params.status
+    this.id = this.$route.params.id
+    if (this.$route.params.reply !== null) {
+      this.returnmessage = this.$route.params.reply
+    }
+    this.city = this.$route.params.city
+    this.country = this.$route.params.country
+    this.district = this.$route.params.district
     this.userid = this.$route.params.userid
+    this.postcode = this.$route.params.postcode
+    this.recipient = this.$route.params.recipient
+    this.phone = this.$route.params.phone
+    this.address = this.$route.params.address
   },
   methods: {
-    setApprove: function () {
-      axios('/api/luggage/pick', {
-        params: {
-          id: this.id,
-          status: 'approve',
-          reply: this.returnmessage
-        }
+    async setApprove () {
+      // axios('/api/luggage/pick', {
+      //   params: {
+      //     id: this.id,
+      //     status: 'approve',
+      //     reply: this.returnmessage
+      //   }
+      // })
+      let data = {
+        'id': this.id,
+        'status': 'Approve',
+        'reply': this.returnmessage
+      }
+      await axios({
+        method: 'post',
+        url: '/api/luggage/pick',
+        data: Qs.stringify(data)
       })
       alert('Successfully processed')
+      this.$router.push(
+        {
+          name: 'Solution'
+        }
+      )
+      location.reload()
     },
-    setDeny: function () {
-      axios('/api/luggage/pick', {
-        params: {
-          id: this.id,
-          status: 'deny',
-          reply: this.returnmessage
-        }
+    async setDeny () {
+      // axios('/api/luggage/pick', {
+      //   params: {
+      //     id: this.id,
+      //     status: 'deny',
+      //     reply: this.returnmessage
+      //   }
+      // })
+      let data = {
+        'id': this.id,
+        'status': 'Deny',
+        'reply': this.returnmessage
+      }
+      await axios({
+        method: 'post',
+        url: '/api/luggage/pick',
+        data: Qs.stringify(data)
       })
       alert('Successfully processed')
+      this.$router.push(
+        {
+          name: 'Solution'
+        }
+      )
+      location.reload()
     }
   }
 }
 </script>
 
 <style scoped>
-  .subject{
-    float: left;
-    font-size: 50px;
-    width: 15%;
-  }
-  .type{
-    float: left;
-    font-size: 50px;
-    width: 20%;
-  }
-  .status{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .address{
-    float: left;
-    font-size: 50px;
-    width: 50%;
-  }
-  .country{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .city{
-    float: left;
-    font-size: 50px;
-    width: 15%;
-  }
-  .phone{
-    float: left;
-    font-size: 50px;
-    width: 20%;
-  }
-  .district{
-    float: left;
-    font-size: 50px;
-    width: 25%;
-  }
-  .code{
-    float: left;
-    font-size: 50px;
+  .table>tbody>tr>td{
+    border:0px;
   }
   .approve{
     position: relative;
-    margin-left: 25%;
-    margin-top: 6%;
+    margin-left: 17%;
+    margin-top: 5%;
     font-size: 30px;
     bottom:0;
     color:#1d78cb;
     background: #75cb61;
   }
   .deny{
-    position: relative;
-    margin-left: 70%;
-    margin-top: -9%;
+    margin-left: 30%;
+    margin-top: 5%;
     font-size: 30px;
     bottom:0;
     color:#1d78cb;
-    background: #f6e74f;
+    background: #b21f2d;
   }
   .subject,.type{
     color: black;

@@ -23,27 +23,9 @@
         <tr class="even" role="row" v-for="arr in array" :key="arr.index">
           <td class="sorting_1">{{arr.subject}}</td>
           <td>{{arr.status}}</td>
-          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply)">{{ $t('progress.Detail')}}</a></td>
+          <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="jumptoDetail(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">{{ $t('progress.Detail')}}</a></td>
           <td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;" @click="deleteclaim(arr.id)">{{ $t('progress.Delete')}}</a></td>
         </tr>
-        <!--<tr class="odd" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Firefox 1.0</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
-        <!--<tr class="even" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Netscape Browser 8</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
-        <!--<tr class="odd" role="row">-->
-          <!--<td class="sorting_1">Gecko</td>-->
-          <!--<td>Netscape Navigator 9</td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;"><router-link to="/ProgressBar">Detail</router-link></a></td>-->
-          <!--<td><a class="more_btn" style="font-size: 20px ;color: #6f42c1;">Delete</a></td>-->
-        <!--</tr>-->
         </tbody>
       </table>
     </div>
@@ -53,6 +35,7 @@
 
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   inject: ['reload'],
   name: 'ProcessingProgress',
@@ -64,7 +47,7 @@ export default {
     }
   },
   methods: {
-    jumptoDetail (type, message, subject, status, id, reply) {
+    jumptoDetail (type, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
       this.$router.push(
         {
           name: 'ProgressDetail',
@@ -74,33 +57,44 @@ export default {
             subject: subject,
             status: status,
             id: id,
-            reply: reply
+            reply: reply,
+            recipient: recipient,
+            address: address,
+            city: city,
+            country: country,
+            district: district,
+            phone: phone,
+            postcode: postcode,
+            userid: userid
           }
         }
       )
     },
-    deleteclaim (id) {
-      axios('/api/luggage/delete', {
-        params: {
-          id: id
-        }
-      }).then(function (response) {
-        alert(response.data)
-      }).catch(function (error) {
-        console.log(error)
-        alert('Error : There is something wrong for removing the claim.')
+    async deleteclaim (id) {
+      let data = {
+        'id': id
+      }
+      await axios({
+        method: 'post',
+        url: '/api/luggage/delete',
+        data: Qs.stringify(data)
       })
-      location.reload()
-    },
-    init () {
       location.reload()
     }
   },
   created () {
     this.userid = this.$cookies.get('userid')
-    axios.get('/api/luggage/getbyuserid?userid=' + this.userid).then((res) => {
-      this.array = res.data
-    })
+    var that = this
+    axios
+      .post('/api/luggage/getbyuserid?userid=' + this.userid)
+      .then(function (response) {
+        console.log(response.data)
+        that.array = response.data
+        console.log(this.array)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 </script>

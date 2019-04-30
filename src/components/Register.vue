@@ -3,6 +3,11 @@
   <header class="main_menu_area">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item "><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('Register.exit')}}</router-link></a></li>
@@ -20,7 +25,7 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="" class="form-report" style="margin-left: 30%;">
+    <form action="" class="form-report" style="margin-left: 20%;">
       <label>
         <span>{{ $t('Register.username')}}</span>
         <input type="text" name="userName" autocomplete="off" :placeholder="$t('Register.e_username')" class="layui-input" v-model="username">
@@ -51,14 +56,14 @@
       </label>
       <label>
         <span>{{ $t('Register.Type')}}</span>
-        <select name="selected" style="width: 23%" v-model="type">
+        <select name="selected" style="width: auto" v-model="type">
           <option value="employee">{{ $t('Register.employee')}}</option>
           <option value="customer" selected="selected">{{ $t('Register.customer')}}</option>
         </select>
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: 20px">{{ $t('Register.register')}}</a></a>
+        <a class="more_btn" style="margin-left: 20%" @click="register()"><a style="font-size: .5rem">{{ $t('Register.register')}}</a></a>
       </label>
     </form>
   </div>
@@ -66,6 +71,7 @@
 </template>
 <script>
 import axios from 'axios'
+import Qs from 'qs'
 export default {
   name: 'Claim',
   data () {
@@ -79,39 +85,87 @@ export default {
       phone: '',
       type: '',
       status: 'true',
-      userid: -1,
+      repeat: false,
       locale: 'en',
-      lang: '中文'
+      lang: '中文',
+      load: 0
     }
   },
   methods: {
-    register () {
+    async register () {
       if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
         alert('Please enter all boxes.')
       } else {
-        axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-          this.userid = res.data.id
-        })
-        if (this.userid >= 0) {
+        await axios('/api/register/uni?username=' + this.username)
+          .then(response => {
+            this.repeat = response.data
+          })
+          .catch(error => {
+            console.log(error)
+            alert('Can not get information from back end.')
+          })
+        if (this.repeat) {
+          console.log('success')
           if (this.password === this.repassword) {
-            axios('/api/register/add', {
-              params: {
-                username: this.username,
-                password: this.password,
-                email: this.email,
-                fname: this.first_name,
-                lname: this.last_name,
-                phone: this.phone,
-                type: this.type
-              }
-            }).then(function (response) {
-              console.log(response)
-              alert('Submit Successfully')
-            }).catch(function (error) {
-              console.log(error)
-              alert('Error : There is something wrong for this submission.')
-              this.status = 'false'
+            var that = this
+            let data = {
+              'username': that.username,
+              'password': that.password,
+              'email': that.email,
+              'fname': that.first_name,
+              'lname': that.last_name,
+              'phone': that.phone,
+              'type': that.type
+            }
+
+            axios({
+              method: 'post',
+              url: '/api/register/add',
+              data: Qs.stringify(data)
             })
+            // axios({
+            //   method: 'post',
+            //   url: '/api/register/add',
+            //   data: {
+            //     username: that.username,
+            //     password: that.password,
+            //     email: that.email,
+            //     fname: that.first_name,
+            //     lname: that.last_name,
+            //     phone: that.phone,
+            //     type: that.type
+            //   }
+            // }).then((res) => {
+            //   console.log(res.data)
+            // })
+            // var that = this
+            // await axios
+            //   .post('/api/register/add?username=' + this.username + '&password' + this.password + '&email' + this.email + '&fname' + this.first_name + '&lname' + this.last_name + '&type' + this.type)
+            //   .then(function (response) {
+            //     console.log(response)
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error)
+            //     that.status = 'false'
+            //   })
+            // axios.post('/api/register/add', {
+            //   params: {
+            //     username: this.username,
+            //     password: this.password,
+            //     email: this.email,
+            //     fname: this.first_name,
+            //     lname: this.last_name,
+            //     phone: this.phone,
+            //     type: this.type
+            //   }
+            // }).then(function (response) {
+            //   console.log(response)
+            //   alert('Submit Successfully')
+            // }).catch(function (error) {
+            //   console.log(error)
+            //   alert('Error : There is something wrong for this submission.')
+            //   this.status = 'false'
+            // })
             if (this.status === 'true') {
               this.$router.push(
                 {
@@ -123,8 +177,10 @@ export default {
             alert('Password and Repeat password should be the same. Please enter again.')
           }
         } else {
+          console.log('fail' + this.repeat)
           alert('The username has existed. Please enter again.')
         }
+        this.load = 0
       }
     },
     changeLang () {
@@ -185,13 +241,11 @@ export default {
   .Content-Main label{
     display: block;
     font-size: 30px;
-    /*padding: 20px 30px 20px 30px;*/
+    padding: 20px 30px 20px 30px;
   }
   .Content-Main label>span{
     float: left;
-    width: 20%;
     padding-right: 10px;
-    margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     text-align: right;
@@ -253,5 +307,12 @@ export default {
   }
   button{
     font-size: 16px;
+  }
+  .form-report {
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+  .more_btn {
+    padding: 0 .5rem;
   }
 </style>

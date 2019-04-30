@@ -3,10 +3,15 @@
   <header class="main_menu_area">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('login.exit')}}</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: .5rem">{{ $t('login.exit')}}</router-link></a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: .5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
     </nav>
@@ -31,7 +36,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <a class="more_btn" style="margin-left: 20%"><a style="font-size: 20px" @click="login()">{{ $t('login.Login')}}</a></a>
+        <a class="more_btn" style="margin-left: 20%"><a style="font-size: .5rem" @click="login()">{{ $t('login.Login')}}</a></a>
       </label>
     </form>
   </div>
@@ -106,38 +111,43 @@ export default {
     toggleHiddenPassword () {
       this.hidden = !this.hidden
     },
-    login () {
-      axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-        this.userid = res.data.id
-        this.username = res.data.username
-        this.type = res.data.type
-        this.password = res.data.password
-        if (this.password === res.data.password) {
-          this.$cookies.set('userid', this.userid, 120000)
-          this.$cookies.set('username', this.username, 120000)
-          this.$cookies.set('password', this.password, 120000)
-          this.$cookies.set('type', this.type, 120000)
-          if (this.type === 'customer') {
-            alert('Dear ' + this.username + ', you have logged in.')
-            this.$router.push(
-              {
-                path: '/CustomerMainPage'
-              }
-            )
-          } else if (this.type === 'employee') {
-            alert('Dear ' + this.username + ', you have logged in.')
-            this.$router.push(
-              {
-                path: '/EmployeeMainPage'
-              }
-            )
+    async login () {
+      var that = this
+      await axios
+        .post('/api/login/getUser?username=' + this.username)
+        .then(function (response) {
+          that.userid = response.data.id
+          that.username = response.data.username
+          that.type = response.data.type
+          if (that.password === response.data.password) {
+            that.$cookies.set('userid', that.userid, 120000)
+            that.$cookies.set('username', that.username, 120000)
+            that.$cookies.set('password', that.password, 120000)
+            that.$cookies.set('type', that.type, 120000)
+            if (that.type === 'customer') {
+              alert('Dear ' + that.username + ', you have logged in.')
+              that.$router.push(
+                {
+                  path: '/CustomerMainPage'
+                }
+              )
+            } else if (that.type === 'employee') {
+              alert('Dear ' + that.username + ', you have logged in.')
+              that.$router.push(
+                {
+                  path: '/EmployeeMainPage'
+                }
+              )
+            } else {
+              alert('Sorry, there is something wrong.')
+            }
           } else {
-            alert('Sorry, there is something wrong.')
+            alert('Failed.')
           }
-        } else {
-          alert('Failed.')
-        }
-      })
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   },
   created: function () {
@@ -180,7 +190,6 @@ export default {
   }
   .Content-Main label>span {
     float: left;
-    width: 20%;
     padding-right: 10px;
     margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -190,6 +199,9 @@ export default {
   }
   button{
     font-size: 16px;
+  }
+  .form {
+    margin-right: 30%;
   }
   .submit {
     padding: 15px;
@@ -223,5 +235,8 @@ export default {
     border-radius: 50px;
     position: relative;
     border: rgba(255,255,255,0.2) 2px solid !important;
+  }
+  .more_btn {
+    padding: 0 .5rem;
   }
 </style>

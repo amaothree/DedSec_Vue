@@ -14,8 +14,8 @@ import PersonalInformation from '@/components/MainPage/Customer/PersonalInformat
 import EmployeeInformation from '@/components/MainPage/Employee/EmployeeInformation'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
-import Introduce1 from '@/components/Introduce1'
-import Introduce2 from '@/components/Introduce2'
+import Introduce1 from '@/components/introduce1'
+import Introduce2 from '@/components/introduce2'
 import lead from '@/components/MainPage/Customer/lead'
 Vue.use(Router)
 export default new Router({

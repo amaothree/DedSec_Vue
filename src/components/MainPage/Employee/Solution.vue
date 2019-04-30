@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Data</h2>
-        <p>All the data</p>
+        <h2>{{ $t('solution.Data')}}</h2>
+        <p>{{ $t('solution.All')}}</p>
       </div>
     </div>
   </section>
@@ -13,10 +13,10 @@
       <table aria-describedby="example1_info" role="grid" id="example1" class="table table-bordered table-striped dataTable">
         <thead>
         <tr role="row">
-          <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 167px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting_asc">Id</th>
-          <th aria-label="Browser: activate to sort column ascending" style="width: 207px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">User ID</th>
-          <th aria-label="Platform(s): activate to sort column ascending" style="width: 182px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">Subject</th>
-          <th aria-label="Engine version: activate to sort column ascending" style="width: 142px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">Detail</th>
+          <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 167px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting_asc">{{ $t('solution.Id')}}</th>
+          <th aria-label="Browser: activate to sort column ascending" style="width: 207px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.User')}}</th>
+          <th aria-label="Platform(s): activate to sort column ascending" style="width: 182px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.Subject')}}</th>
+          <th aria-label="Engine version: activate to sort column ascending" style="width: 142px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.Detail')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
           <td class="sorting_1">{{arr.id}}</td>
           <td>{{ arr.userid}}</td>
           <td>{{ arr.subject}}</td>
-          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.id,arr.type,arr.message,arr.subject,arr.userid)">Detail</a></td>
+          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">Detail</a></td>
         </tr>
         </tbody>
       </table>
@@ -44,15 +44,24 @@ export default {
     }
   },
   methods: {
-    jumptomainpage (id, type, message, subject, userid) {
+    jumptomainpage (type, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
       this.$router.push(
         {
           name: 'Decision',
           params: {
-            id: id,
             type: type,
             message: message,
             subject: subject,
+            status: status,
+            id: id,
+            reply: reply,
+            recipient: recipient,
+            address: address,
+            city: city,
+            country: country,
+            district: district,
+            phone: phone,
+            postcode: postcode,
             userid: userid
           }
         }
@@ -61,10 +70,20 @@ export default {
   },
   created: function () {
     // let vm = this
-    axios.get('/api/luggage/all').then((res) => {
-      this.array = res.data
-      console.log(this.array)
-    })
+    // axios.get('/api/luggage/all').then((res) => {
+    //   this.array = res.data
+    //   console.log(this.array)
+    // })
+    var that = this
+    axios
+      .post('/api/luggage/all')
+      .then(function (response) {
+        console.log(response.data)
+        that.array = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 </script>
