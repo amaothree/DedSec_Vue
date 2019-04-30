@@ -10,8 +10,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('login.exit')}}</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: .5rem">{{ $t('login.exit')}}</router-link></a></li>
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: .5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
     </nav>
@@ -190,7 +190,6 @@ export default {
   }
   .Content-Main label>span {
     float: left;
-    width: 20%;
     padding-right: 10px;
     margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -200,6 +199,9 @@ export default {
   }
   button{
     font-size: 16px;
+  }
+  .form {
+    margin-right: 30%;
   }
   .submit {
     padding: 15px;

@@ -3,7 +3,7 @@
   <!--================Header Menu Area =================-->
   <header class="main_menu_area">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#" style="font-size: 40px">Hibernia-Sino</a>
+      <a class="navbar-brand" href="#" style="font-size: .8rem">Hibernia-Sino</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -11,10 +11,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: 25px">{{ $t('navigate.exit')}}</a></a></li>
-          <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: 25px">{{ $t('navigate.Back')}}</router-link></a></li>
-          <li class="nav-item active"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
-          <li class="nav-item active"><a ><router-link to="/PersonalInformation" style="font-size: 25px">{{ $t('navigate.Setting')}}</router-link></a></li>
+          <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: .5rem">{{ $t('navigate.exit')}}</a></a></li>
+          <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: .5rem">{{ $t('navigate.Back')}}</router-link></a></li>
+          <li class="nav-item active"><a class="nav-link" href="#" style="font-size: .5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
+          <li class="nav-item active"><a ><router-link to="/PersonalInformation" style="font-size: .5rem">{{ $t('navigate.Setting')}}</router-link></a></li>
         </ul>
       </div>
     </nav>

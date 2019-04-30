@@ -162,13 +162,11 @@ export default {
   }
   .Content-Main label{
     display: block;
-    margin: 0px 0px 5px;
     font-size: 30px;
     /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
     float: left;
-    width: 20%;
     padding-right: 10px;
     margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

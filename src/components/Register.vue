@@ -25,7 +25,7 @@
     </div>
   </section>
   <div class="Content-Main">
-    <form action="" class="form-report" style="margin-left: 30%;">
+    <form action="" class="form-report" style="margin-left: 20%;">
       <label>
         <span>{{ $t('Register.username')}}</span>
         <input type="text" name="userName" autocomplete="off" :placeholder="$t('Register.e_username')" class="layui-input" v-model="username">
@@ -56,7 +56,7 @@
       </label>
       <label>
         <span>{{ $t('Register.Type')}}</span>
-        <select name="selected" style="width: 23%" v-model="type">
+        <select name="selected" style="width: auto" v-model="type">
           <option value="employee">{{ $t('Register.employee')}}</option>
           <option value="customer" selected="selected">{{ $t('Register.customer')}}</option>
         </select>
@@ -241,11 +241,10 @@ export default {
   .Content-Main label{
     display: block;
     font-size: 30px;
-    /*padding: 20px 30px 20px 30px;*/
+    padding: 20px 30px 20px 30px;
   }
   .Content-Main label>span{
     float: left;
-    width: 20%;
     padding-right: 10px;
     margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -309,5 +308,9 @@ export default {
   }
   button{
     font-size: 16px;
+  }
+  .form-report {
+    margin-right: 20%;
+    margin-left: 20%;
   }
 </style>
