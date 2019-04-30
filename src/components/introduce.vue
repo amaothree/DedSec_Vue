@@ -1,14 +1,14 @@
 <template>
   <body>
-  <!--================Header Menu Area =================-->
-
-  <!--================End Header Menu Area =================-->
-
-  <!--================Banner Area =================-->
   <section class="banner_area">
     <div class="main_menu_area">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#" style="font-size: 1rem">Hibernia-Sino</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item navbar-form navbar-right"><a class="nav-link" href="#" style="font-size: 0.6rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
@@ -23,12 +23,21 @@
     </div>
   </section>
   <!--================End Banner Area =================-->
-  <a class="more_btn" style="margin-left: 43%;margin-top: 5%"><router-link to="/Login" style="font-size: 1rem">{{ $t('introduce.start')}}</router-link></a>
   <!--================End Banner Area =================-->
   <section class="service_feature">
     <div class="container">
       <div class="row feature_inner">
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
+          <div class="feature_item">
+            <div class="f_icon">
+              <img src="static/img/icon/f-icon-6.png" alt="">
+            </div>
+            <h4>{{ $t('introduce.start')}}</h4>
+            <p>{{ $t('introduce.about_message')}}</p>
+            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-2.png" alt="">
@@ -38,7 +47,7 @@
             <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
           <div class="feature_item">
             <div class="f_icon">
               <img src="static/img/icon/f-icon-3.png" alt="">
