@@ -73,7 +73,7 @@
           </li>
         </ul>
       </div>
-      <button class="exit"><a href="../Login"><b>{{ $t('message.exit') }}</b></a></button>
+      <button class="exit"><a href="../Login"><b>{{ $t('EXIT') }}</b></a></button>
     </div>
   </div>
   </body>
