@@ -141,7 +141,8 @@ export default {
   }
   .approve{
     position: relative;
-    margin-left: 17%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 5%;
     font-size: 30px;
     bottom:0;
@@ -149,7 +150,8 @@ export default {
     background: #cb1d1d;
   }
   .deny{
-    margin-left: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 5%;
     font-size: 30px;
     bottom:0;
