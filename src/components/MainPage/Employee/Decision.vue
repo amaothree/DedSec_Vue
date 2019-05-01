@@ -177,8 +177,8 @@ export default {
   }
   .approve{
     position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     margin-top: 5%;
     font-size: 30px;
     bottom:0;
