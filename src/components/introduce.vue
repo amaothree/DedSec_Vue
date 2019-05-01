@@ -33,7 +33,7 @@
               <img src="static/img/icon/f-icon-6.png" alt="">
             </div>
             <h4>{{ $t('introduce.start')}}</h4>
-            <p>{{ $t('introduce.about_message')}}</p>
+            <p>{{ $t('introduce.start_message')}}</p>
             <a class="more_btn" href="#"><router-link to="/Login" style="font-size: 40px">{{ $t('introduce.start')}}</router-link></a>
           </div>
         </div>

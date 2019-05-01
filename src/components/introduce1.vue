@@ -10,8 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">Exit</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">Language</a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{$t('in1.Exit')}}</router-link></a></li>
         </ul>
       </div>
     </nav>
@@ -19,7 +18,7 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>introduction</h2>
+        <h2>{{$t('in1.introduction')}}</h2>
       </div>
     </div>
   </section>
@@ -27,50 +26,55 @@
     <div class="module-a">
       <div class="hd">
         <h2 class="h2">
-          <span class="intro">Introduction to Hibernia-Sino</span>
+          <span class="intro">{{$t('in1.line1')}}</span>
         </h2>
       </div>
       <div class="bd">
         <ul class="ul1 mt20">
           <li>
             <p class="p2">
-              <span class="mes">Hibernia-Sino is an international travel insurance stock company.
+              <span class="mes">{{$t('in1.line2')}}
               </span>
             </p>
           </li>
           <li class="mt20">
             <p class="p2">
-              <span class="mes">As a comprehensive travel insurance company, we can handle a full range of travel insurance products and services
-                (including various statutory insurance businesses)</span>
+              <span class="mes">{{$t('in1.line3')}}</span>
             </p>
           </li>
           <li class="mt20">
             <p class="p2">
-              <span class="mes">Hibernia-Sino has firstly promoted prompt and efficient claims settlement service
-                and had been well recognized from through out the industry</span>
+              <span class="mes">{{$t('in1.line4')}}</span>
             </p>
           </li>
           <li class="mt20">
             <p class="p2">
-              <span class="mes">Hibernia-Sino makes the soul of Chinese traditional concept "pace and combination" as the foundation stone of the enterprise concept,and makes the concept of "combination of every party's benefit to realize the mutual benefit and development" as the core value, and initiates a kind of harmonious and natural enterprise culture.
+              <span class="mes">{{$t('in1.line5')}}
               </span>
 
             </p>
           </li>
           <li class="mt20">
             <p class="p2">
-              Hibernia-Sino has established a normative corporate governance and decision making mechanism from the start of its operation, laying a very good foundation for its fast growth. </p>
+              {{$t('in1.line6')}} </p>
           </li>
         </ul>
       </div>
-      <button class="exit"><a href="../Login"><b>{{ $t('EXIT') }}</b></a></button>
     </div>
   </div>
   </body>
 
 </template>
 <script>
-
+export default {
+  name: 'Introduce',
+  data () {
+    return {
+      locale: 'en',
+      lang: '中文'
+    }
+  }
+}
 </script>
 <style>
   input {

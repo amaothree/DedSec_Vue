@@ -10,8 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/">Exit</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px">Language</a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/">{{$t('in2.Exit')}}</router-link></a></li>
         </ul>
       </div>
     </nav>
@@ -19,7 +18,7 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>introduction</h2>
+        <h2>{{$t('in2.introduction')}}</h2>
       </div>
     </div>
   </section>
@@ -27,65 +26,102 @@
     <div class="module-a">
       <div class="hd">
         <h2 class="h2">
-          <span class="intro">Policy of Hibernia-Sino</span>
+          <span class="intro">{{$t('in2.line1')}}</span>
         </h2>
       </div>
       <div class="bd">
         <p class="mt40 p1">
-          <span class="mes">We adheres to the following privacy protection principles and is committed to providing you with more secure and reliable service:</span>
+          <span class="mes">{{$t('in2.line2')}}</span>
         </p>
         <ul class="ul1 mt20">
           <li>
             <p class="fb">
-              <span class="message_num">1. </span><span class="message">Security Safeguard and Reliance:</span>
+              <span class="message_num">1. </span><span class="message">{{$t('in2.line3')}}</span>
             </p>
             <p class="p2">
-              <span class="mes">We try our best to prevent your information from breach, damage or loss via effective and reasonable information security technology and administrative process;</span>
+              <span class="mes">{{$t('in2.line4')}}</span>
             </p>
           </li>
           <li class="mt20">
             <p class="fb">
-              <span class="message_num">2. </span><span class="message">Choice:</span>
+              <span class="message_num">2. </span><span class="message">{{$t('in2.line5')}}</span>
             </p>
             <p class="p2">
-              <span class="mes">We provide you convenient privacy management options so that you may make proper choices to control or manage your privacy;</span>
+              <span class="mes">{{$t('in2.line6')}}</span>
             </p>
           </li>
           <li class="mt20">
             <p class="fb">
-              <span class="message_num">3. </span><span class="message">Protection of Communication Secret:</span>
+              <span class="message_num">3. </span><span class="message">{{$t('in2.line7')}}</span>
             </p>
             <p class="p2">
-              <span class="mes">We will strictly protect your communication secrets in compliance with the applicable laws and regulations;</span>
+              <span class="mes">{{$t('in2.line8')}}</span>
             </p>
           </li>
           <li class="mt20">
             <p class="fb">
-              <span class="message_num">4. </span><span class="message">Reasonableness and Necessity:</span>
+              <span class="message_num">4. </span><span class="message">{{$t('in2.line9')}}</span>
             </p>
             <p class="p2">
-              <span class="mes">We will collect necessary data so that we can provide you and other users with better service in order to achieve products' functions; </span>
+              <span class="mes">{{$t('in2.line10')}}</span>
 
             </p>
           </li>
           <li class="mt20">
             <p class="fb">
-              <span class="message_num">5. </span><span class="message">Transparency:</span>
+              <span class="message_num">5. </span><span class="message">{{$t('in2.line11')}}</span>
             </p>
             <p class="p2">
-              We endeavor to introduce our privacy policy in an easy and straightforward way and help you better understand our information process practice;
+              {{$t('in2.line12')}}
             </p>
           </li>
         </ul>
       </div>
-      <button class="exit"><a href="../Login"><b>{{ $t('EXIT') }}</b></a></button>
     </div>
   </div>
   </body>
 
 </template>
 <script>
-
+export default {
+  name: 'Introduce',
+  data () {
+    return {
+      locale: 'en',
+      lang: '中文'
+    }
+  },
+  methods: {
+    changeLang () {
+      // 增加传入语言
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
+      }
+      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+      window.location.reload() // 进行刷新改变cookie里的值
+    }
+  },
+  mounted () {
+    if (this.$cookie.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
+    }
+  }
+}
 </script>
 <style>
   input {
@@ -140,4 +176,5 @@
     background: antiquewhite;
     color: #333;
   }
+
 </style>

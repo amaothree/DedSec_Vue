@@ -6,7 +6,8 @@ module.exports = {
     about_message: 'Introduction to Hibernia-Sino',
     read: 'read more',
     policy: 'Policy',
-    policy_message: 'All the policies of Hibernia-Sino'
+    policy_message: 'All the policies of Hibernia-Sino',
+    start_message: 'Start to login Hibernia-Sino'
   },
   login: {
     exit: 'Exit',
@@ -159,5 +160,32 @@ module.exports = {
     Subject: 'Subject',
     Detail: 'Detail',
     Id: 'Id'
+  },
+  in2: {
+    Exit: 'Exit',
+    introduction: 'introduction',
+    line1: 'Policy of Hibernia-Sino',
+    line2: 'We adheres to the following privacy protection principles and is committed to providing you with more secure and reliable service:',
+    line3: 'Security Safeguard and Reliance:',
+    line4: 'We try our best to prevent your information from breach, damage or loss via effective and reasonable information security technology and administrative process;',
+    line5: 'Choice',
+    line6: 'We provide you convenient privacy management options so that you may make proper choices to control or manage your privacy;',
+    line7: 'Protection of Communication Secret:',
+    line8: 'We will strictly protect your communication secrets in compliance with the applicable laws and regulations;',
+    line9: 'Reasonableness and Necessity:',
+    line10: 'We will collect necessary data so that we can provide you and other users with better service in order to achieve products\' functions;',
+    line11: 'Transparency:',
+    line12: 'We endeavor to introduce our privacy policy in an easy and straightforward way and help you better understand our information process practice;',
+    line13: ''
+  },
+  in1: {
+    Exit: 'Exit',
+    introduction: 'introduction',
+    line1: 'Introduction to Hibernia-Sino',
+    line2: 'Hibernia-Sino is an international travel insurance stock company.',
+    line3: 'As a comprehensive travel insurance company, we can handle a full range of travel insurance products and services\n(including various statutory insurance businesses)',
+    line4: 'Hibernia-Sino has firstly promoted prompt and efficient claims settlement service\nand had been well recognized from through out the industry',
+    line5: 'Hibernia-Sino makes the soul of Chinese traditional concept "pace and combination" as the foundation stone of the enterprise concept,and makes the concept of "combination of every party\'s benefit to realize the mutual benefit and development" as the core value, and initiates a kind of harmonious and natural enterprise culture.',
+    line6: ' Hibernia-Sino has established a normative corporate governance and decision making mechanism from the start of its operation, laying a very good foundation for its fast growth.'
   }
 }

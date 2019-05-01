@@ -6,7 +6,8 @@ module.exports = {
     about_message: 'Hibernia-Sino公司介绍',
     read: '了解更多',
     policy: '政策',
-    policy_message: 'Hibernia-Sino公司的相关政策'
+    policy_message: 'Hibernia-Sino公司的相关政策',
+    start_message: '开始登录hibernate - sino'
   },
   login: {
     exit: '退出',
@@ -157,5 +158,32 @@ module.exports = {
     Subject: '主题',
     Detail: '详情',
     Id: '编号'
+  },
+  in2: {
+    Exit: '退出',
+    introduction: '介绍',
+    line1: 'Hibernia-Sino政策',
+    line2: '我们坚持以下私隐保障原则，致力为您提供更安全可靠的服务:',
+    line3: '安全保障与信赖',
+    line4: '我们通过有效合理的信息安全技术和管理程序，尽力防止您的信息被泄露、损坏或丢失;',
+    line5: '选择:',
+    line6: '我们为您提供方便的隐私管理选项，以便您做出正确的选择来控制或管理您的隐私;',
+    line7: '通讯秘密保护:',
+    line8: '我们将严格按照相关法律法规保护您的通信秘密;',
+    line9: '合理性和必要性:',
+    line10: '我们将收集必要的数据，为您和其他用户提供更好的服务，以实现产品的功能;',
+    line11: '透明:',
+    line12: '我们力求以简单明了的方式介绍我们的私隐政策，并帮助您更好地了解我们的信息处理实践;',
+    line13: ''
+  },
+  in1: {
+    Exit: '退出',
+    introduction: '介绍',
+    line1: '介绍Hibernia-Sino公司',
+    line2: 'Hibernia-Sino是一家国际旅游保险股份公司。',
+    line3: '作为一家综合性的旅游保险公司，我们可以提供全方位的旅游保险产品和服务(包括各类法定保险业务)。',
+    line4: '海比尼亚-中诺率先推出快捷、高效的理赔服务并得到了业界的广泛认可。',
+    line5: 'Hibernia-Sino以中国传统观念的灵魂“节奏与结合”为企业理念的基石，以“各方利益的结合，实现互利共赢、共同发展”为核心价值观，开创了一种和谐自然的企业文化。',
+    line6: ' Hibernia-Sino从成立之初就建立了规范的公司治理和决策机制，为公司的快速发展奠定了良好的基础。'
   }
 }
