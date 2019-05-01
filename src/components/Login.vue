@@ -27,11 +27,11 @@
   <div class="Content-Main">
     <form action="submit" class="form" style="margin-left: 30%">
       <label>
-        <span>{{ $t('login.account')}}</span>
+        <span style="width: 100%">{{ $t('login.account')}}</span>
         <input type="text" name="userName" autocomplete="off" :placeholder=" $t('login.username')" class="layui-input" v-model="username">
       </label>
       <label>
-        <span>{{ $t('login.pass')}}</span>
+        <span style="width: 100%">{{ $t('login.pass')}}</span>
         <input id="login-password" type="password" name="password"  autocomplete="off" :placeholder=" $t('login.password')" class="layui-input" v-model="password">
       </label>
       <label>
@@ -194,7 +194,7 @@ export default {
     margin-top: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     color: #333;
   }
   button{

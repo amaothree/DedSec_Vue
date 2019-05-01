@@ -27,35 +27,35 @@
   <div class="Content-Main">
     <form action="" class="form-report" style="margin-left: 20%;">
       <label>
-        <span>{{ $t('Register.username')}}</span>
+        <span style="width: 100%">{{ $t('Register.username')}}</span>
         <input type="text" name="userName" autocomplete="off" :placeholder="$t('Register.e_username')" class="layui-input" v-model="username">
       </label>
       <label>
-        <span>{{ $t('Register.password')}}</span>
+        <span style="width: 100%">{{ $t('Register.password')}}</span>
         <input id="login-password" type="password" name="password"  autocomplete="off" :placeholder="$t('Register.e_password')" class="layui-input" v-model="password">
       </label>
       <label>
-        <span>{{ $t('Register.repassword')}}</span>
+        <span style="width: 100%">{{ $t('Register.repassword')}}</span>
         <input id="repeat-password" type="password" name="password" autocomplete="off" :placeholder="$t('Register.e_repassword')" class="repeat-input" v-model="repassword">
       </label>
       <label>
-        <span>{{ $t('Register.Email')}}</span>
+        <span style="width: 100%">{{ $t('Register.Email')}}</span>
         <input type="text" name="email" autocomplete="off" :placeholder="$t('Register.e_email')" class="layui-input" v-model="email">
       </label>
       <label>
-        <span>{{ $t('Register.Fname')}}</span>
+        <span style="width: 100%">{{ $t('Register.Fname')}}</span>
         <input type="text" name="fname" autocomplete="off" :placeholder="$t('Register.e_Fname')" class="layui-input" v-model="first_name">
       </label>
       <label>
-        <span>{{ $t('Register.Lname')}}</span>
+        <span style="width: 100%">{{ $t('Register.Lname')}}</span>
         <input type="text" name="Iname" autocomplete="off" :placeholder="$t('Register.e_Lname')" class="layui-input" v-model="last_name">
       </label>
       <label>
-        <span>{{ $t('Register.Phone')}}</span>
+        <span style="width: 100%">{{ $t('Register.Phone')}}</span>
         <input type="text" name="phone" autocomplete="off" :placeholder="$t('Register.e_Phone')" class="layui-input" v-model="phone">
       </label>
       <label>
-        <span>{{ $t('Register.Type')}}</span>
+        <span style="width: 100%">{{ $t('Register.Type')}}</span>
         <select name="selected" style="width: auto" v-model="type">
           <option value="employee">{{ $t('Register.employee')}}</option>
           <option value="customer" selected="selected">{{ $t('Register.customer')}}</option>
@@ -248,7 +248,7 @@ export default {
     padding-right: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     color: #333;
   }
 
