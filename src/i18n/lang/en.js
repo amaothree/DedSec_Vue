@@ -12,7 +12,7 @@ module.exports = {
     exit: 'Exit',
     Login: 'Login',
     if: 'if you do not have account click ',
-    register: 'to register your account',
+    register: ' to register your account',
     here: 'here',
     username: 'Please enter your username',
     account: 'account',
