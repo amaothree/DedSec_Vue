@@ -24,7 +24,7 @@
           <td class="sorting_1">{{arr.id}}</td>
           <td>{{ arr.userid}}</td>
           <td>{{ arr.subject}}</td>
-          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">Detail</a></td>
+          <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">{{ $t('solution.Detail')}}</a></td>
         </tr>
         </tbody>
       </table>

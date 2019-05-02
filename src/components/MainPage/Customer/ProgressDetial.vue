@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Detail</h2>
-        <p>Check out the requirement</p>
+        <h2>{{$t('ProgressDetail.detail')}}</h2>
+        <p>{{$t('ProgressDetail.Check')}}</p>
       </div>
     </div>
   </section>
@@ -12,54 +12,54 @@
     <table class="table" style="font-size: 35px;margin-left: 7%;">
       <tbody>
       <tr>
-        <td>Status:</td>
+        <td>{{$t('ProgressDetail.status')}}:</td>
         <td><span class=" data" style="white-space: nowrap; ">{{status}}</span> </td>
       </tr>
       <tr>
-        <td>Subject:</td>
+        <td>{{$t('ProgressDetail.Subject')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{subject}}</span></td>
       </tr>
       <tr>
-        <td>Type:</td>
+        <td>{{$t('ProgressDetail.Type')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{type}}</span></td>
       </tr>
       <tr>
-        <td>Name of Recipient:</td>
+        <td>{{$t('ProgressDetail.Recipient')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{recipient}}</span></td>
       </tr>
       <tr>
-        <td>Phone:</td>
+        <td>{{$t('ProgressDetail.Phone')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{phone}}</span></td>
       </tr>
       <tr>
-        <td>Country:</td>
+        <td>{{$t('ProgressDetail.Country')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{country}}</span></td>
       </tr>
       <tr>
-        <td>City:</td>
+        <td>{{$t('ProgressDetail.City')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{city}}</span></td>
       </tr>
       <tr>
-        <td>District:</td>
+        <td>{{$t('ProgressDetail.District')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{district}}</span></td>
       </tr>
       <tr>
-        <td>Specific Address:</td>
+        <td>{{$t('ProgressDetail.specific_Address')}} :</td>
         <td><span class="data" style="white-space: nowrap; ">{{address}}</span></td>
       </tr>
       <tr>
-        <td>Postal Code:</td>
+        <td>{{$t('ProgressDetail.Postal')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{postcode}}</span></td>
       </tr>
       </tbody>
     </table>
-    <span class="message" style="margin-left: 11%;margin-top: 3%;position:relative;font-size: 35px;"><span style="">message:&nbsp;&nbsp;</span></span>
+    <span class="message" style="margin-left: 11%;margin-top: 3%;position:relative;font-size: 35px;"><span style="">{{$t('ProgressDetail.message')}}:&nbsp;&nbsp;</span></span>
     <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
-    <span class="comment" style="margin-left: 11%;position:relative;font-size: 35px;"><span style="">comment:&nbsp;&nbsp;</span></span>
+    <span class="comment" style="margin-left: 11%;position:relative;font-size: 35px;"><span style="">{{$t('ProgressDetail.comment')}}:&nbsp;&nbsp;</span></span>
     <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="returnmessage"></textarea>
     <ul style="display: inline">
-      <button class="btn approve" @click="deleteclaim(id)">Delete</button>
-      <button class="btn deny" @click="jumpBack()">Back</button>
+      <button class="btn approve" @click="deleteclaim(id)">{{$t('ProgressDetail.Delete')}}</button>
+      <button class="btn deny" @click="jumpBack()">{{$t('ProgressDetail.Back')}}</button>
     </ul>
   </div>
   </body>

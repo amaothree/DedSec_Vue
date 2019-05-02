@@ -47,7 +47,7 @@ export default {
         this.lang = 'ENG'
         this.locale = 'cn'
       }
-      this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
       window.location.reload() // 进行刷新改变cookie里的值
     },
     returninitial () {
@@ -64,14 +64,14 @@ export default {
     }
   },
   mounted () {
-    if (this.$cookie.get('lng') === '0') {
+    if (this.$cookies.get('lng') === '0') {
       this.locale = 'cn'
       this.lang = 'ENG'
     } else {
       this.locale = 'en'
       this.lang = '中文'
     }
-    this.$cookie.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
   },
   watch: {
     locale (val) {

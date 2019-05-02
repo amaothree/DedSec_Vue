@@ -3,8 +3,8 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>Information</h2>
-        <p class="setset">Change your personal details</p>
+        <h2>{{ $t('personal.Information')}}</h2>
+        <p class="setset">{{ $t('personal.meschange')}}</p>
       </div>
     </div>
   </section>

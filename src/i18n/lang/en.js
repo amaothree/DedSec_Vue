@@ -115,6 +115,7 @@ module.exports = {
     Delete: 'Delete'
   },
   Decision: {
+    Decision: 'Decision',
     id: 'Id',
     Uid: 'User Id',
     Subject: 'Subject',
@@ -133,7 +134,8 @@ module.exports = {
     message: 'Message',
     comment: 'Comment',
     approve: 'Approve',
-    deny: 'Deny'
+    deny: 'Deny',
+    Check: 'Check out the requirement'
   },
   ProgressDetail: {
     Detail: 'Detail',

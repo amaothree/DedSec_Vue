@@ -131,7 +131,9 @@ module.exports = {
     message: '消息',
     comment: '意见',
     approve: '批准',
-    deny: '否决'
+    deny: '否决',
+    Check: '查看需求',
+    Decision: '决定'
   },
   ProgressDetail: {
     Detail: '详情',
