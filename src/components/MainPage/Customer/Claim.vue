@@ -83,12 +83,12 @@ export default {
       country: '',
       phone: '',
       name: '',
-      userid: -1
+      userid: -1,
+      res: 'Default'
     }
   },
   methods: {
     addluggage: function () {
-      console.log(this.lug_type + ' ' + this.lug_subject + ' ' + this.lug_message)
       var that = this
       let data = {
         'subject': that.lug_subject,
@@ -103,32 +103,26 @@ export default {
         'postcode': that.postal,
         'userid': that.userid
       }
+      // axios({
+      //   method: 'post',
+      //   url: '/api/luggage/add',
+      //   data: Qs.stringify(data),
+      //   res: that.res
+      // })
       axios({
         method: 'post',
         url: '/api/luggage/add',
-        data: Qs.stringify(data)
+        data: Qs.stringify(data),
+        success: (res) => {
+          console.log(res)
+        }
+      }).then((res) => {
+        console.log(res)
+        alert('Submit Successfully')
+      }).catch((error) => {
+        console.log(error)
+        alert('Error: The submission has something wrong')
       })
-      // axios('/api/luggage/add', {
-      //   params: {
-      //     subject: this.lug_subject,
-      //     type: this.lug_type,
-      //     message: this.lug_message,
-      //     recipient: this.name,
-      //     phone: this.phone,
-      //     country: this.country,
-      //     city: this.city,
-      //     district: this.district,
-      //     address: this.address,
-      //     postcode: this.postal,
-      //     userid: this.userid
-      //   }
-      // }).then(function (response) {
-      //   console.log(response)
-      //   alert('Submit Successfully')
-      // }).catch(function (error) {
-      //   console.log(error)
-      //   alert('Error : There is something wrong for this submission.')
-      // })
     }
   },
   created: function () {
