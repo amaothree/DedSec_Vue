@@ -81,7 +81,6 @@ export default {
     outline: none;
   }
   .login {
-    width: 1600px;
     margin-left: 10%;
     margin-right: 10%;
     background: #ffffff;

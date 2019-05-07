@@ -98,9 +98,8 @@ export default {
     outline: none;
   }
   .login {
-    width: 1600px;
-    hight:10000px;
-    margin-left: 200px;
+    margin-left: 10%;
+    margin-right: 10%;
     background: #ffffff;
     position: absolute;
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
