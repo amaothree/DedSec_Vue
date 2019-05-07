@@ -10,6 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 0.5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
           <li class="nav-item "><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('Register.exit')}}</router-link></a></li>
         </ul>
       </div>
@@ -85,12 +86,43 @@ export default {
       type: '',
       status: 'true',
       repeat: false,
-      locale: 'en',
-      lang: '中文',
+      locale: this.locale,
+      lang: this.lang,
       load: 0
     }
   },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
+    }
+  },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
   methods: {
+    changeLang () {
+      // 增加传入语言
+      let con = confirm('是否切换语言?');
+      if (con === true) {
+        if (this.locale === 'cn') {
+          this.lang = '中文'
+          this.locale = 'en'
+        } else {
+          this.lang = 'ENG'
+          this.locale = 'cn'
+        }
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+        window.location.reload() // 进行刷新改变cookie里的值
+      }
+    },
     async register () {
       if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
         alert('Please enter all boxes.')

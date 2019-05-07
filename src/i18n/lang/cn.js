@@ -46,7 +46,7 @@ module.exports = {
   },
   lead: {
     Services: '服务项目',
-    mes1: '您喜欢哪种服务？',
+    mes1: '您需要哪种服务？',
     register_claim: '注册一个索赔',
     mes2: '开始提出申请',
     register: '注册',
@@ -159,7 +159,8 @@ module.exports = {
     User: '用户编号',
     Subject: '主题',
     Detail: '详情',
-    Id: '编号'
+    Id: '编号',
+    status: '状态'
   },
   in2: {
     Exit: '退出',

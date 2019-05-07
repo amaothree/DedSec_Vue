@@ -84,7 +84,7 @@ export default {
           this.lang = 'ENG'
           this.locale = 'cn'
         }
-        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
         window.location.reload() // 进行刷新改变cookie里的值
       }
     }
@@ -97,7 +97,7 @@ export default {
       this.locale = 'en'
       this.lang = '中文'
     }
-    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
   },
   watch: {
     locale (val) {

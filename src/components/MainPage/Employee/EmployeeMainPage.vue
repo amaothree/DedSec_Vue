@@ -33,22 +33,41 @@ export default {
   name: 'CustomerNav',
   data () {
     return {
-      locale: 'en',
-      lang: '中文'
+      locale: this.locale,
+      lang: this.lang
+    }
+  },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
+      console.log('locale', val)
     }
   },
   methods: {
     changeLang () {
       // 增加传入语言
-      if (this.locale === 'cn') {
-        this.lang = '中文'
-        this.locale = 'en'
-      } else {
-        this.lang = 'ENG'
-        this.locale = 'cn'
+      let con = confirm('确定切换语言吗?')
+      if (con === true) {
+        if (this.locale === 'cn') {
+          this.lang = '中文'
+          this.locale = 'en'
+        } else {
+          this.lang = 'ENG'
+          this.locale = 'cn'
+        }
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+        window.location.reload() // 进行刷新改变cookie里的值
       }
-      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-      window.location.reload() // 进行刷新改变cookie里的值
     },
     returninitial () {
       this.$cookies.remove('userid')
@@ -61,22 +80,6 @@ export default {
         }
       )
       window.location.reload()
-    }
-  },
-  mounted () {
-    if (this.$cookies.get('lng') === '0') {
-      this.locale = 'cn'
-      this.lang = 'ENG'
-    } else {
-      this.locale = 'en'
-      this.lang = '中文'
-    }
-    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-  },
-  watch: {
-    locale (val) {
-      this.$i18n.locale = val
-      console.log('locale', val)
     }
   }
 }

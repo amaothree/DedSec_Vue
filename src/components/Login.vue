@@ -10,6 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 0.5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
           <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: .5rem">{{ $t('login.exit')}}</router-link></a></li>
         </ul>
       </div>
@@ -51,6 +52,8 @@ export default {
       userid: 0,
       type: '',
       username: '',
+      locale: this.locale,
+      lang: this.lang,
       password: '',
       errorMessage: {
         phone: this.$t('login.Account'),
@@ -63,6 +66,16 @@ export default {
       this.$i18n.locale = val
       console.log('locale', val)
     }
+  },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
   },
   methods: {
     onBlurCheckPassword (name) {
@@ -83,6 +96,24 @@ export default {
         this.errorMessage[name] = ''
       }
     },
+    // changeLang () {
+    //   // 增加传入语言
+    //   let con = confirm('是否切换语言?');
+    //   if (con === true) {
+    //     if (this.locale === 'cn') {
+    //       this.lang = '中文'
+    //       this.locale = 'en'
+    //     } else {
+    //       this.lang = 'ENG'
+    //       this.locale = 'cn'
+    //     }
+    //     this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+    //     window.location.reload() // 进行刷新改变cookie里的值
+    //   }
+    // },
+    toggleHiddenPassword () {
+      this.hidden = !this.hidden
+    },
     changeLang () {
       // 增加传入语言
       let con = confirm('是否切换语言?');
@@ -94,12 +125,9 @@ export default {
           this.lang = 'ENG'
           this.locale = 'cn'
         }
-        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
         window.location.reload() // 进行刷新改变cookie里的值
       }
-    },
-    toggleHiddenPassword () {
-      this.hidden = !this.hidden
     },
     async login () {
       var that = this

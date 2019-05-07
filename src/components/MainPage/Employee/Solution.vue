@@ -16,6 +16,7 @@
           <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 167px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting_asc">{{ $t('solution.Id')}}</th>
           <th aria-label="Browser: activate to sort column ascending" style="width: 207px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.User')}}</th>
           <th aria-label="Platform(s): activate to sort column ascending" style="width: 182px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.Subject')}}</th>
+          <th aria-label="Platform(s): activate to sort column ascending" style="width: 182px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.status')}}</th>
           <th aria-label="Engine version: activate to sort column ascending" style="width: 142px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" class="sorting">{{ $t('solution.Detail')}}</th>
         </tr>
         </thead>
@@ -24,6 +25,7 @@
           <td class="sorting_1">{{arr.id}}</td>
           <td>{{ arr.userid}}</td>
           <td>{{ arr.subject}}</td>
+          <td>{{ arr.status}}</td>
           <td><a class="more_btn" style="font-size: 20px ;" @click="jumptomainpage(arr.type,arr.message,arr.subject,arr.status,arr.id,arr.reply,arr.recipient,arr.address,arr.city,arr.country,arr.district,arr.phone,arr.postcode,arr.userid)">{{ $t('solution.Detail')}}</a></td>
         </tr>
         </tbody>

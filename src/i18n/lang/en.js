@@ -161,7 +161,8 @@ module.exports = {
     User: 'User ID',
     Subject: 'Subject',
     Detail: 'Detail',
-    Id: 'Id'
+    Id: 'Id',
+    status: 'status'
   },
   in2: {
     Exit: 'Exit',
