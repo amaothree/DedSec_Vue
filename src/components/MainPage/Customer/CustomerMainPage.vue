@@ -13,7 +13,7 @@
         <ul class="navbar-nav">
           <li class="nav-item active"><a class="nav-link"><a @click="returninitial()" style="font-size: .5rem">{{ $t('navigate.exit')}}</a></a></li>
           <li class="nav-item active"><a class="nav-link"><router-link to="/CustomerMainPage" style="font-size: .5rem">{{ $t('navigate.Back')}}</router-link></a></li>
-          <li class="nav-item active"><a class="nav-link" href="#" :key="locale?'en':'cn'" @click="changeLang()"><a  style="font-size: .5rem">{{lang}}</a></a></li>
+          <li class="nav-item active"><a class="nav-link" :key="locale?'en':'cn'" @click="changeLang()"><a  style="font-size: .5rem">{{lang}}</a></a></li>
           <li class="nav-item active"><a class="nav-link"><router-link to="/PersonalInformation" style="font-size: .5rem">{{ $t('navigate.Setting')}}</router-link></a></li>
         </ul>
       </div>
@@ -33,8 +33,8 @@ export default {
     return {
       username: 'Default',
       userid: 0,
-      locale: 'en',
-      lang: '中文'
+      locale: this.locale,
+      lang: this.lang
     }
   },
   methods: {

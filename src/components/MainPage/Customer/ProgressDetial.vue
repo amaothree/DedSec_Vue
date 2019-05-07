@@ -3,7 +3,7 @@
   <section class="banner_area">
     <div class="container">
       <div class="banner_inner_text">
-        <h2>{{$t('ProgressDetail.detail')}}</h2>
+        <h2>{{$t('ProgressDetail.Detail')}}</h2>
         <p>{{$t('ProgressDetail.Check')}}</p>
       </div>
     </div>
@@ -28,15 +28,15 @@
         <td><span class="data" style="white-space: nowrap; ">{{recipient}}</span></td>
       </tr>
       <tr>
-        <td>{{$t('ProgressDetail.Phone')}}:</td>
+        <td>{{$t('ProgressDetail.phone')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{phone}}</span></td>
       </tr>
       <tr>
-        <td>{{$t('ProgressDetail.Country')}}:</td>
+        <td>{{$t('ProgressDetail.country')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{country}}</span></td>
       </tr>
       <tr>
-        <td>{{$t('ProgressDetail.City')}}:</td>
+        <td>{{$t('ProgressDetail.city')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{city}}</span></td>
       </tr>
       <tr>
@@ -48,7 +48,7 @@
         <td><span class="data" style="white-space: nowrap; ">{{address}}</span></td>
       </tr>
       <tr>
-        <td>{{$t('ProgressDetail.Postal')}}:</td>
+        <td>{{$t('ProgressDetail.postal_code')}}:</td>
         <td><span class="data" style="white-space: nowrap; ">{{postcode}}</span></td>
       </tr>
       </tbody>

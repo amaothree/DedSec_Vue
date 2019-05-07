@@ -11,7 +11,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: .5rem">{{ $t('login.exit')}}</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: .5rem" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
     </nav>
@@ -53,23 +52,11 @@ export default {
       type: '',
       username: '',
       password: '',
-      locale: 'en',
-      lang: '中文',
       errorMessage: {
         phone: this.$t('login.Account'),
         code: this.$t('Register.Password')
       }
     }
-  },
-  mounted () {
-    if (this.$cookies.get('lng') === '0') {
-      this.locale = 'cn'
-      this.lang = 'ENG'
-    } else {
-      this.locale = 'en'
-      this.lang = '中文'
-    }
-    this.$cookies.set('lng', (this.locale === 'cn') ? '0' : '1', 1)
   },
   watch: {
     locale (val) {
@@ -98,15 +85,18 @@ export default {
     },
     changeLang () {
       // 增加传入语言
-      if (this.locale === 'cn') {
-        this.lang = '中文'
-        this.locale = 'en'
-      } else {
-        this.lang = 'ENG'
-        this.locale = 'cn'
+      let con = confirm('是否切换语言?');
+      if (con === true) {
+        if (this.locale === 'cn') {
+          this.lang = '中文'
+          this.locale = 'en'
+        } else {
+          this.lang = 'ENG'
+          this.locale = 'cn'
+        }
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+        window.location.reload() // 进行刷新改变cookie里的值
       }
-      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-      window.location.reload() // 进行刷新改变cookie里的值
     },
     toggleHiddenPassword () {
       this.hidden = !this.hidden

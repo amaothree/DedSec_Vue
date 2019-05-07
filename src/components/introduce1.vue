@@ -70,8 +70,6 @@ export default {
   name: 'Introduce',
   data () {
     return {
-      locale: 'en',
-      lang: '中文'
     }
   }
 }
@@ -84,8 +82,8 @@ export default {
   }
   .login {
     width: 1600px;
-    hight:10000px;
-    margin-left: 200px;
+    margin-left: 10%;
+    margin-right: 10%;
     background: #ffffff;
     position: absolute;
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
@@ -105,12 +103,12 @@ export default {
   }
 
   .mes {
-    font-size: 29px;
+    font-size: .3rem;
     text-align: center;
   }
   .p2{
     color:rgba(129, 6, 1, 0.7);
-    font-size: 29px;
+    font-size: .3rem;
     text-align: left;
   }
   button{

@@ -34,7 +34,7 @@
             </div>
             <h4>{{ $t('introduce.start')}}</h4>
             <p>{{ $t('introduce.start_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Login" style="font-size: 40px">{{ $t('introduce.start')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Login" style="font-size: .8rem">{{ $t('introduce.start')}}</router-link></a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -44,7 +44,7 @@
             </div>
             <h4>{{ $t('introduce.about')}}</h4>
             <p>{{ $t('introduce.about_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: 40px">{{ $t('introduce.read')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Introduce1" style="font-size: .8rem">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -54,7 +54,7 @@
             </div>
             <h4>{{ $t('introduce.policy')}}</h4>
             <p>{{ $t('introduce.policy_message')}}</p>
-            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size:40px">{{ $t('introduce.read')}}</router-link></a>
+            <a class="more_btn" href="#"><router-link to="/Introduce2" style="font-size:.8rem">{{ $t('introduce.read')}}</router-link></a>
           </div>
         </div>
       </div>
@@ -75,15 +75,18 @@ export default {
   methods: {
     changeLang () {
       // 增加传入语言
-      if (this.locale === 'cn') {
-        this.lang = '中文'
-        this.locale = 'en'
-      } else {
-        this.lang = 'ENG'
-        this.locale = 'cn'
+      let con = confirm('是否切换语言?');
+      if (con === true) {
+        if (this.locale === 'cn') {
+          this.lang = '中文'
+          this.locale = 'en'
+        } else {
+          this.lang = 'ENG'
+          this.locale = 'cn'
+        }
+        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
+        window.location.reload() // 进行刷新改变cookie里的值
       }
-      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-      window.location.reload() // 进行刷新改变cookie里的值
     }
   },
   mounted () {

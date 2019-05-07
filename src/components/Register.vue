@@ -11,7 +11,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item "><a class="nav-link" ><router-link to="/" style="font-size: 25px">{{ $t('Register.exit')}}</router-link></a></li>
-          <li class="nav-item"><a class="nav-link" href="#" style="font-size: 25px" :key="locale?'en':'cn'" @click="changeLang()">{{lang}}</a></li>
         </ul>
       </div>
     </nav>
@@ -182,34 +181,6 @@ export default {
         }
         this.load = 0
       }
-    },
-    changeLang () {
-      // 增加传入语言
-      if (this.locale === 'cn') {
-        this.lang = '中文'
-        this.locale = 'en'
-      } else {
-        this.lang = 'ENG'
-        this.locale = 'cn'
-      }
-      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-      window.location.reload() // 进行刷新改变cookie里的值
-    }
-  },
-  mounted () {
-    if (this.$cookies.get('lng') === '0') {
-      this.locale = 'cn'
-      this.lang = 'ENG'
-    } else {
-      this.locale = 'en'
-      this.lang = '中文'
-    }
-    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-  },
-  watch: {
-    locale (val) {
-      this.$i18n.locale = val
-      console.log('locale', val)
     }
   }
 }
