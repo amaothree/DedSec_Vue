@@ -79,25 +79,47 @@ export default {
   },
   methods: {
     async modifyPersonalDetail () {
-      var that = this
-      let data = {
-        'id': that.userid,
-        'password': that.password,
-        'fname': that.first_name,
-        'lname': that.last_name,
-        'phone': that.phone,
-        'email': that.email
+      if (this.password === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
+        alert('Please enter all boxes.')
+      } else {
+        var re = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+        if (re.test(this.email)) {
+          if (!(/^1[34578]\d{9}$/.test(this.phone))) {
+            alert('Please enter a valid phone.')
+            return false
+          }
+          if (!(/^(\w){6,20}$/.test(this.password))) {
+            alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
+            return false
+          }
+          var that = this
+          let data = {
+            'id': that.userid,
+            'password': that.password,
+            'fname': that.first_name,
+            'lname': that.last_name,
+            'phone': that.phone,
+            'email': that.email
+          }
+          await axios({
+            method: 'post',
+            url: '/api/user/modify',
+            data: Qs.stringify(data)
+          }).then((res) => {
+            alert('Submit Successfully')
+          }).catch((error) => {
+            console.log(error)
+            alert('Error: The submission has something wrong')
+          })
+          this.$router.push(
+            {
+              path: '/PersonalInformation'
+            })
+          window.reload()
+        } else {
+          alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+        }
       }
-      await axios({
-        method: 'post',
-        url: '/api/user/modify',
-        data: Qs.stringify(data)
-      })
-      this.$router.push(
-        {
-          path: '/EmployeeInformation'
-        })
-      window.reload()
     }
   }
 }

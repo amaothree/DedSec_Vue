@@ -75,7 +75,7 @@ export default {
   methods: {
     changeLang () {
       // 增加传入语言
-      let con = confirm('是否切换语言?');
+      let con = confirm('是否切换语言?')
       if (con === true) {
         if (this.locale === 'cn') {
           this.lang = '中文'

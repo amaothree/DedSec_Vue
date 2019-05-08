@@ -56,10 +56,14 @@
       </label>
       <label>
         <span style="width: 100%">{{ $t('Register.Type')}}</span>
-        <select name="selected" style="width: auto" v-model="type">
+        <select name="selected" style="width: auto" v-model="type" @click="changeFlag()">
           <option value="employee">{{ $t('Register.employee')}}</option>
           <option value="customer" selected="selected">{{ $t('Register.customer')}}</option>
         </select>
+      </label>
+      <label v-if="flag">
+        <span style="width: 100%">Invitation Code</span>
+        <input type="text" name="phone" autocomplete="off" placeholder="Please enter invitation code" class="layui-input" v-model="code">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -88,7 +92,9 @@ export default {
       repeat: false,
       locale: this.locale,
       lang: this.lang,
-      load: 0
+      load: 0,
+      code: '',
+      flag: false
     }
   },
   watch: {
@@ -110,7 +116,7 @@ export default {
   methods: {
     changeLang () {
       // 增加传入语言
-      let con = confirm('是否切换语言?');
+      let con = confirm('是否切换语言?')
       if (con === true) {
         if (this.locale === 'cn') {
           this.lang = '中文'
@@ -123,10 +129,29 @@ export default {
         window.location.reload() // 进行刷新改变cookie里的值
       }
     },
+    changeFlag () {
+      if (this.type === 'employee') {
+        this.flag = true
+      } else {
+        this.flag = false
+      }
+    },
     async register () {
       if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
         alert('Please enter all boxes.')
       } else {
+        if (!(/^1[34578]\d{9}$/.test(this.phone))) {
+          alert('Please enter a valid phone.')
+          return false
+        }
+        if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email))) {
+          alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+          return false
+        }
+        if (!(/^(\w){6,20}$/.test(this.password))) {
+          alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
+          return false
+        }
         await axios('/api/register/uni?username=' + this.username)
           .then(response => {
             this.repeat = response.data
@@ -148,55 +173,11 @@ export default {
               'phone': that.phone,
               'type': that.type
             }
-
             axios({
               method: 'post',
               url: '/api/register/add',
               data: Qs.stringify(data)
             })
-            // axios({
-            //   method: 'post',
-            //   url: '/api/register/add',
-            //   data: {
-            //     username: that.username,
-            //     password: that.password,
-            //     email: that.email,
-            //     fname: that.first_name,
-            //     lname: that.last_name,
-            //     phone: that.phone,
-            //     type: that.type
-            //   }
-            // }).then((res) => {
-            //   console.log(res.data)
-            // })
-            // var that = this
-            // await axios
-            //   .post('/api/register/add?username=' + this.username + '&password' + this.password + '&email' + this.email + '&fname' + this.first_name + '&lname' + this.last_name + '&type' + this.type)
-            //   .then(function (response) {
-            //     console.log(response)
-            //   })
-            //   .catch(function (error) {
-            //     console.log(error)
-            //     that.status = 'false'
-            //   })
-            // axios.post('/api/register/add', {
-            //   params: {
-            //     username: this.username,
-            //     password: this.password,
-            //     email: this.email,
-            //     fname: this.first_name,
-            //     lname: this.last_name,
-            //     phone: this.phone,
-            //     type: this.type
-            //   }
-            // }).then(function (response) {
-            //   console.log(response)
-            //   alert('Submit Successfully')
-            // }).catch(function (error) {
-            //   console.log(error)
-            //   alert('Error : There is something wrong for this submission.')
-            //   this.status = 'false'
-            // })
             if (this.status === 'true') {
               this.$router.push(
                 {
