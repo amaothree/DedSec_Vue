@@ -92,6 +92,14 @@ export default {
             alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
             return false
           }
+          if (!(/^.{1,20}$/.test(this.first_name))) {
+            alert('First name should be between 1 and 20.')
+            return false
+          }
+          if (!(/^.{1,20}$/.test(this.last_name))) {
+            alert('Last name should be between 1 and 20.')
+            return false
+          }
           var that = this
           let data = {
             'id': that.userid,

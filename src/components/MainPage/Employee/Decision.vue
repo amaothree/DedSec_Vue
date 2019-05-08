@@ -116,13 +116,10 @@ export default {
   },
   methods: {
     async setApprove () {
-      // axios('/api/luggage/pick', {
-      //   params: {
-      //     id: this.id,
-      //     status: 'approve',
-      //     reply: this.returnmessage
-      //   }
-      // })
+      if (!(/^.{0,400}$/.test(this.returnmessage))) {
+        alert('Comment should be between 0 and 400.')
+        return false
+      }
       let data = {
         'id': this.id,
         'status': 'Approve',
@@ -142,13 +139,6 @@ export default {
       location.reload()
     },
     async setDeny () {
-      // axios('/api/luggage/pick', {
-      //   params: {
-      //     id: this.id,
-      //     status: 'deny',
-      //     reply: this.returnmessage
-      //   }
-      // })
       let data = {
         'id': this.id,
         'status': 'Deny',

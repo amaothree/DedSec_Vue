@@ -137,7 +137,7 @@ export default {
       }
     },
     async register () {
-      if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
+      if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '' || this.type === '') {
         alert('Please enter all boxes.')
       } else {
         if (!(/^1[34578]\d{9}$/.test(this.phone))) {
@@ -154,6 +154,14 @@ export default {
         }
         if (!(/^[a-zA-Z0-9_-]{3,16}$/.test(this.username))) {
           alert('Please enter a valid username (3-16) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          return false
+        }
+        if (!(/^.{1,20}$/.test(this.first_name))) {
+          alert('First name should be between 1 and 20.')
+          return false
+        }
+        if (!(/^.{1,20}$/.test(this.last_name))) {
+          alert('Last name should be between 1 and 20.')
           return false
         }
         await axios('/api/register/uni?username=' + this.username)

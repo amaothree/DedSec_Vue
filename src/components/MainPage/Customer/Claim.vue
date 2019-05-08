@@ -97,6 +97,34 @@ export default {
         alert('Please enter a valid phone.')
         return false
       }
+      if (!(/^.{0,400}$/.test(this.message))) {
+        alert('Message should be between 0 and 400.')
+        return false
+      }
+      if (!(/^.{1,30}$/.test(this.name))) {
+        alert('Name of Recipient should be between 1 and 30.')
+        return false
+      }
+      if (!(/^.{1,30}$/.test(this.country))) {
+        alert('Country should be between 1 and 30.')
+        return false
+      }
+      if (!(/^.{1,30}$/.test(this.district))) {
+        alert('District should be between 1 and 30.')
+        return false
+      }
+      if (!(/^.{1,30}$/.test(this.city))) {
+        alert('City should be between 1 and 30.')
+        return false
+      }
+      if (!(/^.{0,100}$/.test(this.address))) {
+        alert('Specific Address should be between 0 and 100.')
+        return false
+      }
+      if (!(/^.{1,15}$/.test(this.postal))) {
+        alert('Postal Code should be between 1 and 15.')
+        return false
+      }
       var that = this
       let data = {
         'subject': that.lug_subject,
