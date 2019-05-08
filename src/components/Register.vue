@@ -62,8 +62,8 @@
         </select>
       </label>
       <label v-if="flag">
-        <span style="width: 100%">Invitation Code</span>
-        <input type="text" name="phone" autocomplete="off" placeholder="Please enter invitation code" class="layui-input" v-model="code">
+        <span style="width: 100%">{{ $t('Register.Invitation_Code')}}</span>
+        <input type="text" name="phone" autocomplete="off" :placeholder=" $t('Register.e_Invitation_Code')" class="layui-input" v-model="code">
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
@@ -116,18 +116,15 @@ export default {
   methods: {
     changeLang () {
       // 增加传入语言
-      let con = confirm('是否切换语言?')
-      if (con === true) {
-        if (this.locale === 'cn') {
-          this.lang = '中文'
-          this.locale = 'en'
-        } else {
-          this.lang = 'ENG'
-          this.locale = 'cn'
-        }
-        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
-        window.location.reload() // 进行刷新改变cookie里的值
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
       }
+      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+      window.location.reload() // 进行刷新改变cookie里的值
     },
     changeFlag () {
       if (this.type === 'employee') {
@@ -138,30 +135,58 @@ export default {
     },
     async register () {
       if (this.username === '' || this.password === '' || this.repassword === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '' || this.type === '') {
-        alert('Please enter all boxes.')
+        if (this.locale === 'en') {
+          alert('Please enter all boxes.')
+        } else {
+          alert('请输入所有信息')
+        }
       } else {
         if (!(/^1[34578]\d{9}$/.test(this.phone))) {
-          alert('Please enter a valid phone.')
+          if (this.locale === 'en') {
+            alert('Please enter a valid phone.')
+          } else {
+            alert('请输入有效电话')
+          }
           return false
         }
         if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email))) {
-          alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+          if (this.locale === 'en') {
+            alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+          } else {
+            alert('请输入有效的电子邮件。\n 例如,XXXXXXXXXXX@XXX.com')
+          }
           return false
         }
         if (!(/^[a-zA-Z0-9_-]{6,20}$/.test(this.password))) {
-          alert('Please enter a valid password (6-20) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          if (this.locale === 'en') {
+            alert('Please enter a valid password (6-20) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          } else {
+            alert('请输入有效密码(6-20)。\n只允许使用英文字符“-”、数字和“_”')
+          }
           return false
         }
         if (!(/^[a-zA-Z0-9_-]{3,16}$/.test(this.username))) {
-          alert('Please enter a valid username (3-16) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          if (this.locale === 'en') {
+            alert('Please enter a valid username (3-16) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          } else {
+            alert('请输入一个有效的用户名(3-16)。\n只允许使用英文字符“-”、数字和“_”。')
+          }
           return false
         }
         if (!(/^.{1,20}$/.test(this.first_name))) {
-          alert('First name should be between 1 and 20.')
+          if (this.locale === 'en') {
+            alert('First name should be between 1 and 20.')
+          } else {
+            alert('名字应该在1到20个字之间。')
+          }
           return false
         }
         if (!(/^.{1,20}$/.test(this.last_name))) {
-          alert('Last name should be between 1 and 20.')
+          if (this.locale === 'en') {
+            alert('Last name should be between 1 and 20.')
+          } else {
+            alert('姓应该在1到20个字之间。')
+          }
           return false
         }
         await axios('/api/register/uni?username=' + this.username)
@@ -170,7 +195,11 @@ export default {
           })
           .catch(error => {
             console.log(error)
-            alert('Can not get information from back end.')
+            if (this.locale === 'en') {
+              alert('Can not get information from back end.')
+            } else {
+              alert('无法从后端获取信息。')
+            }
           })
         if (this.repeat) {
           console.log('success')
@@ -198,11 +227,19 @@ export default {
               )
             }
           } else {
-            alert('Password and Repeat password should be the same. Please enter again.')
+            if (this.locale === 'en') {
+              alert('Password and Repeat password should be the same. Please enter again.')
+            } else {
+              alert('密码和重复密码应该是相同的。请再输入一次。')
+            }
           }
         } else {
           console.log('fail' + this.repeat)
-          alert('The username has existed. Please enter again.')
+          if (this.locale === 'en') {
+            alert('The username has existed. Please enter again.')
+          } else {
+            alert('用户名已经存在。请再输入一次。')
+          }
         }
         this.load = 0
       }

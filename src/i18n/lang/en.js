@@ -42,7 +42,9 @@ module.exports = {
     e_email: 'Enter email address',
     e_Fname: 'Enter the first name',
     e_Lname: 'Enter the last name',
-    e_Phone: 'Enter the phone number'
+    e_Phone: 'Enter the phone number',
+    Invitation_Code: 'Invitation Code',
+    e_Invitation_Code: 'Please enter invitation code'
   },
   claim: {
     Lost: 'Lost luggage',

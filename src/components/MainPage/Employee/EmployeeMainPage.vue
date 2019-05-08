@@ -56,18 +56,15 @@ export default {
   methods: {
     changeLang () {
       // 增加传入语言
-      let con = confirm('确定切换语言吗?')
-      if (con === true) {
-        if (this.locale === 'cn') {
-          this.lang = '中文'
-          this.locale = 'en'
-        } else {
-          this.lang = 'ENG'
-          this.locale = 'cn'
-        }
-        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
-        window.location.reload() // 进行刷新改变cookie里的值
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
       }
+      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+      window.location.reload() // 进行刷新改变cookie里的值
     },
     returninitial () {
       this.$cookies.remove('userid')

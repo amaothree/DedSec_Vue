@@ -42,7 +42,9 @@ module.exports = {
     e_email: '请输入邮箱',
     e_Fname: '请输入名',
     e_Lname: '请输入姓',
-    e_Phone: '请输入电话'
+    e_Phone: '请输入电话',
+    Invitation_Code: '邀请码',
+    e_Invitation_Code: '请输入邀请码'
   },
   lead: {
     Services: '服务项目',

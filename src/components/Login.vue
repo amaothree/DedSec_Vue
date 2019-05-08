@@ -96,38 +96,20 @@ export default {
         this.errorMessage[name] = ''
       }
     },
-    // changeLang () {
-    //   // 增加传入语言
-    //   let con = confirm('是否切换语言?');
-    //   if (con === true) {
-    //     if (this.locale === 'cn') {
-    //       this.lang = '中文'
-    //       this.locale = 'en'
-    //     } else {
-    //       this.lang = 'ENG'
-    //       this.locale = 'cn'
-    //     }
-    //     this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 1)
-    //     window.location.reload() // 进行刷新改变cookie里的值
-    //   }
-    // },
     toggleHiddenPassword () {
       this.hidden = !this.hidden
     },
     changeLang () {
       // 增加传入语言
-      let con = confirm('是否切换语言?')
-      if (con === true) {
-        if (this.locale === 'cn') {
-          this.lang = '中文'
-          this.locale = 'en'
-        } else {
-          this.lang = 'ENG'
-          this.locale = 'cn'
-        }
-        this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
-        window.location.reload() // 进行刷新改变cookie里的值
+      if (this.locale === 'cn') {
+        this.lang = '中文'
+        this.locale = 'en'
+      } else {
+        this.lang = 'ENG'
+        this.locale = 'cn'
       }
+      this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+      window.location.reload() // 进行刷新改变cookie里的值
     },
     async login () {
       var that = this
@@ -143,24 +125,40 @@ export default {
             that.$cookies.set('password', that.password, 120000)
             that.$cookies.set('type', that.type, 120000)
             if (that.type === 'customer') {
-              alert('Dear ' + that.username + ', you have logged in.')
+              if (that.locale === 'en') {
+                alert('Dear ' + that.username + ', you have logged in.')
+              } else {
+                alert('亲爱的 ' + that.username + ', 您已经登陆')
+              }
               that.$router.push(
                 {
                   path: '/CustomerMainPage'
                 }
               )
             } else if (that.type === 'employee') {
-              alert('Dear ' + that.username + ', you have logged in.')
+              if (that.locale === 'en') {
+                alert('Dear ' + that.username + ', you have logged in.')
+              } else {
+                alert('亲爱的 ' + that.username + ', 您已经登陆')
+              }
               that.$router.push(
                 {
                   path: '/EmployeeMainPage'
                 }
               )
             } else {
-              alert('Sorry, there is something wrong.')
+              if (that.locale === 'en') {
+                alert('Sorry, there is something wrong.')
+              } else {
+                alert('账号或密码错误')
+              }
             }
           } else {
-            alert('Failed.')
+            if (that.locale === 'en') {
+              alert('Sorry, there is something wrong.')
+            } else {
+              alert('账号或密码错误')
+            }
           }
         })
         .catch(function (error) {
