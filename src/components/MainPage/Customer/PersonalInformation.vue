@@ -102,14 +102,6 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
-    // axios.get('/api/login/getUser?username=' + this.username).then((res) => {
-    //   this.password = res.data.password
-    //   this.email = res.data.email
-    //   this.phone = res.data.phone
-    //   this.first_name = res.data.first_name
-    //   this.last_name = res.data.last_name
-    //   console.log(this.array)
-    // })
   }
 }
 </script>

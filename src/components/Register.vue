@@ -152,6 +152,10 @@ export default {
           alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
           return false
         }
+        if (!(/^[a-zA-Z0-9_-]{3,16}$/.test(this.username))) {
+          alert('Please enter a valid username (3-16) .\nOnly English characters, "-", numbers and "_" are allowed.')
+          return false
+        }
         await axios('/api/register/uni?username=' + this.username)
           .then(response => {
             this.repeat = response.data

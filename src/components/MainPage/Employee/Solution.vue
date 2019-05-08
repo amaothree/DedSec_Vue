@@ -71,11 +71,6 @@ export default {
     }
   },
   created: function () {
-    // let vm = this
-    // axios.get('/api/luggage/all').then((res) => {
-    //   this.array = res.data
-    //   console.log(this.array)
-    // })
     var that = this
     axios
       .post('/api/luggage/all')

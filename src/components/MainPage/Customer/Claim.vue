@@ -89,6 +89,14 @@ export default {
   },
   methods: {
     addluggage: function () {
+      if (this.name === '' || this.phone === '' || this.country === '' || this.city === '' || this.district === '' || this.postal === '' || this.lug_subject === '' || this.lug_type === '') {
+        alert('Only Message and Specific Address can be empty. \nPlease enter all other boxes.')
+        return false
+      }
+      if (!(/^1[34578]\d{9}$/.test(this.phone))) {
+        alert('Please enter a valid phone.')
+        return false
+      }
       var that = this
       let data = {
         'subject': that.lug_subject,
@@ -103,12 +111,6 @@ export default {
         'postcode': that.postal,
         'userid': that.userid
       }
-      // axios({
-      //   method: 'post',
-      //   url: '/api/luggage/add',
-      //   data: Qs.stringify(data),
-      //   res: that.res
-      // })
       axios({
         method: 'post',
         url: '/api/luggage/add',
@@ -119,6 +121,11 @@ export default {
       }).then((res) => {
         console.log(res)
         alert('Submit Successfully')
+        this.$router.push(
+          {
+            path: '/CustomerMainPage'
+          })
+        window.reload()
       }).catch((error) => {
         console.log(error)
         alert('Error: The submission has something wrong')
