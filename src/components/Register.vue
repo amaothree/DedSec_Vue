@@ -148,8 +148,8 @@ export default {
           alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
           return false
         }
-        if (!(/^(\w){6,20}$/.test(this.password))) {
-          alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
+        if (!(/^[a-zA-Z0-9_-]{6,20}$/.test(this.password))) {
+          alert('Please enter a valid password (6-20) .\nOnly English characters, "-", numbers and "_" are allowed.')
           return false
         }
         if (!(/^[a-zA-Z0-9_-]{3,16}$/.test(this.username))) {
