@@ -80,24 +80,44 @@ export default {
   methods: {
     async modifyPersonalDetail () {
       if (this.password === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
-        alert('Please enter all boxes.')
+        if (this.locale === 'en') {
+          alert('Please enter all boxes.')
+        } else {
+          alert('请输入所有信息')
+        }
       } else {
         var re = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
         if (re.test(this.email)) {
           if (!(/^1[34578]\d{9}$/.test(this.phone))) {
-            alert('Please enter a valid phone.')
+            if (this.locale === 'en') {
+              alert('Please enter a valid phone.')
+            } else {
+              alert('请输入有效电话')
+            }
             return false
           }
           if (!(/^(\w){6,20}$/.test(this.password))) {
-            alert('Please enter a valid password (6-20) .\nOnly English characters, numbers and underscores are allowed.')
+            if (this.locale === 'en') {
+              alert('Please enter a valid password (6-20) .\nOnly English characters, "-", numbers and "_" are allowed.')
+            } else {
+              alert('请输入有效密码(6-20)。\n只允许使用英文字符“-”、数字和“_”')
+            }
             return false
           }
           if (!(/^.{1,20}$/.test(this.first_name))) {
-            alert('First name should be between 1 and 20.')
+            if (this.locale === 'en') {
+              alert('First name should be between 1 and 20.')
+            } else {
+              alert('名字应该在1到20个字之间。')
+            }
             return false
           }
           if (!(/^.{1,20}$/.test(this.last_name))) {
-            alert('Last name should be between 1 and 20.')
+            if (this.locale === 'en') {
+              alert('Last name should be between 1 and 20.')
+            } else {
+              alert('姓应该在1到20个字之间。')
+            }
             return false
           }
           var that = this
@@ -125,7 +145,11 @@ export default {
             })
           window.reload()
         } else {
-          alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+          if (this.locale === 'en') {
+            alert('Please enter a valid email.\nFor example, XXXXXXXXXXX@XXX.com')
+          } else {
+            alert('请输入有效的电子邮件。\n 例如,XXXXXXXXXXX@XXX.com')
+          }
         }
       }
     }
