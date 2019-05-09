@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" ><a @click="returninitial()" style="font-size: .5rem">{{ $t('navigate.exit')}}</a></a></li>
-          <li class="nav-item"><a class="nav-link"><router-link to="/EmployeeMainPage" style="font-size: .5rem">{{ $t('navigate.Back')}}</router-link></a></li>
+          <li class="nav-item"><a class="nav-link"><a @click="returnback()" style="font-size: .5rem">{{ $t('navigate.Back')}}</a></a></li>
           <li class="nav-item"><a class="nav-link" :key="locale?'en':'cn'" @click="changeLang()"><a  style="font-size: .5rem">{{lang}}</a></a></li>
           <li class="nav-item"><a a class="nav-link"><router-link to="/EmployeeInformation" style="font-size: .5rem">{{ $t('navigate.Setting')}}</router-link></a></li>
         </ul>
@@ -70,10 +70,46 @@ export default {
       this.$cookies.remove('userid')
       this.$cookies.remove('username')
       this.$cookies.remove('type')
-      this.$cookies.remove('password')
+      this.$cookies.remove('userid')
+      this.$cookies.remove('username')
+      this.$cookies.remove('type')
+      this.$cookies.remove('lugtype')
+      this.$cookies.remove('subject')
+      this.$cookies.remove('message')
+      this.$cookies.remove('status')
+      this.$cookies.remove('id')
+      this.$cookies.remove('reply')
+      this.$cookies.remove('city')
+      this.$cookies.remove('country')
+      this.$cookies.remove('district')
+      this.$cookies.remove('postcode')
+      this.$cookies.remove('recipient')
+      this.$cookies.remove('phone')
+      this.$cookies.remove('address')
       this.$router.push(
         {
           path: '/Login'
+        }
+      )
+      window.location.reload()
+    },
+    returnback () {
+      this.$cookies.remove('lugtype')
+      this.$cookies.remove('subject')
+      this.$cookies.remove('message')
+      this.$cookies.remove('status')
+      this.$cookies.remove('id')
+      this.$cookies.remove('reply')
+      this.$cookies.remove('city')
+      this.$cookies.remove('country')
+      this.$cookies.remove('district')
+      this.$cookies.remove('postcode')
+      this.$cookies.remove('recipient')
+      this.$cookies.remove('phone')
+      this.$cookies.remove('address')
+      this.$router.push(
+        {
+          path: '/EmployeeMainPage'
         }
       )
       window.location.reload()

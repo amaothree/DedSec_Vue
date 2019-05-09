@@ -122,7 +122,6 @@ export default {
           if (that.password === response.data.password) {
             that.$cookies.set('userid', that.userid, 120000)
             that.$cookies.set('username', that.username, 120000)
-            that.$cookies.set('password', that.password, 120000)
             that.$cookies.set('type', that.type, 120000)
             if (that.type === 'customer') {
               if (that.locale === 'en') {
@@ -170,7 +169,6 @@ export default {
     this.$cookies.remove('userid')
     this.$cookies.remove('username')
     this.$cookies.remove('type')
-    this.$cookies.remove('password')
   },
   props: ['toggleComponent']
 }

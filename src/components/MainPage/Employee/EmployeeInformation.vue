@@ -70,14 +70,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'EmployeeDetail',
-          params: {
-            password: this.password,
-            first_name: this.first_name,
-            last_name: this.last_name,
-            phone: this.phone,
-            email: this.email
-          }
+          name: 'EmployeeDetail'
         }
       )
     }

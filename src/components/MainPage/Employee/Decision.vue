@@ -97,22 +97,22 @@ export default {
     }
   },
   created () {
-    this.type = this.$route.params.type
-    this.message = this.$route.params.message
-    this.subject = this.$route.params.subject
-    this.status = this.$route.params.status
-    this.id = this.$route.params.id
-    if (this.$route.params.reply !== null) {
-      this.returnmessage = this.$route.params.reply
+    this.type = this.$cookies.get('lugtype')
+    this.message = this.$cookies.get('message')
+    this.subject = this.$cookies.get('subject')
+    this.status = this.$cookies.get('status')
+    this.id = this.$cookies.get('id')
+    if (this.$cookies.get('reply') !== null) {
+      this.returnmessage = this.$cookies.get('reply')
     }
-    this.city = this.$route.params.city
-    this.country = this.$route.params.country
-    this.district = this.$route.params.district
-    this.userid = this.$route.params.userid
-    this.postcode = this.$route.params.postcode
-    this.recipient = this.$route.params.recipient
-    this.phone = this.$route.params.phone
-    this.address = this.$route.params.address
+    this.city = this.$cookies.get('city')
+    this.country = this.$cookies.get('country')
+    this.district = this.$cookies.get('district')
+    this.userid = this.$cookies.get('userid')
+    this.postcode = this.$cookies.get('postcode')
+    this.recipient = this.$cookies.get('recipient')
+    this.phone = this.$cookies.get('phone')
+    this.address = this.$cookies.get('address')
   },
   methods: {
     async setApprove () {
@@ -129,8 +129,25 @@ export default {
         method: 'post',
         url: '/api/luggage/pick',
         data: Qs.stringify(data)
+      }).then((res) => {
+        alert('Successfully processed')
+      }).catch((error) => {
+        console.log(error)
+        alert('Error: The submission has something wrong')
       })
-      alert('Successfully processed')
+      this.$cookies.remove('lugtype')
+      this.$cookies.remove('subject')
+      this.$cookies.remove('message')
+      this.$cookies.remove('status')
+      this.$cookies.remove('id')
+      this.$cookies.remove('reply')
+      this.$cookies.remove('city')
+      this.$cookies.remove('country')
+      this.$cookies.remove('district')
+      this.$cookies.remove('postcode')
+      this.$cookies.remove('recipient')
+      this.$cookies.remove('phone')
+      this.$cookies.remove('address')
       this.$router.push(
         {
           name: 'Solution'
@@ -148,8 +165,25 @@ export default {
         method: 'post',
         url: '/api/luggage/pick',
         data: Qs.stringify(data)
+      }).then((res) => {
+        alert('Successfully processed')
+      }).catch((error) => {
+        console.log(error)
+        alert('Error: The submission has something wrong')
       })
-      alert('Successfully processed')
+      this.$cookies.remove('lugtype')
+      this.$cookies.remove('subject')
+      this.$cookies.remove('message')
+      this.$cookies.remove('status')
+      this.$cookies.remove('id')
+      this.$cookies.remove('reply')
+      this.$cookies.remove('city')
+      this.$cookies.remove('country')
+      this.$cookies.remove('district')
+      this.$cookies.remove('postcode')
+      this.$cookies.remove('recipient')
+      this.$cookies.remove('phone')
+      this.$cookies.remove('address')
       this.$router.push(
         {
           name: 'Solution'

@@ -70,7 +70,6 @@ export default {
       this.$cookies.remove('userid')
       this.$cookies.remove('username')
       this.$cookies.remove('type')
-      this.$cookies.remove('password')
       this.$cookies.remove('lugtype')
       this.$cookies.remove('subject')
       this.$cookies.remove('message')

@@ -147,13 +147,11 @@ export default {
           console.log(res)
         }
       }).then((res) => {
-        console.log(res)
         alert('Submit Successfully')
         this.$router.push(
           {
             path: '/CustomerMainPage'
           })
-        window.reload()
       }).catch((error) => {
         console.log(error)
         alert('Error: The submission has something wrong')
