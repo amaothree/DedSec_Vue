@@ -47,27 +47,24 @@ export default {
     }
   },
   methods: {
-    jumptoDetail (type, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
+    jumptoDetail (lugtype, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
       this.$router.push(
         {
-          name: 'ProgressDetail',
-          params: {
-            type: type,
-            message: message,
-            subject: subject,
-            status: status,
-            id: id,
-            reply: reply,
-            recipient: recipient,
-            address: address,
-            city: city,
-            country: country,
-            district: district,
-            phone: phone,
-            postcode: postcode,
-            userid: userid
-          }
-        }
+          name: 'ProgressDetail'
+        },
+        this.$cookies.set('lugtype', lugtype, 120000),
+        this.$cookies.set('message', message, 120000),
+        this.$cookies.set('subject', subject, 120000),
+        this.$cookies.set('status', status, 120000),
+        this.$cookies.set('id', id, 120000),
+        this.$cookies.set('reply', reply, 120000),
+        this.$cookies.set('recipient', recipient, 120000),
+        this.$cookies.set('address', address, 120000),
+        this.$cookies.set('city', city, 120000),
+        this.$cookies.set('country', country, 120000),
+        this.$cookies.set('district', district, 120000),
+        this.$cookies.set('phone', phone, 120000),
+        this.$cookies.set('postcode', postcode, 120000)
       )
     },
     async deleteclaim (id) {
