@@ -8,7 +8,7 @@
       </div>
     </div>
   </section>
-  <table class="table" style="font-size: .6rem;margin-left:30%;width: 60%;">
+  <table class="table" style="font-size: .6rem;text-align:center;width:100%;">
     <tbody>
     <tr>
       <td>{{ $t('personal.id')}}:</td>

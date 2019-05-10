@@ -59,7 +59,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <button type="button" class="more_btn" @click="addluggage"  style="font-size: 20px;margin-left: 50%">{{ $t('claim.Send')}}</button>
+        <button type="button" class="more_btn" @click="addluggage"  style="font-size: .6rem;margin-left: 30%;margin-right: 30%;">{{ $t('claim.Send')}}</button>
       </label>
     </form>
   </div>
@@ -191,7 +191,7 @@ export default {
   }
   .Content-Main label{
     display: block;
-    font-size: 30px;
+    font-size: .4rem;
     /*padding: 20px 30px 20px 30px;*/
   }
   .Content-Main label>span{
@@ -249,26 +249,12 @@ export default {
     width: 100%;
     height: 2rem;
     padding: 5px 0px 0px 5px;
-    font-size: 30px;
-  }
-  .button{
-    padding: 10px 25px 10px 25px;
-    margin-left: 111px;
-    border-radius: 4px;
-    border:1px solid #CCC;
-    background: #FFF;
-    color: #333;
-  }
-  .button:hover{
-    color: #333;
-    background-color: #EBEBEB;
-    border-color: #ADADAD;
-    font-size: 16px;
+    font-size: .8rem;
   }
   form{
     padding: 20px 30px 20px 30px;;
   }
   button{
-    font-size: 16px;
+    font-size: .5rem;
   }
 </style>
