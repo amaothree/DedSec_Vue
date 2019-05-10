@@ -70,14 +70,7 @@ export default {
     jumptomainpage () {
       this.$router.push(
         {
-          name: 'PersonalDetail',
-          params: {
-            password: this.password,
-            first_name: this.first_name,
-            last_name: this.last_name,
-            phone: this.phone,
-            email: this.email
-          }
+          name: 'PersonalDetail'
         }
       )
     }
@@ -97,7 +90,6 @@ export default {
         that.phone = response.data.phone
         that.first_name = response.data.first_name
         that.last_name = response.data.last_name
-        console.log(this.array)
       })
       .catch(function (error) {
         console.log(error)

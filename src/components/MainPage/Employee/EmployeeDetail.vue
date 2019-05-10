@@ -57,25 +57,34 @@ export default {
   data () {
     return {
       userid: 0,
-      username: 'Default',
-      password: 'Default',
-      email: 'Default',
-      phone: 'Default',
-      type: 'Default',
-      logon_date: 'Default',
-      first_name: 'Default',
-      last_name: 'Default'
+      username: '',
+      password: '',
+      email: '',
+      phone: '',
+      type: '',
+      logon_date: '',
+      first_name: '',
+      last_name: ''
     }
   },
   created () {
-    this.email = this.$route.params.email
-    this.phone = this.$route.params.phone
-    this.last_name = this.$route.params.last_name
-    this.first_name = this.$route.params.first_name
-    this.password = this.$route.params.password
     this.username = this.$cookies.get('username')
     this.type = this.$cookies.get('type')
     this.userid = this.$cookies.get('userid')
+    var that = this
+    axios
+      .post('/api/login/getUser?username=' + this.username)
+      .then(function (response) {
+        console.log(response.data.password)
+        that.password = response.data.password
+        that.email = response.data.email
+        that.phone = response.data.phone
+        that.first_name = response.data.first_name
+        that.last_name = response.data.last_name
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
     async modifyPersonalDetail () {
