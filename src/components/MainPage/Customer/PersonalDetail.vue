@@ -230,4 +230,7 @@ export default {
     color:#1d78cb;
     background: #57cb26;
   }
+  .table td{
+    padding: 1rem .5rem 1rem 0;
+  }
 </style>

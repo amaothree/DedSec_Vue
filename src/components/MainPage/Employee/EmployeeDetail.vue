@@ -8,7 +8,7 @@
       </div>
     </div>
   </section>
-  <table class="table" style="font-size: 35px;margin-left:30%;width: 80%;line-height: 1%">
+  <table class="table" style="font-size: .6rem;text-align:center;width:100%">
     <tbody>
     <tr>
       <td>{{ $t('personal.id')}}:</td>
@@ -204,5 +204,8 @@ export default {
     bottom:0;
     color:#1d78cb;
     background: #57cb26;
+  }
+  .table td{
+    padding: 1rem .5rem 1rem 0rem;
   }
 </style>

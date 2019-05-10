@@ -59,7 +59,7 @@
       </label>
       <label>
         <!--<button class="button" @click="addluggage">{{ $t('claim.Send')}}</button>-->
-        <button type="button" class="more_btn" @click="addluggage"  style="font-size: .6rem;margin-left: 30%;margin-right: 30%;">{{ $t('claim.Send')}}</button>
+        <button type="button" class="more_btn" @click="addluggage"  style="font-size: .6rem;margin-left: 30%;">{{ $t('claim.Send')}}</button>
       </label>
     </form>
   </div>
@@ -196,7 +196,7 @@ export default {
         if (that.locale === 'en') {
           alert('Submit Successfully')
         } else if (this.locale === 'cn') {
-          alert('修改成功。')
+          alert('提交成功。')
         }
         this.$router.push(
           {
@@ -207,7 +207,7 @@ export default {
         if (that.locale === 'en') {
           alert('Error: The submission has something wrong')
         } else {
-          alert('错误:修改有错误。')
+          alert('错误:提交有错误。')
         }
       })
     }
@@ -243,8 +243,8 @@ export default {
   }
   .Content-Main label{
     display: block;
-    font-size: .4rem;
-    /*padding: 20px 30px 20px 30px;*/
+    font-size: .5rem;
+    padding: 1rem 2rem 0rem 0;
   }
   .Content-Main label>span{
     float: left;
@@ -273,8 +273,8 @@ export default {
     font-size: 40px;
   }
   .select1{
+    height: .8rem;
     width: auto;
-    padding: 0.0625rem 0 0.0625rem 0.0625rem;
     border-radius: 4px;
     border: 1px solid #CCC;
     color: #888;
@@ -283,7 +283,7 @@ export default {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    font-size: 0.25rem;;
+    font-size: 0.4rem;;
   }
   .select2{
     width: 13%;

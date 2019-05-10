@@ -107,4 +107,10 @@ export default {
 </script>
 
 <style scoped>
+  .table td{
+    padding: 1rem .5rem 1rem 0rem;
+  }
+  .table th {
+    padding: 1rem .5rem 1rem 0rem;
+  }
 </style>

@@ -186,12 +186,10 @@ export default {
   }
   .Content-Main h1{
     display: block;
-    padding: 0px 0px 10px 40px;
     color: #333;
     /*font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     /*border-bottom: 1px solid #DADADA;*/
     /*color: #888;*/
-    padding: 20px 30px 20px 30px;
   }
   .Content-Main h1>span{
     display: block;
@@ -216,6 +214,7 @@ export default {
   }
   .form {
     margin-right: 30%;
+
   }
   .submit {
     padding: 15px;

@@ -53,10 +53,10 @@
       </tr>
       </tbody>
     </table>
-    <span class="message" style="margin-left: 11%;margin-top: 3%;position:relative;font-size: 35px;"><span style="">{{$t('ProgressDetail.message')}}:&nbsp;&nbsp;</span></span>
-    <textarea class="form-control" rows="5" style="margin-top: 2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
-    <span class="comment" style="margin-left: 11%;position:relative;font-size: 35px;"><span style="">{{$t('ProgressDetail.comment')}}:&nbsp;&nbsp;</span></span>
-    <textarea class="form-control" rows="5" style="margin-top:2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="returnmessage"></textarea>
+    <span class="message" style="margin-left: 11%;margin-top: 3%;margin-bottom: 3%;position:relative;font-size: .8rem;"><span style="">{{$t('ProgressDetail.message')}}:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-bottom: 3%;margin-top: 2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="message"></textarea>
+    <span class="comment" style="margin-left: 11%;margin-top: 3%;;margin-bottom: 3%;position:relative;font-size: .8rem;"><span style="">{{$t('ProgressDetail.comment')}}:&nbsp;&nbsp;</span></span>
+    <textarea class="form-control" rows="5" style="margin-bottom: 3%;margin-top:2%;font-size: 35px;position: relative;margin-left: 7%;width: 80%" readonly v-model="returnmessage"></textarea>
     <ul style="display: inline">
       <button class="btn approve" @click="deleteclaim(id)">{{$t('ProgressDetail.Delete')}}</button>
       <button class="btn deny" @click="jumpBack()">{{$t('ProgressDetail.Back')}}</button>
