@@ -9,7 +9,7 @@
     </div>
   </section>
   <div class="container">
-    <table class="table" style="font-size: 35px;margin-left: 7%;">
+    <table class="table" style="font-size: .6rem;text-align:center;width:100%">
       <tbody>
       <tr>
         <td>{{$t('Decision.id')}}:</td>
@@ -96,6 +96,16 @@ export default {
       address: ''
     }
   },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
   created () {
     this.type = this.$cookies.get('lugtype')
     this.message = this.$cookies.get('message')
@@ -117,7 +127,11 @@ export default {
   methods: {
     async setApprove () {
       if (!(/^.{0,400}$/.test(this.returnmessage))) {
-        alert('Comment should be between 0 and 400.')
+        if (this.locale === 'en') {
+          alert('Comment should be between 0 and 400.')
+        } else if (this.locale === 'cn') {
+          alert('注释应该在0到400个字符之间。')
+        }
         return false
       }
       let data = {
@@ -130,10 +144,18 @@ export default {
         url: '/api/luggage/pick',
         data: Qs.stringify(data)
       }).then((res) => {
-        alert('Successfully processed')
+        if (this.locale === 'en') {
+          alert('Successfully processed')
+        } else if (this.locale === 'cn') {
+          alert('成功处理。')
+        }
       }).catch((error) => {
         console.log(error)
-        alert('Error: The submission has something wrong')
+        if (this.locale === 'en') {
+          alert('Error: The submission has something wrong')
+        } else if (this.locale === 'cn') {
+          alert('错误:提交有错误')
+        }
       })
       this.$cookies.remove('lugtype')
       this.$cookies.remove('subject')
@@ -166,10 +188,18 @@ export default {
         url: '/api/luggage/pick',
         data: Qs.stringify(data)
       }).then((res) => {
-        alert('Successfully processed')
+        if (this.locale === 'en') {
+          alert('Successfully processed')
+        } else if (this.locale === 'cn') {
+          alert('成功处理。')
+        }
       }).catch((error) => {
         console.log(error)
-        alert('Error: The submission has something wrong')
+        if (this.locale === 'en') {
+          alert('Error: The submission has something wrong')
+        } else if (this.locale === 'cn') {
+          alert('错误:提交有错误')
+        }
       })
       this.$cookies.remove('lugtype')
       this.$cookies.remove('subject')

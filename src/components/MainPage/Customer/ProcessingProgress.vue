@@ -46,6 +46,16 @@ export default {
       bool: 'even'
     }
   },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
   methods: {
     jumptoDetail (lugtype, message, subject, status, id, reply, recipient, address, city, country, district, phone, postcode, userid) {
       this.$router.push(

@@ -8,7 +8,7 @@
       </div>
     </div>
   </section>
-  <table class="table" style="font-size: .6rem;margin-left:30%;width: 60%;">
+  <table class="table" style="font-size: .6rem;text-align:center;width:100%">
     <tbody>
     <tr>
       <td>{{ $t('personal.id')}}:</td>
@@ -74,6 +74,16 @@ export default {
         }
       )
     }
+  },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
   },
   created: function () {
     this.username = this.$cookies.get('username')

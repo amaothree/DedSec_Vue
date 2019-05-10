@@ -8,7 +8,7 @@
       </div>
     </div>
   </section>
-  <table class="table" style="font-size: 35px;margin-left:30%;width: 80%">
+  <table class="table" style="font-size: .6rem;text-align:center;width:100%">
     <tbody>
     <tr>
       <td>{{ $t('personal.id')}}:</td>
@@ -66,6 +66,16 @@ export default {
       first_name: '',
       last_name: ''
     }
+  },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
   },
   created () {
     this.username = this.$cookies.get('username')
@@ -143,10 +153,18 @@ export default {
             url: '/api/user/modify',
             data: Qs.stringify(data)
           }).then((res) => {
-            alert('Submit Successfully')
+            if (that.locale === 'en') {
+              alert('Submit Successfully')
+            } else if (this.locale === 'cn') {
+              alert('修改成功。')
+            }
           }).catch((error) => {
             console.log(error)
-            alert('Error: The submission has something wrong')
+            if (that.locale === 'en') {
+              alert('Error: The submission has something wrong')
+            } else {
+              alert('错误:修改有错误。')
+            }
           })
           this.$router.push(
             {

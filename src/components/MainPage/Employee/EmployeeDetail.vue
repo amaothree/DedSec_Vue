@@ -67,6 +67,16 @@ export default {
       last_name: ''
     }
   },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
   created () {
     this.username = this.$cookies.get('username')
     this.type = this.$cookies.get('type')
@@ -89,7 +99,11 @@ export default {
   methods: {
     async modifyPersonalDetail () {
       if (this.password === '' || this.email === '' || this.phone === '' || this.first_name === '' || this.last_name === '') {
-        alert('Please enter all boxes.')
+        if (this.locale === 'en') {
+          alert('Please enter all boxes.')
+        } else {
+          alert('请输入所有信息')
+        }
       } else {
         var re = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
         if (re.test(this.email)) {
@@ -139,14 +153,14 @@ export default {
             url: '/api/user/modify',
             data: Qs.stringify(data)
           }).then((res) => {
-            if (this.locale === 'en') {
+            if (that.locale === 'en') {
               alert('Submit Successfully')
-            } else {
+            } else if (this.locale === 'cn') {
               alert('修改成功。')
             }
           }).catch((error) => {
             console.log(error)
-            if (this.locale === 'en') {
+            if (that.locale === 'en') {
               alert('Error: The submission has something wrong')
             } else {
               alert('错误:修改有错误。')

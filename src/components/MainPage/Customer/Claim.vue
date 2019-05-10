@@ -87,42 +87,88 @@ export default {
       res: 'Default'
     }
   },
+  mounted () {
+    if (this.$cookies.get('lng') === '0') {
+      this.locale = 'cn'
+      this.lang = 'ENG'
+    } else {
+      this.locale = 'en'
+      this.lang = '中文'
+    }
+    this.$cookies.set('lng', this.locale === 'cn' ? '0' : '1', 365, '/')
+  },
   methods: {
     addluggage: function () {
       if (this.name === '' || this.phone === '' || this.country === '' || this.city === '' || this.district === '' || this.postal === '' || this.lug_subject === '' || this.lug_type === '') {
-        alert('Only Message and Specific Address can be empty. \nPlease enter all other boxes.')
+        if (this.locale === 'en') {
+          alert('Only Message and Specific Address can be empty. \nPlease enter all other boxes.')
+        } else {
+          alert('只有消息和特定地址可以为空。\n请输入所有其他框。')
+        }
         return false
       }
       if (!(/^1[34578]\d{9}$/.test(this.phone))) {
-        alert('Please enter a valid phone.')
+        if (this.locale === 'en') {
+          alert('Please enter a valid phone.')
+        } else {
+          alert('请输入有效电话。')
+        }
         return false
       }
       if (!(/^.{0,400}$/.test(this.message))) {
-        alert('Message should be between 0 and 400.')
+        if (this.locale === 'en') {
+          alert('Message should be between 0 and 400.')
+        } else {
+          alert('消息应该在0到400个字符之间。')
+        }
         return false
       }
       if (!(/^.{1,30}$/.test(this.name))) {
-        alert('Name of Recipient should be between 1 and 30.')
+        if (this.locale === 'en') {
+          alert('Name of Recipient should be between 1 and 30.')
+        } else {
+          alert('收件人姓名应在1至30个字符之间。')
+        }
         return false
       }
       if (!(/^.{1,30}$/.test(this.country))) {
-        alert('Country should be between 1 and 30.')
+        if (this.locale === 'en') {
+          alert('Country should be between 1 and 30.')
+        } else {
+          alert('国家应该在1到30个字符之间。')
+        }
         return false
       }
       if (!(/^.{1,30}$/.test(this.district))) {
-        alert('District should be between 1 and 30.')
+        if (this.locale === 'en') {
+          alert('District should be between 1 and 30.')
+        } else {
+          alert('地区应在1至30个字符之间。')
+        }
         return false
       }
       if (!(/^.{1,30}$/.test(this.city))) {
-        alert('City should be between 1 and 30.')
+        if (this.locale === 'en') {
+          alert('City should be between 1 and 30.')
+        } else {
+          alert('城市应在1至30个字符之间。')
+        }
         return false
       }
       if (!(/^.{0,100}$/.test(this.address))) {
-        alert('Specific Address should be between 0 and 100.')
+        if (this.locale === 'en') {
+          alert('Specific Address should be between 0 and 100.')
+        } else {
+          alert('具体地址应该在0到100个字符之间。')
+        }
         return false
       }
       if (!(/^.{1,15}$/.test(this.postal))) {
-        alert('Postal Code should be between 1 and 15.')
+        if (this.locale === 'en') {
+          alert('Postal Code should be between 1 and 15.')
+        } else {
+          alert('邮政编码应该在1到15个字符之间。')
+        }
         return false
       }
       var that = this
@@ -147,14 +193,22 @@ export default {
           console.log(res)
         }
       }).then((res) => {
-        alert('Submit Successfully')
+        if (that.locale === 'en') {
+          alert('Submit Successfully')
+        } else if (this.locale === 'cn') {
+          alert('修改成功。')
+        }
         this.$router.push(
           {
             path: '/CustomerMainPage'
           })
       }).catch((error) => {
         console.log(error)
-        alert('Error: The submission has something wrong')
+        if (that.locale === 'en') {
+          alert('Error: The submission has something wrong')
+        } else {
+          alert('错误:修改有错误。')
+        }
       })
     }
   },

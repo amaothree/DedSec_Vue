@@ -9,7 +9,7 @@
     </div>
   </section>
   <div class="container">
-    <table class="table" style="font-size: 35px;margin-left: 7%;">
+    <table class="table" style="font-size: .6rem;text-align:center;width:100%">
       <tbody>
       <tr>
         <td>{{$t('ProgressDetail.status')}}:</td>
