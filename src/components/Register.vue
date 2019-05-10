@@ -88,7 +88,7 @@ export default {
       last_name: '',
       phone: '',
       type: '',
-      status: 'true',
+      status: false,
       repeat: false,
       locale: this.locale,
       lang: this.lang,
@@ -204,22 +204,70 @@ export default {
         if (this.repeat) {
           console.log('success')
           if (this.password === this.repassword) {
-            var that = this
-            let data = {
-              'username': that.username,
-              'password': that.password,
-              'email': that.email,
-              'fname': that.first_name,
-              'lname': that.last_name,
-              'phone': that.phone,
-              'type': that.type
-            }
-            axios({
-              method: 'post',
-              url: '/api/register/add',
-              data: Qs.stringify(data)
-            })
-            if (this.status === 'true') {
+            if (this.flag === true) {
+              if (this.code === '') {
+                alert('Please enter Invitation Code.\nThis can be got from the company.')
+                return false
+              }
+              if (!(/^.{8}$/.test(this.code))) {
+                alert('The invitation code should be 8 characters.')
+                return false
+              }
+              console.log('qian' + this.status)
+              var s = this
+              await axios
+                .post('/api/passcode/check?passcode=' + this.code)
+                .then(function (response) {
+                  console.log(response.data)
+                  s.status = response.data
+                  if (!response.data) {
+                    alert('Do not have the invitation code in database.\nPlease check again.')
+                  }
+                })
+                .catch(function (error) {
+                  console.log(error)
+                  alert(error)
+                })
+              console.log('hou' + this.status)
+              if (this.status === true) {
+                console.log('try to post')
+                var that = this
+                let data = {
+                  'username': that.username,
+                  'password': that.password,
+                  'email': that.email,
+                  'fname': that.first_name,
+                  'lname': that.last_name,
+                  'phone': that.phone,
+                  'type': that.type
+                }
+                await axios({
+                  method: 'post',
+                  url: '/api/register/add',
+                  data: Qs.stringify(data)
+                })
+                this.$router.push(
+                  {
+                    path: '/Login'
+                  }
+                )
+              }
+            } else {
+              var th = this
+              let data = {
+                'username': th.username,
+                'password': th.password,
+                'email': th.email,
+                'fname': th.first_name,
+                'lname': th.last_name,
+                'phone': th.phone,
+                'type': th.type
+              }
+              await axios({
+                method: 'post',
+                url: '/api/register/add',
+                data: Qs.stringify(data)
+              })
               this.$router.push(
                 {
                   path: '/Login'
