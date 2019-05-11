@@ -10,7 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" ><router-link to="/">{{$t('in2.Exit')}}</router-link></a></li>
+          <li class="nav-item"><a class="nav-link" ><router-link to="/" style="font-size: 27px">{{$t('in2.Exit')}}</router-link></a></li>
         </ul>
       </div>
     </nav>
