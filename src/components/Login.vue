@@ -112,6 +112,22 @@ export default {
       window.location.reload() // 进行刷新改变cookie里的值
     },
     async login () {
+      if (!(/^[a-zA-Z0-9_-]{6,20}$/.test(this.password))) {
+        if (this.locale === 'en') {
+          alert('Please enter a valid password (6-20) .\nOnly English characters, "-", numbers and "_" are allowed.')
+        } else {
+          alert('请输入有效密码(6-20)。\n只允许使用英文字符“-”、数字和“_”')
+        }
+        return false
+      }
+      if (!(/^[a-zA-Z0-9_-]{3,16}$/.test(this.username))) {
+        if (this.locale === 'en') {
+          alert('Please enter a valid username (3-16) .\nOnly English characters, "-", numbers and "_" are allowed.')
+        } else {
+          alert('请输入一个有效的用户名(3-16)。\n只允许使用英文字符“-”、数字和“_”。')
+        }
+        return false
+      }
       var that = this
       await axios
         .post('/api/login/getUser?username=' + this.username)
