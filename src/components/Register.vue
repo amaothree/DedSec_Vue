@@ -206,11 +206,19 @@ export default {
           if (this.password === this.repassword) {
             if (this.flag === true) {
               if (this.code === '') {
-                alert('Please enter Invitation Code.\nThis can be got from the company.')
+                if (this.locale === 'en') {
+                  alert('Please enter Invitation Code.\nThis can be got from the company.')
+                } else {
+                  alert('请输入邀请码。\n这可以从公司得到。')
+                }
                 return false
               }
               if (!(/^.{8}$/.test(this.code))) {
-                alert('The invitation code should be 8 characters.')
+                if (this.locale === 'en') {
+                  alert('The invitation code should be 8 characters.')
+                } else {
+                  alert('邀请代码应该是8个字符。')
+                }
                 return false
               }
               console.log('qian' + this.status)
@@ -221,7 +229,11 @@ export default {
                   console.log(response.data)
                   s.status = response.data
                   if (!response.data) {
-                    alert('Do not have the invitation code in database.\nPlease check again.')
+                    if (this.locale === 'en') {
+                      alert('Do not have the invitation code in database.\nPlease check again.')
+                    } else {
+                      alert('数据库中没有邀请代码。\n请再检查一次。')
+                    }
                   }
                 })
                 .catch(function (error) {
