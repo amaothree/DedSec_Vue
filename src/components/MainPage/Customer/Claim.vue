@@ -261,7 +261,6 @@ export default {
     margin-bottom: 16px;
     margin-right: 6px;
     margin-top: 2px;
-    line-height: 15px;
     border-radius: 4px;
     border: 1px solid #CCC;
     color: #888;
@@ -301,7 +300,7 @@ export default {
     width: 100%;
     height: 2rem;
     padding: 5px 0px 0px 5px;
-    font-size: .8rem;
+    font-size: .5rem;
   }
   form{
     padding: 20px 30px 20px 30px;;
